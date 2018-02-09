@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_signup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.jomer.filetracker.signup"
+        tools:layout_editor_absoluteY="25dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/signUpPasswordAdmin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="59dp"
+            android:background="@color/zxing_custom_viewfinder_laser"
+            android:drawableRight="@mipmap/create"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Create Account"
+            android:textColor="@color/zxing_status_text" />
+
+
+        <EditText
+            android:id="@+id/studentNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/fullName"
+            android:layout_below="@+id/fullName"
+            android:layout_marginTop="19dp"
+            android:ems="10"
+            android:hint="ID Number"
+            android:inputType="number"
+            android:textColor="@color/zxing_custom_result_view" />
+
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="59dp"
+            android:ems="10"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:textColor="@color/zxing_custom_result_view"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/signUpUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/studentNumber"
+            android:layout_below="@+id/studentNumber"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:textColor="@color/zxing_custom_result_view" />
+
+        <EditText
+            android:id="@+id/signUpPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/signUpUserName"
+            android:layout_below="@+id/signUpUserName"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:textColor="@color/zxing_custom_result_view" />
+
+        <EditText
+            android:id="@+id/signUpPasswordConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/signUpPassword"
+            android:layout_below="@+id/signUpPassword"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textColor="@color/zxing_custom_result_view" />
+
+        <Button
+            android:id="@+id/backToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/register"
+            android:layout_alignStart="@+id/register"
+            android:layout_below="@+id/register"
+            android:layout_marginTop="21dp"
+            android:background="@color/zxing_possible_result_points"
+            android:drawableRight="@mipmap/back"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Back To Login"
+            android:textColor="@color/zxing_status_text" />
+
+        <EditText
+            android:id="@+id/signUpPasswordAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Authentication"
+            android:inputType="textPassword"
+            android:textColor="@color/zxing_viewfinder_laser"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/signUpPasswordConfirm"
+            android:layout_alignStart="@+id/signUpPasswordConfirm" />
+
+        <Button
+            android:id="@+id/inquire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/zxing_viewfinder_laser"
+            android:drawableTop="@mipmap/information"
+            android:textColor="@color/white"
+            android:layout_alignTop="@+id/signUpPasswordAdmin"
+            android:layout_toEndOf="@+id/signUpPasswordAdmin"
+            android:layout_marginStart="27dp"
+            android:layout_alignBottom="@+id/signUpPasswordAdmin" />
+
+
+    </RelativeLayout>
+</ScrollView>

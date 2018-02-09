@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_returned_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.jomer.filetracker.UserReturnedItem">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="16dp"
+        android:text="Returned Items"
+        android:textColor="@color/zxing_custom_result_view" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:id="@+id/user_list_returned"
+        android:layout_above="@+id/showAllReturned" />
+
+    <Button
+        android:id="@+id/showAllReturned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="54dp"
+        android:background="@android:color/holo_orange_light"
+        android:drawableRight="@mipmap/logs_small"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Show&#10;All"
+        android:textColor="@color/zxing_status_text"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/searchReturned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/textView6"
+        android:background="@android:color/holo_orange_light"
+        android:drawableRight="@mipmap/search_small"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Search"
+        android:textColor="@color/zxing_status_text"
+        android:textSize="10sp" />
+
+</RelativeLayout>

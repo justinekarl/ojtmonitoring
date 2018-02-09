@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:fillViewport="true">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:id="@+id/activity_admin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            tools:context="com.example.jomer.filetracker.admin">
+
+            <Button
+                android:id="@+id/editAuthCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_dark"
+                android:drawableRight="@mipmap/edit_auth"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Edit Admin Code"
+                android:textColor="@color/zxing_status_text"
+                android:layout_below="@+id/allAccounts"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/adminUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="Admin"
+                android:textColor="@color/zxing_custom_result_view"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/logOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/changePassword"
+                android:layout_alignStart="@+id/changePassword"
+                android:layout_below="@+id/changePassword"
+                android:background="@android:color/holo_red_light"
+                android:drawableRight="@mipmap/log_out"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Log Out"
+                android:textColor="@color/zxing_status_text"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/logOut"
+                android:layout_alignStart="@+id/logOut"
+                android:layout_below="@+id/logOut"
+                android:background="@android:color/holo_red_dark"
+                android:drawableRight="@mipmap/exit"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Exit"
+                android:textColor="@color/zxing_status_text"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/allAccounts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/manageQrCodes"
+                android:layout_alignStart="@+id/manageQrCodes"
+                android:layout_below="@+id/manageQrCodes"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:drawableRight="@mipmap/all_users"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="All Accounts"
+                android:textColor="@color/zxing_status_text" />
+
+            <!--<Button
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="29dp"
+                android:layout_marginEnd="31dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/holo_red_dark"
+                android:drawableRight="@mipmap/exit"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Exit"
+                android:textColor="@color/zxing_status_text"
+                android:textSize="12sp" />-->
+
+            <Button
+                android:id="@+id/manageLogs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adminUserName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/holo_orange_dark"
+                android:drawableRight="@mipmap/manage_logs"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Manage Logs"
+                android:textColor="@color/zxing_status_text" />
+
+            <RelativeLayout
+                android:id="@+id/bac_dim_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C0000000"
+                android:visibility="gone"></RelativeLayout>
+
+            <Button
+                android:id="@+id/manageQrCodes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/manageLogs"
+                android:layout_alignStart="@+id/manageLogs"
+                android:layout_below="@+id/manageLogs"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:drawableRight="@mipmap/multiple_qr"
+                android:text="Manage QrCodes"
+                android:textColor="@color/zxing_status_text" />
+
+            <Button
+                android:id="@+id/changePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/editAuthCode"
+                android:layout_below="@+id/editAuthCode"
+                android:layout_marginTop="10dp"
+                android:background="@color/zxing_possible_result_points"
+                android:drawableRight="@mipmap/cpass"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Change Password"
+                android:textAllCaps="false"
+                android:textColor="@color/zxing_status_text" />
+
+            <!--<ImageView
+                android:id="@+id/imageView"
+                android:layout_width="fill_parent"
+                android:layout_height="480dp"
+                app:srcCompat="@mipmap/logo"
+                android:alpha=".05"
+                android:layout_below="@+id/bac_dim_layout"
+                android:layout_alignParentStart="true" />-->
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
