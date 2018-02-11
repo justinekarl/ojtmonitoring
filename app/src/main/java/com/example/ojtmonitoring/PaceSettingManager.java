@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PaceSettingManager {
 //for xammp
-      public static final String IP_ADDRESS = "http://192.168.1.11/filetracker/";
+      public static final String IP_ADDRESS = "http://192.168.43.229/filetracker/";
 
    //   public static final String IP_ADDRESS = "http://192.168.1.12/filetracker/filetracker/";
 

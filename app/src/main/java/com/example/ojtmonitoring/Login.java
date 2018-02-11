@@ -1,4 +1,4 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.jomer.filetracker.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -74,7 +76,7 @@ public class login extends AppCompatActivity {
 
         log_in=(Button)findViewById(R.id.log_in);
         sign_up = (Button)findViewById(R.id.sign_up);
-        editText1=(EditText)findViewById(R.id.editText1);
+        editText1=(EditText)findViewById(R.id.userNameEdTxt);
         editText2=(EditText)findViewById(R.id.editText2);
         exit = (Button) findViewById(R.id.exit);
         forgotPassword = (TextView) findViewById(R.id.forgotPassword);
