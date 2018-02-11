@@ -1,9 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_acct_selection"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ojtmonitoring.AcctSelectionActivity">
+    tools:context="com.example.ojtmonitoring.AccountSelectionActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="54dp"
+        android:layout_marginTop="88dp"
+        android:text="Select Account Type to Create"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/companyRadBtn"
+        style="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton"
+        android:layout_width="227dp"
+        android:layout_height="36dp"
+        android:layout_alignStart="@+id/teacherRadBtn"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="59dp"
+        android:text="Company"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <RadioButton
+        android:id="@+id/studentRadBtn"
+        style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton"
+        android:layout_width="229dp"
+        android:layout_height="34dp"
+        android:layout_alignEnd="@+id/teacherRadBtn"
+        android:layout_below="@+id/companyRadBtn"
+        android:layout_marginTop="44dp"
+        android:text="Student"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="233dp" />
+
+    <RadioButton
+        android:id="@+id/teacherRadBtn"
+        style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton"
+        android:layout_width="230dp"
+        android:layout_height="34dp"
+        android:layout_below="@+id/studentRadBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:text="Teacher"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <Button
+        android:id="@+id/selAcctTypeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/teacherRadBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="73dp"
+        android:text="Continue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="382dp" />
+</RelativeLayout>

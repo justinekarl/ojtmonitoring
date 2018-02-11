@@ -1,4 +1,4 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -17,6 +17,8 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.example.jomer.filetracker.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;

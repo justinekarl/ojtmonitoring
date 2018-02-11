@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".login"
+            android:name="com.example.ojtmonitoring.Login"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,66 +20,81 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".admin"
+            android:name="com.example.ojtmonitoring.admin"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".signup"
+            android:name="com.example.ojtmonitoring.CreateAccount"
             android:label="@string/title_activity_signup"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".content"
+            android:name="com.example.ojtmonitoring.content"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserBorrowedItems"
+            android:name="com.example.ojtmonitoring.UserBorrowedItems"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserReturnedItem"
+            android:name="com.example.ojtmonitoring.UserReturnedItem"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ReturnConfirmation"
+            android:name="com.example.ojtmonitoring.ReturnConfirmation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AllLogs"
+            android:name="com.example.ojtmonitoring.AllLogs"
             android:label="@string/title_activity_all_logs"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AllUsers"
+            android:name="com.example.ojtmonitoring.AllUsers"
             android:label="@string/title_activity_all_users"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Search"
+            android:name="com.example.ojtmonitoring.Search"
             android:label="@string/title_activity_search"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditAuthCode"
+            android:name="com.example.ojtmonitoring.EditAuthCode"
             android:label="@string/title_activity_edit_auth_code"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AllQrCode"
+            android:name="com.example.ojtmonitoring.AllQrCode"
             android:label="AllQrCode"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditPassword"
+            android:name="com.example.ojtmonitoring.EditPassword"
             android:label="@string/title_activity_edit_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AllLogsUser"
+            android:name="com.example.ojtmonitoring.AllLogsUser"
             android:label="@string/title_activity_all_logs_user"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SearchUser"
+            android:name="com.example.ojtmonitoring.SearchUser"
             android:label="@string/title_activity_search_user"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Transfer"
+            android:name="com.example.ojtmonitoring.Transfer"
             android:label="@string/title_activity_transfer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.ojtmonitoring.AccountSelectionActivity"
+            android:label="@string/title_activity_account_selection"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.ojtmonitoring.CreateCompanyAccountActivity" />
+        <activity
+            android:name="com.example.ojtmonitoring.CreateTeacherAccountActivity"
+            android:label="@string/title_activity_create_teacher_account"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.ojtmonitoring.CreateStudentActivity"
+            android:label="@string/title_activity_create_student"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.ojtmonitoring.AccountCreationSelectionActivity" />
+        <activity android:name="com.example.ojtmonitoring.StudentLoginActivity"></activity>
     </application>
 
 </manifest>

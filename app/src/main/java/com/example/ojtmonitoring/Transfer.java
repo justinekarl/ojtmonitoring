@@ -1,4 +1,4 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.example.jomer.filetracker.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -37,7 +39,7 @@ public class Transfer extends AppCompatActivity {
         transferDataItems = (ListView) findViewById(R.id.user_transfer_list);
         transferButton = (Button) findViewById(R.id.transferButton);
 
-        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, login.arrayTransferData){
+        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Login.arrayTransferData){
             @Override
             public View getView(int position, View convertView, ViewGroup parent){
                 // Get the current item from ListView
@@ -88,7 +90,7 @@ public class Transfer extends AppCompatActivity {
 
         protected String doInBackground(String... args) {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("agent_id", login.agentId+""));
+            params.add(new BasicNameValuePair("agent_id", Login.agentId+""));
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"delete_transfer.php",
                     "POST", params);
 

@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText editText1 , editText2;
     private Button log_in;
@@ -48,6 +50,7 @@ public class login extends AppCompatActivity {
     public static String loginMessage;
     public static int agentId;
     public static ArrayList <String> arrayTransferData = new ArrayList<>();
+    public static String accountType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +91,7 @@ public class login extends AppCompatActivity {
             }
         });
 
-        log_in.setOnClickListener(new View.OnClickListener(){
+        /*log_in.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
                 userName = editText1.getText().toString();
@@ -101,26 +104,114 @@ public class login extends AppCompatActivity {
                     login.execute();
                 }
             }
-        });
+        });*/
 
         //sign up button
-        sign_up.setOnClickListener(new View.OnClickListener(){
+      /*  sign_up.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
-             Intent signUpPage = new Intent(login.this, signup.class);
-                startActivity(signUpPage);
+              Intent accntSelectionSignUpPage = new Intent(Login.this, AccountCreationSelectionActivity.class);
+                startActivity(accntSelectionSignUpPage);
 
             }
-        });
+        });*/
 
-        exit.setOnClickListener(new View.OnClickListener(){
+        /*exit.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
-        });
+        });*/
+        log_in.setOnTouchListener(
+                new View.OnTouchListener() {
 
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                userName = editText1.getText().toString();
+                                password = editText2.getText().toString();
+                                if(null != userName && userName.trim().length() == 0
+                                        || null != password && password.trim().length() == 0){
+                                    toastMessage("All Fields are Required!");
+                                }else{
+                                    ConnectToDataBaseViaJson login = new ConnectToDataBaseViaJson();
+                                    login.execute();
+                                }
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
+
+
+        sign_up.setOnTouchListener(
+                new View.OnTouchListener() {
+
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                Intent accntSelectionSignUpPage = new Intent(Login.this, AccountCreationSelectionActivity.class);
+                                startActivity(accntSelectionSignUpPage);
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
+
+
+        exit.setOnTouchListener(
+                new View.OnTouchListener() {
+
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
     }
 
     private void toastMessage(String message) {
@@ -140,7 +231,7 @@ public class login extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(login.this);
+            pDialog = new ProgressDialog(Login.this);
             pDialog.setMessage("Processing..");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
@@ -156,16 +247,41 @@ public class login extends AppCompatActivity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("user_name", sign_up_user_name));
             params.add(new BasicNameValuePair("password", sign_up_password));
+            params.add(new BasicNameValuePair("accounttype","1"));
 
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"login.php",
                     "POST", params);
 
+
             try {
                 if(null != json){
                     int success = json.getInt("success");
+                    if(success == 1) {
+                        loginSucessful = true;
+                        agentId = json.getInt("id");
 
-                    if (success == 1) {
+                        fullName = json.getString("name");
+                        accountType = json.getString("accounttype");
+
+                        if(Integer.parseInt(accountType) == 1){
+                            studentNumber = json.getString("studentnumber");
+                        }
+
+                        if(Integer.parseInt(accountType) == 2){
+                            studentNumber = json.getString("studentnumber");
+                        }
+
+                        if(Integer.parseInt(accountType) == 3){
+                            studentNumber = json.getString("studentnumber");
+                        }
+                    }else {
+                        loginSucessful =  false;
+                        if(null != json.getString("message")){
+                            loginMessage=json.getString("message");
+                        }
+                    }
+                    /*if (success == 1) {
                         transferNotification = false;
                         loginSucessful = true;
                         agentId = json.getInt("id_agent");
@@ -192,7 +308,7 @@ public class login extends AppCompatActivity {
                         if(null != json.getString("message")){
                             loginMessage=json.getString("message");
                         }
-                    }
+                    }*/
                 }else{
                     loginMessage="Invalid User";
                 }
@@ -217,21 +333,37 @@ public class login extends AppCompatActivity {
                 editor.putInt("agent_id",agentId);
                 editor.putString("full_name",fullName);
                 editor.putString("student_number",studentNumber);
+                editor.putString("accounttype",accountType);
                 editor.commit();
 
-                if(transferNotification){
-                    Intent int1 = new Intent(login.this, Transfer.class);
+
+                if(Integer.parseInt(accountType) == 1){
+                    Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
+                    startActivity(int1);
+                }
+
+                if(Integer.parseInt(accountType) == 2){
+                    Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
+                    startActivity(int1);
+                }
+
+                if(Integer.parseInt(accountType) == 3){
+                    Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
+                    startActivity(int1);
+                }
+               /* if(transferNotification){
+                    Intent int1 = new Intent(Login.this, Transfer.class);
                     startActivity(int1);
                 }else{
-                    Intent int1 = new Intent(login.this, content.class);
+                    Intent int1 = new Intent(Login.this, content.class);
                     if(adminRights){
-                        int1 = new Intent(login.this, admin.class);
+                        int1 = new Intent(Login.this, admin.class);
                     }startActivity(int1);
-                }
+                }*/
 
 
             }else{
-                toastMessage("Invalid User!");
+                toastMessage(loginMessage);
             }
         }
     }

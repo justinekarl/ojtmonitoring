@@ -1,8 +1,7 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +13,8 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.jomer.filetracker.R;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -21,9 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class UserBorrowedItems extends AppCompatActivity {
 
@@ -81,7 +80,7 @@ public class UserBorrowedItems extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent content = new Intent(UserBorrowedItems.this, content.class);
-                if(login.adminRights){
+                if(Login.adminRights){
                     content = new Intent(UserBorrowedItems.this, admin.class);
                 }
                 startActivity(content);
@@ -111,7 +110,7 @@ public class UserBorrowedItems extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent content = new Intent(UserBorrowedItems.this, content.class);
-        if(login.adminRights){
+        if(Login.adminRights){
             content = new Intent(UserBorrowedItems.this, admin.class);
         }
         startActivity(content);
@@ -142,10 +141,10 @@ public class UserBorrowedItems extends AppCompatActivity {
         protected String doInBackground(String... args) {
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            if(login.adminRights){
+            if(Login.adminRights){
                 params.add(new BasicNameValuePair("agent_id", "all"));
             }else{
-                params.add(new BasicNameValuePair("agent_id", login.agentId+""));
+                params.add(new BasicNameValuePair("agent_id", Login.agentId+""));
             }
 
 

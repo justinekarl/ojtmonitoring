@@ -1,4 +1,4 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">iTrack</string>
+    <string name="app_name">OJT Monitoring</string>
     <string name="title_activity_signup">signup</string>
     <string name="title_activity_all_logs">AllLogs</string>
     <string name="title_activity_all_users">AllUsers</string>
@@ -9,4 +9,7 @@
     <string name="title_activity_all_logs_user">AllLogsUser</string>
     <string name="title_activity_search_user">SearchUser</string>
     <string name="title_activity_transfer">Transfer</string>
+    <string name="title_activity_account_selection">AccountSelectionActivity</string>
+    <string name="title_activity_create_teacher_account">CreateTeacherAccountActivity</string>
+    <string name="title_activity_create_student">CreateStudentActivity</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.jomer.filetracker.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 

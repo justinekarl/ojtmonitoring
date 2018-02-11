@@ -18,7 +18,7 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context="com.example.jomer.filetracker.admin">
+            tools:context="com.example.jomer.filetracker.com.example.jomer.ojtmonitoring.admin">
 
             <Button
                 android:id="@+id/editAuthCode"

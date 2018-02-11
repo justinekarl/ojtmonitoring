@@ -3,14 +3,15 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_signup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.jomer.filetracker.signup"
-        tools:layout_editor_absoluteY="25dp"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="25dp">
 
         <Button
             android:id="@+id/register"
@@ -43,13 +44,13 @@
             android:id="@+id/fullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="59dp"
             android:ems="10"
             android:hint="Full Name"
             android:inputType="textPersonName"
-            android:textColor="@color/zxing_custom_result_view"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:textColor="@color/zxing_custom_result_view" />
 
         <EditText
             android:id="@+id/signUpUserName"
@@ -106,27 +107,26 @@
             android:id="@+id/signUpPasswordAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/signUpPasswordConfirm"
+            android:layout_below="@+id/signUpPasswordConfirm"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Authentication"
             android:inputType="textPassword"
             android:textColor="@color/zxing_viewfinder_laser"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/signUpPasswordConfirm"
-            android:layout_alignStart="@+id/signUpPasswordConfirm" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/inquire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/signUpPasswordAdmin"
+            android:layout_alignTop="@+id/signUpPasswordAdmin"
+            android:layout_marginStart="27dp"
+            android:layout_toEndOf="@+id/signUpPasswordAdmin"
             android:background="@color/zxing_viewfinder_laser"
             android:drawableTop="@mipmap/information"
-            android:textColor="@color/white"
-            android:layout_alignTop="@+id/signUpPasswordAdmin"
-            android:layout_toEndOf="@+id/signUpPasswordAdmin"
-            android:layout_marginStart="27dp"
-            android:layout_alignBottom="@+id/signUpPasswordAdmin" />
-
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 </ScrollView>

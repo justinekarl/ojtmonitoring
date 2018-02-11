@@ -1,4 +1,4 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jomer.filetracker.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -86,7 +87,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener{
                             editor.clear();
                             editor.commit();
                             finish();
-                            Intent signUpPage = new Intent(admin.this, login.class);
+                            Intent signUpPage = new Intent(admin.this, Login.class);
                             startActivity(signUpPage);
                         }else{
                             finishAffinity();

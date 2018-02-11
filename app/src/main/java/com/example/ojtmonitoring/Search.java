@@ -1,19 +1,16 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.jomer.filetracker.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -107,8 +104,8 @@ public class Search extends AppCompatActivity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("keyword", PaceSettingManager.searchKeyword));
             params.add(new BasicNameValuePair("discriminator", PaceSettingManager.searchAction));
-            params.add(new BasicNameValuePair("admin", String.valueOf(login.adminRights)));
-            params.add(new BasicNameValuePair("agent_id", String.valueOf(login.agentId)));
+            params.add(new BasicNameValuePair("admin", String.valueOf(Login.adminRights)));
+            params.add(new BasicNameValuePair("agent_id", String.valueOf(Login.agentId)));
 
             if (admin.actionTaken == "allLogsHistory"){
                 params.add(new BasicNameValuePair("all_log", "true"));

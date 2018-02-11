@@ -22,7 +22,7 @@ import java.util.List;
 
 
 
-public class signup extends AppCompatActivity {
+public class CreateAccount extends AppCompatActivity {
 
     private EditText signUpUserName;
     private EditText signUpPassword;
@@ -43,13 +43,15 @@ public class signup extends AppCompatActivity {
     public static String registrationMessage;
     public static  String passwordAdmin;
 
+
+
     private Button inquire;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
 
         register=(Button)findViewById(R.id.register);
         backToLogin=(Button)findViewById(R.id.backToLogin);
@@ -60,6 +62,8 @@ public class signup extends AppCompatActivity {
         signUpFullName=(EditText)findViewById(R.id.fullName);
         signUpStudentNumber=(EditText)findViewById(R.id.studentNumber);
         signUpPasswordAdmin = (EditText)findViewById(R.id.signUpPasswordAdmin);
+
+
 
         inquire = (Button) findViewById(R.id.inquire);
 
@@ -74,7 +78,7 @@ public class signup extends AppCompatActivity {
         backToLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
-                Intent logInPage = new Intent(signup.this, login.class);
+                Intent logInPage = new Intent(CreateAccount.this, Login.class);
                 startActivity(logInPage);
            }
         });
@@ -110,9 +114,7 @@ public class signup extends AppCompatActivity {
                 }
             }
         });
-
-
-    }
+}
 
     private void toastMessage(String message) {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
@@ -133,7 +135,7 @@ public class signup extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(signup.this);
+            pDialog = new ProgressDialog(CreateAccount.this);
             pDialog.setMessage("Processing..");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
@@ -202,7 +204,7 @@ public class signup extends AppCompatActivity {
             alert.setCancelable(true);
             alert.show();*/
             if(registrationSuccessful){
-                Intent int1 = new Intent(signup.this, login.class);
+                Intent int1 = new Intent(CreateAccount.this, Login.class);
                 startActivity(int1);
             }else{
                 toastMessage(registrationMessage);

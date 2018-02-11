@@ -1,4 +1,4 @@
-package com.example.jomer.filetracker;
+package com.example.ojtmonitoring;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PaceSettingManager {
 //for xammp
-      public static final String IP_ADDRESS = "http://192.168.43.229/filetracker/";
+      public static final String IP_ADDRESS = "http://192.168.0.38/ojtmonitoring/";
 
    //   public static final String IP_ADDRESS = "http://192.168.1.12/filetracker/filetracker/";
 
