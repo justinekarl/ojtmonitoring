@@ -6,25 +6,25 @@
     android:layout_height="match_parent"
     tools:context="com.example.ojtmonitoring.StudentLoginActivity">
 
-    <Button
-        android:id="@+id/logoutBtn"
-        android:layout_width="181dp"
-        android:layout_height="39dp"
-        android:layout_x="85dp"
-        android:layout_y="211dp"
-        android:text="Logout"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="171dp" />
-
     <TextView
         android:id="@+id/welcomeLbl"
         android:layout_width="264dp"
         android:layout_height="40dp"
-        android:layout_x="55dp"
-        android:layout_y="18dp"
+        android:layout_x="64dp"
+        android:layout_y="115dp"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="47dp"
         tools:layout_editor_absoluteY="17dp" />
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="181dp"
+        android:layout_height="39dp"
+        android:layout_x="200dp"
+        android:layout_y="5dp"
+        android:text="Logout"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="171dp" />
 </AbsoluteLayout>

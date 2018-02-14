@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -15,12 +13,21 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/activity_login"
             android:layout_width="match_parent"
-            android:layout_height="512dp"
+            android:layout_height="507dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context="com.example.jomer.filetracker.com.example.jomer.ojtmonitoring.login">
+            tools:context="com.example.jomer.filetracker.login">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:alpha=".05" />
 
             <TextView
                 android:id="@+id/userNameTxt"
@@ -31,6 +38,8 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="97dp"
+                android:layout_x="28dp"
+                android:layout_y="132dp"
                 android:text="User Name:"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
@@ -44,25 +53,26 @@
                 android:layout_alignStart="@+id/userNameTxt"
                 android:layout_below="@+id/userNameTxt"
                 android:layout_marginTop="43dp"
+                android:layout_x="32dp"
+                android:layout_y="210dp"
                 android:text="Password:"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/log_in"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="191dp"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/sign_up"
-                android:layout_alignStart="@+id/sign_up"
-                android:layout_below="@+id/forgotPassword"
-                android:layout_marginTop="21dp"
-                android:background="#0051ff"
-                android:elevation="0dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Log In"
-                android:textColor="@color/zxing_status_text" />
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_alignBottom="@+id/textView3"
+                android:layout_alignLeft="@+id/userNameEdTxt"
+                android:layout_alignStart="@+id/userNameEdTxt"
+                android:layout_x="153dp"
+                android:layout_y="209dp"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textColorLink="@color/white" />
 
             <EditText
                 android:id="@+id/userNameEdTxt"
@@ -72,66 +82,69 @@
                 android:layout_alignBottom="@+id/userNameTxt"
                 android:layout_marginStart="14dp"
                 android:layout_toEndOf="@+id/userNameTxt"
+                android:layout_x="158dp"
+                android:layout_y="136dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textColorLink="@color/white" />
 
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView3"
-                android:layout_alignBottom="@+id/textView3"
-                android:layout_alignLeft="@+id/userNameEdTxt"
-                android:layout_alignStart="@+id/userNameEdTxt"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:textColorLink="@color/white" />
-
             <Button
-                android:id="@+id/sign_up"
+                android:id="@+id/log_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/log_in"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="43dp"
+                android:layout_x="254dp"
+                android:layout_y="318dp"
                 android:background="#0051ff"
+                android:elevation="0dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Create Account"
-                android:textColor="@color/zxing_status_text" />
-
-            <Button
-                android:id="@+id/exit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/sign_up"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/sign_up"
-                android:layout_marginBottom="17dp"
-                android:background="#0051ff"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Exit "
-                android:textColor="@color/zxing_status_text" />
+                android:text="Log In"
+                android:textColor="@color/zxing_status_text"
+                android:layout_alignTop="@+id/sign_up"
+                android:layout_alignEnd="@+id/userNameEdTxt" />
 
             <TextView
                 android:id="@+id/forgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/log_in"
+                android:layout_alignStart="@+id/textView3"
                 android:layout_below="@+id/editText2"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:layout_x="162dp"
+                android:layout_y="282dp"
                 android:text="Forgot Password"
                 android:textColor="@color/colorPrimaryDark" />
 
-            <ImageView
-                android:id="@+id/imageView"
+            <Button
+                android:id="@+id/sign_up"
+                android:layout_width="90dp"
+                android:layout_height="34dp"
+                android:layout_x="59dp"
+                android:layout_y="280dp"
+                android:background="#0051ff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Create Account"
+                android:textColor="@color/zxing_status_text"
+                android:layout_alignBaseline="@+id/forgotPassword"
+                android:layout_alignBottom="@+id/forgotPassword"
+                android:layout_toEndOf="@+id/forgotPassword" />
+
+            <Button
+                android:id="@+id/exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
-                android:alpha=".05" />
+                android:layout_below="@+id/log_in"
+                android:layout_marginTop="119dp"
+                android:layout_x="21dp"
+                android:layout_y="443dp"
+                android:background="#0051ff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Exit "
+                android:textColor="@color/zxing_status_text" />
         </RelativeLayout>
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>

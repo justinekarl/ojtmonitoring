@@ -16,7 +16,7 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     private static String name;
     private static int agentId;
-    private static String accountType;
+    private static int accountType;
 
     private TextView welcomeLbl;
     private Button logoutBtn;
@@ -29,10 +29,22 @@ public class StudentLoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
-        accountType = sharedPreferences.getString("accountType","");
+        accountType = sharedPreferences.getInt("accounttype",0);
 
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
-        welcomeLbl.setText("Welcome " +name);
+        String accountTypeStr = "";
+        if(accountType == 1){
+            accountTypeStr = "Student";
+        }
+
+        if(accountType == 2){
+            accountTypeStr = "Teacher";
+        }
+
+        if(accountType == 3){
+            accountTypeStr = "Company";
+        }
+        welcomeLbl.setText("Welcome " +name +" - " +accountTypeStr);
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
 

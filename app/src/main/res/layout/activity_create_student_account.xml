@@ -130,7 +130,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/userNameTxt"
+        android:id="@+id/passwordTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="145dp"

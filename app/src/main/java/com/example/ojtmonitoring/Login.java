@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
     public static String loginMessage;
     public static int agentId;
     public static ArrayList <String> arrayTransferData = new ArrayList<>();
-    public static String accountType;
+    public static int accountType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -262,9 +262,9 @@ public class Login extends AppCompatActivity {
                         agentId = json.getInt("id");
 
                         fullName = json.getString("name");
-                        accountType = json.getString("accounttype");
+                        accountType = json.getInt("accounttype");
 
-                        if(Integer.parseInt(accountType) == 1){
+                        /*if(Integer.parseInt(accountType) == 1){
                             studentNumber = json.getString("studentnumber");
                         }
 
@@ -274,7 +274,7 @@ public class Login extends AppCompatActivity {
 
                         if(Integer.parseInt(accountType) == 3){
                             studentNumber = json.getString("studentnumber");
-                        }
+                        }*/
                     }else {
                         loginSucessful =  false;
                         if(null != json.getString("message")){
@@ -333,21 +333,21 @@ public class Login extends AppCompatActivity {
                 editor.putInt("agent_id",agentId);
                 editor.putString("full_name",fullName);
                 editor.putString("student_number",studentNumber);
-                editor.putString("accounttype",accountType);
+                editor.putInt("accounttype",accountType);
                 editor.commit();
 
 
-                if(Integer.parseInt(accountType) == 1){
+                if(accountType == 1){
                     Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
                     startActivity(int1);
                 }
 
-                if(Integer.parseInt(accountType) == 2){
+                if(accountType == 2){
                     Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
                     startActivity(int1);
                 }
 
-                if(Integer.parseInt(accountType) == 3){
+                if(accountType == 3){
                     Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
                     startActivity(int1);
                 }

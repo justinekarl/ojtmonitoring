@@ -68,7 +68,7 @@ public class CreateStudentActivity extends AppCompatActivity {
         addressTxt = (EditText)findViewById(R.id.addressTxt);
         collegeTxt = (EditText)findViewById(R.id.collegeTxt);
         usernameTxt = (EditText)findViewById(R.id.userNameTxt);
-        passwordTxt = (EditText)findViewById(R.id.userNameTxt);
+        passwordTxt = (EditText)findViewById(R.id.passwordTxt);
         confirmPasswordTxt = (EditText)findViewById(R.id.confirmPasswordTxt) ;
 
         /*cancelBtn.setOnClickListener(
@@ -252,29 +252,33 @@ public class CreateStudentActivity extends AppCompatActivity {
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"processRegister.php",
                     "POST", params);
 
-            // check log cat fro response
-            Log.d("Create Response", json.toString());
+
+
 
             // check for success tag
-            try {
-                int success = json.getInt("success");
+            if(null != json) {
+                // check log cat fro response
+                Log.d("Create Response", json.toString());
+                try {
+                    int success = json.getInt("success");
 
-                if (success == 1) {
-                    if(null != json.getString("message")){
-                        registrationSuccessful = true;
-                        registrationMessage=json.getString("message");
-                        Log.d("Account Type",(null != json.getString("accounttype") ? json.getString("accounttype") : ""));
+                    if (success == 1) {
+                        if (null != json.getString("message")) {
+                            registrationSuccessful = true;
+                            registrationMessage = json.getString("message");
+                            Log.d("Account Type", (null != json.getString("accounttype") ? json.getString("accounttype") : ""));
+                        }
+                    } else {
+                        if (null != json.getString("message")) {
+                            registrationSuccessful = false;
+                            registrationMessage = json.getString("message");
+                        }
                     }
-                } else {
-                    if(null != json.getString("message")){
-                        registrationSuccessful = false;
-                        registrationMessage = json.getString("message");
-                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
 
+            }
             return null;
         }
 

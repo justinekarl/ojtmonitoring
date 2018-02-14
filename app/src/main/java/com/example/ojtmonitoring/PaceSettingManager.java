@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class PaceSettingManager {
 //for xammp
-      public static final String IP_ADDRESS = "http://192.168.0.38/ojtmonitoring/";
-
-   //   public static final String IP_ADDRESS = "http://192.168.1.12/filetracker/filetracker/";
+      //public static final String IP_ADDRESS = "http://192.168.0.55/ojtmonitoring/";
+        public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
+    //   public static final String IP_ADDRESS = "http://192.168.1.12/filetracker/filetracker/";
 
     //for lamp
    //public static final String IP_ADDRESS = "https://spcffiletrackersystem.000webhostapp.com/filetracker/";
