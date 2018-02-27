@@ -10,8 +10,8 @@ import java.util.List;
 
 public class PaceSettingManager {
 //for xammp
-     public static final String IP_ADDRESS = "http://10.10.10.147/ojtmonitoring/";
-       //public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
+     //public static final String IP_ADDRESS = "http://10.10.10.147/ojtmonitoring/";
+       public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
     //   public static final String IP_ADDRESS = "http://192.168.1.12/filetracker/filetracker/";
 
     //for lamp
