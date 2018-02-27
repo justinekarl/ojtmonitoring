@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/custAddressTxt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/custDescriptionTxt"
+        android:layout_below="@+id/custCompanyNameTxt"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="26dp"
+        android:layout_x="48dp"
+        android:layout_y="71dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="?attr/actionModeSplitBackground"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/custCompanyNameTxt"
+        android:layout_width="274dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/selCompanyChk"
+        android:layout_alignEnd="@+id/custDescriptionTxt"
+        android:layout_marginRight="16dp"
+        android:layout_x="84dp"
+        android:layout_y="21dp"
+
+        android:text="TextView"
+        android:textColor="?attr/actionModeSplitBackground"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/selCompanyChk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="49dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="12dp"
+
+        android:layout_marginTop="33dp"
+        android:layout_x="36dp"
+        android:layout_y="18dp" />
+
+    <TextView
+        android:id="@+id/custPhoneNumberTxt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/custDescriptionTxt"
+        android:layout_alignStart="@+id/custAddressTxt"
+        android:layout_below="@+id/custAddressTxt"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="29dp"
+        android:layout_x="50dp"
+        android:layout_y="113dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="?attr/actionModeSplitBackground"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/custEmailTxt"
+        android:layout_width="300dp"
+        android:layout_height="24dp"
+        android:layout_alignStart="@+id/custPhoneNumberTxt"
+        android:layout_below="@+id/custPhoneNumberTxt"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="35dp"
+        android:layout_x="49dp"
+        android:layout_y="152dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="?attr/actionModeSplitBackground"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/custDescriptionTxt"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/custEmailTxt"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="49dp"
+        android:layout_toEndOf="@+id/selCompanyChk"
+        android:layout_x="50dp"
+        android:layout_y="198dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="?attr/actionModeSplitBackground"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</AbsoluteLayout>

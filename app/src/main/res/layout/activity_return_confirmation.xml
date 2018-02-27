@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jomer.filetracker.com.example.jomer.ojtmonitoring.ReturnConfirmation">
+    >
 
     <TextView
         android:id="@+id/returnConfirmationText"
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/zxing_viewfinder_laser"
-        android:drawableTop="@mipmap/information"
+
         android:textColor="@color/white"
         android:layout_alignTop="@+id/return_password_confirmation"
         android:layout_toEndOf="@+id/return_password_confirmation"

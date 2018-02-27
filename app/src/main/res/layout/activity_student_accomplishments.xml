@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="14dp"
+            android:elevation="0dp"
+            android:text="Accomplishments:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/accomplishmentsTxt"
+            android:layout_width="310dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/textView26"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Interests:"
+            android:textStyle="bold"
+            android:layout_below="@+id/accomplishmentsTxt"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            />
+
+        <EditText
+            android:id="@+id/interestTxt"
+            android:layout_width="310dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/textView28"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Education:"
+            android:textStyle="bold"
+            android:layout_below="@+id/interestTxt"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            />
+
+        <EditText
+            android:id="@+id/elementaryTxt"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView29"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Elementary"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/elemAddressTxt"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/elementaryTxt"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/highSchoolTxt"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/elemAddressTxt"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="High School"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/highSchoolAddress1Txt"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/highSchoolTxt"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPersonName" />
+
+
+
+        <EditText
+            android:id="@+id/collegeTxt"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/highSchoolAddress1Txt"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="College"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/collegeAddressTxt"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/collegeTxt"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPersonName" />
+
+
+
+    </RelativeLayout>
+</ScrollView>

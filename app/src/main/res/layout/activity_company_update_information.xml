@@ -1,9 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ojtmonitoring.CompanyUpdateInformation">
+    tools:context="com.example.ojtmonitoring.CompanyUpdateInformation"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.ojtmonitoring.CompanyUpdateInformation"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Update Company Information"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginEnd="36dp"
+            app:layout_constraintRight_toRightOf="@+id/companyTxt" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="65dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="25dp"
+            android:text="Name:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            android:layout_marginStart="16dp" />
+
+        <EditText
+            android:id="@+id/companyTxt"
+            android:layout_width="248dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintLeft_toRightOf="@+id/textView12"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="35dp"
+            android:text="Address:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            android:layout_marginStart="16dp"
+            app:layout_constraintRight_toLeftOf="@+id/custAddressTxt"
+            android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.0" />
+
+        <EditText
+            android:id="@+id/custAddressTxt"
+            android:layout_width="229dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="36dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            app:layout_constraintTop_toBottomOf="@+id/companyTxt"
+            android:layout_marginRight="39dp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="Phone number:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@+id/custPhoneNumberTxt"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <EditText
+            android:id="@+id/custPhoneNumberTxt"
+            android:layout_width="230dp"
+            android:layout_height="44dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/custAddressTxt"
+            app:layout_constraintLeft_toRightOf="@+id/textView14"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="24dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="24dp"
+            tools:layout_constraintLeft_creator="1" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Company Type:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <EditText
+            android:id="@+id/companyTypeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/custPhoneNumberTxt"
+            app:layout_constraintLeft_toRightOf="@+id/textView15"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.729"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="61dp"
+            android:layout_marginTop="21dp"
+            android:text="Update"
+            app:layout_constraintRight_toRightOf="@+id/moaYesRad"
+            app:layout_constraintTop_toBottomOf="@+id/moaYesRad"
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginRight="67dp" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="20dp"
+            android:text="Cancel"
+            app:layout_constraintRight_toRightOf="@+id/moaNoRad"
+            app:layout_constraintTop_toBottomOf="@+id/moaNoRad"
+            tools:layout_constraintRight_creator="1" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginTop="44dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            android:layout_marginLeft="25dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <EditText
+            android:id="@+id/custDescriptionTxt"
+            android:layout_width="240dp"
+            android:layout_height="99dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="23dp"
+            app:layout_constraintTop_toBottomOf="@+id/companyTypeTxt"
+            app:layout_constraintLeft_toRightOf="@+id/textView16"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.79"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="MOA Certified:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/moaYesRad" />
+
+        <RadioButton
+            android:id="@+id/moaYesRad"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:text="Yes"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/custDescriptionTxt"
+            app:layout_constraintLeft_toRightOf="@+id/textView17"
+            android:layout_marginLeft="78dp" />
+
+        <RadioButton
+            android:id="@+id/moaNoRad"
+            android:layout_width="71dp"
+            android:layout_height="31dp"
+            android:text="No"
+            android:layout_marginEnd="39dp"
+            android:layout_marginTop="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/custDescriptionTxt"
+            app:layout_constraintLeft_toRightOf="@+id/moaYesRad"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="39dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.24"
+            android:layout_marginStart="26dp"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

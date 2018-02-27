@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by User on 3/26/2017.
@@ -9,8 +10,8 @@ import java.util.ArrayList;
 
 public class PaceSettingManager {
 //for xammp
-      //public static final String IP_ADDRESS = "http://192.168.0.55/ojtmonitoring/";
-        public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
+     public static final String IP_ADDRESS = "http://10.10.10.147/ojtmonitoring/";
+       //public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
     //   public static final String IP_ADDRESS = "http://192.168.1.12/filetracker/filetracker/";
 
     //for lamp
@@ -23,7 +24,7 @@ public class PaceSettingManager {
 //
 //
 
-    public static String integerTooCommaSeparated(ArrayList<Integer> o){
+    public static String integerTooCommaSeparated(List<Integer> o){
         String returnValue="";
         if(null != o){
             returnValue = android.text.TextUtils.join(",",o);

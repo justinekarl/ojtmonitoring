@@ -93,7 +93,15 @@
             android:label="@string/title_activity_create_student"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.ojtmonitoring.AccountCreationSelectionActivity" />
-        <activity android:name="com.example.ojtmonitoring.StudentLoginActivity"></activity>
+        <activity android:name="com.example.ojtmonitoring.StudentLoginActivity" />
+        <activity android:name="com.example.ojtmonitoring.CompanyLoginActivity" />
+        <activity android:name="com.example.ojtmonitoring.CompanyUpdateInformation" />
+        <activity android:name="com.example.ojtmonitoring.AddUpdateCompanyRequirements" />
+        <activity android:name="com.example.ojtmonitoring.ShowCompaniesActivity" />
+        <activity android:name="com.example.ojtmonitoring.CreateUpdateResumeActivity" />
+        <activity android:name="com.example.ojtmonitoring.TeacherLoginActivity" />
+        <activity android:name="com.example.ojtmonitoring.ShowOJTApplicationsActivity" />
+        <activity android:name="com.example.ojtmonitoring.ShowOJTListActivity"></activity>
     </application>
 
 </manifest>

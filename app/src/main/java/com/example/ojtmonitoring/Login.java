@@ -21,7 +21,6 @@ import com.example.jomer.filetracker.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,6 +50,16 @@ public class Login extends AppCompatActivity {
     public static int agentId;
     public static ArrayList <String> arrayTransferData = new ArrayList<>();
     public static int accountType;
+
+    public static String address;
+    public static String phoneNumber;
+    public static String teacherNumber;
+    public static String department;
+    public static String college;
+
+    public static TextView createAccountNowTxt;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +93,10 @@ public class Login extends AppCompatActivity {
         exit = (Button) findViewById(R.id.exit);
         forgotPassword = (TextView) findViewById(R.id.forgotPassword);
 
+        editText1.requestFocus();
+
+        createAccountNowTxt = (TextView)findViewById(R.id.createAccountNowTxt);
+
         forgotPassword.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
@@ -106,7 +119,6 @@ public class Login extends AppCompatActivity {
             }
         });*/
 
-        //sign up button
       /*  sign_up.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
@@ -157,30 +169,13 @@ public class Login extends AppCompatActivity {
                 }
         );
 
-
-        sign_up.setOnTouchListener(
-                new View.OnTouchListener() {
+        createAccountNowTxt.setOnClickListener(
+                new View.OnClickListener(){
 
                     @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        switch (event.getAction()) {
-                            case MotionEvent.ACTION_DOWN: {
-                                Button view = (Button) v;
-                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
-                                v.invalidate();
-                                break;
-                            }
-                            case MotionEvent.ACTION_UP:
-                                Intent accntSelectionSignUpPage = new Intent(Login.this, AccountCreationSelectionActivity.class);
-                                startActivity(accntSelectionSignUpPage);
-                            case MotionEvent.ACTION_CANCEL: {
-                                Button view = (Button) v;
-                                view.getBackground().clearColorFilter();
-                                view.invalidate();
-                                break;
-                            }
-                        }
-                        return true;
+                    public void onClick(View v) {
+                        Intent accntSelectionSignUpPage = new Intent(Login.this, AccountCreationSelectionActivity.class);
+                        startActivity(accntSelectionSignUpPage);
                     }
                 }
         );
@@ -263,6 +258,11 @@ public class Login extends AppCompatActivity {
 
                         fullName = json.getString("name");
                         accountType = json.getInt("accounttype");
+                        address = json.getString("address");
+                        phoneNumber = json.getString("phoneNumber");
+                        teacherNumber = json.getString("teachernumber");
+                        department = json.getString("department");
+                        college = json.getString("college");
 
                         /*if(Integer.parseInt(accountType) == 1){
                             studentNumber = json.getString("studentnumber");
@@ -334,6 +334,11 @@ public class Login extends AppCompatActivity {
                 editor.putString("full_name",fullName);
                 editor.putString("student_number",studentNumber);
                 editor.putInt("accounttype",accountType);
+                editor.putString("address",address);
+                editor.putString("phoneNumber",phoneNumber);
+                editor.putString("college",college);
+                editor.putString("department",department);
+
                 editor.commit();
 
 
@@ -343,12 +348,12 @@ public class Login extends AppCompatActivity {
                 }
 
                 if(accountType == 2){
-                    Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
+                    Intent int1 = new Intent(Login.this, TeacherLoginActivity.class);
                     startActivity(int1);
                 }
 
                 if(accountType == 3){
-                    Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
+                    Intent int1 = new Intent(Login.this, CompanyLoginActivity.class);
                     startActivity(int1);
                 }
                /* if(transferNotification){

@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="59dp"
             android:background="@color/zxing_custom_viewfinder_laser"
-            android:drawableRight="@mipmap/create"
+
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Create Account"
@@ -97,7 +97,7 @@
             android:layout_below="@+id/register"
             android:layout_marginTop="21dp"
             android:background="@color/zxing_possible_result_points"
-            android:drawableRight="@mipmap/back"
+
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Back To Login"
@@ -125,7 +125,7 @@
             android:layout_marginStart="27dp"
             android:layout_toEndOf="@+id/signUpPasswordAdmin"
             android:background="@color/zxing_viewfinder_laser"
-            android:drawableTop="@mipmap/information"
+
             android:textColor="@color/white" />
 
     </RelativeLayout>

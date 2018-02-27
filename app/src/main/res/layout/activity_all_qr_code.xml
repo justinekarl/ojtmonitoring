@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jomer.filetracker.com.example.jomer.ojtmonitoring.AllQrCode">
+    >
 
     <TextView
         android:id="@+id/textView2"
@@ -56,7 +56,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@android:color/holo_orange_light"
-        android:drawableRight="@mipmap/delete_small"
+
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Delete"
@@ -71,7 +71,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:background="@android:color/holo_orange_light"
-        android:drawableRight="@mipmap/search_small"
+
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Search"
@@ -86,7 +86,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="@android:color/holo_orange_light"
-        android:drawableRight="@mipmap/logs_small"
+
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Show&#10;All"

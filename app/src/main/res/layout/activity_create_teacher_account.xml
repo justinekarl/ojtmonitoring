@@ -1,202 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ojtmonitoring.CreateTeacherAccountActivity">
+    android:background="@mipmap/background">
 
-    <Button
-        android:id="@+id/cancelBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="258dp"
-        android:layout_y="485dp"
-        android:background="#0051ff"
-        android:text="Cancel"
-        android:textColor="@color/zxing_status_text" />
+    <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.ojtmonitoring.CreateTeacherAccountActivity">
 
-    <Button
-        android:id="@+id/saveTeacherBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="141dp"
-        android:layout_y="485dp"
-        android:background="#0051ff"
-        android:text="Save"
-        android:textColor="@color/zxing_status_text" />
+        <EditText
+            android:id="@+id/custPhoneNumberTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="150dp"
+            android:layout_y="179dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="187dp" />
 
-    <EditText
-        android:id="@+id/phoneNumTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="150dp"
-        android:layout_y="179dp"
-        android:ems="10"
-        android:inputType="phone"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="187dp" />
+        <EditText
+            android:id="@+id/teacherNoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="147dp"
+            android:layout_y="116dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="102dp" />
 
-    <EditText
-        android:id="@+id/teacherNoTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="147dp"
-        android:layout_y="116dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="102dp" />
+        <EditText
+            android:id="@+id/fullNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="149dp"
+            android:layout_y="62dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="30dp" />
 
-    <EditText
-        android:id="@+id/fullNameTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="149dp"
-        android:layout_y="62dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="30dp" />
+        <TextView
+            android:id="@+id/fullnameLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_x="31dp"
+            android:layout_y="72dp"
+            android:text="Full Name:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_editor_absoluteY="39dp" />
 
-    <TextView
-        android:id="@+id/fullnameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_x="31dp"
-        android:layout_y="72dp"
-        android:text="Full Name:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="39dp" />
+        <TextView
+            android:id="@+id/teacherNumLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_x="29dp"
+            android:layout_y="131dp"
+            android:text="Teacher No:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_editor_absoluteY="117dp" />
 
-    <TextView
-        android:id="@+id/teacherNumLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_x="29dp"
-        android:layout_y="131dp"
-        android:text="Teacher No:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="117dp" />
+        <TextView
+            android:id="@+id/phoneNumLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_x="26dp"
+            android:layout_y="195dp"
+            android:text="Phone Number:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_editor_absoluteY="207dp" />
 
-    <TextView
-        android:id="@+id/phoneNumLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_x="26dp"
-        android:layout_y="195dp"
-        android:text="Phone Number:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="207dp" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="71dp"
+            android:layout_y="12dp"
+            android:text="Create Teacher Account"
+            android:textColor="@color/light_orange"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/departmentLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_x="26dp"
-        android:layout_y="261dp"
-        android:text="Department:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="284dp" />
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="109dp"
+            android:layout_y="549dp"
+            android:background="#5e5e5e"
+            android:text="Cancel"
+            android:textColor="@color/zxing_status_text" />
 
-    <TextView
-        android:id="@+id/passwordLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="25dp"
-        android:layout_y="375dp"
-        android:text="Password:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/saveTeacherBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="249dp"
+            android:layout_y="551dp"
+            android:background="#5e5e5e"
+            android:text="Save"
+            android:textColor="@color/zxing_status_text" />
 
-    <TextView
-        android:id="@+id/confirmPasswordLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="12dp"
-        android:layout_y="433dp"
-        android:text="Confirm Password:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/confirmPasswordTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="151dp"
+            android:layout_y="470dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
 
-    <EditText
-        android:id="@+id/confirmPasswordTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="150dp"
-        android:layout_y="423dp"
-        android:ems="10"
-        android:inputType="textPassword" />
+        <TextView
+            android:id="@+id/confirmPasswordLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="13dp"
+            android:layout_y="480dp"
+            android:text="Confirm Password:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/PasswordTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="148dp"
-        android:layout_y="363dp"
-        android:ems="10"
-        android:inputType="textPassword" />
+        <TextView
+            android:id="@+id/passwordLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="26dp"
+            android:layout_y="422dp"
+            android:text="Password:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="26dp"
-        android:layout_y="322dp"
-        android:text="Username :"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/PasswordTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="149dp"
+            android:layout_y="410dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
 
-    <EditText
-        android:id="@+id/userNameTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="152dp"
-        android:layout_y="311dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/userNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="153dp"
+            android:layout_y="358dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
-    <EditText
-        android:id="@+id/departmentTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="147dp"
-        android:layout_y="248dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        <TextView
+            android:id="@+id/usernameLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="27dp"
+            android:layout_y="369dp"
+            android:text="Username :"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="71dp"
-        android:layout_y="12dp"
-        android:text="Create Teacher Account"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/departmentTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="148dp"
+            android:layout_y="295dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
-</AbsoluteLayout>
+        <TextView
+            android:id="@+id/departmentLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_x="27dp"
+            android:layout_y="308dp"
+            android:text="Department:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_editor_absoluteY="284dp" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="108dp"
+            android:layout_height="31dp"
+            android:layout_x="27dp"
+            android:layout_y="248dp"
+            android:text="College:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <Spinner
+            android:id="@+id/collegeSpnr"
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:layout_width="216dp"
+            android:layout_height="35dp"
+            android:layout_x="151dp"
+            android:layout_y="247dp" />
+
+    </AbsoluteLayout>
+</ScrollView>

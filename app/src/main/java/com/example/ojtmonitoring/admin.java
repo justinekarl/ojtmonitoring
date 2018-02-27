@@ -524,7 +524,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener{
         returnedButton.setId(Integer.valueOf(returned));
         returnedButton.setTextColor(getResources().getColor(R.color.white));
         returnedButton.setBackgroundColor(getResources().getColor(R.color.light_orange));
-        returnedButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
+        //returnedButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
         LinearLayout.LayoutParams returnedButtonLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         returnedButtonLayout.setMargins(20, 20, 20, 20);
         returnedButton.setLayoutParams(returnedButtonLayout);
@@ -534,7 +534,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener{
         borrowButton.setId(Integer.valueOf(borrow));
         borrowButton.setTextColor(getResources().getColor(R.color.white));
         borrowButton.setBackgroundColor(getResources().getColor(R.color.light_orange));
-        borrowButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
+        //borrowButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
         LinearLayout.LayoutParams borrowButtonLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         borrowButtonLayout.setMargins(20, 20, 20, 20);
         borrowButton.setLayoutParams(borrowButtonLayout);
@@ -544,7 +544,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener{
         allLogsButton.setId(Integer.valueOf(allLogs));
         allLogsButton.setTextColor(getResources().getColor(R.color.white));
         allLogsButton.setBackgroundColor(getResources().getColor(R.color.light_orange));
-        allLogsButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
+        //allLogsButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
         LinearLayout.LayoutParams allLogsButtonLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         allLogsButtonLayout.setMargins(20, 20, 20, 20);
         allLogsButton.setLayoutParams(allLogsButtonLayout);
@@ -554,7 +554,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener{
         historyButton.setId(Integer.valueOf(history));
         historyButton.setTextColor(getResources().getColor(R.color.white));
         historyButton.setBackgroundColor(getResources().getColor(R.color.light_orange));
-        historyButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
+        //historyButton.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.logs,0);
         LinearLayout.LayoutParams historyButtonLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         historyButtonLayout.setMargins(20, 20, 20, 20);
         historyButton.setLayoutParams(historyButtonLayout);
@@ -568,7 +568,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener{
         allQrCode.setId(Integer.valueOf(allQrCodeId));
         allQrCode.setTextColor(getResources().getColor(R.color.white));
         allQrCode.setBackgroundColor(getResources().getColor(R.color.light_orange));
-        allQrCode.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.multiple_qr,0);
+        //allQrCode.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.multiple_qr,0);
         LinearLayout.LayoutParams allQrCodeButtonLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         allQrCodeButtonLayout.setMargins(20, 20, 20, 20);
         allQrCode.setLayoutParams(allQrCodeButtonLayout);
@@ -578,7 +578,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener{
         registerCode.setId(Integer.valueOf(registerCodeId));
         registerCode.setTextColor(getResources().getColor(R.color.white));
         registerCode.setBackgroundColor(getResources().getColor(R.color.light_orange));
-        registerCode.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.qr_code,0);
+        //registerCode.setCompoundDrawablesWithIntrinsicBounds(0,0,R.mipmap.qr_code,0);
         LinearLayout.LayoutParams registerCodeButtonLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         registerCodeButtonLayout.setMargins(20, 20, 20, 20);
         registerCode.setLayoutParams(registerCodeButtonLayout);

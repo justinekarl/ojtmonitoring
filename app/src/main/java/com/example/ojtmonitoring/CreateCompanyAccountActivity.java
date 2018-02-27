@@ -54,9 +54,9 @@ public class CreateCompanyAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_company_account);
         cancelSaveCompany = (Button)findViewById(R.id.cancelSaveCompany);
 
-        companyNameTxt = (EditText)findViewById(R.id.companyNameTxt);
+        companyNameTxt = (EditText)findViewById(R.id.custCompanyNameTxt);
         addressText = (EditText)findViewById(R.id.addressText);
-        phoneNumberTxt = (EditText)findViewById(R.id.phoneNumberTxt);
+        phoneNumberTxt = (EditText)findViewById(R.id.custPhoneNumberTxt);
         companyTypeTxt = (EditText)findViewById(R.id.companyTypeTxt);
         userNameTxt = (EditText)findViewById(R.id.userNameTxt);
         passwordTxt = (EditText)findViewById(R.id.passwordTxt);

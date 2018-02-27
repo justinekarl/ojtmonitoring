@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/companyNameOjtTxt"
+        android:layout_width="326dp"
+        android:layout_height="53dp"
+        android:layout_x="11dp"
+        android:layout_y="19dp"
+        android:text="Company Name"
+        android:textAlignment="textStart"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="339dp"
+        android:layout_height="wrap_content"
+        android:layout_x="26dp"
+        android:layout_y="76dp"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <CheckBox
+            android:id="@+id/ojtApprovedChk"
+            android:layout_width="124dp"
+            android:layout_height="wrap_content"
+            android:text="Approve"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/studentCollegeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="15sp"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/studentNameTxt"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="15sp"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/studentPhoneTxt"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="15sp"
+            android:layout_weight="0.08"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/studentEmailTxt"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="15sp"
+            android:layout_weight="0.08"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</AbsoluteLayout>

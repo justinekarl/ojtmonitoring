@@ -12,4 +12,11 @@
     <string name="title_activity_account_selection">AccountSelectionActivity</string>
     <string name="title_activity_create_teacher_account">CreateTeacherAccountActivity</string>
     <string name="title_activity_create_student">CreateStudentActivity</string>
+
+    <string-array name="collegelist">
+        <item>--Select Below--</item>
+        <item>Education</item>
+        <item>Computer Studies</item>
+        <item>HRM</item>
+    </string-array>
 </resources>

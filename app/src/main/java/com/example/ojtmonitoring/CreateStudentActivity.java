@@ -1,9 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,8 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jomer.filetracker.R;
@@ -38,7 +40,11 @@ public class CreateStudentActivity extends AppCompatActivity {
     private EditText collegeTxt;
     private EditText usernameTxt;
     private EditText passwordTxt;
-    private EditText confirmPasswordTxt;private ProgressDialog pDialog;
+    private Spinner collegeSpnr;
+    private EditText emailTxt;
+
+    private EditText confirmPasswordTxt;
+    private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
 
     public static String fullname;
@@ -49,11 +55,12 @@ public class CreateStudentActivity extends AppCompatActivity {
     public static String username;
     public static String password;
     public static String confirmPassword;
+    public static String email;
 
     public static boolean registrationSuccessful;
     public static String registrationMessage;
 
-
+    ArrayAdapter<String> collegeListAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,22 +72,35 @@ public class CreateStudentActivity extends AppCompatActivity {
         fullnameTxt = (EditText)findViewById(R.id.fullnameTxt);
         studentNoTxt = (EditText)findViewById(R.id.studentNoTxt);
         phoneNumTxt = (EditText)findViewById(R.id.phoneNumbTxt);
-        addressTxt = (EditText)findViewById(R.id.addressTxt);
-        collegeTxt = (EditText)findViewById(R.id.collegeTxt);
+        addressTxt = (EditText)findViewById(R.id.custAddressTxt);
+        //collegeTxt = (EditText)findViewById(R.id.collegeTxt);
+        collegeSpnr = (Spinner)findViewById(R.id.collegeSpnr);
         usernameTxt = (EditText)findViewById(R.id.userNameTxt);
         passwordTxt = (EditText)findViewById(R.id.passwordTxt);
         confirmPasswordTxt = (EditText)findViewById(R.id.confirmPasswordTxt) ;
+        emailTxt = (EditText)findViewById(R.id.elemAddTxt);
 
-        /*cancelBtn.setOnClickListener(
+        collegeListAdapter = new ArrayAdapter<String> (CreateStudentActivity.this,
+                                                    android.R.layout.simple_list_item_1,
+                                                    getResources().getStringArray(R.array.collegelist));
 
-                new View.OnClickListener() {
+        collegeListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        collegeSpnr.setAdapter(collegeListAdapter);
+
+        collegeSpnr.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
                     @Override
-                    public void onClick(View v) {
-                        Intent backToSelectUserTypeIntent = new Intent(CreateStudentActivity.this,AccountCreationSelectionActivity.class) ;
-                        startActivity(backToSelectUserTypeIntent);
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        int index = parent.getSelectedItemPosition();
+                        ((TextView) collegeSpnr.getSelectedView()).setTextColor(getResources().getColor(R.color.white));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
                     }
                 }
-        );*/
+        );
 
 
         cancelBtn.setOnTouchListener(
@@ -109,43 +129,6 @@ public class CreateStudentActivity extends AppCompatActivity {
                     }
                 }
         );
-        /*saveBtn.setOnClickListener(
-
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        fullname = null != fullnameTxt.getText() ? fullnameTxt.getText().toString() : "";
-                        studentNo = null != studentNoTxt.getText() ? studentNoTxt.getText().toString() : "";
-                        phoneNum =  null != phoneNumTxt.getText() ? phoneNumTxt.getText().toString() : "";
-                        address = null != addressTxt.getText() ? addressTxt.getText().toString() : "";
-                        college = null != collegeTxt.getText() ? collegeTxt.getText().toString() : "";
-                        username = null != usernameTxt.getText() ? usernameTxt.getText().toString() : "";
-                        password = null != passwordTxt.getText() ? passwordTxt.getText().toString() : "";
-                        confirmPassword = null != confirmPasswordTxt.getText() ? confirmPasswordTxt.getText().toString() : "";
-
-                        if(fullname.trim().length() == 0
-                                || studentNo.trim().length() == 0
-                                    || phoneNum.trim().length() == 0
-                                        || address.trim().length() == 0
-                                            || college.trim().length()== 0
-                                                ||  username.trim().length() == 0){
-                            toastMessage("All fields are required!");
-                        }else{
-                            if(password.length() >= 5){
-                                if(password.equals(confirmPassword)){
-                                    CreateStudentActivity.ProcessAddStudent register = new CreateStudentActivity.ProcessAddStudent();
-                                    register.execute();
-                                }else{
-                                    toastMessage("Password and Confirm Password not the same!");
-                                }
-                            }else{
-                                toastMessage("Password should be 5 characters and above!");
-                            }
-                        }
-
-                    }
-                }
-        );*/
 
         saveBtn.setOnTouchListener(
                 new View.OnTouchListener() {
@@ -164,7 +147,9 @@ public class CreateStudentActivity extends AppCompatActivity {
                                 studentNo = null != studentNoTxt.getText() ? studentNoTxt.getText().toString() : "";
                                 phoneNum =  null != phoneNumTxt.getText() ? phoneNumTxt.getText().toString() : "";
                                 address = null != addressTxt.getText() ? addressTxt.getText().toString() : "";
-                                college = null != collegeTxt.getText() ? collegeTxt.getText().toString() : "";
+                                email = null != emailTxt.getText() ? emailTxt.getText().toString() : "";
+
+                                college = null != collegeSpnr.getSelectedItem() ? collegeSpnr.getSelectedItem().toString() : "";
                                 username = null != usernameTxt.getText() ? usernameTxt.getText().toString() : "";
                                 password = null != passwordTxt.getText() ? passwordTxt.getText().toString() : "";
                                 confirmPassword = null != confirmPasswordTxt.getText() ? confirmPasswordTxt.getText().toString() : "";
@@ -174,7 +159,8 @@ public class CreateStudentActivity extends AppCompatActivity {
                                         || phoneNum.trim().length() == 0
                                         || address.trim().length() == 0
                                         || college.trim().length()== 0
-                                        ||  username.trim().length() == 0){
+                                        ||  username.trim().length() == 0
+                                        || email.trim().length() == 0){
                                     toastMessage("All fields are required!");
                                 }else{
                                     if(password.length() >= 5){
@@ -242,18 +228,13 @@ public class CreateStudentActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("address",sign_up_address));
             params.add(new BasicNameValuePair("phonenumber",sign_up_phone));
             params.add(new BasicNameValuePair("accounttype","1"));
-
-
-
+            params.add(new BasicNameValuePair("email",email));
 
 
             // getting JSON Object
             // Note that create product url accepts POST method
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"processRegister.php",
                     "POST", params);
-
-
-
 
             // check for success tag
             if(null != json) {

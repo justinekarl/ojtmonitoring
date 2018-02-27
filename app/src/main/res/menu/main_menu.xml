@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/updateinformation"
+        android:title="Update Information" />
+
     <item android:id="@+id/addupdatereq"
           android:title="Add/Update Requirements" />
 
-    <item android:id="@+id/aboutus"
-        android:title="About Us" />
 
+    <item android:id="@+id/showojtlist"
+        android:title="Show OJT list" />
+
+    <item android:id="@+id/showloginlogout"
+        android:title="Show student login/logout" />
+
+    <item android:id="@+id/createreport"
+        android:title="Create Report" />
+
+
+    <item android:id="@+id/ratestudent"
+        android:title="Rate Student" />
 
 </menu>

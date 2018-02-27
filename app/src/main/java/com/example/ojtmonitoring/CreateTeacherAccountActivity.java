@@ -9,8 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jomer.filetracker.R;
@@ -34,6 +38,8 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
     private EditText userNameTxt;
     private EditText passwordTxt;
     private EditText confirmPasswordTxt;
+    private Spinner collegeSpnr;
+    ArrayAdapter<String> collegeListAdapter = null;
 
     private String fullName;
     private String teacherNo;
@@ -42,6 +48,7 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
     private String userName;
     private String password;
     private String confirmPassword;
+    public static String college;
 
     public static boolean registrationSuccessful;
     public static String registrationMessage;
@@ -58,22 +65,34 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
         saveBtn = (Button)findViewById(R.id.saveTeacherBtn);
         fullNameTxt = (EditText)findViewById(R.id.fullNameTxt);
         teacherNoTxt = (EditText)findViewById(R.id.teacherNoTxt);
-        phoneNumTxt = (EditText)findViewById(R.id.phoneNumTxt);
+        phoneNumTxt = (EditText)findViewById(R.id.custPhoneNumberTxt);
         departmentTxt = (EditText)findViewById(R.id.departmentTxt);
         userNameTxt = (EditText)findViewById(R.id.userNameTxt);
         passwordTxt = (EditText)findViewById(R.id.PasswordTxt);
         confirmPasswordTxt = (EditText)findViewById(R.id.confirmPasswordTxt);
+        collegeSpnr = (Spinner)findViewById(R.id.collegeSpnr);
 
-        /*cancelBtn.setOnClickListener(
+        collegeListAdapter = new ArrayAdapter<String>(CreateTeacherAccountActivity.this,
+                android.R.layout.simple_list_item_1,
+                getResources().getStringArray(R.array.collegelist));
 
-                new View.OnClickListener() {
+        collegeListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        collegeSpnr.setAdapter(collegeListAdapter);
+
+        collegeSpnr.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
                     @Override
-                    public void onClick(View v) {
-                        Intent backToSelectUserTypeIntent = new Intent(CreateTeacherAccountActivity.this,AccountCreationSelectionActivity.class) ;
-                        startActivity(backToSelectUserTypeIntent);
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        int index = parent.getSelectedItemPosition();
+                        ((TextView) collegeSpnr.getSelectedView()).setTextColor(getResources().getColor(R.color.white));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
                     }
                 }
-        );*/
+        );
 
         cancelBtn.setOnTouchListener(
                 new View.OnTouchListener() {
@@ -102,43 +121,6 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
                 }
         );
 
-        /*saveBtn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        fullName = (null != fullNameTxt.getText() ? fullNameTxt.getText().toString() : "");
-                        teacherNo = (null != teacherNoTxt.getText() ? teacherNoTxt.getText().toString() : "");
-                        phoneNum = (null != phoneNumTxt.getText() ? phoneNumTxt.getText().toString() : "");
-                        department = (null != departmentTxt.getText() ? departmentTxt.getText().toString() : "");
-                        userName = (null != userNameTxt.getText() ? userNameTxt.getText().toString() : "");
-                        password = (null != passwordTxt.getText() ? passwordTxt.getText().toString() : "");
-                        confirmPassword = (null != confirmPasswordTxt.getText() ? confirmPasswordTxt.getText().toString() : "");
-
-                        if(fullName.trim().length() == 0
-                                || teacherNo.trim().length() == 0
-                                    || phoneNum.trim().length() == 0
-                                        || department.trim().length() == 0
-                                            || userName.trim().length() == 0
-                                                || password.trim().length() == 0
-                                                    || confirmPassword.trim().length() == 0){
-                                toastMessage("All fields are required!");
-                        }else{
-                            if(password.length() >= 5){
-                                if(password.equals(confirmPassword)){
-                                    CreateTeacherAccountActivity.ProcessAddTeacher register = new CreateTeacherAccountActivity.ProcessAddTeacher();
-                                    register.execute();
-                                }else{
-                                    toastMessage("Password and Confirm Password not the same!");
-                                }
-                            }else{
-                                toastMessage("Password should be 5 characters and above!");
-                            }
-                        }
-
-                    }
-                }
-        );*/
-
         saveBtn.setOnTouchListener(
                 new View.OnTouchListener() {
 
@@ -159,12 +141,14 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
                                 userName = (null != userNameTxt.getText() ? userNameTxt.getText().toString() : "");
                                 password = (null != passwordTxt.getText() ? passwordTxt.getText().toString() : "");
                                 confirmPassword = (null != confirmPasswordTxt.getText() ? confirmPasswordTxt.getText().toString() : "");
+                                college = null != collegeSpnr.getSelectedItem() ? collegeSpnr.getSelectedItem().toString() : "";
 
                                 if(fullName.trim().length() == 0
                                         || teacherNo.trim().length() == 0
                                         || phoneNum.trim().length() == 0
                                         || department.trim().length() == 0
                                         || userName.trim().length() == 0
+                                        || college.trim().length()== 0
                                         || password.trim().length() == 0
                                         || confirmPassword.trim().length() == 0){
                                     toastMessage("All fields are required!");
@@ -223,6 +207,7 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
             String sign_up_full_name = fullName;
             String sign_up_department = department;
             String sign_up_phone = phoneNum;
+            String sign_up_college = college;
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -234,9 +219,7 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("department",sign_up_department));
             params.add(new BasicNameValuePair("phonenumber",sign_up_phone));
             params.add(new BasicNameValuePair("accounttype","2"));
-
-
-
+            params.add(new BasicNameValuePair("college",sign_up_college));
 
 
             // getting JSON Object

@@ -6,11 +6,17 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.jomer.filetracker.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class StudentLoginActivity extends AppCompatActivity {
 
@@ -32,19 +38,12 @@ public class StudentLoginActivity extends AppCompatActivity {
         accountType = sharedPreferences.getInt("accounttype",0);
 
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
-        String accountTypeStr = "";
-        if(accountType == 1){
-            accountTypeStr = "Student";
-        }
 
-        if(accountType == 2){
-            accountTypeStr = "Teacher";
-        }
 
-        if(accountType == 3){
-            accountTypeStr = "Company";
-        }
-        welcomeLbl.setText("Welcome " +name +" - " +accountTypeStr);
+        SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
+
+
+        welcomeLbl.setText("Logged In User : " +name +" - " +sd.format(new Date().getTime()));
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
 
@@ -89,4 +88,30 @@ public class StudentLoginActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case 0:
+                Intent showCompanies = new Intent(StudentLoginActivity.this,ShowCompaniesActivity.class);
+                startActivity(showCompanies);
+                return true;
+            case 1:
+                Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);
+                startActivity(addResume);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.clear();
+        menu.add(0,0,Menu.NONE,"Show Companies");
+        menu.add(1,1,Menu.NONE,"Add/Update My Resume");
+        menu.add(2,2,Menu.NONE,"Show Time Accumulated");
+
+
+        return super.onPrepareOptionsMenu(menu);
+    }
 }
