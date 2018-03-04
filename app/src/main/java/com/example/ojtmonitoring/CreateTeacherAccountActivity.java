@@ -222,6 +222,7 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("college",sign_up_college));
 
 
+
             // getting JSON Object
             // Note that create product url accepts POST method
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"processRegister.php",

@@ -101,7 +101,9 @@
         <activity android:name="com.example.ojtmonitoring.CreateUpdateResumeActivity" />
         <activity android:name="com.example.ojtmonitoring.TeacherLoginActivity" />
         <activity android:name="com.example.ojtmonitoring.ShowOJTApplicationsActivity" />
-        <activity android:name="com.example.ojtmonitoring.ShowOJTListActivity"></activity>
+        <activity android:name="com.example.ojtmonitoring.ShowOJTListActivity" />
+        <activity android:name="com.example.ojtmonitoring.ShowStudentLoginLogoutActivity"></activity>
+        <activity android:name="com.example.ojtmonitoring.AttendanceCheckerMainActivity"/>
     </application>
 
 </manifest>

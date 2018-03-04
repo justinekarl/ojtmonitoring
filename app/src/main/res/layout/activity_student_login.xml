@@ -12,21 +12,11 @@
         android:layout_height="match_parent"
         tools:context="com.example.ojtmonitoring.StudentLoginActivity">
 
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="174dp"
-            android:layout_height="73dp"
-            android:layout_x="11dp"
-            android:layout_y="416dp"
-            android:background="@mipmap/signout"
-            tools:layout_editor_absoluteX="90dp"
-            tools:layout_editor_absoluteY="171dp" />
-
         <TextView
             android:id="@+id/welcomeLbl"
-            android:layout_width="239dp"
+            android:layout_width="279dp"
             android:layout_height="38dp"
-            android:layout_x="136dp"
+            android:layout_x="95dp"
             android:layout_y="17dp"
             android:textAlignment="textEnd"
             android:textColor="#21da00"
@@ -38,12 +28,22 @@
         <TextView
             android:id="@+id/textView24"
             android:layout_width="266dp"
-            android:layout_height="43dp"
-            android:layout_x="60dp"
-            android:layout_y="116dp"
+            android:layout_height="42dp"
+            android:layout_x="73dp"
+            android:layout_y="87dp"
             android:text="Student"
             android:textAlignment="center"
             android:textColor="#21da00"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="138dp"
+            android:layout_height="43dp"
+            android:layout_x="6dp"
+            android:layout_y="468dp"
+            android:background="@mipmap/signout"
+            tools:layout_editor_absoluteX="90dp"
+            tools:layout_editor_absoluteY="171dp" />
     </AbsoluteLayout>
 </ScrollView>

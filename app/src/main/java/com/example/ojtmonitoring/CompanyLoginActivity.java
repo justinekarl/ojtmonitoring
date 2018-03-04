@@ -18,12 +18,18 @@ import android.widget.TextView;
 
 import com.example.jomer.filetracker.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CompanyLoginActivity extends AppCompatActivity {
 
     private Button logoutBtn;
     private static  String companyName ;
     private TextView companyNameTxt;
     private TextView descriptionTxt;
+    private TextView welcomeLbl;
+    private String name;
+    private static int agentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +39,17 @@ public class CompanyLoginActivity extends AppCompatActivity {
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         companyNameTxt = (TextView)findViewById(R.id.custCompanyNameTxt);
         descriptionTxt = (TextView)findViewById(R.id.custDescriptionTxt);
+        welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
+
 
         SharedPreferences sharedpreferences = getSharedPreferences(
                 PaceSettingManager.USER_PREFERENCES, Context.MODE_PRIVATE);
+        name=sharedpreferences.getString("full_name","");
+        agentId = sharedpreferences.getInt("agent_id",0);
 
+        SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
 
+        welcomeLbl.setText("Logged In User : " +name +" - Company id: "+agentId +" \n " +sd.format(new Date().getTime()));
         companyNameTxt.setText(sharedpreferences.getString("full_name",""));
         descriptionTxt.setText(sharedpreferences.getString("company_description",""));
 
@@ -107,6 +119,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+
             case R.id.updateinformation:
                 Intent updateInfoIntent = new Intent(CompanyLoginActivity.this,CompanyUpdateInformation.class);
                 startActivity(updateInfoIntent);
@@ -118,6 +131,14 @@ public class CompanyLoginActivity extends AppCompatActivity {
             case R.id.showojtlist:
                 Intent ojtList = new Intent(CompanyLoginActivity.this,ShowOJTListActivity.class);
                 startActivity(ojtList);
+                return true;
+            case R.id.scanstudentqrcodest:
+                Intent scanQr = new Intent(CompanyLoginActivity.this,AttendanceCheckerMainActivity.class);
+                startActivity(scanQr);
+                return true;
+            case R.id.showloginlogout:
+                Intent showStudentLoginLogoutPage= new Intent(CompanyLoginActivity.this,ShowStudentLoginLogoutActivity.class);
+                startActivity(showStudentLoginLogoutPage);
                 return true;
             default:
                 Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);

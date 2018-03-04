@@ -43,7 +43,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
 
 
-        welcomeLbl.setText("Logged In User : " +name +" - " +sd.format(new Date().getTime()));
+        welcomeLbl.setText("Logged In User : " +name +" - Student id: "+agentId +" \n " +sd.format(new Date().getTime()));
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
 
@@ -91,14 +91,17 @@ public class StudentLoginActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case 0:
+            case 1:
                 Intent showCompanies = new Intent(StudentLoginActivity.this,ShowCompaniesActivity.class);
                 startActivity(showCompanies);
                 return true;
-            case 1:
+            case 0:
                 Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);
                 startActivity(addResume);
                 return true;
+            default:
+                Intent backToHome = new Intent(StudentLoginActivity.this,StudentLoginActivity.class);
+                startActivity(backToHome);
         }
 
         return super.onOptionsItemSelected(item);
@@ -107,8 +110,9 @@ public class StudentLoginActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.clear();
-        menu.add(0,0,Menu.NONE,"Show Companies");
-        menu.add(1,1,Menu.NONE,"Add/Update My Resume");
+
+        menu.add(0,0,Menu.NONE,"Add/Update My Resume");
+        menu.add(1,1,Menu.NONE,"Show Companies");
         menu.add(2,2,Menu.NONE,"Show Time Accumulated");
 
 

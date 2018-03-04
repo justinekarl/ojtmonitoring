@@ -48,6 +48,7 @@ public class ShowCompaniesActivity extends AppCompatActivity {
     public static ArrayList<CompanyInfo> companyInfos ;
 
     private int selectCompanyCount;
+    private static boolean hasResume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +151,9 @@ public class ShowCompaniesActivity extends AppCompatActivity {
                              selectCompanyCount = json.getInt("selected_company_count");
                          }
 
+                         if(json.has("has_resume")){
+                             hasResume = json.getInt("has_resume") > 0 ? true : false;
+                         }
 
                          JSONArray items = json.getJSONArray("data_needed");
 
@@ -232,6 +236,10 @@ public class ShowCompaniesActivity extends AppCompatActivity {
             selectedCompanyCountTxt.setText(" Number of selected companies: " +selectCompanyCount+"");
             if(null != companyInfos && companyInfos.size() == 0){
                 sendResumeBtn.setClickable(false);
+            }
+
+            if(!hasResume){
+                sendResumeBtn.setVisibility(View.INVISIBLE);
             }
 
         }

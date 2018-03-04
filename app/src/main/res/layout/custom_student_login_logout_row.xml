@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <TextView
+        android:id="@+id/studentNameTxt"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15sp"
+        android:layout_x="5dp"
+        android:layout_y="15dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/companyNameTxt"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="6sp"
+        android:layout_x="109dp"
+        android:layout_y="16dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/loginTxt"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="6sp"
+        android:layout_x="214dp"
+        android:layout_y="17dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/logoutTxt"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="6sp"
+        android:layout_x="300dp"
+        android:layout_y="18dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+</AbsoluteLayout>

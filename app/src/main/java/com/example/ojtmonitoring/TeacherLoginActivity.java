@@ -91,6 +91,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.clear();
         menu.add(0,0,Menu.NONE,"Show Ojt Requests");
+        menu.add(1,1,Menu.NONE,"Show Student Login/Logout");
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -104,8 +105,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 startActivity(showOjtRequest);
                 return true;
             case 1:
-                Intent addResume = new Intent(TeacherLoginActivity.this,CreateUpdateResumeActivity.class);
-                startActivity(addResume);
+                Intent showStudentLoginLogoutPage= new Intent(TeacherLoginActivity.this,ShowStudentLoginLogoutActivity.class);
+                startActivity(showStudentLoginLogoutPage);
                 return true;
 
         }

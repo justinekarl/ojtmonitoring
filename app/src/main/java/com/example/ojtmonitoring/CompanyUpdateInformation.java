@@ -57,6 +57,7 @@ public class CompanyUpdateInformation extends AppCompatActivity {
     private static String newPhoneNumber ;
     private static String newDescription ;
     private static boolean isMoaCertified ;
+    private static String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -273,6 +274,8 @@ public class CompanyUpdateInformation extends AppCompatActivity {
                     moaNoRad.setChecked(true);
                     moaYesRad.setChecked(false);
                 }
+
+
             }
         }
     }
@@ -346,7 +349,7 @@ public class CompanyUpdateInformation extends AppCompatActivity {
 
                         editor.commit();
 
-
+                        message = "Successfully Updated.";
                     }else {
                         if(null != json.getString("message")){
                             //   loginMessage=json.getString("message");
@@ -383,6 +386,8 @@ public class CompanyUpdateInformation extends AppCompatActivity {
                     moaNoRad.setChecked(true);
                     moaYesRad.setChecked(false);
                 }
+
+                toastMessage(message);
             }
         }
     }

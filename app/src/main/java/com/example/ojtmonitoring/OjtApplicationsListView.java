@@ -16,13 +16,13 @@ import java.util.List;
 public class OjtApplicationsListView extends BaseAdapter {
     public List<StudentCompanyOJTInfo> studentCompanyOJTInfos;
     Context context;
-    private TextView companyNameOjtTxt;
-    private CheckBox ojtApprovedChk;
-    private TextView studentNameTxt;
-    private TextView studentPhoneTxt;
-    private TextView studentEmailTxt;
-    private TextView studentCollegeTxt;
-    private StudentCompanyOJTInfo studentCompanyOJTInfo;
+    TextView companyNameOjtTxt;
+    CheckBox ojtApprovedChk;
+    TextView studentNameTxt;
+    TextView studentPhoneTxt;
+    TextView studentEmailTxt;
+    TextView studentCollegeTxt;
+    StudentCompanyOJTInfo studentCompanyOJTInfo;
 
 
     public OjtApplicationsListView(List<StudentCompanyOJTInfo> studentCompanyOJTInfoList, Context context){
@@ -68,8 +68,11 @@ public class OjtApplicationsListView extends BaseAdapter {
                 studentPhoneTxt.setText((null != studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getPhoneNumber() ?  studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getPhoneNumber() : ""));
                 studentEmailTxt.setText((null != studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getEmail() ? studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getEmail() : "" ));
                 studentCollegeTxt.setText((null != studentCompanyOJTInfo.getResumeInfo().getCollege()) ? studentCompanyOJTInfo.getResumeInfo().getCollege() : "");
+                if(studentCompanyOJTInfo.getSelected() == 1){
+                    ojtApprovedChk.setChecked(true);
+                }
             }
-            ojtApprovedChk.setChecked(studentCompanyOJTInfo.getSelected() == 0 ? false : true);
+
             if(position%2==0){
                 view.setBackgroundResource(R.color.divider);
             }else{
@@ -84,13 +87,17 @@ public class OjtApplicationsListView extends BaseAdapter {
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
                         if(null != studentCompanyOJTInfo){
                             studentCompanyOJTInfo.setSelected(isChecked ? 1 : 0);
+
                         }
                     }
                 }
         );
 
+      //  ojtApprovedChk.setChecked(studentCompanyOJTInfo.getSelected() == 0 ? false : true);
 
         return view;
     }

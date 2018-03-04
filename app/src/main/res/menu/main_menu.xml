@@ -11,6 +11,9 @@
     <item android:id="@+id/showojtlist"
         android:title="Show OJT list" />
 
+    <item android:id="@+id/scanstudentqrcodest"
+        android:title="Scan Student QR Codes" />
+
     <item android:id="@+id/showloginlogout"
         android:title="Show student login/logout" />
 

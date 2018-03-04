@@ -42,6 +42,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
     ResumeInfo resumeInfo;
    // StudentPersonalInformationInforesumeInfo.getStudentPersonalInformationInfo().
     private static int agentId;
+    private String message;
 
 
     @Override
@@ -706,25 +707,18 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
             if(null != json) {
                 // check log cat fro response
                 Log.d("Create Response", json.toString());
-                /*try {
-                    int success = json.getInt("success");
 
+
+                try {
+                    int success = json.getInt("success");
                     if (success == 1) {
-                        if (null != json.getString("message")) {
-                            registrationSuccessful = true;
-                            registrationMessage = json.getString("message");
-                            Log.d("Account Type", (null != json.getString("accounttype") ? json.getString("accounttype") : ""));
-                        }
-                    } else {
-                        if (null != json.getString("message")) {
-                            registrationSuccessful = false;
-                            registrationMessage = json.getString("message");
-                        }
+
+                        message = "Saved Successfully!";
                     }
-                } catch (JSONException e) {
+                }catch (Exception e){
                     e.printStackTrace();
                 }
-*/
+
             }
             return null;
         }
@@ -738,6 +732,8 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
             CreateUpdateResumeActivity.RetrieveResume retrieveResume = new CreateUpdateResumeActivity.RetrieveResume();
             retrieveResume.execute();
+
+            toastMessage(message);
 
            /* // dismiss the dialog once done*/
 /*

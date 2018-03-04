@@ -12,22 +12,13 @@
         tools:context="com.example.ojtmonitoring.TeacherLoginActivity">
 
         <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="146dp"
-            android:layout_y="69dp"
-            android:text="Teacher"
-            android:textColor="#21da00"
-            android:textSize="24sp" />
-
-        <TextView
             android:id="@+id/welcomeTeacherLbl"
             android:layout_width="315dp"
-            android:layout_height="wrap_content"
+            android:layout_height="29dp"
             android:layout_x="66dp"
             android:layout_y="10dp"
-            android:textAlignment="center" />
+            android:textAlignment="textEnd"
+            android:textColor="#21da00" />
 
         <Button
             android:id="@+id/logoutBtn"
@@ -36,5 +27,15 @@
             android:layout_x="17dp"
             android:layout_y="448dp"
             android:background="@mipmap/signout" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="157dp"
+            android:layout_y="80dp"
+            android:text="Teacher"
+            android:textColor="#21da00"
+            android:textSize="24sp" />
     </AbsoluteLayout>
 </ScrollView>

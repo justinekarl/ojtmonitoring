@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background">
+
+    <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.ojtmonitoring.ShowStudentLoginLogoutActivity">
+
+        <EditText
+            android:id="@+id/studentNameFilterTxt"
+            android:layout_width="258dp"
+            android:layout_height="wrap_content"
+            android:layout_x="70dp"
+            android:layout_y="17dp"
+            android:ems="10"
+            android:hint="Student Name"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/divider" />
+
+        <ListView
+            android:id="@+id/resultLsView"
+            android:layout_width="wrap_content"
+            android:layout_height="174dp"
+            android:layout_x="12dp"
+            android:layout_y="312dp"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:scrollbars="horizontal|vertical" />
+
+        <EditText
+            android:id="@+id/companyNameFilterTxt"
+            android:layout_width="261dp"
+            android:layout_height="wrap_content"
+            android:layout_x="69dp"
+            android:layout_y="72dp"
+            android:ems="10"
+            android:hint="Company Name"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="@color/divider"
+            android:textColorHint="@color/divider" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_x="13dp"
+            android:layout_y="282dp"
+            android:text="Student Name"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_x="118dp"
+            android:layout_y="282dp"
+            android:text="Company Name"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_x="242dp"
+            android:layout_y="282dp"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="325dp"
+            android:layout_y="282dp"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_x="83dp"
+            android:layout_y="232dp"
+            android:text="Search" />
+
+        <EditText
+            android:id="@+id/thruTxt"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_x="213dp"
+            android:layout_y="135dp"
+            android:ems="10"
+            android:hint="Thru Date"
+            android:inputType="date"
+            android:textColor="@color/white"
+            android:textColorHint="@color/divider" />
+
+        <EditText
+            android:id="@+id/fromTxt"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:layout_x="67dp"
+            android:layout_y="135dp"
+            android:ems="10"
+            android:hint="From Date"
+            android:inputType="date"
+            android:textColor="@color/white"
+            android:textColorHint="@color/divider" />
+
+        <Button
+            android:id="@+id/resetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_x="221dp"
+            android:layout_y="231dp"
+            android:text="Reset" />
+
+    </AbsoluteLayout>
+</ScrollView>
