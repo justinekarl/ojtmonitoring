@@ -45,5 +45,16 @@
             android:background="@mipmap/signout"
             tools:layout_editor_absoluteX="90dp"
             tools:layout_editor_absoluteY="171dp" />
+
+        <TextView
+            android:id="@+id/messageNotifTxt"
+            android:layout_width="310dp"
+            android:layout_height="65dp"
+            android:layout_x="55dp"
+            android:layout_y="159dp"
+            android:textAlignment="center"
+            android:textColor="#fff200"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </AbsoluteLayout>
 </ScrollView>

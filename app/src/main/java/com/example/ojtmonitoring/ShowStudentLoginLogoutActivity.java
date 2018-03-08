@@ -60,6 +60,8 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
     private ArrayList<String> companyNameList = new ArrayList<>();
 
     private EditText companyNameFilterTxt;
+    private int accounttype;
+    private String college;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,12 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         teacherId = sharedPreferences.getInt("agent_id",0);
+        accounttype = sharedPreferences.getInt("accounttype",0);
+        college = sharedPreferences.getString("college","");
+        if(accounttype == 3){
+            companyNameFilterTxt.setVisibility(View.INVISIBLE);
+            studentNameFilterTxt.setY(150);
+        }
 
         RetrieveCompanyName retrieveCompanyName = new RetrieveCompanyName();
         retrieveCompanyName.execute();
@@ -170,6 +178,13 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("agentId",teacherId+""));
             params.add(new BasicNameValuePair("studentName",studentNameFilter));
             params.add(new BasicNameValuePair("companyName",companyNameFilter));
+
+            if(accounttype == 3){
+                params.add(new BasicNameValuePair("isCompany","true"));
+            }else{
+                params.add(new BasicNameValuePair("college",college));
+            }
+
             try {
                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
                 if (null != from) {
@@ -256,7 +271,6 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                             if(null != studentLoginLogoutLogsInfos && studentLoginLogoutLogsInfos.size() > 0) {
                                 studentLoginLogoutLogsInfos.clear();
                             }
-
                         }
                     }
 
@@ -278,7 +292,7 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
 
-            if(null != studentLoginLogoutLogsInfos && studentLoginLogoutLogsInfos.size() == 0) {
+            if(null == studentLoginLogoutLogsInfos || (null != studentLoginLogoutLogsInfos && studentLoginLogoutLogsInfos.size() == 0)) {
                 Toast.makeText(ShowStudentLoginLogoutActivity.this,"No Results Found",Toast.LENGTH_SHORT).show();
             }
 

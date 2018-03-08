@@ -56,6 +56,28 @@ public class CustomCompanyListView extends BaseAdapter{
         return position;
     }
 
+
+    public ArrayList<CompanyInfo> getCompanyInfosList(){
+        ArrayList<CompanyInfo> infos = new ArrayList<CompanyInfo>();
+        if(null != companyInfos) {
+            for (CompanyInfo companyInfo : companyInfos) {
+                if(companyInfo.getSelected() == 1) {
+                    infos.add(companyInfo);
+                }
+            }
+        }
+        return infos;
+    }
+
+    CompoundButton.OnCheckedChangeListener  onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(null != companyInfos){
+                companyInfos.get((Integer)buttonView.getTag()).setSelected(isChecked ? 1 : 0);
+            }
+        }
+    };
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = View.inflate(context,R.layout.custom_company_row,null);
@@ -77,6 +99,8 @@ public class CustomCompanyListView extends BaseAdapter{
             custEmailTxt.setText(companyInfo.getEmailAddress());
             custDescriptionTxt.setText(companyInfo.getDescription());
             selCompanyChk.setChecked(companyInfo.getSelected() == 0 ? false : true);
+            selCompanyChk.setTag(position);
+            selCompanyChk.setOnCheckedChangeListener(onCheckedChangeListener);
             if(position%2==0){
                 view.setBackgroundResource(R.color.divider);
             }else{
@@ -87,7 +111,7 @@ public class CustomCompanyListView extends BaseAdapter{
         }
 
 
-        selCompanyChk.setOnCheckedChangeListener(
+       /* selCompanyChk.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -96,7 +120,7 @@ public class CustomCompanyListView extends BaseAdapter{
                         }
                     }
                 }
-        );
+        );*/
 
 
         return view;

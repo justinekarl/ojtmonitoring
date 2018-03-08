@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.StudentCompanyOJTInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OjtApplicationsListView extends BaseAdapter {
@@ -49,6 +50,28 @@ public class OjtApplicationsListView extends BaseAdapter {
         return position;
     }
 
+    CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(null != studentCompanyOJTInfos) {
+                studentCompanyOJTInfos.get((Integer) buttonView.getTag()).setSelected(isChecked ? 1 : 0);
+            }
+        }
+    };
+
+
+    public ArrayList<StudentCompanyOJTInfo> getStudentCompanyOJTInfoList(){
+        ArrayList<StudentCompanyOJTInfo> ojtInfos = new ArrayList<StudentCompanyOJTInfo>();
+        if(null != studentCompanyOJTInfos) {
+            for (StudentCompanyOJTInfo ojtInfo : studentCompanyOJTInfos) {
+                if (ojtInfo.getSelected() == 1) {
+                    ojtInfos.add(ojtInfo);
+                }
+            }
+        }
+        return ojtInfos;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = View.inflate(context, R.layout.custom_ojt_applicant_row, null);
@@ -68,9 +91,11 @@ public class OjtApplicationsListView extends BaseAdapter {
                 studentPhoneTxt.setText((null != studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getPhoneNumber() ?  studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getPhoneNumber() : ""));
                 studentEmailTxt.setText((null != studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getEmail() ? studentCompanyOJTInfo.getResumeInfo().getStudentPersonalInformationInfo().getEmail() : "" ));
                 studentCollegeTxt.setText((null != studentCompanyOJTInfo.getResumeInfo().getCollege()) ? studentCompanyOJTInfo.getResumeInfo().getCollege() : "");
-                if(studentCompanyOJTInfo.getSelected() == 1){
-                    ojtApprovedChk.setChecked(true);
-                }
+
+                ojtApprovedChk.setChecked(studentCompanyOJTInfo.getSelected() == 1 ? true : false);
+                ojtApprovedChk.setTag(position);
+                ojtApprovedChk.setOnCheckedChangeListener(onCheckedChangeListener);
+
             }
 
             if(position%2==0){
@@ -83,7 +108,7 @@ public class OjtApplicationsListView extends BaseAdapter {
         }
 
 
-        ojtApprovedChk.setOnCheckedChangeListener(
+      /*  ojtApprovedChk.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -96,6 +121,11 @@ public class OjtApplicationsListView extends BaseAdapter {
                     }
                 }
         );
+*/
+
+
+
+
 
       //  ojtApprovedChk.setChecked(studentCompanyOJTInfo.getSelected() == 0 ? false : true);
 

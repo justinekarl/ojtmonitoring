@@ -11,6 +11,9 @@ public class ResumeInfo {
     private boolean companyAccepted;
     private String college;
 
+    //used in student company ojt info
+    private int selected;
+
     public int getId() {
         return id;
     }
@@ -81,5 +84,13 @@ public class ResumeInfo {
 
     public void setCollege(String college) {
         this.college = college;
+    }
+
+    public int getSelected() {
+        return selected;
+    }
+
+    public void setSelected(int selected) {
+        this.selected = selected;
     }
 }

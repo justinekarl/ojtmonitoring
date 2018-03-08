@@ -49,6 +49,7 @@ public class ShowCompaniesActivity extends AppCompatActivity {
 
     private int selectCompanyCount;
     private static boolean hasResume;
+    CustomCompanyListView companyListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,21 +84,19 @@ public class ShowCompaniesActivity extends AppCompatActivity {
 
 
                         selectedCompanyIds.clear();
-                        if(null != companyList && null != ((CustomCompanyListView)companyList.getAdapter()).companyInfos) {
-                            if (((CustomCompanyListView)companyList.getAdapter()).companyInfos.size() > 0) {
-                                for (final CompanyInfo companyInfo : ((CustomCompanyListView)companyList.getAdapter()).companyInfos) {
-                                    if (companyInfo.getSelected() == 1) {
-                                        selectedCompanyIds.add(companyInfo.getId());
-                                    }
+                        if(null != companyListAdapter.getCompanyInfosList()){
+                            for(CompanyInfo companyInfo : companyListAdapter.getCompanyInfosList()){
+                                if(companyInfo.getSelected() == 1){
+                                    selectedCompanyIds.add(companyInfo.getId());
                                 }
                             }
+                        }
 
-                            if (null != selectedCompanyIds && selectedCompanyIds.size() > 0) {
-                                ProcessCompanies processCompanies = new ProcessCompanies();
-                                processCompanies.execute();
-                            } else {
-                                Toast.makeText(ShowCompaniesActivity.this, "No Company Selected", Toast.LENGTH_SHORT).show();
-                            }
+                        if (null != selectedCompanyIds && selectedCompanyIds.size() > 0) {
+                            ProcessCompanies processCompanies = new ProcessCompanies();
+                            processCompanies.execute();
+                        } else {
+                            Toast.makeText(ShowCompaniesActivity.this, "No Company Selected", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -231,7 +230,7 @@ public class ShowCompaniesActivity extends AppCompatActivity {
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
-            CustomCompanyListView companyListAdapter = new CustomCompanyListView(companyInfos,ShowCompaniesActivity.this);
+            companyListAdapter = new CustomCompanyListView(companyInfos,ShowCompaniesActivity.this);
             companyList.setAdapter(companyListAdapter);
             selectedCompanyCountTxt.setText(" Number of selected companies: " +selectCompanyCount+"");
             if(null != companyInfos && companyInfos.size() == 0){

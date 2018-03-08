@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.CompanyInfo;
@@ -38,12 +39,15 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
     private static int teacherId;
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
+    private String college;
 
     public List<StudentCompanyOJTInfo> studentCompanyOJTInfos;
 
     HashMap<Integer,List<Integer>> selectedIdsToProcess = new HashMap<>();
 
     private Button processOjtReqBtn;
+
+    OjtApplicationsListView ojtApplicationsListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         teacherId = sharedPreferences.getInt("agent_id",0);
+        college = sharedPreferences.getString("college","");
 
 
         ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
@@ -66,30 +71,29 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         selectedIdsToProcess.clear();
-                        if(null != ojtApplicantsLst && null != ((OjtApplicationsListView)ojtApplicantsLst.getAdapter()).studentCompanyOJTInfos){
-                            if(((OjtApplicationsListView)ojtApplicantsLst.getAdapter()).studentCompanyOJTInfos.size() > 0){
-                                for (StudentCompanyOJTInfo studentCompanyOJTInfo : ((OjtApplicationsListView)ojtApplicantsLst.getAdapter()).studentCompanyOJTInfos){
-                                    if(studentCompanyOJTInfo.getSelected() == 1){
+                        if(null != ojtApplicationsListAdapter.getStudentCompanyOJTInfoList()){
+                            for(StudentCompanyOJTInfo studentCompanyOJTInfo : ojtApplicationsListAdapter.getStudentCompanyOJTInfoList()){
+                                if(studentCompanyOJTInfo.getSelected() == 1){
 
-                                        List<Integer> resumeIds = new ArrayList<Integer>();
-                                        resumeIds.add(studentCompanyOJTInfo.getResumeInfo().getId());
+                                    List<Integer> resumeIds = new ArrayList<Integer>();
+                                    resumeIds.add(studentCompanyOJTInfo.getResumeInfo().getId());
 
-                                        if(!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getCompanyInfo().getId())) {
-                                            selectedIdsToProcess.put(studentCompanyOJTInfo.getCompanyInfo().getId(),resumeIds);
-                                        }else{
-                                            selectedIdsToProcess.get(studentCompanyOJTInfo.getCompanyInfo().getId()).add(studentCompanyOJTInfo.getResumeInfo().getId());
-                                        }
-
+                                    if(!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getCompanyInfo().getId())) {
+                                        selectedIdsToProcess.put(studentCompanyOJTInfo.getCompanyInfo().getId(),resumeIds);
+                                    }else{
+                                        selectedIdsToProcess.get(studentCompanyOJTInfo.getCompanyInfo().getId()).add(studentCompanyOJTInfo.getResumeInfo().getId());
                                     }
+
                                 }
                             }
-
                         }
 
 
                         if(null != selectedIdsToProcess && selectedIdsToProcess.size() > 0){
                             ProcessCOjtApplications processCOjtApplications = new ProcessCOjtApplications();
                             processCOjtApplications.execute();
+                        }else{
+                            Toast.makeText(ShowOJTApplicationsActivity.this, "No item/s Selected", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -121,6 +125,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("agentid",teacherId+""));
+            params.add(new BasicNameValuePair("college",college));
 
             final StringBuffer sb = new StringBuffer("");
             if(null != selectedIdsToProcess && selectedIdsToProcess.size() > 0){
@@ -169,7 +174,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                         studentCompanyOJTInfo.getResumeInfo().setStudentPersonalInformationInfo(new StudentPersonalInformationInfo());
                                     }
 
-
+                                    boolean approved = false;
                                     for(int i = 0 ; i <= ojtDetailsJsonArr.getJSONArray(ctr).length()-1 ; i++) {
 
                                         String[] row = null;
@@ -211,8 +216,14 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                             }
 
                                             if(key.equals("approved")){
-                                                studentCompanyOJTInfo.getResumeInfo().setApproved(Boolean.valueOf(value));
-                                                studentCompanyOJTInfo.setSelected(value.equals("1") ? 1 : 0);
+                                                approved = true;
+                                            }
+
+                                            if(approved){
+                                                if(key.equals("selected_company_id") && (null != value && value.trim().length() > 0 && Integer.parseInt(value) > 0)) {
+                                                    studentCompanyOJTInfo.getResumeInfo().setApproved(Boolean.valueOf(value));
+                                                    studentCompanyOJTInfo.setSelected(Integer.parseInt(value) > 0 ? 1 : 0);
+                                                }
                                             }
 
                                         }
@@ -242,8 +253,10 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
-            OjtApplicationsListView ojtApplicationsListAdapter = new OjtApplicationsListView(studentCompanyOJTInfos,ShowOJTApplicationsActivity.this);
+            ojtApplicationsListAdapter = new OjtApplicationsListView(studentCompanyOJTInfos,ShowOJTApplicationsActivity.this);
             ojtApplicantsLst.setAdapter(ojtApplicationsListAdapter);
+
+
         }
     }
 

@@ -255,26 +255,14 @@ public class Login extends AppCompatActivity {
                     if(success == 1) {
                         loginSucessful = true;
                         agentId = json.getInt("id");
+                        if(json.has("name")) fullName = json.getString("name");
+                        if(json.has("accounttype")) accountType = json.getInt("accounttype");
+                        if(json.has("address")) address = json.getString("address");
+                        if(json.has("phoneNumber")) phoneNumber = json.getString("phoneNumber");
+                        if(json.has("teachernumber")) teacherNumber = json.getString("teachernumber");
+                        if(json.has("department")) department = json.getString("department");
+                        if(json.has("college")) college = json.getString("college");
 
-                        fullName = json.getString("name");
-                        accountType = json.getInt("accounttype");
-                        address = json.getString("address");
-                        phoneNumber = json.getString("phoneNumber");
-                        teacherNumber = json.getString("teachernumber");
-                        department = json.getString("department");
-                        college = json.getString("college");
-
-                        /*if(Integer.parseInt(accountType) == 1){
-                            studentNumber = json.getString("studentnumber");
-                        }
-
-                        if(Integer.parseInt(accountType) == 2){
-                            studentNumber = json.getString("studentnumber");
-                        }
-
-                        if(Integer.parseInt(accountType) == 3){
-                            studentNumber = json.getString("studentnumber");
-                        }*/
                     }else {
                         loginSucessful =  false;
                         if(null != json.getString("message")){
