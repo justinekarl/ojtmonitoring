@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +14,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.Volley;
 import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.StudentLoginLogoutLogsInfo;
 
@@ -27,12 +34,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
@@ -62,6 +74,16 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
     private EditText companyNameFilterTxt;
     private int accounttype;
     private String college;
+    private int companyId;
+
+
+    String strValue;
+    String webUrl = null;
+    File gpxfile = null;
+    String strApiKey;
+    String fileName;
+    File root;
+    TextView tvConversionContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +102,7 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
         teacherId = sharedPreferences.getInt("agent_id",0);
         accounttype = sharedPreferences.getInt("accounttype",0);
         college = sharedPreferences.getString("college","");
+        companyId = sharedPreferences.getInt("companyId",0);
         if(accounttype == 3){
             companyNameFilterTxt.setVisibility(View.INVISIBLE);
             studentNameFilterTxt.setY(150);
@@ -135,7 +158,11 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        studentNameFilterTxt.setText("");
+
+
+
+
+                        /*studentNameFilterTxt.setText("");
                         companyNameFilterTxt.setText("");
                         fromTxt.setText("");
                         thruTxt.setText("");
@@ -145,7 +172,9 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
                         if(null != resultLsView){
                             resultLsView.setAdapter(null);
-                        }
+                        }*/
+
+
                     }
                 }
         );
@@ -153,6 +182,11 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
     }
 
+    //test
+
+    //Here Web Api is called to get Stream and convert it to PDF
+
+    //test
 
     //connecting to the database
 
@@ -181,6 +215,9 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
             if(accounttype == 3){
                 params.add(new BasicNameValuePair("isCompany","true"));
+            }else if(accounttype == 4){
+                params.add(new BasicNameValuePair("coordinator","true"));
+                params.add(new BasicNameValuePair("companyId",companyId+""));
             }else{
                 params.add(new BasicNameValuePair("college",college));
             }

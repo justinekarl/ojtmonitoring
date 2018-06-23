@@ -102,8 +102,16 @@
         <activity android:name="com.example.ojtmonitoring.TeacherLoginActivity" />
         <activity android:name="com.example.ojtmonitoring.ShowOJTApplicationsActivity" />
         <activity android:name="com.example.ojtmonitoring.ShowOJTListActivity" />
-        <activity android:name="com.example.ojtmonitoring.ShowStudentLoginLogoutActivity"></activity>
-        <activity android:name="com.example.ojtmonitoring.AttendanceCheckerMainActivity"/>
+        <activity android:name="com.example.ojtmonitoring.ShowStudentLoginLogoutActivity" />
+        <activity android:name="com.example.ojtmonitoring.AttendanceCheckerMainActivity" />
+        <activity android:name="com.example.ojtmonitoring.NewStudentAccountsActivity" />
+        <activity android:name="com.example.ojtmonitoring.ViewApprovedAccountsActivity" />
+        <activity android:name="com.example.ojtmonitoring.CreateSectionActivity" />
+        <activity android:name="com.example.ojtmonitoring.CreateSectionCompanyActivity" />
+        <activity android:name="com.example.ojtmonitoring.SectionSelectionActivity" />
+        <activity android:name="com.example.ojtmonitoring.CreateStudentSectionActivity" />
+        <activity android:name="com.example.ojtmonitoring.CreateCoordinatorAccountActivity" />
+        <activity android:name="com.example.ojtmonitoring.CoordinatorLoginActivity"></activity>
     </application>
 
 </manifest>

@@ -13,7 +13,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jomer.filetracker.R;
@@ -31,6 +35,10 @@ public class CompanyLoginActivity extends AppCompatActivity {
     private String name;
     private static int agentId;
 
+    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Create Report","Rate Student"};
+    ListAdapter menuAdapter;
+    private ListView menuOptionsLstView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +46,12 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         companyNameTxt = (TextView)findViewById(R.id.custCompanyNameTxt);
-        descriptionTxt = (TextView)findViewById(R.id.custDescriptionTxt);
+        //descriptionTxt = (TextView)findViewById(R.id.custDescriptionTxt);
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
+        menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
+
+        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems);
+        menuOptionsLstView.setAdapter(menuAdapter);
 
 
         SharedPreferences sharedpreferences = getSharedPreferences(
@@ -51,7 +63,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
         welcomeLbl.setText("Logged In User : " +name +" - Company id: "+agentId +" \n " +sd.format(new Date().getTime()));
         companyNameTxt.setText(sharedpreferences.getString("full_name",""));
-        descriptionTxt.setText(sharedpreferences.getString("company_description",""));
+        //descriptionTxt.setText(sharedpreferences.getString("company_description",""));
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -101,6 +113,42 @@ public class CompanyLoginActivity extends AppCompatActivity {
                             }
                         }
                         return true;
+                    }
+                }
+        );
+
+        menuOptionsLstView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedMenu = String.valueOf(parent.getItemAtPosition(position));
+                        switch (position){
+                            case 0:
+                                Intent updateInfoIntent = new Intent(CompanyLoginActivity.this,CompanyUpdateInformation.class);
+                                startActivity(updateInfoIntent);
+                                return;
+                            case 1:
+                                Intent addUpdateReq = new Intent(CompanyLoginActivity.this,AddUpdateCompanyRequirements.class);
+                                startActivity(addUpdateReq);
+                                return;
+                            case 2:
+                                Intent ojtList = new Intent(CompanyLoginActivity.this,ShowOJTListActivity.class);
+                                startActivity(ojtList);
+                                return;
+                            case 3:
+                                Intent scanQr = new Intent(CompanyLoginActivity.this,AttendanceCheckerMainActivity.class);
+                                startActivity(scanQr);
+                                return;
+                            case 4:
+                                Intent showStudentLoginLogoutPage= new Intent(CompanyLoginActivity.this,ShowStudentLoginLogoutActivity.class);
+                                startActivity(showStudentLoginLogoutPage);
+                                return;
+                            default:
+                                Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
+                                startActivity(backToHome);
+
+                        }
+
                     }
                 }
         );

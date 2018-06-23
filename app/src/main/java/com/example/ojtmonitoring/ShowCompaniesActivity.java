@@ -38,18 +38,20 @@ public class ShowCompaniesActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private ListView companyList;
 
-    private static int studentId;
+    private int studentId;
     private Button sendResumeBtn;
     private TextView selectedCompanyCountTxt;
 
     List<Integer> selectedCompanyIds = new ArrayList<Integer>();
 
-    public static ArrayList<HashMap<String,String>> companyLists = new ArrayList<HashMap<String,String>>();
-    public static ArrayList<CompanyInfo> companyInfos ;
+    public  ArrayList<HashMap<String,String>> companyLists = new ArrayList<HashMap<String,String>>();
+    public  ArrayList<CompanyInfo> companyInfos ;
 
     private int selectCompanyCount;
     private static boolean hasResume;
     CustomCompanyListView companyListAdapter;
+
+    private boolean isAlreadyAccepted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +86,15 @@ public class ShowCompaniesActivity extends AppCompatActivity {
 
 
                         selectedCompanyIds.clear();
-                        if(null != companyListAdapter.getCompanyInfosList()){
-                            for(CompanyInfo companyInfo : companyListAdapter.getCompanyInfosList()){
-                                if(companyInfo.getSelected() == 1){
+                        int cnt = 0;
+                        if(null != companyInfos){
+                            for(CompanyInfo companyInfo : companyInfos){
+                                if(companyInfo.getSelected() == 1 && companyInfo.isAlreadySentResume()){
+                                    cnt++;
+                                   // continue;
+                                }
+
+                                if(companyInfo.getSelected() == 1 && !companyInfo.isAlreadySentResume()){
                                     selectedCompanyIds.add(companyInfo.getId());
                                 }
                             }
@@ -96,7 +104,13 @@ public class ShowCompaniesActivity extends AppCompatActivity {
                             ProcessCompanies processCompanies = new ProcessCompanies();
                             processCompanies.execute();
                         } else {
-                            Toast.makeText(ShowCompaniesActivity.this, "No Company Selected", Toast.LENGTH_SHORT).show();
+                            if(null != companyInfos){
+                                if(cnt == companyInfos.size()){
+                                    Toast.makeText(ShowCompaniesActivity.this, "Your resume has been sent to all companies.", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(ShowCompaniesActivity.this, "No Company Selected", Toast.LENGTH_SHORT).show();
+                                }
+                            }
                         }
                     }
                 }
@@ -168,7 +182,7 @@ public class ShowCompaniesActivity extends AppCompatActivity {
                                 companyInfo.setId(Integer.parseInt(id));
                             }
 
-                            for(int i = 1 ; i < items.getJSONArray(ctr).length()-1 ; i++) {
+                            for(int i = 1 ; i <= items.getJSONArray(ctr).length()-1 ; i++) {
                                 String[] row = null;
                                 if(null != items.getJSONArray(ctr) && (items.getJSONArray(ctr).get(i) + "").contains("~")) {
                                     row = (items.getJSONArray(ctr).get(i) + "").split("~");
@@ -196,6 +210,17 @@ public class ShowCompaniesActivity extends AppCompatActivity {
                                         }
                                         if(key.equals("description")){
                                             companyInfo.setDescription(value);
+                                        }
+                                        if(key.equals("selected")){
+                                            companyInfo.setSelected(Integer.parseInt(value));
+                                            if(Integer.parseInt(value) == 1) {
+                                                companyInfo.setAlreadySentResume(true);
+                                            }
+                                        }
+                                        if(key.equals("accepted")){
+                                            if(Integer.parseInt(value) == 1) {
+                                                isAlreadyAccepted = true;
+                                            }
                                         }
 
 
@@ -237,7 +262,7 @@ public class ShowCompaniesActivity extends AppCompatActivity {
                 sendResumeBtn.setClickable(false);
             }
 
-            if(!hasResume){
+            if(!hasResume || isAlreadyAccepted){
                 sendResumeBtn.setVisibility(View.INVISIBLE);
             }
 

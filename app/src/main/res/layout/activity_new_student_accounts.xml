@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.ojtmonitoring.NewStudentAccountsActivity"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/apprvSelBtn"
+            android:layout_width="143dp"
+            android:layout_height="52dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="50dp"
+            android:text="Approve Selected"
+            app:layout_constraintRight_toLeftOf="@+id/button6"
+            app:layout_constraintTop_toBottomOf="@+id/studentAcctsLstView"
+            android:layout_marginLeft="28dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <ListView
+            android:id="@+id/studentAcctsLstView"
+            android:layout_width="354dp"
+            android:layout_height="372dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/viewAllApprBtn"
+            android:layout_width="143dp"
+            android:layout_height="52dp"
+            android:text="View All Approved"
+            app:layout_constraintLeft_toRightOf="@+id/apprvSelBtn"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/studentAcctsLstView" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

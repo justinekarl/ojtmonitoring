@@ -56,6 +56,7 @@ public class Login extends AppCompatActivity {
     public static String teacherNumber;
     public static String department;
     public static String college;
+    public static int companyId;
 
     public static TextView createAccountNowTxt;
 
@@ -65,6 +66,11 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        if(null != jsonParser){
+            jsonParser.json = "";
+            jsonParser.jObj = null;
+            jsonParser.is = null;
+        }
 
         //pop confirmation
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -262,6 +268,7 @@ public class Login extends AppCompatActivity {
                         if(json.has("teachernumber")) teacherNumber = json.getString("teachernumber");
                         if(json.has("department")) department = json.getString("department");
                         if(json.has("college")) college = json.getString("college");
+                        if(json.has("company_id")) companyId = json.getInt("company_id");
 
                     }else {
                         loginSucessful =  false;
@@ -326,6 +333,7 @@ public class Login extends AppCompatActivity {
                 editor.putString("phoneNumber",phoneNumber);
                 editor.putString("college",college);
                 editor.putString("department",department);
+                editor.putInt("companyId",companyId);
 
                 editor.commit();
 
@@ -342,6 +350,10 @@ public class Login extends AppCompatActivity {
 
                 if(accountType == 3){
                     Intent int1 = new Intent(Login.this, CompanyLoginActivity.class);
+                    startActivity(int1);
+                }
+                if(accountType == 4){
+                    Intent int1 = new Intent(Login.this, CoordinatorLoginActivity.class);
                     startActivity(int1);
                 }
                /* if(transferNotification){

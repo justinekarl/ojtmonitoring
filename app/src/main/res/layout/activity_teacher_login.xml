@@ -37,5 +37,16 @@
             android:text="Teacher"
             android:textColor="#21da00"
             android:textSize="24sp" />
+
+        <ListView
+            android:id="@+id/menuOptionsLstView"
+            android:layout_width="366dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_x="18dp"
+            android:layout_y="148dp"
+            android:background="@color/light_teal"
+            android:foreground="@color/white" />
     </AbsoluteLayout>
 </ScrollView>

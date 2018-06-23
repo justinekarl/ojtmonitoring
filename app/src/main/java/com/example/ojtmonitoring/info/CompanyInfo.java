@@ -10,6 +10,8 @@ public class CompanyInfo {
     private String emailAddress;
     private String description;
     private int selected;
+    private boolean alreadySentResume;
+
 
     public CompanyInfo(){
         super();
@@ -80,5 +82,11 @@ public class CompanyInfo {
         this.selected = selected;
     }
 
+    public boolean isAlreadySentResume() {
+        return alreadySentResume;
+    }
 
+    public void setAlreadySentResume(boolean alreadySentResume) {
+        this.alreadySentResume = alreadySentResume;
+    }
 }

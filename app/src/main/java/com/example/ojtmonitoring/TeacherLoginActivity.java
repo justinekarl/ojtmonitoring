@@ -7,10 +7,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jomer.filetracker.R;
@@ -26,6 +29,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
     private static String name;
     private static int agentId;
 
+    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout"};
+    ListAdapter menuAdapter;
+    private ListView menuOptionsLstView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +45,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
+        menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
+        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems);
+        menuOptionsLstView.setAdapter(menuAdapter);
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
 
@@ -83,6 +93,39 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        menuOptionsLstView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedMenu = String.valueOf(parent.getItemAtPosition(position));
+                        switch (position){
+                            case 0:
+                                Intent newStudAccount = new Intent(TeacherLoginActivity.this,NewStudentAccountsActivity.class);
+                                startActivity(newStudAccount);
+                                return;
+                            case 1:
+                                Intent createSection = new Intent(TeacherLoginActivity.this,CreateStudentSectionActivity.class);
+                                startActivity(createSection);
+                                return;
+                            case 2:
+                                Intent showOjtRequest = new Intent(TeacherLoginActivity.this,ShowOJTApplicationsActivity.class);
+                                startActivity(showOjtRequest);
+                                return;
+                            case 3:
+                                Intent showStudentLoginLogoutPage= new Intent(TeacherLoginActivity.this,ShowStudentLoginLogoutActivity.class);
+                                startActivity(showStudentLoginLogoutPage);
+                                return;
+                            default:
+                                Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
+                                startActivity(backToHome);
+
+                        }
+
+                    }
+                }
+        );
+
     }
 
 

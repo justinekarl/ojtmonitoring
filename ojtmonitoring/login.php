@@ -12,7 +12,7 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
     $user_name = $_POST['user_name'];
     $password = $_POST['password'];
    // if($accounttype == 1){
-        $query = "SELECT * FROM user where username='".$user_name."' and password ='".$password."'";
+        $query = "SELECT * FROM user where username='".$user_name."' and password ='".$password."' AND approved ";
 
 
 

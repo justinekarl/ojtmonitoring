@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.ojtmonitoring.SectionSelectionActivity">
+
+        <Button
+            android:id="@+id/refreshListBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="71dp"
+            android:text="Refresh Section list"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enrollSectionBtn" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="138dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="79dp"
+            android:text="Enroll Section"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/sectionSpnr"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/sectionSpnr"
+            android:layout_width="219dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="76dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/enrollSectionBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="41dp"
+            android:layout_marginTop="53dp"
+            android:text="Save"
+            app:layout_constraintHorizontal_bias="0.685"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/cancelEnrollSectionBtn"
+            app:layout_constraintTop_toBottomOf="@+id/sectionSpnr" />
+
+        <Button
+            android:id="@+id/cancelEnrollSectionBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="66dp"
+            android:layout_marginTop="53dp"
+            android:text="Cancel"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sectionSpnr" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

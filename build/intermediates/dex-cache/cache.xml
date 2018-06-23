@@ -7,8 +7,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d1beba0a92cec5037fb24a35b637ea7f40f7c5cd">
+        sha1="136f93fe0345aaffca5d14575eeae1fbe3a9508e">
         <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b2630e2acedb21cff355efa7e5335f93920c33fb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jj/.android/build-cache/33089b3b7ac019a3ebe610f0d9fa3631bd60211e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_85ac5fdf357165e1cbb53ac62c5e79cf2e080160/classes.dex" />
     </item>
     <item
         is-multidex="true"

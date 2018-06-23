@@ -73,7 +73,7 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
 
         if($accounttype == 2) {
 
-            $teacherQry = "INSERT INTO user(username,password,teachernumber,name,department,phonenumber,accounttype,college) VALUES('$user_name', '$password','$teacherNumber','$full_name','$department','$phonenumber','$accounttype','$college')";
+            $teacherQry = "INSERT INTO user(username,password,teachernumber,name,department,phonenumber,accounttype,college,approved) VALUES('$user_name', '$password','$teacherNumber','$full_name','$department','$phonenumber','$accounttype','$college',true)";
             $result=mysqli_query($link,$teacherQry);
 
             error_log("studentQry".print_r($teacherQry,true));
@@ -85,7 +85,7 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
         if($accounttype == 3){
         
 
-            $companyQry = "INSERT INTO user(username,password,name,address,department,phonenumber,accounttype) VALUES('$user_name', '$password','$full_name','$address','$companyType','$phonenumber','$accounttype')";
+            $companyQry = "INSERT INTO user(username,password,name,address,department,phonenumber,accounttype,approved) VALUES('$user_name', '$password','$full_name','$address','$companyType','$phonenumber','$accounttype',true)";
             $result=mysqli_query($link,$companyQry
                 );
             $id = mysqli_insert_id($link);

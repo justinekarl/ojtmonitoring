@@ -13,8 +13,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.ResumeInfo;
@@ -28,23 +33,28 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 public class StudentLoginActivity extends AppCompatActivity {
 
     private static String name;
-    private static int agentId;
+    private int agentId;
     private static int accountType;
 
     private TextView welcomeLbl;
     private Button logoutBtn;
     private TextView messageNotifTxt;
+    private ListView menuOptionsLstView;
 
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
 
     private StringBuffer sb = new StringBuffer("");
+    String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show Time Accumulated"};
+    ListAdapter  menuAdapter;
+    boolean hasSectionSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +70,9 @@ public class StudentLoginActivity extends AppCompatActivity {
 
 
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
+        menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
+
+
 
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
@@ -85,6 +98,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                             finish();
                             Intent login = new Intent(StudentLoginActivity.this, Login.class);
                             startActivity(login);
+
                         //}else{
                          //   finishAffinity();
                         //}
@@ -101,7 +115,12 @@ public class StudentLoginActivity extends AppCompatActivity {
         ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
 
+        if(!hasSectionSelected){
 
+        }
+
+        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems);
+        menuOptionsLstView.setAdapter(menuAdapter);
 
         logoutBtn.setOnClickListener(
                 new View.OnClickListener() {
@@ -109,6 +128,40 @@ public class StudentLoginActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         AlertDialog dialog = builder.create();
                         dialog.show();
+                    }
+                }
+        );
+
+        menuOptionsLstView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedMenu = String.valueOf(parent.getItemAtPosition(position));
+
+                       /* if(!hasSectionSelected && !selectedMenu.equals("Select Section")){
+                            toastMessage("No enrolled section yet!");
+                            return;
+                        }*/
+
+                        switch (position){
+                            case 0:
+                                Intent showCompanies = new Intent(StudentLoginActivity.this,ShowCompaniesActivity.class);
+                                startActivity(showCompanies);
+                                return;
+                            case 1:
+                                Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);
+                                startActivity(addResume);
+                                return;
+                            case 2:
+                                Intent selectSection = new Intent(StudentLoginActivity.this,SectionSelectionActivity.class);
+                                startActivity(selectSection);
+                                return;
+                            default:
+                                Intent backToHome = new Intent(StudentLoginActivity.this,StudentLoginActivity.class);
+                                startActivity(backToHome);
+
+                        }
+
                     }
                 }
         );
@@ -188,9 +241,9 @@ public class StudentLoginActivity extends AppCompatActivity {
                             JSONArray notifListArr =json.getJSONArray("message_notif");
 
                             if(null != notifListArr){
-                                for(int i =0 ; i<=notifListArr.length() ; i++){
+                                for(int i =0 ; i<notifListArr.length() ; i++){
 
-                                    for (int k = 0; k <= notifListArr.getJSONArray(i).length() - 1; k++) {
+                                    for (int k = 0; k < notifListArr.getJSONArray(i).length(); k++) {
                                         String[] row = null;
                                         if(null != notifListArr.getJSONArray(i) && (notifListArr.getJSONArray(i).get(i) + "").contains("~")) {
                                             row = (notifListArr.getJSONArray(i).get(k) + "").split("~");
@@ -220,6 +273,19 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                             }
                         }
+
+                        if(json.has("section_id") && null != json.get("section_id") ){
+
+                            hasSectionSelected = true;
+
+                            if(json.get("section_id").toString().equals("null")) {
+                                sb = new StringBuffer("");
+                                sb.append("You are not enrolled in any sections yet, kindly select a section first before continuing.");
+                                sb.append("\n");
+                                sb.append("Navigate to \"Select Section\" Page");
+                                hasSectionSelected = false;
+                            }
+                        }
                     }
 
                 }else{
@@ -243,5 +309,9 @@ public class StudentLoginActivity extends AppCompatActivity {
                 messageNotifTxt.setText(sb.toString());
             }
         }
+    }
+
+    private void toastMessage(String message) {
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 }

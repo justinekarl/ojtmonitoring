@@ -37,6 +37,8 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
     private static int companyId;
     private static boolean scanned;
     private static String scannedMessage;
+    private int accounttype;
+    private int updatedById;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,17 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
 
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
-        companyId = sharedPreferences.getInt("agent_id",0);
+        accounttype = sharedPreferences.getInt("accounttype",0);
+        if(accounttype == 3) {
+            companyId = sharedPreferences.getInt("agent_id", 0);
+        }
+
+        if(accounttype == 4) {
+            companyId = sharedPreferences.getInt("companyId", 0);
+        }
+
+        updatedById = sharedPreferences.getInt("agent_id", 0);
+
 
         scanQrCodeBtn.setOnClickListener(
                 new View.OnClickListener() {
@@ -71,8 +83,14 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent companyLogin = new Intent(AttendanceCheckerMainActivity.this,CompanyLoginActivity.class);
-                        startActivity(companyLogin);
+                        if(accounttype == 3) {
+                            Intent companyLogin = new Intent(AttendanceCheckerMainActivity.this, CompanyLoginActivity.class);
+                            startActivity(companyLogin);
+                        }
+                        if(accounttype == 4){
+                            Intent coordinatorLogin = new Intent(AttendanceCheckerMainActivity.this, CoordinatorLoginActivity.class);
+                            startActivity(coordinatorLogin);
+                        }
                     }
                 }
         );
@@ -119,7 +137,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
 
                     ///AddData(finalValue+"");
                 } else {
-                    Toast.makeText(this,"Test Only",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Error Occured!",Toast.LENGTH_SHORT).show();
                 }
             }
         } else {
@@ -155,6 +173,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("agent_id", studentId));
             params.add(new BasicNameValuePair("company_id", companyId+""));
+            params.add(new BasicNameValuePair("updated_by_id", updatedById+""));
 
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             Date loginDate = new Date();

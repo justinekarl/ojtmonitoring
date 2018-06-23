@@ -23,6 +23,9 @@ CREATE TABLE user(id int not null auto_increment,
 				  primary key(id)
 				 );
 
+ALTER TABLE user ADD COLUMN approved boolean default false;
+ALTER TABLE user ADD COLUMN approved_by_teacher_id int,
+                 ADD COLUMN approved_date date;
 
 CREATE TABLE company_profile(id int not null auto_increment,
 							 user_id int,
@@ -126,3 +129,21 @@ CREATE TABLE student_ojt_attendance_log(id int not null auto_increment,
 										login boolean default false,
 										primary key(id)
 										);
+
+
+CREATE TABLE section(id int not null auto_increment,
+		     company_id int,
+		     no_of_students int,
+		     section_name text,
+		     created_by_teacher_id int, 
+		     log_date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		     primary key(id)
+	            );
+
+ALTER TABLE user ADD COLUMN section_id int;
+ALTER TABLE user ADD COLUMN section text;
+
+ALTER TABLE user ADD COLUMN company_name text;
+ALTER TABLE user ADD COLUMN company_id int;
+
+ALTER TABLE student_ojt_attendance_log ADD COLUMN agent_id int;

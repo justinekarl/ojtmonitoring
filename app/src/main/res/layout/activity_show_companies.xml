@@ -15,6 +15,15 @@
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
+            android:id="@+id/txtInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Information: To be able to select company to apply,  you mush have to create a resume first. (see Home > Add/Update My Resume)"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
             android:id="@+id/textView25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

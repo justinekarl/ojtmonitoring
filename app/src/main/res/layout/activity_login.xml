@@ -43,15 +43,17 @@
             android:layout_x="153dp"
             android:layout_y="209dp"
             android:ems="10"
+            android:hint="Password"
             android:inputType="textPassword"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHighlight="@android:color/holo_blue_light"
+            android:textColorHint="@android:color/darker_gray"
             android:textColorLink="@color/white"
+
             app:layout_constraintHorizontal_bias="0.486"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-
             app:layout_constraintTop_toBottomOf="@+id/userNameEdTxt" />
 
         <EditText
@@ -64,10 +66,12 @@
             android:layout_x="158dp"
             android:layout_y="136dp"
             android:ems="10"
+            android:hint="Username"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHighlight="@android:color/holo_blue_light"
+            android:textColorHint="@android:color/darker_gray"
             android:textColorLink="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

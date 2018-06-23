@@ -17,6 +17,7 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
     private RadioButton companyRadBtn;
     private RadioButton studentRadBtn;
     private RadioButton teacherRadBtn;
+    private RadioButton coordinatorRadBtn;
 
 
     private Button selAcctTypeBtn;
@@ -30,6 +31,7 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
         companyRadBtn = (RadioButton)findViewById(R.id.companyRadBtn);
         studentRadBtn = (RadioButton)findViewById(R.id.studentRadBtn);
         teacherRadBtn = (RadioButton)findViewById(R.id.teacherRadBtn);
+        coordinatorRadBtn = (RadioButton)findViewById(R.id.coordinatorRadBtn);
 
         selAcctTypeBtn = (Button)findViewById(R.id.selAcctTypeBtn);
         backBtn = (Button)findViewById(R.id.backBtn);
@@ -41,6 +43,7 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
                         if(companyRadBtn.isChecked()){
                             studentRadBtn.setChecked(false);
                             teacherRadBtn.setChecked(false);
+                            coordinatorRadBtn.setChecked(false);
                         }
                     }
                 }
@@ -54,6 +57,7 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
                         if(studentRadBtn.isChecked()){
                             companyRadBtn.setChecked(false);
                             teacherRadBtn.setChecked(false);
+                            coordinatorRadBtn.setChecked(false);
                         }
                     }
                 }
@@ -67,10 +71,24 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
                         if(teacherRadBtn.isChecked()){
                             studentRadBtn.setChecked(false);
                             companyRadBtn.setChecked(false);
+                            coordinatorRadBtn.setChecked(false);
                         }
                     }
                 }
 
+        );
+
+        coordinatorRadBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(coordinatorRadBtn.isChecked()){
+                            studentRadBtn.setChecked(false);
+                            companyRadBtn.setChecked(false);
+                            teacherRadBtn.setChecked(false);
+                        }
+                    }
+                }
         );
 
 
@@ -126,6 +144,11 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
 
                                 if(studentRadBtn.isChecked()){
                                     redirectToCreationOfAccnt = new Intent(AccountCreationSelectionActivity.this,CreateStudentActivity.class);
+                                    hasSelected = true;
+                                }
+
+                                if(coordinatorRadBtn.isChecked()){
+                                    redirectToCreationOfAccnt = new Intent(AccountCreationSelectionActivity.this,CreateCoordinatorAccountActivity.class);
                                     hasSelected = true;
                                 }
                                 if(!hasSelected){
