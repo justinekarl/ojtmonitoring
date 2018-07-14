@@ -11,16 +11,17 @@
         android:id="@+id/textView48"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="57dp"
         android:text="Create Section"
         android:textAllCaps="true"
-        android:textColor="#21da00"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="57dp"
-        android:layout_marginRight="8dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtSectionName"
@@ -29,11 +30,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="51dp"
+        android:background="@color/zxing_custom_viewfinder_mask"
         android:ems="10"
         android:hint="Enter Section Name"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />

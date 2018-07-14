@@ -6,17 +6,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
@@ -39,6 +45,8 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
     private static String scannedMessage;
     private int accounttype;
     private int updatedById;
+
+    private boolean validToSave = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +137,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
 
                     studentId = finalValue.trim();
                     try {
+                        validToSave = false;
                         processLog(studentId);
                     }catch (Exception e){
                         Toast.makeText(this,e.getMessage().toString(),Toast.LENGTH_SHORT).show();
@@ -218,8 +227,90 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
 
     private void processLog(final String studentId) throws Exception{
         if(null != studentId && Integer.valueOf(studentId.trim()) > 0){
-            ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
-            connectToDataBaseViaJson.execute();
+            ValidateStudent validateStudent = new ValidateStudent();
+            validateStudent.execute();
         }
     }
+
+
+
+
+
+    class ValidateStudent extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(AttendanceCheckerMainActivity.this);
+            pDialog.setMessage("Processing..");
+            pDialog.setIndeterminate(false);
+
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        public ValidateStudent() {
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("studentId",studentId+""));
+            params.add(new BasicNameValuePair("companyId",companyId+""));
+
+
+
+            JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"isStudentAnOJT.php",
+                    "POST", params);
+
+
+            try {
+                if(null != json){
+
+                    // check log cat fro response
+                    Log.d("Create Response", json.toString());
+
+                    int success = json.getInt("success");
+                    if(success == 1) {
+                        if(json.has("is_an_ojt")){
+                            validToSave = (Integer.parseInt(json.get("is_an_ojt")+"") == 1);
+                        }
+                    }
+
+                }else{
+                    //loginMessage="Invalid User";
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+                //loginMessage="Invalid User";
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         **/
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+            if(validToSave) {
+                ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
+                connectToDataBaseViaJson.execute();
+            }else{
+                Toast.makeText(AttendanceCheckerMainActivity.this,"Invalid Student!",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private boolean isValidToSave(int studentId){
+        if(studentId > 0){
+            ValidateStudent validateStudent = new ValidateStudent();
+            validateStudent.execute();
+        }
+        return validToSave;
+    }
+
+
 }

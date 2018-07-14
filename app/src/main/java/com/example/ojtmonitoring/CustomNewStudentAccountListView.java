@@ -4,12 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.UserAccountInfo;
 
 import java.util.List;

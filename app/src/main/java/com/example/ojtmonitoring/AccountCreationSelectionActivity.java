@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
-
 public class AccountCreationSelectionActivity extends AppCompatActivity {
 
     private RadioButton companyRadBtn;

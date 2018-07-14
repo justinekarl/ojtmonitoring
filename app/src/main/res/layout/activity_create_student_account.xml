@@ -18,192 +18,31 @@
         tools:context="com.example.ojtmonitoring.CreateStudentAccount">
 
 
-        <EditText
-            android:id="@+id/custAddressTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="149dp"
-            android:layout_y="207dp"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:textColor="@color/white"/>
-
-        <EditText
-            android:id="@+id/phoneNumbTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="150dp"
-            android:layout_y="153dp"
-            android:ems="10"
-            android:inputType="phone"
-            android:textColor="@color/white"/>
-
-        <TextView
-            android:id="@+id/phoneNumberLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="13dp"
-            android:layout_y="159dp"
-            android:text="Phone Number:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/studentNoTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="150dp"
-            android:layout_y="92dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/white"/>
-
         <TextView
             android:id="@+id/studentNoLbl"
-            android:layout_width="wrap_content"
+            android:layout_width="113dp"
             android:layout_height="wrap_content"
             android:layout_x="16dp"
             android:layout_y="104dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Student No:"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/fullnameLbl"
-            android:layout_width="wrap_content"
+            android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:layout_x="19dp"
             android:layout_y="52dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Name:"
-            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/fullnameTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="149dp"
-            android:layout_y="42dp"
-            android:ems="10"
-            android:textColor="@color/white"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/confirmPasswordLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="15dp"
-            android:layout_y="486dp"
-            android:text="Confirm Password:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/confirmPasswordTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="159dp"
-            android:layout_y="481dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:textColor="@color/white"/>
-
-        <TextView
-            android:id="@+id/passwordLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="22dp"
-            android:layout_y="440dp"
-            android:text="Password:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/usernameLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="21dp"
-            android:layout_y="389dp"
-            android:text="Username:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/collegeLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="29dp"
-            android:layout_y="331dp"
-            android:text="College:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/addressLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="22dp"
-            android:layout_y="214dp"
-            android:text="Address:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/emailAddTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="25dp"
-            android:layout_y="281dp"
-            android:text="Email Address:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/elemAddTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="152dp"
-            android:layout_y="265dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/white" />
-
-        <EditText
-            android:id="@+id/userNameTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="152dp"
-            android:layout_y="374dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/white"/>
-
-        <EditText
-            android:id="@+id/passwordTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="153dp"
-            android:layout_y="426dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:textColor="@color/white"/>
-
-        <Spinner
-            android:id="@+id/collegeSpnr"
-            style="@style/Widget.AppCompat.Spinner.DropDown"
-            android:layout_width="216dp"
-            android:layout_height="35dp"
-            android:layout_x="152dp"
-            android:layout_y="323dp" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -213,24 +52,283 @@
             android:layout_y="0dp"
             app:srcCompat="@mipmap/createstudentaccount" />
 
-        <Button
-            android:id="@+id/saveBtn"
+        <EditText
+            android:id="@+id/fullnameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="225dp"
-            android:layout_y="542dp"
-            android:background="#5e5e5e"
-            android:text="Save"
-            android:textColor="@color/zxing_status_text" />
+            android:layout_x="143dp"
+            android:layout_y="50dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/studentNoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="138dp"
+            android:layout_y="105dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
+
+        <Spinner
+            android:id="@+id/collegeSpnr"
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:layout_width="216dp"
+            android:layout_height="35dp"
+            android:layout_x="153dp"
+            android:layout_y="381dp"
+            android:background="@color/zxing_custom_viewfinder_mask" />
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="163dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Gender:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/genderSpnr"
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:layout_width="228dp"
+            android:layout_height="35dp"
+            android:layout_x="136dp"
+            android:layout_y="157dp"
+            android:background="@color/zxing_custom_viewfinder_mask" />
+
+        <TextView
+            android:id="@+id/collegeLbl"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_x="18dp"
+            android:layout_y="387dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="College:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/elemAddTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="149dp"
+            android:layout_y="336dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/emailAddTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="14dp"
+            android:layout_y="335dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Email Address:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/custAddressTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="149dp"
+            android:layout_y="293dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/addressLbl"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_x="21dp"
+            android:layout_y="295dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Address:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phoneNumbTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="147dp"
+            android:layout_y="256dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="phone"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/phoneNumberLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="6dp"
+            android:layout_y="260dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Phone Number:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_x="11dp"
+            android:layout_y="219dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="OJT hours:"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ojtHoursTxt"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_x="175dp"
+            android:layout_y="207dp"
+            android:ems="10"
+            android:inputType="number" />
 
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="88dp"
-            android:layout_y="541dp"
+            android:layout_x="85dp"
+            android:layout_y="612dp"
             android:background="#5e5e5e"
             android:text="Cancel"
             android:textColor="@color/zxing_status_text" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="226dp"
+            android:layout_y="612dp"
+            android:background="#5e5e5e"
+            android:text="Save"
+            android:textColor="@color/zxing_status_text" />
+
+        <EditText
+            android:id="@+id/confirmPasswordTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="158dp"
+            android:layout_y="577dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/confirmPasswordLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="8dp"
+            android:layout_y="580dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Confirm Password:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/passwordTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="154dp"
+            android:layout_y="540dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/passwordLbl"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_x="16dp"
+            android:layout_y="541dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Password:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/userNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="152dp"
+            android:layout_y="496dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/usernameLbl"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_x="14dp"
+            android:layout_y="497dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Username:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView64"
+            android:layout_width="101dp"
+            android:layout_height="27dp"
+            android:layout_x="18dp"
+            android:layout_y="439dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Course:"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/coursesSpnr"
+            android:layout_width="210dp"
+            android:layout_height="34dp"
+            android:layout_x="150dp"
+            android:layout_y="436dp" />
+
+        <Button
+            android:id="@+id/refreshCoursesBtn"
+            android:layout_width="61dp"
+            android:layout_height="wrap_content"
+            android:layout_x="318dp"
+            android:layout_y="613dp"
+            android:text="Button"
+            android:visibility="invisible" />
     </AbsoluteLayout>
 </ScrollView>

@@ -10,6 +10,7 @@ public class StudentPersonalInformationInfo{
     private String address;
     private String phoneNumber;
     private String email;
+    private String gender;
     private List<WorkExperienceInfo> workExperienceInfos = new ArrayList<WorkExperienceInfo>();
 
     public String getName() {
@@ -42,6 +43,14 @@ public class StudentPersonalInformationInfo{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public List<WorkExperienceInfo> getWorkExperienceInfos() {

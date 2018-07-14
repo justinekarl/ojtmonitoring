@@ -4,15 +4,19 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,10 +24,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.jomer.filetracker.R;
-import com.example.ojtmonitoring.info.ResumeInfo;
-import com.example.ojtmonitoring.info.StudentPersonalInformationInfo;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -33,7 +33,6 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -47,12 +46,13 @@ public class StudentLoginActivity extends AppCompatActivity {
     private Button logoutBtn;
     private TextView messageNotifTxt;
     private ListView menuOptionsLstView;
+    private String status;
 
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
 
     private StringBuffer sb = new StringBuffer("");
-    String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show Time Accumulated"};
+    String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company"};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
 
@@ -65,6 +65,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
         accountType = sharedPreferences.getInt("accounttype",0);
+        status = sharedPreferences.getString("ojt_status","");
 
         messageNotifTxt = (TextView)findViewById(R.id.messageNotifTxt);
 
@@ -119,8 +120,22 @@ public class StudentLoginActivity extends AppCompatActivity {
 
         }
 
-        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems);
+        menuAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,menuItems){
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view =  super.getView(position, convertView, parent);
+
+                TextView tv = (TextView)view.findViewById(android.R.id.text1);
+
+                tv.setTextColor(Color.WHITE);
+                tv.setTypeface(Typeface.DEFAULT_BOLD);
+
+                return view;
+            }
+        };
         menuOptionsLstView.setAdapter(menuAdapter);
+
 
         logoutBtn.setOnClickListener(
                 new View.OnClickListener() {
@@ -138,6 +153,10 @@ public class StudentLoginActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String selectedMenu = String.valueOf(parent.getItemAtPosition(position));
 
+                        if(selectedMenu.equals("Rate Company") && status.equals("OJT In progress")){
+                            toastMessage("OJT not yet finished!");
+                            return;
+                        }
                        /* if(!hasSectionSelected && !selectedMenu.equals("Select Section")){
                             toastMessage("No enrolled section yet!");
                             return;
@@ -155,6 +174,14 @@ public class StudentLoginActivity extends AppCompatActivity {
                             case 2:
                                 Intent selectSection = new Intent(StudentLoginActivity.this,SectionSelectionActivity.class);
                                 startActivity(selectSection);
+                                return;
+                            case 3:
+                                Intent showAccummulated = new Intent(StudentLoginActivity.this,ShowTimeAccumulatedActivity.class);
+                                startActivity(showAccummulated);
+                                return;
+                            case 4:
+                                Intent rateCompany = new Intent(StudentLoginActivity.this,RateCompanyActivity.class);
+                                startActivity(rateCompany);
                                 return;
                             default:
                                 Intent backToHome = new Intent(StudentLoginActivity.this,StudentLoginActivity.class);

@@ -6,20 +6,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.CompanyInfo;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -27,7 +22,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -78,6 +72,25 @@ public class ShowCompaniesActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        //allowing vertical scroll even in scroll view
+        companyList.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
 
         sendResumeBtn.setOnClickListener(
                 new View.OnClickListener() {
@@ -222,7 +235,9 @@ public class ShowCompaniesActivity extends AppCompatActivity {
                                                 isAlreadyAccepted = true;
                                             }
                                         }
-
+                                        if(key.equals("rating")){
+                                            companyInfo.setRating(Integer.parseInt(value));
+                                        }
 
 
                                     }

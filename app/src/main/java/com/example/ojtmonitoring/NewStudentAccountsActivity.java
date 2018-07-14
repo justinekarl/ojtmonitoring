@@ -4,17 +4,15 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
-import com.example.ojtmonitoring.info.ResumeInfo;
-import com.example.ojtmonitoring.info.StudentPersonalInformationInfo;
 import com.example.ojtmonitoring.info.UserAccountInfo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -64,6 +62,25 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
         ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
 
+
+        //allowing vertical scroll even in scroll view
+        studentAcctsLstView.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
         apprvSelBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -285,6 +302,7 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
                 Type integerObjectMapType = new TypeToken<Map<Integer, Boolean>>(){}.getType();
                 String json = gson.toJson(studentAcctMap, integerObjectMapType);
                 sb.append(json);
+
 
 
             }

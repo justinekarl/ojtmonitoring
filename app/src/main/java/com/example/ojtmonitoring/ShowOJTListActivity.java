@@ -7,17 +7,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
-import com.example.ojtmonitoring.info.CompanyInfo;
 import com.example.ojtmonitoring.info.ResumeInfo;
 import com.example.ojtmonitoring.info.StudentPersonalInformationInfo;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -25,8 +23,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ShowOJTListActivity extends AppCompatActivity {
 
@@ -43,9 +45,11 @@ public class ShowOJTListActivity extends AppCompatActivity {
     public ArrayList<ResumeInfo> studentInfos ;
     private Button acceptBtn;
     private List<Integer> selectedStudentsToAcceptList = new ArrayList<Integer>();
+    private Map<Integer , Boolean> selectedStudentsToAcceptMap = new HashMap<>();
     private boolean triggerUpdate;
     private String message;
     String name;
+    int ojtNeeded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +65,7 @@ public class ShowOJTListActivity extends AppCompatActivity {
         companyId = sharedPreferences.getInt("agent_id",0);
         name =  sharedPreferences.getString("full_name","");
 
-        if(null != name && name.trim().length() > 0){
-            companyNameThisLbl.setText(name);
-        }
+
 
         ShowOJTListActivity.ConnectToDataBaseViaJson connectToDataBaseViaJson = new ShowOJTListActivity.ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
@@ -73,19 +75,59 @@ public class ShowOJTListActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         selectedStudentsToAcceptList.clear();
+                        int countSelected = 0;
 
                         if(null != customStudentOJTListAdapter.getResumeInfoArrayList()){
                             for(ResumeInfo resumeInfo : customStudentOJTListAdapter.getResumeInfoArrayList()){
+
                                 if(resumeInfo.getSelected() == 1){
-                                    selectedStudentsToAcceptList.add(resumeInfo.getId());
+                                    countSelected++;
                                 }
+
+                                if(countSelected > ojtNeeded){
+                                    ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
+                                    connectToDataBaseViaJson.execute();
+                                    Toast.makeText(ShowOJTListActivity.this, "OJT number exceeded!", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+
+
+                                if(null != selectedStudentsToAcceptMap){
+                                    if(!selectedStudentsToAcceptMap.containsKey(resumeInfo.getId()) && resumeInfo.getSelected() == 1){
+                                        selectedStudentsToAcceptMap.put(resumeInfo.getId(),(resumeInfo.getSelected() == 1));
+                                    }else{
+                                        if(selectedStudentsToAcceptMap.size() > 0) {
+                                            //let's get the previous value of the account (approved or not)
+                                            boolean prevValue = selectedStudentsToAcceptMap.get(resumeInfo.getId());
+
+                                            //if there is a change in the status, remove if from the map and add the new value
+                                            if (prevValue != (resumeInfo.getSelected() == 1)) {
+                                                selectedStudentsToAcceptMap.remove(resumeInfo.getId());
+                                                selectedStudentsToAcceptMap.put(resumeInfo.getId(), resumeInfo.getSelected() == 1);
+                                            } else {
+                                                //remove if they are the same we don't need to re-save them in the backend
+                                                selectedStudentsToAcceptMap.remove(resumeInfo.getId());
+                                            }
+                                        }
+                                    }
+                                }
+
+
+
+                               /* if(resumeInfo.getSelected() == 1){
+                                    selectedStudentsToAcceptList.add(resumeInfo.getId());
+                                }*/
                             }
                         }
 
-                        if(null != selectedStudentsToAcceptList && selectedStudentsToAcceptList.size() > 0){
+
+
+                        if(null != selectedStudentsToAcceptMap && selectedStudentsToAcceptMap.size() > 0){
                             ProcessAcceptStudents processAcceptStudent = new ProcessAcceptStudents();
                             processAcceptStudent.execute();
                         }else{
+                            ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
+                            connectToDataBaseViaJson.execute();
                             Toast.makeText(ShowOJTListActivity.this, "No Student/s Selected", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -98,7 +140,7 @@ public class ShowOJTListActivity extends AppCompatActivity {
 
 
     class ConnectToDataBaseViaJson extends AsyncTask<String, String, String> {
-
+        int acceptedCount = 0;
 
         @Override
         protected void onPreExecute() {
@@ -137,12 +179,12 @@ public class ShowOJTListActivity extends AppCompatActivity {
 
                             JSONArray studentListArr =json.getJSONArray("student_lists");
                             if(null != studentListArr){
-                                for(int i =0 ; i<=studentListArr.length() ; i++){
+                                for(int i =0 ; i<studentListArr.length() ; i++){
                                         ResumeInfo studentInfo =  new ResumeInfo();
                                         if(null == studentInfo.getStudentPersonalInformationInfo()){
                                             studentInfo.setStudentPersonalInformationInfo(new StudentPersonalInformationInfo());
                                         }
-                                        for (int k = 0; k <= studentListArr.getJSONArray(i).length() - 1; k++) {
+                                        for (int k = 0; k < studentListArr.getJSONArray(i).length(); k++) {
                                             String[] row = null;
                                             if(null != studentListArr.getJSONArray(i) && (studentListArr.getJSONArray(i).get(i) + "").contains("~")) {
                                                 row = (studentListArr.getJSONArray(i).get(k) + "").split("~");
@@ -169,14 +211,44 @@ public class ShowOJTListActivity extends AppCompatActivity {
                                                         studentInfo.setSelected(Integer.parseInt(value) > 0 ? 1 : 0);
                                                     }
 
+                                                    if(key.equals("course")){
+                                                        studentInfo.setCourse(value);
+                                                    }
+
                                                 }
                                          }
                                     }
 
                                     studentInfos.add(studentInfo);
+
+                                    if(null != selectedStudentsToAcceptMap){
+                                        if(!selectedStudentsToAcceptMap.containsKey(studentInfo.getId())){
+                                            selectedStudentsToAcceptMap.put(studentInfo.getId(),studentInfo.getSelected() == 1);
+                                        }else{
+                                            //let's get the previous value of the account (approved or not)
+                                            boolean prevValue = selectedStudentsToAcceptMap.get(studentInfo.getId());
+
+                                            //if there is a change in the status, remove if from the map and add the new value
+                                            if(prevValue != (studentInfo.getSelected() == 1)){
+                                                selectedStudentsToAcceptMap.remove(studentInfo.getId());
+                                                selectedStudentsToAcceptMap.put(studentInfo.getId(),studentInfo.getSelected() == 1);
+                                            }else{
+                                                //remove if they are the same we don't need to re-save them in the backend
+                                                selectedStudentsToAcceptMap.remove(studentInfo.getId());
+                                            }
+                                        }
+                                    }
                                 }
 
                             }
+                        }
+
+                        if(json.has("accepted_count")){
+                            acceptedCount = Integer.parseInt(json.getInt("accepted_count")+"");
+                        }
+
+                        if(json.has("ojt_number")){
+                            ojtNeeded = json.getInt("ojt_number");
                         }
                     }
 
@@ -199,6 +271,14 @@ public class ShowOJTListActivity extends AppCompatActivity {
             pDialog.dismiss();
             customStudentOJTListAdapter = new CustomStudentOJTListView(studentInfos,ShowOJTListActivity.this);
             studentListLstView.setAdapter(customStudentOJTListAdapter);
+
+            if(null != name && name.trim().length() > 0){
+                StringBuffer sb = new StringBuffer();
+                sb.append(name);
+                sb.append("\n");
+                sb.append("Number of Accepted Students - "+acceptedCount);
+                companyNameThisLbl.setText(sb.toString());
+            }
         }
     }
 
@@ -223,9 +303,19 @@ public class ShowOJTListActivity extends AppCompatActivity {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("agentId",companyId+""));
-            if(null != selectedStudentsToAcceptList && selectedStudentsToAcceptList.size() > 0){
-                params.add(new BasicNameValuePair("selectedStudentsToAcceptIds",PaceSettingManager.integerTooCommaSeparated(selectedStudentsToAcceptList)+""));
+
+            final StringBuffer sb = new StringBuffer("");
+
+            if(null != selectedStudentsToAcceptMap && selectedStudentsToAcceptMap.size() > 0){
+                Gson gson = new Gson();
+                Type integerObjectMapType = new TypeToken<Map<Integer, Boolean>>(){}.getType();
+                String json = gson.toJson(selectedStudentsToAcceptMap, integerObjectMapType);
+                sb.append(json);
+
+                //params.add(new BasicNameValuePair("selectedStudentsToAcceptIds",PaceSettingManager.integerTooCommaSeparated(selectedStudentsToAcceptList)+""));
             }
+
+            params.add(new BasicNameValuePair("selectedStudentsToAcceptIds",sb.toString()));
 
             params.add(new BasicNameValuePair("companyName",name));
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/courseTxt"
+        android:layout_width="262dp"
+        android:layout_height="47dp"
+        android:layout_x="96dp"
+        android:layout_y="41dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/selectedChBx"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_x="22dp"
+        android:layout_y="43dp" />
+</AbsoluteLayout>

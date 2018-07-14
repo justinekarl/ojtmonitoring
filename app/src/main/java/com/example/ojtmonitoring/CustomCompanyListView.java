@@ -1,23 +1,19 @@
 package com.example.ojtmonitoring;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.CompanyInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class CustomCompanyListView extends BaseAdapter{
 
@@ -31,6 +27,7 @@ public class CustomCompanyListView extends BaseAdapter{
     CheckBox selCompanyChk;
     Context context;
     CompanyInfo companyInfo;
+    RatingBar ratingBar;
 
 
     public CustomCompanyListView(List<CompanyInfo> companyInfos, Context context) {
@@ -82,13 +79,13 @@ public class CustomCompanyListView extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = View.inflate(context,R.layout.custom_company_row,null);
 
-
         custCompanyNameTxt = (TextView)view.findViewById(R.id.custCompanyNameTxt);
         custAddressTxt = (TextView)view.findViewById(R.id.custAddressTxt);
         custPhoneNumberTxt = (TextView)view.findViewById(R.id.custPhoneNumberTxt);
         custEmailTxt = (TextView)view.findViewById(R.id.custEmailTxt);
         custDescriptionTxt = (TextView)view.findViewById(R.id.custDescriptionTxt);
         selCompanyChk = (CheckBox)view.findViewById(R.id.selCompanyChk);
+        ratingBar = (RatingBar)view.findViewById(R.id.ratingBar);
 
 
         companyInfo = companyInfos.get(position);
@@ -101,11 +98,12 @@ public class CustomCompanyListView extends BaseAdapter{
             selCompanyChk.setChecked(companyInfo.getSelected() == 0 ? false : true);
             selCompanyChk.setTag(position);
             selCompanyChk.setOnCheckedChangeListener(onCheckedChangeListener);
-            if(position%2==0){
+            ratingBar.setRating(companyInfo.getRating());
+            /*if(position%2==0){
                 view.setBackgroundResource(R.color.divider);
             }else{
                 view.setBackgroundResource(R.color.white);
-            }
+            }*/
 
             view.setTag(companyInfo.getId());
         }

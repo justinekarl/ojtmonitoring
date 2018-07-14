@@ -11,6 +11,7 @@ public class CompanyInfo {
     private String description;
     private int selected;
     private boolean alreadySentResume;
+    private int rating;
 
 
     public CompanyInfo(){
@@ -88,5 +89,13 @@ public class CompanyInfo {
 
     public void setAlreadySentResume(boolean alreadySentResume) {
         this.alreadySentResume = alreadySentResume;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

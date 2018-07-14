@@ -18,8 +18,9 @@
             android:layout_height="38dp"
             android:layout_x="95dp"
             android:layout_y="17dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:textAlignment="textEnd"
-            android:textColor="#21da00"
+            android:textColor="@color/colorAccent"
             android:textSize="14sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="47dp"
@@ -33,18 +34,8 @@
             android:layout_y="87dp"
             android:text="Student"
             android:textAlignment="center"
-            android:textColor="#21da00"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="138dp"
-            android:layout_height="43dp"
-            android:layout_x="6dp"
-            android:layout_y="468dp"
-            android:background="@mipmap/signout"
-            tools:layout_editor_absoluteX="90dp"
-            tools:layout_editor_absoluteY="171dp" />
 
         <ListView
             android:id="@+id/menuOptionsLstView"
@@ -52,7 +43,7 @@
             android:layout_height="201dp"
             android:layout_x="26dp"
             android:layout_y="139dp"
-            android:background="@color/light_teal"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:foreground="@color/white" />
 
         <TextView
@@ -61,9 +52,20 @@
             android:layout_height="wrap_content"
             android:layout_x="39dp"
             android:layout_y="359dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:textAlignment="center"
-            android:textColor="#fff200"
+            android:textColor="?attr/colorAccent"
             android:textSize="16sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="138dp"
+            android:layout_height="43dp"
+            android:layout_x="14dp"
+            android:layout_y="505dp"
+            android:background="@mipmap/signout"
+            tools:layout_editor_absoluteX="90dp"
+            tools:layout_editor_absoluteY="171dp" />
     </AbsoluteLayout>
 </ScrollView>

@@ -8,9 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.ResumeInfo;
-import com.example.ojtmonitoring.info.StudentPersonalInformationInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +47,14 @@ public class CustomStudentOJTListView extends BaseAdapter {
     public ArrayList<ResumeInfo> getResumeInfoArrayList(){
         ArrayList<ResumeInfo> studentInfosList = new ArrayList<ResumeInfo>();
         for(ResumeInfo studentInfo : studentInfos){
-            if(studentInfo.getSelected() == 1){
+            //if(studentInfo.getSelected() == 1){
                 studentInfosList.add(studentInfo);
-            }
+           // }
         }
         return  studentInfosList;
     }
+
+
 
     CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() {
         @Override
@@ -82,6 +82,7 @@ public class CustomStudentOJTListView extends BaseAdapter {
                 sb.append("\n");
                 sb.append(studentInfo.getCollege());
                 sb.append("\n");
+                sb.append("Course: "+studentInfo.getCourse());
             }
             displayTxt.setText(sb.toString());
             acceptChkbox.setChecked(studentInfo.getSelected() == 1 ? true : false);
@@ -89,11 +90,11 @@ public class CustomStudentOJTListView extends BaseAdapter {
             acceptChkbox.setOnCheckedChangeListener(onCheckedChangeListener);
 
 
-            if(position%2==0){
+            /*if(position%2==0){
                 view.setBackgroundResource(R.color.divider);
             }else{
                 view.setBackgroundResource(R.color.white);
-            }
+            }*/
         }
         return view;
     }

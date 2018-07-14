@@ -3,17 +3,23 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.UserAccountInfo;
 
 import org.apache.http.NameValuePair;
@@ -23,7 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ViewApprovedAccountsActivity extends AppCompatActivity {
@@ -52,6 +57,25 @@ public class ViewApprovedAccountsActivity extends AppCompatActivity {
 
         ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
+
+        //allowing vertical scroll even in scroll view
+        approvedListView.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
 
         backBtn.setOnClickListener(
                 new View.OnClickListener() {
@@ -191,7 +215,20 @@ public class ViewApprovedAccountsActivity extends AppCompatActivity {
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
             if(null != acceptedList && acceptedList.length > 0) {
-                menuAdapter = new ArrayAdapter<String>(ViewApprovedAccountsActivity.this, android.R.layout.simple_list_item_1, acceptedList);
+                menuAdapter = new ArrayAdapter<String>(ViewApprovedAccountsActivity.this, android.R.layout.simple_list_item_1, acceptedList){
+                    @NonNull
+                    @Override
+                    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                        View view =  super.getView(position, convertView, parent);
+
+                        TextView tv = (TextView)view.findViewById(android.R.id.text1);
+
+                        tv.setTextColor(Color.WHITE);
+                        tv.setTypeface(Typeface.DEFAULT_BOLD);
+
+                        return view;
+                    }
+                };
                 approvedListView.setAdapter(menuAdapter);
             }
 

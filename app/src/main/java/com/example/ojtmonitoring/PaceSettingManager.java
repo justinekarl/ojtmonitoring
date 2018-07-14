@@ -11,12 +11,16 @@ import java.util.List;
 public class PaceSettingManager {
 //for xammp
         //public static final String IP_ADDRESS = "http://10.10.10.191/ojtmonitoring/";
-//public static final String IP_ADDRESS = "http://192.168.1.13/ojtmonitoring/";
-        public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
+        //public static final String IP_ADDRESS = "http://192.168.0.73/ojtmonitoring/";
+        public static final String IP_ADDRESS = "http://192.168.1.7/ojtmonitoring/";
+        //public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
       // public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 
-    //for lamp
+    //AWS SERVER
+    //public static final String IP_ADDRESS = "http://18.191.44.167/";
+
+    //for droid
    //public static final String IP_ADDRESS = "https://spcffiletrackersystem.000webhostapp.com/filetracker/";
 
     public static final String USER_PREFERENCES = "userPreferences";

@@ -8,7 +8,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.StudentCompanyOJTInfo;
 
 import java.util.ArrayList;
@@ -64,9 +63,9 @@ public class OjtApplicationsListView extends BaseAdapter {
         ArrayList<StudentCompanyOJTInfo> ojtInfos = new ArrayList<StudentCompanyOJTInfo>();
         if(null != studentCompanyOJTInfos) {
             for (StudentCompanyOJTInfo ojtInfo : studentCompanyOJTInfos) {
-                if (ojtInfo.getSelected() == 1) {
+                //if (ojtInfo.getSelected() == 1) {
                     ojtInfos.add(ojtInfo);
-                }
+                //}
             }
         }
         return ojtInfos;
@@ -98,11 +97,11 @@ public class OjtApplicationsListView extends BaseAdapter {
 
             }
 
-            if(position%2==0){
+            /*if(position%2==0){
                 view.setBackgroundResource(R.color.divider);
             }else{
                 view.setBackgroundResource(R.color.white);
-            }
+            }*/
 
             view.setTag(studentCompanyOJTInfo.getResumeInfo().getId());
         }

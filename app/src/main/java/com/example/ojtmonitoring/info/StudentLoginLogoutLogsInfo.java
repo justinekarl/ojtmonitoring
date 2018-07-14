@@ -7,6 +7,7 @@ public class StudentLoginLogoutLogsInfo {
     private String companyName;
     private String loginDate;
     private String logoutDate;
+    private String fromFingerPrint;
 
     public String getStudentName() {
         return studentName;
@@ -38,5 +39,13 @@ public class StudentLoginLogoutLogsInfo {
 
     public void setLogoutDate(String logoutDate) {
         this.logoutDate = logoutDate;
+    }
+
+    public String getFromFingerPrint() {
+        return fromFingerPrint;
+    }
+
+    public void setFromFingerPrint(String fromFingerPrint) {
+        this.fromFingerPrint = fromFingerPrint;
     }
 }

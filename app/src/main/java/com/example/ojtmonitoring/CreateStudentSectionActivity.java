@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,11 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.jomer.filetracker.R;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -55,6 +53,14 @@ public class CreateStudentSectionActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        btnCancelSection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent back = new Intent(CreateStudentSectionActivity.this,TeacherLoginActivity.class);
+                startActivity(back);
+            }
+        });
     }
 
     class SaveStudentSection extends AsyncTask<String, String, String> {

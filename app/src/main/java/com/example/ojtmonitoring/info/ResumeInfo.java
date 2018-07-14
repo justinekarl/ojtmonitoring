@@ -10,6 +10,8 @@ public class ResumeInfo {
     private String teacherNotes;
     private boolean companyAccepted;
     private String college;
+    private String gender;
+    private String course;
 
     //used in student company ojt info
     private int selected;
@@ -92,5 +94,21 @@ public class ResumeInfo {
 
     public void setSelected(int selected) {
         this.selected = selected;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }

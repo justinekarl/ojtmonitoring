@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jomer.filetracker">
+    package="com.example.ojtmonitoring">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.ojtmonitoring.Login"
+            android:name=".Login"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,99 +20,103 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ojtmonitoring.admin"
+            android:name=".admin"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.ojtmonitoring.CreateAccount"
+            android:name=".CreateAccount"
             android:label="@string/title_activity_signup"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.content"
+            android:name=".content"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.ojtmonitoring.UserBorrowedItems"
+            android:name=".UserBorrowedItems"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.ojtmonitoring.UserReturnedItem"
+            android:name=".UserReturnedItem"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.ojtmonitoring.ReturnConfirmation"
+            android:name=".ReturnConfirmation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.ojtmonitoring.AllLogs"
+            android:name=".AllLogs"
             android:label="@string/title_activity_all_logs"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.AllUsers"
+            android:name=".AllUsers"
             android:label="@string/title_activity_all_users"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.Search"
+            android:name=".Search"
             android:label="@string/title_activity_search"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.EditAuthCode"
+            android:name=".EditAuthCode"
             android:label="@string/title_activity_edit_auth_code"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.AllQrCode"
+            android:name=".AllQrCode"
             android:label="AllQrCode"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.EditPassword"
+            android:name=".EditPassword"
             android:label="@string/title_activity_edit_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.AllLogsUser"
+            android:name=".AllLogsUser"
             android:label="@string/title_activity_all_logs_user"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.SearchUser"
+            android:name=".SearchUser"
             android:label="@string/title_activity_search_user"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.Transfer"
+            android:name=".Transfer"
             android:label="@string/title_activity_transfer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.AccountSelectionActivity"
+            android:name=".AccountSelectionActivity"
             android:label="@string/title_activity_account_selection"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.ojtmonitoring.CreateCompanyAccountActivity" />
+        <activity android:name=".CreateCompanyAccountActivity" />
         <activity
-            android:name="com.example.ojtmonitoring.CreateTeacherAccountActivity"
+            android:name=".CreateTeacherAccountActivity"
             android:label="@string/title_activity_create_teacher_account"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.ojtmonitoring.CreateStudentActivity"
+            android:name=".CreateStudentActivity"
             android:label="@string/title_activity_create_student"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.ojtmonitoring.AccountCreationSelectionActivity" />
-        <activity android:name="com.example.ojtmonitoring.StudentLoginActivity" />
-        <activity android:name="com.example.ojtmonitoring.CompanyLoginActivity" />
-        <activity android:name="com.example.ojtmonitoring.CompanyUpdateInformation" />
-        <activity android:name="com.example.ojtmonitoring.AddUpdateCompanyRequirements" />
-        <activity android:name="com.example.ojtmonitoring.ShowCompaniesActivity" />
-        <activity android:name="com.example.ojtmonitoring.CreateUpdateResumeActivity" />
-        <activity android:name="com.example.ojtmonitoring.TeacherLoginActivity" />
-        <activity android:name="com.example.ojtmonitoring.ShowOJTApplicationsActivity" />
-        <activity android:name="com.example.ojtmonitoring.ShowOJTListActivity" />
-        <activity android:name="com.example.ojtmonitoring.ShowStudentLoginLogoutActivity" />
-        <activity android:name="com.example.ojtmonitoring.AttendanceCheckerMainActivity" />
-        <activity android:name="com.example.ojtmonitoring.NewStudentAccountsActivity" />
-        <activity android:name="com.example.ojtmonitoring.ViewApprovedAccountsActivity" />
-        <activity android:name="com.example.ojtmonitoring.CreateSectionActivity" />
-        <activity android:name="com.example.ojtmonitoring.CreateSectionCompanyActivity" />
-        <activity android:name="com.example.ojtmonitoring.SectionSelectionActivity" />
-        <activity android:name="com.example.ojtmonitoring.CreateStudentSectionActivity" />
-        <activity android:name="com.example.ojtmonitoring.CreateCoordinatorAccountActivity" />
-        <activity android:name="com.example.ojtmonitoring.CoordinatorLoginActivity"></activity>
+        <activity android:name=".AccountCreationSelectionActivity" />
+        <activity android:name=".StudentLoginActivity" />
+        <activity android:name=".CompanyLoginActivity" />
+        <activity android:name=".CompanyUpdateInformation" />
+        <activity android:name=".AddUpdateCompanyRequirements" />
+        <activity android:name=".ShowCompaniesActivity" />
+        <activity android:name=".CreateUpdateResumeActivity" />
+        <activity android:name=".TeacherLoginActivity" />
+        <activity android:name=".ShowOJTApplicationsActivity" />
+        <activity android:name=".ShowOJTListActivity" />
+        <activity android:name=".ShowStudentLoginLogoutActivity" />
+        <activity android:name=".AttendanceCheckerMainActivity" />
+        <activity android:name=".NewStudentAccountsActivity" />
+        <activity android:name=".ViewApprovedAccountsActivity" />
+        <activity android:name=".CreateSectionActivity" />
+        <activity android:name=".CreateSectionCompanyActivity" />
+        <activity android:name=".SectionSelectionActivity" />
+        <activity android:name=".CreateStudentSectionActivity" />
+        <activity android:name=".CreateCoordinatorAccountActivity" />
+        <activity android:name=".CoordinatorLoginActivity" />
+        <activity android:name=".ShowCoordinatorRequestActivity" />
+        <activity android:name=".ShowTimeAccumulatedActivity" />
+        <activity android:name=".PrintReportActivity" />
+        <activity android:name=".RateCompanyActivity"></activity>
     </application>
 
 </manifest>

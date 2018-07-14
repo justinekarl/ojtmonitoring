@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150sp">
+    android:layout_height="150sp"
+    android:background="@color/zxing_custom_viewfinder_mask">
 
     <CheckBox
         android:id="@+id/acceptChkbox"
@@ -17,7 +18,7 @@
         android:layout_x="72dp"
         android:layout_y="27dp"
         android:textAlignment="textStart"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
 </AbsoluteLayout>

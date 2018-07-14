@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
-            android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zxing_custom_viewfinder_mask">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
         <TextView
@@ -16,6 +17,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:text="References"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -23,18 +25,19 @@
             android:id="@+id/textView33"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name:"
             android:layout_below="@+id/referencesLbl"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-             />
+            android:text="Name:"
+            android:textColor="@color/white" />
 
-         <EditText
-             android:id="@+id/refName1Txt"
-             android:layout_width="250dp"
-             android:layout_height="match_parent"
-             android:layout_alignTop="@+id/textView33"
-             android:layout_toEndOf="@+id/referencesLbl" />
+        <EditText
+            android:id="@+id/refName1Txt"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/textView33"
+            android:layout_toEndOf="@+id/referencesLbl"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refAddress1Txt"
@@ -45,7 +48,7 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
             android:hint="Address"
-             />
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refPhone1Txt"
@@ -56,7 +59,8 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
             android:hint="Phone Number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refOccupation1Txt"
@@ -67,7 +71,7 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
             android:hint="Occupation"
-             />
+            android:textColor="@color/white" />
 
 
         <!-- -->
@@ -76,18 +80,19 @@
             android:id="@+id/textView40"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name:"
             android:layout_below="@+id/refOccupation1Txt"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            />
+            android:text="Name:"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refName2Txt"
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_below="@+id/refOccupation1Txt"
-            android:layout_toEndOf="@+id/referencesLbl" />
+            android:layout_toEndOf="@+id/referencesLbl"
+            android:textColor="@color/white" />
 
 
         <EditText
@@ -98,7 +103,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
             android:hint="Address"
-             />
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refPhone2Txt"
@@ -108,7 +113,8 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
             android:hint="Phone Number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refOccupation2Txt"
@@ -118,8 +124,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
             android:hint="Occupation"
-            />
-
+            android:textColor="@color/white" />
 
 
         <!-- -->
@@ -128,18 +133,19 @@
             android:id="@+id/textView42"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name:"
             android:layout_below="@+id/refOccupation2Txt"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            />
+            android:text="Name:"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refName3Txt"
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_below="@+id/refOccupation2Txt"
-            android:layout_toEndOf="@+id/referencesLbl" />
+            android:layout_toEndOf="@+id/referencesLbl"
+            android:textColor="@color/white" />
 
 
         <EditText
@@ -150,7 +156,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
             android:hint="Address"
-             />
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refPhone3Txt"
@@ -160,7 +166,8 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
             android:hint="Phone Number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/refOccupation3Txt"
@@ -170,7 +177,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
             android:hint="Occupation"
-            />
+            android:textColor="@color/white" />
 
 
     </RelativeLayout>
