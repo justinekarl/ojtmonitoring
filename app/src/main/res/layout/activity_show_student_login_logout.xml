@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_x="70dp"
             android:layout_y="17dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
             android:hint="Student Name"
             android:inputType="textPersonName"
@@ -28,11 +29,13 @@
         <ListView
             android:id="@+id/resultLsView"
             android:layout_width="wrap_content"
-            android:layout_height="174dp"
+            android:layout_height="300dp"
             android:layout_x="12dp"
             android:layout_y="312dp"
-            android:footerDividersEnabled="true"
-            android:headerDividersEnabled="true"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:fadeScrollbars="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
             android:scrollbars="horizontal|vertical" />
 
         <EditText
@@ -41,52 +44,13 @@
             android:layout_height="wrap_content"
             android:layout_x="69dp"
             android:layout_y="72dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
             android:hint="Company Name"
             android:inputType="textPersonName"
             android:textAlignment="center"
-            android:textColor="@color/divider"
+            android:textColor="@color/white"
             android:textColorHint="@color/divider" />
-
-        <TextView
-            android:id="@+id/textView41"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_x="13dp"
-            android:layout_y="282dp"
-            android:text="Student Name"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView43"
-            android:layout_width="112dp"
-            android:layout_height="wrap_content"
-            android:layout_x="118dp"
-            android:layout_y="282dp"
-            android:text="Company Name"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView44"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_x="242dp"
-            android:layout_y="282dp"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView45"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="325dp"
-            android:layout_y="282dp"
-            android:text="Logout"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
 
         <Button
             android:id="@+id/searchBtn"
@@ -102,9 +66,11 @@
             android:layout_height="wrap_content"
             android:layout_x="213dp"
             android:layout_y="135dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
             android:hint="Thru Date"
             android:inputType="date"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/divider" />
 
@@ -114,9 +80,11 @@
             android:layout_height="wrap_content"
             android:layout_x="67dp"
             android:layout_y="135dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
             android:hint="From Date"
             android:inputType="date"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/divider" />
 
@@ -127,6 +95,84 @@
             android:layout_x="221dp"
             android:layout_y="231dp"
             android:text="Reset" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_x="114dp"
+            android:layout_y="283dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Company Name"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:layout_x="229dp"
+            android:layout_y="284dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="297dp"
+            android:layout_y="284dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_x="11dp"
+            android:layout_y="283dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Student Name"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/printResultBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_x="261dp"
+            android:layout_y="600dp"
+            android:text="Print Result" />
+
+        <EditText
+            android:id="@+id/startTimeTxt"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_x="79dp"
+            android:layout_y="173dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:hint="Start Time"
+            android:inputType="text|time"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/divider" />
+
+        <EditText
+            android:id="@+id/endTimeTxt"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_x="228dp"
+            android:layout_y="172dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:hint="End Time"
+            android:inputType="text|time"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/divider" />
 
     </AbsoluteLayout>
 </ScrollView>

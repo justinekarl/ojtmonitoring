@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.CompanyInfo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

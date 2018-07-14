@@ -98,6 +98,30 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
 
             $result=mysqli_query($link,$companyProfileQry);
 
+
+
+            $coursesIds = $_POST['courseIds'];
+
+            error_log($coursesIds);
+
+
+            $selCourseIds = explode(",", $coursesIds);
+
+            foreach ($selCourseIds as $key => $courseId) {
+
+                $courseId = intval($courseId);
+
+                $insertSelectedCourseQry = "INSERT INTO company_course_to_accept(course_id,company_id) VALUES ('$courseId','$id')";
+
+                error_log($insertSelectedCourseQry);
+
+                $result=mysqli_query($link,
+                            $insertSelectedCourseQry);
+
+                error_log("insert selected courses info ".print_r($result,true));   
+            }
+
+
             $response['message'] = "Successfully created Company Account";
             $response['success'] = 1;
 

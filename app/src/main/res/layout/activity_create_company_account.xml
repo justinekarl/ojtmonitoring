@@ -12,17 +12,6 @@
         tools:context="com.example.ojtmonitoring.CreateCompanyAccountActivity">
 
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="71dp"
-            android:layout_y="12dp"
-            android:text="Create Company Account"
-            android:textColor="@color/light_orange"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/saveCompanyAccount"
             android:layout_width="109dp"
@@ -30,8 +19,8 @@
             android:layout_alignBaseline="@+id/cancelSaveCompany"
             android:layout_alignBottom="@+id/cancelSaveCompany"
             android:layout_alignStart="@+id/userNameTxt"
-            android:layout_x="243dp"
-            android:layout_y="487dp"
+            android:layout_x="241dp"
+            android:layout_y="522dp"
             android:background="#5e5e5e"
             android:ems="10"
             android:text="Save"
@@ -39,26 +28,59 @@
             tools:layout_editor_absoluteX="55dp"
             tools:layout_editor_absoluteY="416dp" />
 
+        <Button
+            android:id="@+id/cancelSaveCompany"
+            android:layout_width="109dp"
+            android:layout_height="36dp"
+            android:layout_alignEnd="@+id/userNameTxt"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="37dp"
+            android:layout_x="83dp"
+            android:layout_y="520dp"
+            android:background="#5e5e5e"
+            android:text="Cancel"
+            android:textColor="@color/zxing_status_text"
+            tools:layout_editor_absoluteX="217dp"
+            tools:layout_editor_absoluteY="416dp" />
+
         <EditText
             android:id="@+id/confirmPasswordTxt"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="157dp"
-            android:layout_y="424dp"
+            android:layout_height="35dp"
+            android:layout_x="152dp"
+            android:layout_y="468dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
-            android:textColor="@color/white"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/confirmPasswordLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="16dp"
-            android:layout_y="434dp"
+            android:layout_x="4dp"
+            android:layout_y="475dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Confirm Password:"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/passwordTxt"
+            android:layout_width="262dp"
+            android:layout_height="33dp"
+            android:layout_above="@+id/cancelSaveCompany"
+            android:layout_marginBottom="28dp"
+            android:layout_toEndOf="@+id/phoneNumberLbl"
+            android:layout_x="118dp"
+            android:layout_y="419dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="94dp"
+            tools:layout_editor_absoluteY="349dp" />
 
         <TextView
             android:id="@+id/passwordlBl"
@@ -66,29 +88,16 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/userNameTxt"
             android:layout_toStartOf="@+id/companyTypeSpnr"
-            android:layout_x="23dp"
-            android:layout_y="365dp"
+            android:layout_x="12dp"
+            android:layout_y="428dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Password:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="17dp"
             tools:layout_editor_absoluteY="303dp" />
-
-        <EditText
-            android:id="@+id/passwordTxt"
-            android:layout_width="262dp"
-            android:layout_height="50dp"
-            android:layout_above="@+id/cancelSaveCompany"
-            android:layout_marginBottom="28dp"
-            android:layout_toEndOf="@+id/phoneNumberLbl"
-            android:layout_x="127dp"
-            android:layout_y="352dp"
-            android:ems="10"
-            android:textColor="@color/white"
-            android:inputType="textPassword"
-            tools:layout_editor_absoluteX="94dp"
-            tools:layout_editor_absoluteY="349dp" />
 
         <EditText
             android:id="@+id/userNameTxt"
@@ -97,11 +106,12 @@
             android:layout_above="@+id/userNameTxt"
             android:layout_alignStart="@+id/userNameTxt"
             android:layout_marginBottom="27dp"
-            android:layout_x="124dp"
-            android:layout_y="293dp"
+            android:layout_x="120dp"
+            android:layout_y="367dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
-            android:textColor="@color/white"
             android:inputType="textPersonName"
+            android:textColor="@color/white"
             tools:layout_editor_absoluteX="94dp"
             tools:layout_editor_absoluteY="295dp" />
 
@@ -111,8 +121,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/addressLbl"
             android:layout_alignTop="@+id/userNameTxt"
-            android:layout_x="18dp"
-            android:layout_y="299dp"
+            android:layout_x="11dp"
+            android:layout_y="381dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Username:"
             android:textColor="@android:color/white"
             android:textSize="16sp"
@@ -120,14 +131,26 @@
             tools:layout_editor_absoluteX="17dp"
             tools:layout_editor_absoluteY="303dp" />
 
+        <EditText
+            android:id="@+id/companyTypeTxt"
+            android:layout_width="238dp"
+            android:layout_height="36dp"
+            android:layout_x="125dp"
+            android:layout_y="317dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/companyTypeLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/companyTypeSpnr"
             android:layout_toStartOf="@+id/companyTypeSpnr"
-            android:layout_x="16dp"
-            android:layout_y="252dp"
+            android:layout_x="6dp"
+            android:layout_y="326dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Company Type:"
             android:textColor="@android:color/white"
             android:textSize="16sp"
@@ -135,15 +158,81 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="248dp" />
 
-        <EditText
-            android:id="@+id/companyTypeTxt"
+        <TextView
+            android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_x="71dp"
+            android:layout_y="3dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Create Company Account"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/custCompanyNameTxt"
+            android:layout_width="243dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/addressText"
+            android:layout_alignEnd="@+id/addressText"
+            android:layout_marginBottom="21dp"
             android:layout_x="132dp"
-            android:layout_y="234dp"
+            android:layout_y="38dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
+            android:inputType="textPersonName"
             android:textColor="@color/white"
-            android:inputType="textPersonName" />
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="31dp" />
+
+        <TextView
+            android:id="@+id/companyNameLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/custCompanyNameTxt"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/custCompanyNameTxt"
+            android:layout_x="5dp"
+            android:layout_y="39dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Company Name:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="39dp" />
+
+        <EditText
+            android:id="@+id/addressText"
+            android:layout_width="249dp"
+            android:layout_height="54dp"
+            android:layout_above="@+id/custPhoneNumberTxt"
+            android:layout_alignEnd="@+id/userNameTxt"
+            android:layout_x="132dp"
+            android:layout_y="66dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="94dp"
+            tools:layout_editor_absoluteY="87dp" />
+
+        <TextView
+            android:id="@+id/addressLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/companyNameLbl"
+            android:layout_alignTop="@+id/addressText"
+            android:layout_x="25dp"
+            android:layout_y="83dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Address:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="105dp" />
 
         <EditText
             android:id="@+id/custPhoneNumberTxt"
@@ -151,11 +240,12 @@
             android:layout_height="44dp"
             android:layout_above="@+id/companyTypeSpnr"
             android:layout_alignEnd="@+id/addressText"
-            android:layout_x="124dp"
-            android:layout_y="178dp"
+            android:layout_x="134dp"
+            android:layout_y="128dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
-            android:textColor="@color/white"
             android:inputType="phone"
+            android:textColor="@color/white"
             tools:layout_editor_absoluteX="120dp"
             tools:layout_editor_absoluteY="167dp" />
 
@@ -167,8 +257,9 @@
             android:layout_alignBottom="@+id/custPhoneNumberTxt"
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
-            android:layout_x="14dp"
-            android:layout_y="191dp"
+            android:layout_x="13dp"
+            android:layout_y="143dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Phone Number:"
             android:textColor="@android:color/white"
             android:textSize="16sp"
@@ -176,79 +267,13 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="180dp" />
 
-        <TextView
-            android:id="@+id/addressLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/companyNameLbl"
-            android:layout_alignTop="@+id/addressText"
-            android:layout_x="15dp"
-            android:layout_y="135dp"
-            android:text="Address:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="105dp" />
-
-        <EditText
-            android:id="@+id/addressText"
-            android:layout_width="249dp"
-            android:layout_height="54dp"
-            android:layout_above="@+id/custPhoneNumberTxt"
-            android:layout_alignEnd="@+id/userNameTxt"
-            android:layout_x="120dp"
-            android:layout_y="111dp"
-            android:ems="10"
-            android:textColor="@color/white"
-            android:inputType="textMultiLine"
-            tools:layout_editor_absoluteX="94dp"
-            tools:layout_editor_absoluteY="87dp" />
-
-        <EditText
-            android:id="@+id/custCompanyNameTxt"
-            android:layout_width="243dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/addressText"
-            android:layout_alignEnd="@+id/addressText"
-            android:layout_marginBottom="21dp"
-            android:layout_x="132dp"
-            android:layout_y="62dp"
-            android:ems="10"
-            android:textColor="@color/white"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="127dp"
-            tools:layout_editor_absoluteY="31dp" />
-
-        <TextView
-            android:id="@+id/companyNameLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/custCompanyNameTxt"
-            android:layout_marginEnd="10dp"
-            android:layout_toStartOf="@+id/custCompanyNameTxt"
+        <ListView
+            android:id="@+id/coursesLstVw"
+            android:layout_width="359dp"
+            android:layout_height="127dp"
             android:layout_x="13dp"
-            android:layout_y="76dp"
-            android:text="Company Name:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="39dp" />
-
-        <Button
-            android:id="@+id/cancelSaveCompany"
-            android:layout_width="109dp"
-            android:layout_height="36dp"
-            android:layout_alignEnd="@+id/userNameTxt"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="37dp"
-            android:layout_x="92dp"
-            android:layout_y="487dp"
-            android:background="#5e5e5e"
-            android:text="Cancel"
-            android:textColor="@color/zxing_status_text"
-            tools:layout_editor_absoluteX="217dp"
-            tools:layout_editor_absoluteY="416dp" />
+            android:layout_y="182dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:scrollbars="horizontal|vertical" />
     </AbsoluteLayout>
 </ScrollView>

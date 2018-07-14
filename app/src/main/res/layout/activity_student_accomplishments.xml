@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zxing_custom_viewfinder_mask">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,6 +18,7 @@
             android:layout_marginTop="14dp"
             android:elevation="0dp"
             android:text="Accomplishments:"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -27,19 +30,20 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:ems="10"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:textColor="@color/white" />
 
 
         <TextView
             android:id="@+id/textView28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Interests:"
-            android:textStyle="bold"
             android:layout_below="@+id/accomplishmentsTxt"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="40dp"
-            />
+            android:layout_marginTop="10dp"
+            android:text="Interests:"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/interestTxt"
@@ -49,18 +53,19 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:ems="10"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textView29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Education:"
-            android:textStyle="bold"
             android:layout_below="@+id/interestTxt"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="40dp"
-            />
+            android:layout_marginTop="10dp"
+            android:text="Education:"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/elementaryTxt"
@@ -71,7 +76,8 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Elementary"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/elemAddressTxt"
@@ -82,7 +88,8 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Address"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
 
         <EditText
@@ -94,7 +101,8 @@
             android:layout_marginTop="18dp"
             android:ems="10"
             android:hint="High School"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/highSchoolAddress1Txt"
@@ -105,8 +113,8 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Address"
-            android:inputType="textPersonName" />
-
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
 
         <EditText
@@ -118,7 +126,8 @@
             android:layout_marginTop="18dp"
             android:ems="10"
             android:hint="College"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/collegeAddressTxt"
@@ -129,8 +138,8 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Address"
-            android:inputType="textPersonName" />
-
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
 
     </RelativeLayout>

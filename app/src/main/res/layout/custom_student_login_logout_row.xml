@@ -5,22 +5,22 @@
 
     <TextView
         android:id="@+id/studentNameTxt"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
+        android:layout_width="84dp"
+        android:layout_height="33dp"
         android:layout_marginTop="15sp"
         android:layout_x="5dp"
-        android:layout_y="15dp"
+        android:layout_y="17dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="13sp" />
 
     <TextView
         android:id="@+id/companyNameTxt"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
+        android:layout_width="83dp"
+        android:layout_height="32dp"
         android:layout_marginLeft="6sp"
-        android:layout_x="109dp"
-        android:layout_y="16dp"
+        android:layout_x="92dp"
+        android:layout_y="17dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="13sp" />
@@ -30,7 +30,7 @@
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginLeft="6sp"
-        android:layout_x="214dp"
+        android:layout_x="180dp"
         android:layout_y="17dp"
         android:text="TextView"
         android:textColor="@android:color/black"
@@ -41,9 +41,18 @@
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginLeft="6sp"
-        android:layout_x="300dp"
+        android:layout_x="265dp"
         android:layout_y="18dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/fromFingerprintTxt"
+        android:layout_width="31dp"
+        android:layout_height="37dp"
+        android:layout_x="349dp"
+        android:layout_y="15dp"
+        android:text="TextView"
+        android:textColor="@android:color/black" />
 </AbsoluteLayout>

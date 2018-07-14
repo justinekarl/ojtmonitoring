@@ -17,8 +17,9 @@
             android:layout_height="29dp"
             android:layout_x="66dp"
             android:layout_y="10dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:textAlignment="textEnd"
-            android:textColor="#21da00" />
+            android:textColor="@color/colorAccent" />
 
         <Button
             android:id="@+id/logoutBtn"
@@ -35,8 +36,9 @@
             android:layout_x="157dp"
             android:layout_y="80dp"
             android:text="Teacher"
-            android:textColor="#21da00"
-            android:textSize="24sp" />
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <ListView
             android:id="@+id/menuOptionsLstView"
@@ -46,7 +48,7 @@
             android:layout_marginRight="15dp"
             android:layout_x="18dp"
             android:layout_y="148dp"
-            android:background="@color/light_teal"
-            android:foreground="@color/white" />
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:descendantFocusability="blocksDescendants" />
     </AbsoluteLayout>
 </ScrollView>

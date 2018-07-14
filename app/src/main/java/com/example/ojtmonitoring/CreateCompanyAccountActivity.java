@@ -4,24 +4,29 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
+import com.example.ojtmonitoring.info.CompanyInfo;
+import com.example.ojtmonitoring.info.CourseInfo;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CreateCompanyAccountActivity extends AppCompatActivity {
 
@@ -47,6 +52,11 @@ public class CreateCompanyAccountActivity extends AppCompatActivity {
     JSONParser jsonParser = new JSONParser();
     public static boolean registrationSuccessful;
     public static String registrationMessage;
+    CustomCourseListView courseListViewAdapter;
+    private ArrayList<CourseInfo> courseInfos;
+    private ListView coursesLstVw;
+
+    List<Integer> courses = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +72,29 @@ public class CreateCompanyAccountActivity extends AppCompatActivity {
         passwordTxt = (EditText)findViewById(R.id.passwordTxt);
         confirmPasswordTxt = (EditText)findViewById(R.id.confirmPasswordTxt);
         saveCompanyAccount = (Button)findViewById(R.id.saveCompanyAccount);
+        coursesLstVw = (ListView)findViewById(R.id.coursesLstVw);
+
+        //allowing vertical scroll even in scroll view
+        coursesLstVw.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
+
+        ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
+        connectToDataBaseViaJson.execute();
 
         /*cancelSaveCompany.setOnClickListener(
 
@@ -223,6 +256,15 @@ public class CreateCompanyAccountActivity extends AppCompatActivity {
             String sign_up_address = address;
             String sign_up_phone = phoneNumber;
 
+            courses.clear();
+            if(null != courseInfos && courseInfos.size() > 0){
+                for(CourseInfo courseInfo:courseInfos){
+                    if(courseInfo.isSelected()){
+                        courses.add(courseInfo.getId());
+                    }
+                }
+            }
+
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("user_name", sign_up_user_name));
@@ -234,6 +276,8 @@ public class CreateCompanyAccountActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("address",sign_up_address));
             params.add(new BasicNameValuePair("phonenumber",sign_up_phone));
             params.add(new BasicNameValuePair("accounttype","3"));
+
+            params.add(new BasicNameValuePair("courseIds",PaceSettingManager.integerTooCommaSeparated(courses)+""));
 
 
 
@@ -281,6 +325,7 @@ public class CreateCompanyAccountActivity extends AppCompatActivity {
             pDialog.dismiss();
            /* // dismiss the dialog once done*/
 
+
             if(registrationSuccessful){
                 toastMessage(registrationMessage);
                 Intent int1 = new Intent(CreateCompanyAccountActivity.this, Login.class);
@@ -289,6 +334,87 @@ public class CreateCompanyAccountActivity extends AppCompatActivity {
                 toastMessage(registrationMessage);
             }
 
+
+        }
+    }
+
+
+
+    class ConnectToDataBaseViaJson extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(CreateCompanyAccountActivity.this);
+            pDialog.setMessage("Processing..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        public ConnectToDataBaseViaJson() {
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+            JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"getCoursesList.php",
+                    "POST", params);
+
+
+            try {
+                if(null != json){
+                    courses.clear();
+                    // check log cat fro response
+                    Log.d("Create Response", json.toString());
+
+                    int success = json.getInt("success");
+                    if(success == 1) {
+
+
+                        JSONArray items = json.getJSONArray("courses");
+
+                        courseInfos = new ArrayList<CourseInfo>();
+
+
+                        for(int ctr = 0;  ctr < items.length() ; ctr++){
+
+                            CourseInfo courseInfo = new CourseInfo();
+                            for(int i = 1 ; i <= items.getJSONArray(ctr).length()-1 ; i++) {
+                                courseInfo.setId(Integer.parseInt(items.getJSONArray(ctr).get(0)+""));
+                                courseInfo.setName(items.getJSONArray(ctr).get(1)+"");
+                            }
+
+                            courseInfos.add(courseInfo);
+                        }
+
+                    }else {
+                        if(null != json.getString("message")){
+                            //   loginMessage=json.getString("message");
+                        }
+                    }
+
+                }else{
+                    //loginMessage="Invalid User";
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+                //loginMessage="Invalid User";
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         **/
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+            courseListViewAdapter = new CustomCourseListView(courseInfos,CreateCompanyAccountActivity.this);
+            coursesLstVw.setAdapter(courseListViewAdapter);
 
         }
     }

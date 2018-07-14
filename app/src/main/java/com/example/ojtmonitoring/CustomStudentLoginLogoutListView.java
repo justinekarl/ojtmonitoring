@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.info.StudentLoginLogoutLogsInfo;
 
 import java.util.List;
@@ -19,6 +18,7 @@ public class CustomStudentLoginLogoutListView extends BaseAdapter{
     private TextView companyNameTxt;
     private TextView loginTxt;
     private TextView logoutTxt;
+    private TextView fromFingerprintTxt;
     Context context;
     private StudentLoginLogoutLogsInfo studentLoginLogoutLogsInfo;
 
@@ -56,6 +56,7 @@ public class CustomStudentLoginLogoutListView extends BaseAdapter{
         companyNameTxt = (TextView)view.findViewById(R.id.companyNameTxt);
         loginTxt = (TextView)view.findViewById(R.id.loginTxt);
         logoutTxt = (TextView)view.findViewById(R.id.logoutTxt);
+        fromFingerprintTxt = (TextView)view.findViewById(R.id.fromFingerprintTxt);
 
         studentLoginLogoutLogsInfo = studentLoginLogoutLogsInfos.get(position);
         if(null != studentLoginLogoutLogsInfo){
@@ -63,6 +64,7 @@ public class CustomStudentLoginLogoutListView extends BaseAdapter{
             companyNameTxt.setText(studentLoginLogoutLogsInfo.getCompanyName());
             loginTxt.setText(studentLoginLogoutLogsInfo.getLoginDate());
             logoutTxt.setText(studentLoginLogoutLogsInfo.getLogoutDate());
+            fromFingerprintTxt.setText(studentLoginLogoutLogsInfo.getFromFingerPrint());
         }
 
         if(position%2==0){

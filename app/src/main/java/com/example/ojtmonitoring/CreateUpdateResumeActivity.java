@@ -9,9 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
 import com.example.ojtmonitoring.fragments.StudentAccomplishmentsFragment;
 import com.example.ojtmonitoring.fragments.StudentPersonalInformationFragment;
 import com.example.ojtmonitoring.fragments.StudentReferenceFragment;
@@ -88,6 +88,10 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
                             if(null != personalInformationFragment.getActivity().findViewById(R.id.phoneNumberTxt)) {
                                 resumeInfo.getStudentPersonalInformationInfo().setPhoneNumber(((EditText) personalInformationFragment.getActivity().findViewById(R.id.phoneNumberTxt)).getText().toString());
+                            }
+
+                            if(null != personalInformationFragment.getActivity().findViewById(R.id.genderSpnr)){
+                                resumeInfo.getStudentPersonalInformationInfo().setGender(((Spinner)personalInformationFragment.getActivity().findViewById(R.id.genderSpnr)).getSelectedItem().toString());
                             }
 
                             if(null != resumeInfo.getStudentPersonalInformationInfo().getWorkExperienceInfos() && resumeInfo.getStudentPersonalInformationInfo().getWorkExperienceInfos().size() == 0 ){
@@ -289,7 +293,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
     }
 
     @Override
-    public StudentPersonalInformationInfo getStudentPersonalInfo(String name, String address, String phoneNumber, String email) {
+    public StudentPersonalInformationInfo getStudentPersonalInfo(String name, String address, String phoneNumber, String email, String gender) {
         StudentPersonalInformationInfo personalInformationInfo = new StudentPersonalInformationInfo();
 
         personalInformationFragment =  (StudentPersonalInformationFragment)getSupportFragmentManager().findFragmentById(R.id.personalInfofragment);
@@ -374,6 +378,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
                         resumeInfo.getStudentPersonalInformationInfo().setAddress(null != json.get("address") ? json.get("address").toString():"");
                         resumeInfo.getStudentPersonalInformationInfo().setPhoneNumber(null != json.get("phonenumber") ? json.get("phonenumber").toString():"");
                         resumeInfo.getStudentPersonalInformationInfo().setEmail(null != json.get("email") ? json.get("email").toString():"");
+                        resumeInfo.getStudentPersonalInformationInfo().setGender(null != json.get("gender") ? json.get("gender").toString():"");
 
 
                         JSONArray workExperienceJsonArr = json.has("work_experience") ? json.getJSONArray("work_experience") : null;
@@ -646,6 +651,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
                 params.add(new BasicNameValuePair("address",resumeInfo.getStudentPersonalInformationInfo().getAddress()));
                 params.add(new BasicNameValuePair("phoneNumber",resumeInfo.getStudentPersonalInformationInfo().getPhoneNumber()));
                 params.add(new BasicNameValuePair("email",resumeInfo.getStudentPersonalInformationInfo().getEmail()));
+                params.add(new BasicNameValuePair("gender",resumeInfo.getStudentPersonalInformationInfo().getGender()));
 
                 if(null !=resumeInfo.getStudentPersonalInformationInfo().getWorkExperienceInfos() &&resumeInfo.getStudentPersonalInformationInfo().getWorkExperienceInfos().size() > 0){
                     int position = 0;

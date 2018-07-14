@@ -30,12 +30,12 @@
             android:layout_width="368dp"
             android:layout_height="330dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="42dp"
-            android:background="@color/light_teal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:layout_marginTop="42dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
 

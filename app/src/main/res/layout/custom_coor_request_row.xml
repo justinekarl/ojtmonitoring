@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/zxing_custom_viewfinder_mask">
+
+    <CheckBox
+        android:id="@+id/approveChkBx"
+        android:layout_width="124dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="8dp"
+        android:layout_x="24dp"
+        android:layout_y="16dp"
+        android:text="Approve"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/coordinatorNameTxt"
+        tools:layout_editor_absoluteY="65dp" />
+
+    <TextView
+        android:id="@+id/coordinatorNameTxt"
+        android:layout_width="208dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="65dp"
+        android:layout_x="151dp"
+        android:layout_y="13dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="148dp" />
+
+    <TextView
+        android:id="@+id/phoneTxt"
+        android:layout_width="282dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="35dp"
+        android:layout_x="45dp"
+        android:layout_y="76dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/addressTxt"
+        tools:layout_editor_absoluteX="51dp" />
+
+    <TextView
+        android:id="@+id/addressTxt"
+        android:layout_width="283dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="43dp"
+        android:layout_x="44dp"
+        android:layout_y="131dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/coordinatorNameTxt"
+        tools:layout_editor_absoluteX="51dp" />
+</AbsoluteLayout>

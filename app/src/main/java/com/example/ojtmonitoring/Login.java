@@ -17,8 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -57,6 +55,7 @@ public class Login extends AppCompatActivity {
     public static String department;
     public static String college;
     public static int companyId;
+    boolean ojtDone;
 
     public static TextView createAccountNowTxt;
 
@@ -269,6 +268,7 @@ public class Login extends AppCompatActivity {
                         if(json.has("department")) department = json.getString("department");
                         if(json.has("college")) college = json.getString("college");
                         if(json.has("company_id")) companyId = json.getInt("company_id");
+                        if(json.has("ojt_done")) ojtDone = json.getBoolean("ojt_done");
 
                     }else {
                         loginSucessful =  false;
@@ -334,6 +334,7 @@ public class Login extends AppCompatActivity {
                 editor.putString("college",college);
                 editor.putString("department",department);
                 editor.putInt("companyId",companyId);
+                editor.putString("ojt_status",ojtDone ? "OJT Finished" : "OJT In progress");
 
                 editor.commit();
 

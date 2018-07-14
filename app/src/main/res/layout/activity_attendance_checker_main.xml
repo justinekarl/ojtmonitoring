@@ -35,15 +35,16 @@
 
     <TextView
         android:id="@+id/textView46"
-        android:layout_width="265dp"
-        android:layout_height="28dp"
+        android:layout_width="343dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="52dp"
         android:text="Scan Student QR Code To Login/Logout."
-        android:textColor="#21da00"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.504" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

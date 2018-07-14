@@ -12,14 +12,16 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
+import com.example.ojtmonitoring.info.CourseInfo;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,6 +48,9 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
 
     private static boolean successfullyUpdated = false;
 
+    private ListView coursesLstVw;
+    private List<Integer> selectedCoursesIds = new ArrayList<>();
+
 
 
 
@@ -55,6 +60,8 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
     ArrayAdapter<String> collegeListAdapter = null;
 
     private static int companyProfileId;
+    CustomCourseListView courseListViewAdapter;
+    private ArrayList<CourseInfo> courseInfos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +75,8 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
         ojtNumberTxt = (EditText)findViewById(R.id.ojtNumberTxt);
         saveBtn = (Button)findViewById(R.id.saveBtn);
         cancelBtn = (Button)findViewById(R.id.cancelBtn);
+
+        coursesLstVw = (ListView)findViewById(R.id.coursesLstVw);
 
         collegeListAdapter = new ArrayAdapter<String> (AddUpdateCompanyRequirements.this,
                                                                             android.R.layout.simple_list_item_1,
@@ -85,6 +94,24 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
         companyId = sharedPreferences.getInt("agent_id",0);
 
 
+        //allowing vertical scroll even in scroll view
+        coursesLstVw.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
 
         AddUpdateCompanyRequirements.ConnectToDataBaseViaJson retriveOjtReq = new AddUpdateCompanyRequirements.ConnectToDataBaseViaJson();
         retriveOjtReq.execute();
@@ -161,6 +188,16 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
                                 allowance = null != allowanceTxt.getText() && allowanceTxt.getText().toString().trim().length() > 0 ? Integer.parseInt(allowanceTxt.getText().toString()): 0;
                                 ojtNumber = null != ojtNumberTxt.getText() && ojtNumberTxt.getText().toString().trim().length() > 0 ? Integer.parseInt(ojtNumberTxt.getText().toString()): 0;
 
+                                selectedCoursesIds.clear();
+
+                                if(null != courseInfos && courseInfos.size() > 0){
+                                    for(CourseInfo courseInfo:courseInfos){
+                                        if(courseInfo.isSelected()){
+                                            selectedCoursesIds.add(courseInfo.getId());
+                                        }
+                                    }
+                                }
+
                                 AddUpdateCompanyRequirements.UpdateOjtRequirements update = new AddUpdateCompanyRequirements.UpdateOjtRequirements();
                                 update.execute();
 
@@ -216,6 +253,45 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
                         allowance = null != json.getString("allowance") && !"null".equals(json.getString("allowance")) ? Integer.valueOf(json.getString("allowance")): null;
                         ojtNumber = null != json.getString("ojt_number") && !"null".equals(json.getString("ojt_number"))? Integer.valueOf(json.getString("ojt_number")):null;
 
+
+                        JSONArray items = json.getJSONArray("courses");
+
+                        courseInfos = new ArrayList<CourseInfo>();
+
+
+                        for(int ctr = 0;  ctr < items.length() ; ctr++){
+
+                            CourseInfo courseInfo = new CourseInfo();
+                            for(int i = 1 ; i <= items.getJSONArray(ctr).length()-1 ; i++) {
+                                courseInfo.setId(Integer.parseInt(items.getJSONArray(ctr).get(0)+""));
+                                courseInfo.setName(items.getJSONArray(ctr).get(1)+"");
+                            }
+
+                            courseInfos.add(courseInfo);
+                        }
+
+                        List<Integer> selectedCourseIds = new ArrayList<>();
+                        if(json.has("courses_selected")) {
+                            JSONArray items1 = json.getJSONArray("courses_selected");
+
+                            for (int ctr = 0; ctr < items1.length(); ctr++) {
+                                for (int i = 0; i < items1.getJSONArray(ctr).length(); i++) {
+                                    selectedCourseIds.add(Integer.parseInt(items1.getJSONArray(ctr).get(0) + ""));
+                                }
+                            }
+                        }
+
+                        for(CourseInfo courseInfo : courseInfos){
+                            for(Integer courseId : selectedCourseIds){
+                                if(courseInfo.getId() == courseId){
+                                    courseInfo.setSelected(true);
+                                    break;
+                                }
+                            }
+                        }
+
+
+
                     }else {
                         if(null != json.getString("message")){
                             //   loginMessage=json.getString("message");
@@ -252,6 +328,9 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
                     collegeSpnr.setSelection(collegeListAdapter.getPosition(college));
                 }
             }
+
+            courseListViewAdapter = new CustomCourseListView(courseInfos,AddUpdateCompanyRequirements.this);
+            coursesLstVw.setAdapter(courseListViewAdapter);
         }
     }
     //end of connecting
@@ -290,6 +369,7 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
             params.add(new BasicNameValuePair("allowance", allowanceToUse+""));
             params.add(new BasicNameValuePair("ojtNumber", ojtNumberToUse+""));
             params.add(new BasicNameValuePair("agentid",agentId));
+            params.add(new BasicNameValuePair("selectedCoursesIds",PaceSettingManager.integerTooCommaSeparated(selectedCoursesIds)));
 
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"updateOjtRequirements.php",

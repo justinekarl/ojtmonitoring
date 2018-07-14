@@ -147,3 +147,50 @@ ALTER TABLE user ADD COLUMN company_name text;
 ALTER TABLE user ADD COLUMN company_id int;
 
 ALTER TABLE student_ojt_attendance_log ADD COLUMN agent_id int;
+ALTER TABLE student_ojt_attendance_log ADD COLUMN finger_print_scanner BOOLEAN DEFAULT FALSE;
+
+
+ALTER TABLE user ADD COLUMN rating int default 1;
+
+CREATE TABLE student_company_rating(id int not null auto_increment,
+                                    company_id int,
+                                    student_id int,
+                                    log_date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                    rating int,
+                                    primary key(id)
+                                   );
+
+
+ALTER TABLE user ADD COLUMN gender text;
+ALTER TABLE user ADD COLUMN ojt_hours int;
+
+CREATE TABLE course_look_up(id int not null auto_increment,
+                            name text,
+                            primary key(id)
+                            );
+
+
+CREATE TABLE company_course_to_accept(id int not null auto_increment,
+                                      course_id int,
+                                      name text,
+                                      company_id int,
+                                      primary key(id)
+                                     );
+
+
+INSERT INTO course_look_up(name)
+SELECT 'Education'
+UNION
+SELECT 'ECE'
+UNION
+SELECT 'Com Eng'
+UNION
+SELECT 'Computer Science'
+UNION
+SELECT 'Business Ad'
+UNION
+SELECT 'Public Ad'
+;
+
+ALTER TABLE user ADD COLUMN course text;
+ALTER TABLE user ADD COLUMN ojt_done boolean default false;

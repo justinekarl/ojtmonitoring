@@ -1,24 +1,44 @@
 package com.example.ojtmonitoring;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
+import android.graphics.pdf.PdfDocument;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.jomer.filetracker.R;
-
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -28,8 +48,12 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
     private static int agentId;
     private Button logoutBtn;
     private ListView contentLstVw;
-    final String[] menuItems = {"Scan Student QR Codes","Show student login/logout"};
+    final String[] menuItems = {"Scan Student QR Codes","Show student login/logout","Print Report"};
     ListAdapter menuAdapter;
+
+    ScrollView scrollView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +63,43 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         contentLstVw = (ListView)findViewById(R.id.contentLstVw);
 
+        scrollView = (ScrollView)findViewById(R.id.scrollViewCoor);
 
-        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems);
+        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view =  super.getView(position, convertView, parent);
+
+                TextView tv = (TextView)view.findViewById(android.R.id.text1);
+
+                tv.setTextColor(Color.WHITE);
+                tv.setTypeface(Typeface.DEFAULT_BOLD);
+
+                return view;
+            }
+        };
         contentLstVw.setAdapter(menuAdapter);
+
+        //allowing vertical scroll even in scroll view
+        contentLstVw.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
+
 
 
         SharedPreferences sharedpreferences = getSharedPreferences(
@@ -119,6 +177,10 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
                                 Intent showStudentLoginLogoutPage= new Intent(CoordinatorLoginActivity.this,ShowStudentLoginLogoutActivity.class);
                                 startActivity(showStudentLoginLogoutPage);
                                 return;
+                            case 2:
+                                Intent printReport = new Intent(CoordinatorLoginActivity.this,PrintReportActivity.class);
+                                startActivity(printReport);
+                                return;
                             default:
                                 Intent backToHome = new Intent(CoordinatorLoginActivity.this,CoordinatorLoginActivity.class);
                                 startActivity(backToHome);
@@ -129,5 +191,8 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
                 }
         );
 
+
     }
+
+
 }

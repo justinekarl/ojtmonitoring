@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.example.jomer.filetracker.R;
+import com.example.ojtmonitoring.R;
 import com.example.ojtmonitoring.info.ReferencesInfo;
 
 public class StudentReferenceFragment extends Fragment{
