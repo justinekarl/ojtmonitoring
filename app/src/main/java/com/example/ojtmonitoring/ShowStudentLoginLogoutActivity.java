@@ -1,9 +1,14 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintJob;
+import android.print.PrintManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +16,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,6 +75,10 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
     private EditText endTimeTxt;
     private String startTime;
     private String endTime;
+    private WebView printResultWebView;
+    private String htmlResult;
+
+    private String studentName;
 
 
 
@@ -87,6 +97,8 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
         printResultBtn = (Button)findViewById(R.id.printResultBtn);
         startTimeTxt = (EditText)findViewById(R.id.startTimeTxt);
         endTimeTxt = (EditText)findViewById(R.id.endTimeTxt);
+
+        printResultWebView = (WebView)findViewById(R.id.printResultWebView);
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         teacherId = sharedPreferences.getInt("agent_id",0);
@@ -198,6 +210,7 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     if(null != studentNameFilterTxt.getText()){
+                        studentName = studentNameFilterTxt.getText().toString();
                         filterJson.put("student_name",studentNameFilterTxt.getText().toString());
                     }
 
@@ -212,6 +225,9 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                     if(null != thruTxt.getText()){
                         filterJson.put("thru",thruTxt.getText().toString());
                     }
+
+                    Print print = new Print();
+                    print.execute();
 
                     Log.d("JSON ",filterJson.toString());
                 }catch (Exception e){
@@ -358,7 +374,7 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
                                             if(key.equals("login_date")){
                                                 try {
-                                                    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+                                                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
                                                     Date startTime1 = dateFormat.parse(value);
 
                                                     SimpleDateFormat dateFormat1= new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
@@ -370,7 +386,7 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                                             }
                                             if(key.equals("logout_date")){
                                                 try {
-                                                    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+                                                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
                                                     Date startTime2 = dateFormat.parse(value);
 
                                                     SimpleDateFormat dateFormat2= new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
@@ -528,5 +544,88 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
         }
     }
     //end of connecting
+
+
+    private void createWebPrintJob(WebView webView) {
+
+        // Get a PrintManager instance
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+
+        // Get a print adapter instance
+        PrintDocumentAdapter printAdapter = webView.createPrintDocumentAdapter();
+
+        // Create a print job with name and adapter instance
+        String jobName = getString(R.string.app_name) + " Document";
+        PrintJob printJob = printManager.print(jobName, printAdapter, new PrintAttributes.Builder().build());
+
+
+        // Save the job object for later status checking
+        // mPrintJob = printJob;
+    }
+
+
+    class Print extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(ShowStudentLoginLogoutActivity.this);
+            pDialog.setMessage("Processing..");
+            pDialog.setIndeterminate(false);
+
+            pDialog.setCancelable(true);
+            //   pDialog.show();
+        }
+
+        public Print() {
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("student_name",studentName));
+
+            JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS + "report",
+                    "POST", params);
+
+
+            try {
+                if (null != json) {
+
+                    // check log cat fro response
+                    Log.d("Create Response", json.toString());
+
+                    if (json.has("data")) {
+                        htmlResult = json.get("data").toString();
+                    }
+
+                    /*int success = json.getInt("success");
+                    if(success == 1) {
+                        htmlResult
+                    }*/
+
+                } else {
+                    //loginMessage="Invalid User";
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                //loginMessage="Invalid User";
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         **/
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+            printResultWebView.loadData(htmlResult, "text/html", "utf-8");
+            createWebPrintJob(printResultWebView);
+
+        }
+    }
 
 }

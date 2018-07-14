@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -8,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.print.PdfPrint;
 import android.print.PrintAttributes;
@@ -19,6 +21,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -28,8 +31,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PrintReportActivity extends AppCompatActivity {
     private TextView contentHtmlText;
@@ -39,6 +50,11 @@ public class PrintReportActivity extends AppCompatActivity {
     Bitmap bitmap;
     int width = 0;
     int height = 0;
+    String htmlResult;
+
+    JSONParser jsonParser = new JSONParser();
+    private ProgressDialog pDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +72,16 @@ public class PrintReportActivity extends AppCompatActivity {
         htmlContent.append("</table>");
         htmlContent.append("</html>");
 
-        webViewPage.loadData(htmlContent.toString(),"text/html","utf-8");
+
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createWebPrintJob(webViewPage);
+
+                ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
+                connectToDataBaseViaJson.execute();
+
+
 
 
              /*   width= 3000;
@@ -120,7 +140,7 @@ public class PrintReportActivity extends AppCompatActivity {
     }
 
 
-    private void permission(){
+    /*private void permission(){
         if((ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) ||
                 (ContextCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.WRITE_EXTERNAL_STORAGE ) != PackageManager.PERMISSION_GRANTED)){
 
@@ -132,8 +152,8 @@ public class PrintReportActivity extends AppCompatActivity {
             }
         }
     }
-
-    private void createPdf(){
+*/
+    /*private void createPdf(){
         WindowManager wm =(WindowManager)getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -173,14 +193,79 @@ public class PrintReportActivity extends AppCompatActivity {
         }
         pdfDocument.close();
 
-    }
+    }*/
 
 
-    public static Bitmap loadBitmap(View v , int w , int h){
+   /* public static Bitmap loadBitmap(View v , int w , int h){
         Bitmap b = Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(b);
         v.draw(c);
 
         return b;
+    }*/
+
+
+    class ConnectToDataBaseViaJson extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(PrintReportActivity.this);
+            pDialog.setMessage("Processing..");
+            pDialog.setIndeterminate(false);
+
+            pDialog.setCancelable(true);
+            //   pDialog.show();
+        }
+
+        public ConnectToDataBaseViaJson() {
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            //params.add(new BasicNameValuePair("agentid",agentId+""));
+
+            JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"report",
+                    "POST", params);
+
+
+            try {
+                if(null != json){
+
+                    // check log cat fro response
+                    Log.d("Create Response", json.toString());
+
+                    if(json.has("data")) {
+                        htmlResult = json.get("data").toString();
+                    }
+
+                    /*int success = json.getInt("success");
+                    if(success == 1) {
+                        htmlResult
+                    }*/
+
+                }else{
+                    //loginMessage="Invalid User";
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                //loginMessage="Invalid User";
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         **/
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+            webViewPage.loadData(htmlResult,"text/html","utf-8");
+            createWebPrintJob(webViewPage);
+
+        }
     }
 }

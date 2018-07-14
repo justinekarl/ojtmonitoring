@@ -174,5 +174,13 @@
             android:textColor="@android:color/white"
             android:textColorHint="@color/divider" />
 
+        <WebView
+            android:id="@+id/printResultWebView"
+            android:layout_width="262dp"
+            android:layout_height="match_parent"
+            android:layout_x="11dp"
+            android:layout_y="615dp"
+            android:visibility="invisible" />
+
     </AbsoluteLayout>
 </ScrollView>
