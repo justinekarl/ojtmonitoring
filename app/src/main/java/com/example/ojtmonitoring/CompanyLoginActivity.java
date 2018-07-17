@@ -38,7 +38,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
     private String name;
     private static int agentId;
 
-    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Coordinator Request","Create Report","Rate Student"};
+    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Coordinator Request","Create Weekly Report","Rate Student"};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
 
@@ -163,7 +163,10 @@ public class CompanyLoginActivity extends AppCompatActivity {
                                 Intent coorReq = new Intent(CompanyLoginActivity.this,ShowCoordinatorRequestActivity.class);
                                 startActivity(coorReq);
                                 return;
-
+                            case 6:
+                                Intent printReport = new Intent(CompanyLoginActivity.this,PrintReportActivity.class);
+                                startActivity(printReport);
+                                return;
                             default:
                                 Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
                                 startActivity(backToHome);

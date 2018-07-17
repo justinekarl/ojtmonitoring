@@ -13,12 +13,12 @@
 
         <EditText
             android:id="@+id/custPhoneNumberTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="190dp"
+            android:layout_height="39dp"
             android:layout_x="150dp"
             android:layout_y="179dp"
-            android:ems="10"
             android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
             android:inputType="phone"
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="124dp"
@@ -26,8 +26,8 @@
 
         <EditText
             android:id="@+id/teacherNoTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="225dp"
+            android:layout_height="39dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:layout_x="147dp"
             android:layout_y="116dp"
@@ -36,19 +36,6 @@
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="124dp"
             tools:layout_editor_absoluteY="102dp" />
-
-        <EditText
-            android:id="@+id/fullNameTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="149dp"
-            android:layout_y="62dp"
-            android:ems="10"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:inputType="textPersonName"
-            android:textColor="@color/white"
-            tools:layout_editor_absoluteX="124dp"
-            tools:layout_editor_absoluteY="30dp" />
 
         <TextView
             android:id="@+id/textView8"
@@ -65,7 +52,7 @@
         <EditText
             android:id="@+id/PasswordTxt"
             android:layout_width="227dp"
-            android:layout_height="wrap_content"
+            android:layout_height="39dp"
             android:layout_x="136dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:layout_y="410dp"
@@ -97,14 +84,15 @@
 
         <TextView
             android:id="@+id/departmentLbl"
-            android:layout_width="wrap_content"
+            android:layout_width="117dp"
             android:layout_height="34dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_x="27dp"
+            android:layout_x="9dp"
             android:layout_y="295dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Department:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -113,12 +101,13 @@
 
         <TextView
             android:id="@+id/textView32"
-            android:layout_width="108dp"
+            android:layout_width="115dp"
             android:layout_height="31dp"
-            android:layout_x="27dp"
+            android:layout_x="19dp"
             android:layout_y="248dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="College:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -135,14 +124,15 @@
 
         <TextView
             android:id="@+id/fullnameLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="121dp"
+            android:layout_height="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_x="31dp"
+            android:layout_x="16dp"
             android:layout_y="62dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Full Name:"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -151,14 +141,15 @@
 
         <TextView
             android:id="@+id/teacherNumLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="33dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_x="30dp"
+            android:layout_x="18dp"
             android:layout_y="118dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Teacher No:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -168,13 +159,14 @@
         <TextView
             android:id="@+id/phoneNumLbl"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_x="17dp"
             android:layout_y="179dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Phone Number:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -182,25 +174,14 @@
             tools:layout_editor_absoluteY="207dp" />
 
         <TextView
-            android:id="@+id/usernameLbl"
-            android:layout_width="102dp"
-            android:layout_height="wrap_content"
-            android:layout_x="18dp"
-            android:layout_y="362dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Username :"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/passwordLbl"
-            android:layout_width="102dp"
-            android:layout_height="wrap_content"
-            android:layout_x="18dp"
+            android:layout_width="108dp"
+            android:layout_height="35dp"
+            android:layout_x="12dp"
             android:layout_y="412dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Password:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -208,11 +189,12 @@
         <TextView
             android:id="@+id/confirmPasswordLbl"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="33dp"
             android:layout_x="10dp"
             android:layout_y="465dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Confirm Password:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -220,7 +202,7 @@
         <EditText
             android:id="@+id/confirmPasswordTxt"
             android:layout_width="197dp"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_x="169dp"
             android:layout_y="462dp"
             android:background="@color/zxing_custom_viewfinder_mask"
@@ -247,6 +229,32 @@
             android:background="#5e5e5e"
             android:text="Save"
             android:textColor="@color/zxing_status_text" />
+
+        <EditText
+            android:id="@+id/fullNameTxt"
+            android:layout_width="235dp"
+            android:layout_height="33dp"
+            android:layout_x="141dp"
+            android:layout_y="62dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="30dp" />
+
+        <TextView
+            android:id="@+id/usernameLbl"
+            android:layout_width="110dp"
+            android:layout_height="32dp"
+            android:layout_x="15dp"
+            android:layout_y="358dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Username :"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </AbsoluteLayout>
 </ScrollView>

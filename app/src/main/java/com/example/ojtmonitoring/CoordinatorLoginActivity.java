@@ -22,6 +22,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.format.DateUtils;
+import android.text.style.TtsSpan;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -39,7 +41,9 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class CoordinatorLoginActivity extends AppCompatActivity {
@@ -48,7 +52,7 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
     private static int agentId;
     private Button logoutBtn;
     private ListView contentLstVw;
-    final String[] menuItems = {"Scan Student QR Codes","Show student login/logout","Print Report"};
+    final String[] menuItems = {"Scan Student QR Codes","Show student login/logout","Print Weekly Report"};
     ListAdapter menuAdapter;
 
     ScrollView scrollView;
@@ -64,6 +68,7 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
         contentLstVw = (ListView)findViewById(R.id.contentLstVw);
 
         scrollView = (ScrollView)findViewById(R.id.scrollViewCoor);
+
 
         menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
             @NonNull

@@ -79,6 +79,10 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
     private String htmlResult;
 
     private String studentName;
+    private String fromStr;
+    private String thruStr;
+    private String startTimeStr;
+    private String endTimeStr;
 
 
 
@@ -218,12 +222,42 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                         filterJson.put("company_name",companyNameFilterTxt.getText().toString());
                     }
 
-                    if(null != fromTxt.getText()){
+                    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                    if(null != fromTxt.getText() && fromTxt.getText().toString().length() > 0){
+                        Date fromDate = dateFormat.parse(fromTxt.getText().toString());
+                        SimpleDateFormat dateFormat1= new SimpleDateFormat("yyyy/MM/dd");
+                        fromStr = dateFormat1.format(fromDate);
+
+
                         filterJson.put("from",fromTxt.getText().toString());
                     }
 
-                    if(null != thruTxt.getText()){
+                    if(null != thruTxt.getText() && thruTxt.getText().toString().length() > 0){
+                        Date toDate = dateFormat.parse(fromTxt.getText().toString());
+                        SimpleDateFormat dateFormat2= new SimpleDateFormat("yyyy/MM/dd");
+
+
+                        thruStr = dateFormat2.format(toDate);
                         filterJson.put("thru",thruTxt.getText().toString());
+                    }
+
+
+                    if(null != startTimeTxt.getText() && startTimeTxt.getText().toString().length() > 0){
+                        DateFormat dateFormat3 = new SimpleDateFormat("hh:mm aa");
+                        Date startTime1 = dateFormat3.parse(startTimeTxt.getText().toString());
+
+
+                        DateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
+                        startTimeStr = dateFormat1.format(startTime1);
+                    }
+
+                    if(null != endTimeTxt.getText() && endTimeTxt.getText().toString().length() > 0){
+                        DateFormat dateFormat4 = new SimpleDateFormat("hh:mm aa");
+                        Date startTime2 = dateFormat4.parse(endTimeTxt.getText().toString());
+
+
+                        DateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
+                        endTimeStr = dateFormat1.format(startTime2);
                     }
 
                     Print print = new Print();
@@ -249,6 +283,8 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
     class ConnectToDataBaseViaJson extends AsyncTask<String, String, String> {
 
+        boolean invalidDate = false;
+        boolean invalidTime = false;
 
         @Override
         protected void onPreExecute() {
@@ -296,7 +332,9 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                     params.add(new BasicNameValuePair("thru", dateFormat1.format(thruDate)));
                 }
             }catch (Exception e){
+                invalidDate = true;
                 e.printStackTrace();
+                return null;
             }
 
             try {
@@ -323,7 +361,9 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                     params.add(new BasicNameValuePair("from", dateFormat1.format(fromDate)));*/
                 }
             }catch (Exception e){
+                invalidTime = true;
                 e.printStackTrace();
+                return null;
             }
 
 
@@ -433,6 +473,14 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
+
+            if(invalidDate){
+                Toast.makeText(ShowStudentLoginLogoutActivity.this,"Invalid Date Filter",Toast.LENGTH_SHORT).show();
+            }
+
+            if(invalidTime){
+                Toast.makeText(ShowStudentLoginLogoutActivity.this,"Invalid Time Filter",Toast.LENGTH_SHORT).show();
+            }
 
             if(null == studentLoginLogoutLogsInfos || (null != studentLoginLogoutLogsInfos && studentLoginLogoutLogsInfos.size() == 0)) {
                 Toast.makeText(ShowStudentLoginLogoutActivity.this,"No Results Found",Toast.LENGTH_SHORT).show();
@@ -585,6 +633,10 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("student_name",studentName));
+            params.add(new BasicNameValuePair("from",fromStr));
+            params.add(new BasicNameValuePair("thru",thruStr));
+            params.add(new BasicNameValuePair("startTime",startTimeStr));
+            params.add(new BasicNameValuePair("endTime",endTimeStr));
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS + "report",
                     "POST", params);

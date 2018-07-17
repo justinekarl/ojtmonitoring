@@ -134,15 +134,15 @@ public class SectionSelectionActivity extends AppCompatActivity {
                         if(json.has("section_list")){
                             JSONArray jsonArray = json.getJSONArray("section_list");
                             if(null != jsonArray){
-                                sectionNames1= new String[jsonArray.length()];
-                                for(int ctr = 0;  ctr < jsonArray.length() ; ctr++) {
+                                sectionNames1= new String[jsonArray.length()+1];
+                                for(int ctr = 0;  ctr <= jsonArray.length() ; ctr++) {
                                     if(ctr==0){
                                         sectionNames1[ctr] = "---Select Section---";
                                         continue;
                                     }
-                                    for (int i = 0; i < jsonArray.getJSONArray(ctr).length(); i++) {
-                                        if(null != jsonArray.getJSONArray(ctr) && i==1) {
-                                            sectionNames1[ctr] = jsonArray.getJSONArray(ctr).get(i).toString();
+                                    for (int i = 0; i < jsonArray.getJSONArray(ctr-1).length(); i++) {
+                                        if(null != jsonArray.getJSONArray(ctr-1) && i==1) {
+                                            sectionNames1[ctr] = jsonArray.getJSONArray(ctr-1).get(i).toString();
                                             break;
                                         }
 
@@ -194,7 +194,7 @@ public class SectionSelectionActivity extends AppCompatActivity {
 
                 int selectedId = 0;
                 for(int i =0;i<sectionNames.length;i++){
-                    if(sectionNames[i].equals(savedSectionName)){
+                    if(null != sectionNames[i] && sectionNames[i].equals(savedSectionName)){
                         selectedId = i;
                     }
                 }

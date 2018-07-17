@@ -12,60 +12,6 @@
         tools:context="com.example.ojtmonitoring.CreateCompanyAccountActivity">
 
 
-        <Button
-            android:id="@+id/saveCompanyAccount"
-            android:layout_width="109dp"
-            android:layout_height="36dp"
-            android:layout_alignBaseline="@+id/cancelSaveCompany"
-            android:layout_alignBottom="@+id/cancelSaveCompany"
-            android:layout_alignStart="@+id/userNameTxt"
-            android:layout_x="241dp"
-            android:layout_y="522dp"
-            android:background="#5e5e5e"
-            android:ems="10"
-            android:text="Save"
-            android:textColor="@color/zxing_status_text"
-            tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="416dp" />
-
-        <Button
-            android:id="@+id/cancelSaveCompany"
-            android:layout_width="109dp"
-            android:layout_height="36dp"
-            android:layout_alignEnd="@+id/userNameTxt"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="37dp"
-            android:layout_x="83dp"
-            android:layout_y="520dp"
-            android:background="#5e5e5e"
-            android:text="Cancel"
-            android:textColor="@color/zxing_status_text"
-            tools:layout_editor_absoluteX="217dp"
-            tools:layout_editor_absoluteY="416dp" />
-
-        <EditText
-            android:id="@+id/confirmPasswordTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_x="152dp"
-            android:layout_y="468dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/confirmPasswordLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="4dp"
-            android:layout_y="475dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Confirm Password:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
         <EditText
             android:id="@+id/passwordTxt"
             android:layout_width="262dp"
@@ -81,23 +27,6 @@
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="94dp"
             tools:layout_editor_absoluteY="349dp" />
-
-        <TextView
-            android:id="@+id/passwordlBl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/userNameTxt"
-            android:layout_toStartOf="@+id/companyTypeSpnr"
-            android:layout_x="12dp"
-            android:layout_y="428dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Password:"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="17dp"
-            tools:layout_editor_absoluteY="303dp" />
 
         <EditText
             android:id="@+id/userNameTxt"
@@ -115,22 +44,6 @@
             tools:layout_editor_absoluteX="94dp"
             tools:layout_editor_absoluteY="295dp" />
 
-        <TextView
-            android:id="@+id/userNameLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/addressLbl"
-            android:layout_alignTop="@+id/userNameTxt"
-            android:layout_x="11dp"
-            android:layout_y="381dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Username:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="17dp"
-            tools:layout_editor_absoluteY="303dp" />
-
         <EditText
             android:id="@+id/companyTypeTxt"
             android:layout_width="238dp"
@@ -141,22 +54,6 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/companyTypeLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/companyTypeSpnr"
-            android:layout_toStartOf="@+id/companyTypeSpnr"
-            android:layout_x="6dp"
-            android:layout_y="326dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Company Type:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="248dp" />
 
         <TextView
             android:id="@+id/textView8"
@@ -189,7 +86,7 @@
         <TextView
             android:id="@+id/companyNameLbl"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_alignTop="@+id/custCompanyNameTxt"
             android:layout_marginEnd="10dp"
             android:layout_toStartOf="@+id/custCompanyNameTxt"
@@ -197,6 +94,7 @@
             android:layout_y="39dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Company Name:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -220,14 +118,15 @@
 
         <TextView
             android:id="@+id/addressLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="112dp"
+            android:layout_height="37dp"
             android:layout_alignStart="@+id/companyNameLbl"
             android:layout_alignTop="@+id/addressText"
-            android:layout_x="25dp"
+            android:layout_x="10dp"
             android:layout_y="83dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Address:"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -249,24 +148,6 @@
             tools:layout_editor_absoluteX="120dp"
             tools:layout_editor_absoluteY="167dp" />
 
-        <TextView
-            android:id="@+id/phoneNumberLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/custPhoneNumberTxt"
-            android:layout_alignBottom="@+id/custPhoneNumberTxt"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_x="13dp"
-            android:layout_y="143dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Phone Number:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="180dp" />
-
         <ListView
             android:id="@+id/coursesLstVw"
             android:layout_width="359dp"
@@ -275,5 +156,128 @@
             android:layout_y="182dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:scrollbars="horizontal|vertical" />
+
+        <TextView
+            android:id="@+id/phoneNumberLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignBaseline="@+id/custPhoneNumberTxt"
+            android:layout_alignBottom="@+id/custPhoneNumberTxt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_x="13dp"
+            android:layout_y="132dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Phone Number:"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="180dp" />
+
+        <TextView
+            android:id="@+id/companyTypeLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_alignTop="@+id/companyTypeSpnr"
+            android:layout_toStartOf="@+id/companyTypeSpnr"
+            android:layout_x="5dp"
+            android:layout_y="321dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Company Type:"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="248dp" />
+
+        <TextView
+            android:id="@+id/userNameLbl"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_alignStart="@+id/addressLbl"
+            android:layout_alignTop="@+id/userNameTxt"
+            android:layout_x="9dp"
+            android:layout_y="370dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Username:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="17dp"
+            tools:layout_editor_absoluteY="303dp" />
+
+        <TextView
+            android:id="@+id/passwordlBl"
+            android:layout_width="102dp"
+            android:layout_height="35dp"
+            android:layout_alignTop="@+id/userNameTxt"
+            android:layout_toStartOf="@+id/companyTypeSpnr"
+            android:layout_x="9dp"
+            android:layout_y="419dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Password:"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="17dp"
+            tools:layout_editor_absoluteY="303dp" />
+
+        <TextView
+            android:id="@+id/confirmPasswordLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_x="3dp"
+            android:layout_y="468dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Confirm Password:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/cancelSaveCompany"
+            android:layout_width="109dp"
+            android:layout_height="36dp"
+            android:layout_alignEnd="@+id/userNameTxt"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="37dp"
+            android:layout_x="74dp"
+            android:layout_y="526dp"
+            android:background="#5e5e5e"
+            android:text="Cancel"
+            android:textColor="@color/zxing_status_text"
+            tools:layout_editor_absoluteX="217dp"
+            tools:layout_editor_absoluteY="416dp" />
+
+        <Button
+            android:id="@+id/saveCompanyAccount"
+            android:layout_width="109dp"
+            android:layout_height="36dp"
+            android:layout_alignBaseline="@+id/cancelSaveCompany"
+            android:layout_alignBottom="@+id/cancelSaveCompany"
+            android:layout_alignStart="@+id/userNameTxt"
+            android:layout_x="232dp"
+            android:layout_y="526dp"
+            android:background="#5e5e5e"
+            android:ems="10"
+            android:text="Save"
+            android:textColor="@color/zxing_status_text"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="416dp" />
+
+        <EditText
+            android:id="@+id/confirmPasswordTxt"
+            android:layout_width="240dp"
+            android:layout_height="35dp"
+            android:layout_x="140dp"
+            android:layout_y="469dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
     </AbsoluteLayout>
 </ScrollView>

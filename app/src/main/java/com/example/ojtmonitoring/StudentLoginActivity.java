@@ -55,6 +55,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company"};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
+    boolean hasMessageNotif=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,10 +158,10 @@ public class StudentLoginActivity extends AppCompatActivity {
                             toastMessage("OJT not yet finished!");
                             return;
                         }
-                       /* if(!hasSectionSelected && !selectedMenu.equals("Select Section")){
+                        if(!hasSectionSelected && (selectedMenu.equals("Show My OJT Progress") || selectedMenu.equals("Show Companies"))){
                             toastMessage("No enrolled section yet!");
                             return;
-                        }*/
+                        }
 
                         switch (position){
                             case 0:
@@ -265,6 +266,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                     if(success == 1) {
                         sb = new StringBuffer("");
                         if(json.has("message_notif")){
+                            hasMessageNotif = true;
                             JSONArray notifListArr =json.getJSONArray("message_notif");
 
                             if(null != notifListArr){
@@ -334,6 +336,10 @@ public class StudentLoginActivity extends AppCompatActivity {
             pDialog.dismiss();
             if(null != sb && sb.toString().trim().length() > 0){
                 messageNotifTxt.setText(sb.toString());
+            }
+
+            if(!hasMessageNotif){
+                messageNotifTxt.setVisibility(View.INVISIBLE);
             }
         }
     }

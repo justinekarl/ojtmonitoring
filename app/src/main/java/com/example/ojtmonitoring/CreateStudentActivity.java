@@ -100,20 +100,7 @@ public class CreateStudentActivity extends AppCompatActivity {
 
         collegeListAdapter = new ArrayAdapter<String> (CreateStudentActivity.this,
                                                     android.R.layout.simple_list_item_1,
-                                                    getResources().getStringArray(R.array.collegelist)){
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view = super.getView(position,convertView,parent);
-                if(position%2 == 0)
-                {
-                    view.setBackgroundColor(getResources().getColor(R.color.divider));
-                }else{
-                    view.setBackgroundColor(getResources().getColor(R.color.white));
-                }
-                return view;
-            }
-        };
+                                                    getResources().getStringArray(R.array.collegelist));
 
         collegeListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpnr.setAdapter(collegeListAdapter);
