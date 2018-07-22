@@ -263,9 +263,9 @@ public class StudentLoginActivity extends AppCompatActivity {
                     Log.d("Create Response", json.toString());
 
                     int success = json.getInt("success");
-                    if(success == 1) {
+                    //if(success == 1) {
                         sb = new StringBuffer("");
-                        if(json.has("message_notif")){
+                        if(json.has("message_notif") && (null != json.get("message_notif") && !json.get("message_notif").toString().equals(""))){
                             hasMessageNotif = true;
                             JSONArray notifListArr =json.getJSONArray("message_notif");
 
@@ -317,9 +317,9 @@ public class StudentLoginActivity extends AppCompatActivity {
                         }
                     }
 
-                }else{
+                /*}else{
                     //loginMessage="Invalid User";
-                }
+                }*/
 
             } catch (JSONException e) {
                 e.printStackTrace();

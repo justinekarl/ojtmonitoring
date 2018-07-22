@@ -12,13 +12,17 @@ public class PaceSettingManager {
 //for xammp
         //public static final String IP_ADDRESS = "http://10.10.10.191/ojtmonitoring/";
         //public static final String IP_ADDRESS = "http://192.168.0.73/ojtmonitoring/";
-        //public static final String IP_ADDRESS = "http://192.168.1.7/ojtmonitoring/";
+
+    //sabahay
+       //public static final String IP_ADDRESS = "http://192.168.0.10/ojtmonitoring/";
+
+
         //public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
       // public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 
     //AWS SERVER
-    public static final String IP_ADDRESS = "http://18.191.44.167/";
+    public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
 
     //for droid
    //public static final String IP_ADDRESS = "https://spcffiletrackersystem.000webhostapp.com/filetracker/";
