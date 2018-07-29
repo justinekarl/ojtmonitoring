@@ -637,6 +637,16 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("thru",thruStr));
             params.add(new BasicNameValuePair("startTime",startTimeStr));
             params.add(new BasicNameValuePair("endTime",endTimeStr));
+            params.add(new BasicNameValuePair("agentId",teacherId+""));
+
+            if(accounttype == 3){
+                params.add(new BasicNameValuePair("isCompany","true"));
+            }else if(accounttype == 4){
+                params.add(new BasicNameValuePair("coordinator","true"));
+                params.add(new BasicNameValuePair("companyId",companyId+""));
+            }else{
+                params.add(new BasicNameValuePair("college",college));
+            }
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS + "report",
                     "POST", params);

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context="com.example.ojtmonitoring.StudentListActivity">
+
+    <TextView
+        android:id="@+id/textView68"
+        android:layout_width="225dp"
+        android:layout_height="35dp"
+        android:text="Student Lists"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.503" />
+
+    <ListView
+        android:id="@+id/studentListListView"
+        android:layout_width="388dp"
+        android:layout_height="340dp"
+        android:layout_marginTop="23dp"
+        android:background="@color/zxing_custom_viewfinder_mask"
+        app:layout_constraintTop_toBottomOf="@+id/textView68"
+        android:layout_marginLeft="-39dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

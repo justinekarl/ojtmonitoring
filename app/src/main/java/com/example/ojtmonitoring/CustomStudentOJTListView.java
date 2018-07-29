@@ -46,10 +46,12 @@ public class CustomStudentOJTListView extends BaseAdapter {
 
     public ArrayList<ResumeInfo> getResumeInfoArrayList(){
         ArrayList<ResumeInfo> studentInfosList = new ArrayList<ResumeInfo>();
-        for(ResumeInfo studentInfo : studentInfos){
-            //if(studentInfo.getSelected() == 1){
+        if(null != studentInfos && studentInfos.size() > 0) {
+            for (ResumeInfo studentInfo : studentInfos) {
+                //if(studentInfo.getSelected() == 1){
                 studentInfosList.add(studentInfo);
-           // }
+                // }
+            }
         }
         return  studentInfosList;
     }

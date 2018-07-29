@@ -42,6 +42,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,6 +167,10 @@ public class CompanyLoginActivity extends AppCompatActivity {
                             case 6:
                                 Intent printReport = new Intent(CompanyLoginActivity.this,PrintReportActivity.class);
                                 startActivity(printReport);
+                                return;
+                            case 7:
+                                Intent rateStudent = new Intent(CompanyLoginActivity.this,StudentListActivity.class);
+                                startActivity(rateStudent);
                                 return;
                             default:
                                 Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);

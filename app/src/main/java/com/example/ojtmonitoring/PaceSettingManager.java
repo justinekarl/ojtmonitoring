@@ -11,13 +11,13 @@ import java.util.List;
 public class PaceSettingManager {
 //for xammp
         //public static final String IP_ADDRESS = "http://10.10.10.191/ojtmonitoring/";
-        //public static final String IP_ADDRESS = "http://192.168.0.73/ojtmonitoring/";
+        //public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
 
     //sabahay
        //public static final String IP_ADDRESS = "http://192.168.0.10/ojtmonitoring/";
 
 
-        //public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
+       //public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
       // public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 

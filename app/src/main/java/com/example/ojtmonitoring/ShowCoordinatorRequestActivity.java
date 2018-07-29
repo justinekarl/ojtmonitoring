@@ -65,8 +65,9 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
 
 
                         if(null != idsToProcess && idsToProcess.size() > 0){
-                            ShowCoordinatorRequestActivity.ProcessCoorRequest processCOjtApplications = new ShowCoordinatorRequestActivity.ProcessCoorRequest();
+                            ProcessCoorRequest processCOjtApplications = new ProcessCoorRequest();
                             processCOjtApplications.execute();
+                            Toast.makeText(ShowCoordinatorRequestActivity.this, "Successfully accepted selected coordinators", Toast.LENGTH_SHORT).show();
 
                         }else{
                             Toast.makeText(ShowCoordinatorRequestActivity.this, "No item/s Selected", Toast.LENGTH_SHORT).show();
@@ -243,9 +244,9 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
                     Log.d("Create Response", json.toString());
 
                     int success = json.getInt("success");
-                    if(success == 1) {
-                        notification = "Successfully approved selected coordinators";
-                    }
+                   // if(success == 1) {
+                        notification = "Successfully accepted selected coordinators";
+                    //}
 
 
 
@@ -266,9 +267,10 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
-            ConnectToDataBaseViaJson connectToDataBaseViaJson1 = new ConnectToDataBaseViaJson();
-            connectToDataBaseViaJson1.execute();
-            Toast.makeText(ShowCoordinatorRequestActivity.this,notification,Toast.LENGTH_SHORT);
+           // Toast.makeText(ShowCoordinatorRequestActivity.this,notification,Toast.LENGTH_SHORT);
+            /*ConnectToDataBaseViaJson connectToDataBaseViaJson1 = new ConnectToDataBaseViaJson();
+            connectToDataBaseViaJson1.execute();*/
+
             /*ShowOJTApplicationsActivity.ConnectToDataBaseViaJson  showCompaniesAll = new ShowOJTApplicationsActivity.ConnectToDataBaseViaJson();
             showCompaniesAll.execute();*/
 

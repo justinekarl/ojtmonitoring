@@ -331,6 +331,8 @@ public class ShowOJTListActivity extends AppCompatActivity {
 
                     int success = json.getInt("success");
                     if(success == 1) {
+
+
                         triggerUpdate= true;
                         message = "Successfully accepted selected students!";
                     }

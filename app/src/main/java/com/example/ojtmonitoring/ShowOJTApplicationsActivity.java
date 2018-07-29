@@ -15,6 +15,8 @@ import com.example.ojtmonitoring.info.CompanyInfo;
 import com.example.ojtmonitoring.info.ResumeInfo;
 import com.example.ojtmonitoring.info.StudentCompanyOJTInfo;
 import com.example.ojtmonitoring.info.StudentPersonalInformationInfo;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -41,6 +43,9 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
     public List<StudentCompanyOJTInfo> studentCompanyOJTInfos;
 
     HashMap<Integer,HashMap<Integer,Integer>> selectedIdsToProcess = new HashMap<>();
+
+
+
 
     private Button processOjtReqBtn;
 
@@ -72,10 +77,49 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                         if(null != ojtApplicationsListAdapter.getStudentCompanyOJTInfoList()){
                             for(StudentCompanyOJTInfo studentCompanyOJTInfo : ojtApplicationsListAdapter.getStudentCompanyOJTInfoList()){
 
+                                if(null != selectedIdsToProcess) {
+                                    //Check if ResumeId Is not yet existing in the Map if not, add
+                                    if (!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())) {
+                                        HashMap<Integer, Integer> resumeDetailsToProcess = new HashMap<>();
+                                        //this will hold company Id and state (selected Or not)
+                                        resumeDetailsToProcess.put(studentCompanyOJTInfo.getCompanyInfo().getId(), (studentCompanyOJTInfo.getSelected()));
+
+                                        //adding the pair to the Resume Id
+                                        selectedIdsToProcess.put(studentCompanyOJTInfo.getResumeInfo().getId(), resumeDetailsToProcess);
+                                    } else {
+                                        // If key already exists get and add if the company was not yet added. This will support multiple companies per resume id
+                                        HashMap<Integer, Integer> resumeDetails = selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
+                                        if (!resumeDetails.containsKey(studentCompanyOJTInfo.getCompanyInfo().getId())) {
+                                            resumeDetails.put(studentCompanyOJTInfo.getCompanyInfo().getId(), studentCompanyOJTInfo.getSelected());
+                                        } else {
+                                            //check if state has changed
+                                            HashMap<Integer, Integer> value = (HashMap<Integer, Integer>) selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
+                                            boolean prevValue = Boolean.valueOf(value.get(studentCompanyOJTInfo.getCompanyInfo().getId()) == 1 ? Boolean.TRUE : Boolean.FALSE);
+
+                                            if (prevValue != (studentCompanyOJTInfo.getSelected() == 1? true : false)) {
+                                                selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).put(studentCompanyOJTInfo.getCompanyInfo().getId(), studentCompanyOJTInfo.getSelected());
+                                            } else {
+                                                selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).remove(studentCompanyOJTInfo.getCompanyInfo().getId());
+                                                if(selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).size() == 0){
+                                                    selectedIdsToProcess.remove(studentCompanyOJTInfo.getResumeInfo().getId());
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
 
 
-                                if(null != selectedIdsToProcess){
-                                    if(!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())){
+                               /* if(null != selectedIdsToProcess){
+                                    if((!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())
+                                            && null != studentCompanyOJTInfo.getCompanyInfo()
+                                            && !selectedIdsToProcess.containsValue(studentCompanyOJTInfo.getCompanyInfo().getId())
+                                            || (selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())
+                                            && null != studentCompanyOJTInfo.getCompanyInfo()
+                                            && !selectedIdsToProcess.containsValue(studentCompanyOJTInfo.getCompanyInfo().getId()
+                                    )
+
+                                    ))){
                                         HashMap<Integer,Integer> resumeDetailsToProcess = new HashMap<>();
                                         resumeDetailsToProcess.put(studentCompanyOJTInfo.getCompanyInfo().getId(),studentCompanyOJTInfo.getSelected());
                                         //key : companyId values:resumeId, Approved
@@ -96,7 +140,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                             selectedIdsToProcess.remove(studentCompanyOJTInfo.getResumeInfo().getId());
                                         }
                                     }
-                                }
+                                }*/
                                 /*if(studentCompanyOJTInfo.getSelected() == 1){
 
                                     List<Integer> resumeIds = new ArrayList<Integer>();
@@ -118,6 +162,8 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                             processCOjtApplications.execute();
                         }else{
                             Toast.makeText(ShowOJTApplicationsActivity.this, "No item/s Selected", Toast.LENGTH_SHORT).show();
+                            ConnectToDataBaseViaJson dataBaseViaJson = new ConnectToDataBaseViaJson();
+                            dataBaseViaJson.execute();
                         }
 
 
@@ -261,7 +307,49 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
 
                                     studentCompanyOJTInfos.add(studentCompanyOJTInfo);
                                     if(null != selectedIdsToProcess){
+                                        //Check if ResumeId Is not yet existing in the Map if not, add
                                         if(!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())){
+                                            HashMap<Integer,Integer> resumeDetailsToProcess = new HashMap<>();
+                                            //this will hold company Id and state (selected Or not)
+                                            resumeDetailsToProcess.put(studentCompanyOJTInfo.getCompanyInfo().getId(),(studentCompanyOJTInfo.getSelected()));
+
+                                            //adding the pair to the Resume Id
+                                            selectedIdsToProcess.put(studentCompanyOJTInfo.getResumeInfo().getId(),resumeDetailsToProcess);
+                                        }else{
+                                            // If key already exists get and add if the company was not yet added. This will support multiple companies per resume id
+                                            HashMap<Integer,Integer> resumeDetails =  selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
+                                            if(!resumeDetails.containsKey(studentCompanyOJTInfo.getCompanyInfo().getId())){
+                                                resumeDetails.put(studentCompanyOJTInfo.getCompanyInfo().getId(),studentCompanyOJTInfo.getSelected());
+                                            }else{
+                                                //check if state has changed
+                                                HashMap<Integer,Integer> value = (HashMap<Integer, Integer>) selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
+                                                boolean prevValue = Boolean.valueOf(value.get(studentCompanyOJTInfo.getCompanyInfo().getId()) == 1 ? Boolean.TRUE : Boolean.FALSE);
+
+                                                if(prevValue != studentCompanyOJTInfo.getResumeInfo().isApproved()){
+                                                    selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).put(studentCompanyOJTInfo.getCompanyInfo().getId(),studentCompanyOJTInfo.getSelected());
+                                                }else{
+                                                    selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).remove(studentCompanyOJTInfo.getCompanyInfo().getId());
+                                                }
+
+                                            }
+                                        }
+
+
+
+
+
+
+
+                                        /*//check if student and selected company is not yet existing in the map OR check if student exists and the selected company not yet added
+                                        if((!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())
+                                                && null != studentCompanyOJTInfo.getCompanyInfo()
+                                                    && !selectedIdsToProcess.containsValue(studentCompanyOJTInfo.getCompanyInfo().getId())
+                                                || (selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())
+                                                    && null != studentCompanyOJTInfo.getCompanyInfo()
+                                                        && !selectedIdsToProcess.containsValue(studentCompanyOJTInfo.getCompanyInfo().getId()
+                                                 )
+
+                                            ))){
                                             HashMap<Integer,Integer> resumeDetailsToProcess = new HashMap<>();
                                             resumeDetailsToProcess.put(studentCompanyOJTInfo.getCompanyInfo().getId(),(studentCompanyOJTInfo.getSelected()));
                                             //key : companyId values:resumeId, Approved
@@ -269,11 +357,12 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                             //selectedIdsToProcess.put(studentCompanyOJTInfo.getResumeInfo().getId(),studentCompanyOJTInfo.getResumeInfo().isApproved());
                                         }else{
                                             //let's get the previous value of the account (approved or not)
-                                            HashMap<Integer,Integer> value = selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
+
+                                            HashMap<Integer,Integer> value = (HashMap<Integer, Integer>) selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
                                             boolean prevValue = Boolean.valueOf(value.get(studentCompanyOJTInfo.getCompanyInfo().getId()) == 1 ? Boolean.TRUE : Boolean.FALSE);
 
                                             //if there is a change in the status, remove if from the map and add the new value
-                                                selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).remove(studentCompanyOJTInfo.getCompanyInfo().getId());
+                                            selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).remove(studentCompanyOJTInfo.getCompanyInfo().getId());
                                                 if(prevValue != studentCompanyOJTInfo.getResumeInfo().isApproved()){
                                                 selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).put(studentCompanyOJTInfo.getCompanyInfo().getId(),studentCompanyOJTInfo.getSelected());
 
@@ -281,7 +370,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                                 //remove if they are the same we don't need to re-save them in the backend
                                                 selectedIdsToProcess.remove(studentCompanyOJTInfo.getResumeInfo().getId());
                                             }
-                                        }
+                                        }*/
                                     }
 
                                 }
@@ -316,7 +405,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
 
 
     class ProcessCOjtApplications extends AsyncTask<String, String, String> {
-
+        boolean processed = false;
 
         @Override
         protected void onPreExecute() {
@@ -357,7 +446,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
 
                     int success = json.getInt("success");
                     if(success == 1) {
-
+                        processed = true;
                     }
 
 
@@ -379,10 +468,16 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
+
+            toastMessage("Successfully processed OJT requests, will be reviewed by Company for approval.");
             /*ShowOJTApplicationsActivity.ConnectToDataBaseViaJson  showCompaniesAll = new ShowOJTApplicationsActivity.ConnectToDataBaseViaJson();
             showCompaniesAll.execute();*/
 
         }
+    }
+
+    private void toastMessage(String message) {
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 
 

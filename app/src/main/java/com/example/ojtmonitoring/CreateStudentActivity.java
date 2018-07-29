@@ -75,6 +75,8 @@ public class CreateStudentActivity extends AppCompatActivity {
     private String[] courses;
     private Button refreshCoursesBtn;
 
+    String selectedCollege;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,20 +108,7 @@ public class CreateStudentActivity extends AppCompatActivity {
         collegeSpnr.setAdapter(collegeListAdapter);
 
         genderListAdapter = new ArrayAdapter<String>(CreateStudentActivity.this,android.R.layout.simple_list_item_1,
-                                                    getResources().getStringArray(R.array.genderlist)){
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view = super.getView(position,convertView,parent);
-                if(position%2 == 0)
-                {
-                    view.setBackgroundColor(getResources().getColor(R.color.divider));
-                }else{
-                    view.setBackgroundColor(getResources().getColor(R.color.white));
-                }
-                return view;
-            }
-        };
+                                                    getResources().getStringArray(R.array.genderlist));
 
         genderListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -141,6 +130,10 @@ public class CreateStudentActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         int index = parent.getSelectedItemPosition();
                         ((TextView) collegeSpnr.getSelectedView()).setTextColor(getResources().getColor(R.color.white));
+                        selectedCollege = collegeSpnr.getSelectedItem().toString();
+                        ConnectToDBViaJson connectToDataBaseViaJson = new ConnectToDBViaJson();
+                        connectToDataBaseViaJson.execute();
+
                     }
 
                     @Override
@@ -240,7 +233,9 @@ public class CreateStudentActivity extends AppCompatActivity {
                 }
         );
 
+
         refreshCoursesBtn.callOnClick();
+
     }
 
     private void toastMessage(String message) {
@@ -364,6 +359,7 @@ public class CreateStudentActivity extends AppCompatActivity {
         protected String doInBackground(String... args) {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("selectedCollege", selectedCollege));
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"getCoursesList.php",
                     "POST", params);
@@ -380,17 +376,19 @@ public class CreateStudentActivity extends AppCompatActivity {
 
 
                         JSONArray items = json.getJSONArray("courses");
-                        courses = new String[items.length()];
+                        courses = new String[items.length()+1];
 
 
-                        for(int ctr = 0;  ctr < items.length() ; ctr++){
+                        for(int ctr = 0;  ctr <= items.length() ; ctr++){
                             if(ctr==0){
                                 courses[0] = "---Select Section---";
                                 continue;
                             }
-                            for(int i = 1 ; i <= items.getJSONArray(ctr).length()-1 ; i++) {
-
-                                courses[ctr] =items.getJSONArray(ctr).get(1)+"";
+                            for(int i = 0 ; i < items.getJSONArray(ctr-1).length() ; i++) {
+                                if(null != items.getJSONArray(ctr-1) && i==1) {
+                                    courses[ctr] = items.getJSONArray(ctr-1).get(i).toString();
+                                    break;
+                                }
 
                             }
                         }

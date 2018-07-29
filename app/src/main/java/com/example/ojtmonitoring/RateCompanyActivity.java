@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,8 @@ public class RateCompanyActivity extends AppCompatActivity {
     private int companyId;
     private String companyName;
     private int rating;
+    EditText remarksTxt;
+    private String remarks;
 
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
@@ -46,6 +49,9 @@ public class RateCompanyActivity extends AppCompatActivity {
 
         companyNameTxt = (TextView)findViewById(R.id.companyNameTxt);
         companyRatingBar = (RatingBar)findViewById(R.id.companyRatingBar);
+
+        remarksTxt = (EditText)findViewById(R.id.remarksTxt);
+
         submitBtn = (Button)findViewById(R.id.submitBtn);
         cancelBtn = (Button)findViewById(R.id.cancelBtn);
 
@@ -61,6 +67,8 @@ public class RateCompanyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(companyRatingBar.getRating() > 0){
                     rating = (int)companyRatingBar.getRating();
+
+                    remarks = null != remarksTxt.getText() ? remarksTxt.getText().toString() : "";
 
                     UpdateCompanyRating updateCompanyRating = new UpdateCompanyRating();
                     updateCompanyRating.execute();
@@ -135,6 +143,10 @@ public class RateCompanyActivity extends AppCompatActivity {
                                                     companyName = value;
                                                 }
 
+                                                if (key.equals("remarks")) {
+                                                    remarks = value;
+                                                }
+
                                                 if (key.equals("student_rating")) {
                                                     rating = Integer.parseInt(value);;
                                                 }
@@ -166,6 +178,7 @@ public class RateCompanyActivity extends AppCompatActivity {
             pDialog.dismiss();
             companyNameTxt.setText(companyName);
             companyRatingBar.setRating(rating);
+            remarksTxt.setText(remarks);
         }
     }
 
@@ -191,6 +204,7 @@ public class RateCompanyActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("agentid",studentId+""));
             params.add(new BasicNameValuePair("rating",rating+""));
             params.add(new BasicNameValuePair("companyId",companyId+""));
+            params.add(new BasicNameValuePair("remarks",remarks));
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"saveCompanyRate.php",
                     "POST", params);

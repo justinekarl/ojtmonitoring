@@ -47,6 +47,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     private TextView messageNotifTxt;
     private ListView menuOptionsLstView;
     private String status;
+    private String ojtDone;
 
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
@@ -56,6 +57,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
     boolean hasMessageNotif=false;
+    private int percentFinished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +68,8 @@ public class StudentLoginActivity extends AppCompatActivity {
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
         accountType = sharedPreferences.getInt("accounttype",0);
-        status = sharedPreferences.getString("ojt_status","");
-
+        status = sharedPreferences.getString("ojt_done","");
+        ojtDone = sharedPreferences.getString("ojtDone","");
         messageNotifTxt = (TextView)findViewById(R.id.messageNotifTxt);
 
 
@@ -154,7 +156,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String selectedMenu = String.valueOf(parent.getItemAtPosition(position));
 
-                        if(selectedMenu.equals("Rate Company") && status.equals("OJT In progress")){
+                        if(selectedMenu.equals("Rate Company") && !ojtDone.equals("1")){
                             toastMessage("OJT not yet finished!");
                             return;
                         }
@@ -307,7 +309,7 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                             hasSectionSelected = true;
 
-                            if(json.get("section_id").toString().equals("null")) {
+                            if(json.get("section_id").toString().equals("null") || Long.valueOf(json.get("section_id")+"") == 0 ) {
                                 sb = new StringBuffer("");
                                 sb.append("You are not enrolled in any sections yet, kindly select a section first before continuing.");
                                 sb.append("\n");

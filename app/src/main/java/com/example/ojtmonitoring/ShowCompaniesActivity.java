@@ -288,7 +288,7 @@ public class ShowCompaniesActivity extends AppCompatActivity {
 
     class ProcessCompanies extends AsyncTask<String, String, String> {
 
-
+        boolean submitted = false;
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -323,7 +323,7 @@ public class ShowCompaniesActivity extends AppCompatActivity {
 
                     int success = json.getInt("success");
                     if(success == 1) {
-
+                        submitted = true;
                     }
 
 
@@ -345,9 +345,18 @@ public class ShowCompaniesActivity extends AppCompatActivity {
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
+
+            if(submitted){
+                toastMessage("Successfully Sent and will be reviewed by Teacher");
+            }
+
             ShowCompaniesActivity.ConnectToDataBaseViaJson  showCompaniesAll = new ShowCompaniesActivity.ConnectToDataBaseViaJson();
             showCompaniesAll.execute();
 
         }
+    }
+
+    private void toastMessage(String message) {
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 }

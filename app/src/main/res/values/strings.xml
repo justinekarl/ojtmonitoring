@@ -15,9 +15,14 @@
 
     <string-array name="collegelist">
         <item>--Select Below--</item>
-        <item>Education</item>
-        <item>Computer Studies</item>
-        <item>HRM</item>
+        <item>College of Arts and Social Sciences</item>
+        <item>College of Business</item>
+        <item>College of Computing and Information Sciences</item>
+        <item>College of Criminology</item>
+        <item>College of Engineering</item>
+        <item>College of Education</item>
+        <item>College of Hospitality Management</item>
+        <item>College of Nursing</item>
     </string-array>
 
 

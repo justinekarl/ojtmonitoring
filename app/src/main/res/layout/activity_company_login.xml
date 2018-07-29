@@ -75,7 +75,7 @@
         <ListView
             android:id="@+id/menuOptionsLstView"
             android:layout_width="354dp"
-            android:layout_height="359dp"
+            android:layout_height="400dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="8dp"
             android:layout_x="21dp"

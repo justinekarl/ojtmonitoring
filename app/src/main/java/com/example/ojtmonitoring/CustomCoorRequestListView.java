@@ -77,10 +77,12 @@ public class CustomCoorRequestListView extends BaseAdapter {
 
     public ArrayList<CoordinatorRequestInfo> getCoordinatorRequestList(){
         ArrayList<CoordinatorRequestInfo> coordinatorRequestInfos = new ArrayList<>();
-        for(CoordinatorRequestInfo coordinatorRequestInfo : coordinatorRequestInfoList){
-            //if(coordinatorRequestInfo.isApproved()){
+        if(null != coordinatorRequestInfoList && coordinatorRequestInfoList.size() > 0) {
+            for (CoordinatorRequestInfo coordinatorRequestInfo : coordinatorRequestInfoList) {
+                //if(coordinatorRequestInfo.isApproved()){
                 coordinatorRequestInfos.add(coordinatorRequestInfo);
-            //}
+                //}
+            }
         }
         return  coordinatorRequestInfos;
     }

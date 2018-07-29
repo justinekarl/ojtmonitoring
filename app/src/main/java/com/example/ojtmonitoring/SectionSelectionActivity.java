@@ -39,6 +39,7 @@ public class SectionSelectionActivity extends AppCompatActivity {
     private String selectedSectionName;
 
     private String savedSectionName;
+    private String college;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class SectionSelectionActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
-
+        college = sharedPreferences.getString("college","");
 
         refreshListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +112,7 @@ public class SectionSelectionActivity extends AppCompatActivity {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("agentid",agentId+""));
+            params.add(new BasicNameValuePair("college",college));
 
 
 

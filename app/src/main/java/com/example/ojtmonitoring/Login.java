@@ -55,7 +55,8 @@ public class Login extends AppCompatActivity {
     public static String department;
     public static String college;
     public static int companyId;
-    boolean ojtDone;
+    //boolean ojtDone;
+    String ojtDone;
 
     public static TextView createAccountNowTxt;
 
@@ -267,8 +268,9 @@ public class Login extends AppCompatActivity {
                         if(json.has("teachernumber")) teacherNumber = json.getString("teachernumber");
                         if(json.has("department")) department = json.getString("department");
                         if(json.has("college")) college = json.getString("college");
-                        if(json.has("company_id")) companyId = json.getInt("company_id");
-                        if(json.has("ojt_done")) ojtDone = json.getBoolean("ojt_done");
+                        if(json.has("ojt_done")) ojtDone = json.getString("ojt_done");
+                        if(json.has("company_id")) companyId = null != json.get("company_id") ? json.getInt("company_id") : 0;
+
 
                     }else {
                         loginSucessful =  false;
@@ -310,6 +312,7 @@ public class Login extends AppCompatActivity {
 
             } catch (JSONException e) {
                 loginMessage="Invalid User";
+                e.printStackTrace();
             }
 
             return null;
@@ -334,7 +337,8 @@ public class Login extends AppCompatActivity {
                 editor.putString("college",college);
                 editor.putString("department",department);
                 editor.putInt("companyId",companyId);
-                editor.putString("ojt_status",ojtDone ? "OJT Finished" : "OJT In progress");
+                editor.putString("ojtDone",ojtDone);
+                editor.putString("ojt_status",ojtDone.equals("1") ? "OJT Finished" : "OJT In progress");
 
                 editor.commit();
 

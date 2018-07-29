@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -64,7 +65,7 @@ public class CreateStudentSectionActivity extends AppCompatActivity {
     }
 
     class SaveStudentSection extends AsyncTask<String, String, String> {
-
+        boolean savedSuccessfully = false;
 
         @Override
         protected void onPreExecute() {
@@ -89,6 +90,16 @@ public class CreateStudentSectionActivity extends AppCompatActivity {
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"save_student_section.php",
                     "POST", params);
 
+            try {
+                int success = json.getInt("success");
+
+                if(success == 1){
+                    savedSuccessfully = true;
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
 
 
@@ -100,8 +111,15 @@ public class CreateStudentSectionActivity extends AppCompatActivity {
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
-
+            if(savedSuccessfully){
+                toastMessage("Successfully saved!");
+            }
 
         }
     }
+
+    private void toastMessage(String message) {
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -45,7 +46,7 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
         homeBtn = (Button)findViewById(R.id.homeBtn);
         timeTxt = (TextView) findViewById(R.id.timeTxt);
         startDateTxt = (TextView)findViewById(R.id.startDateTxt);
-        endDateTxt = (TextView)findViewById(R.id.endTimeTxt);
+        endDateTxt = (TextView)findViewById(R.id.endDateTxt);
         remainingTimeTxt = (TextView)findViewById(R.id.remainingTimeTxt);
         statusTxt = (TextView)findViewById(R.id.statusTxt);
 
@@ -67,6 +68,7 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
 
         String time="";
         String startDate="";
+        String endDate="";
         String remainingTime="";
         String percentageStr="";
         @Override
@@ -120,6 +122,8 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
                                                 startDate =value;
                                             }
 
+
+
                                             if(key.equals("remaining_time")){
                                                 remainingTime =value;
                                             }
@@ -135,7 +139,15 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
                     }
 
                     if(json.has("percentage")){
-                        percentageStr = json.get("percentage").toString();
+                        double val = Double.valueOf(json.get("percentage").toString());
+                        if(val > 100){
+                            val = 100;
+                        }
+                        percentageStr = val+"";
+                    }
+
+                    if(json.has("end_date")){
+                        endDate =json.getString("end_date");
                     }
                 } else {
                     //loginMessage="Invalid User";
@@ -155,8 +167,15 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
             timeTxt.setText(time);
             startDateTxt.setText(startDate);
             remainingTimeTxt.setText(remainingTime);
-
+            endDateTxt.setText(endDate);
             statusTxt.setText(status + " - "+percentageStr+"%");
+
+            SharedPreferences sharedpreferences = getSharedPreferences(
+                    PaceSettingManager.USER_PREFERENCES, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putString("ojtDone",percentageStr.equals("100.0") ? "1" : "0");
+            editor.commit();
+
 
         }
     }
