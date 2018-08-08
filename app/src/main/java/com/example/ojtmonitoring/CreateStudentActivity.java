@@ -234,7 +234,7 @@ public class CreateStudentActivity extends AppCompatActivity {
         );
 
 
-        refreshCoursesBtn.callOnClick();
+        //refreshCoursesBtn.callOnClick();
 
     }
 

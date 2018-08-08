@@ -2,10 +2,12 @@ package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -50,7 +52,7 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
         ShowCoordinatorRequestActivity.ConnectToDataBaseViaJson connectToDataBaseViaJson = new ShowCoordinatorRequestActivity.ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
 
-        processCoorListBtn.setOnClickListener(
+        /*processCoorListBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -74,7 +76,48 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
                         }
                     }
                 }
-        );
+        );*/
+
+
+        processCoorListBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        idsToProcess.clear();
+                        if(null != customCoorRequestListViewAdapter.getCoordinatorRequestList()){
+                            for(final CoordinatorRequestInfo coordinatorRequestInfo : customCoorRequestListViewAdapter.getCoordinatorRequestList()){
+                                if(coordinatorRequestInfo.isApproved()){
+                                    idsToProcess.add(coordinatorRequestInfo.getId());
+                                }
+                            }
+                        }
+
+
+                        if(null != idsToProcess && idsToProcess.size() > 0){
+                            ProcessCoorRequest processCOjtApplications = new ProcessCoorRequest();
+                            processCOjtApplications.execute();
+                            Toast.makeText(ShowCoordinatorRequestActivity.this, "Successfully accepted selected coordinators", Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            Toast.makeText(ShowCoordinatorRequestActivity.this, "No item/s Selected", Toast.LENGTH_SHORT).show();
+                        }
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
 
     }
 

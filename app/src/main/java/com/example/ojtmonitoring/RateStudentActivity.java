@@ -3,10 +3,12 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,7 +63,7 @@ public class RateStudentActivity extends AppCompatActivity {
         connectToDataBaseViaJson.execute();
 
 
-        submitBtn.setOnClickListener(new View.OnClickListener() {
+       /* submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(studentRatingBar.getRating() > 0) {
@@ -72,13 +74,67 @@ public class RateStudentActivity extends AppCompatActivity {
                     updateStudentRating.execute();
                 }
             }
+        });*/
+
+        submitBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        if(studentRatingBar.getRating() > 0) {
+                            rating = (int) studentRatingBar.getRating();
+
+                            remarks = null != remarksTxt.getText() ? remarksTxt.getText().toString() : "";
+                            UpdateStudentRating updateStudentRating = new UpdateStudentRating();
+                            updateStudentRating.execute();
+                        }
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
         });
 
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
+        /*cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent back = new Intent(getApplicationContext(),StudentListActivity.class);
                 startActivity(back);
+            }
+        });*/
+
+
+        cancelBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        Intent back = new Intent(getApplicationContext(),StudentListActivity.class);
+                        startActivity(back);
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
             }
         });
 

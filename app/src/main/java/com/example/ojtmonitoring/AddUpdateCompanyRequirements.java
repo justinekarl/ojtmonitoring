@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ojtmonitoring.info.CourseInfo;
@@ -62,6 +63,7 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
     private static int companyProfileId;
     CustomCourseListView courseListViewAdapter;
     private ArrayList<CourseInfo> courseInfos;
+    TextView textView19;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,7 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
         ojtNumberTxt = (EditText)findViewById(R.id.ojtNumberTxt);
         saveBtn = (Button)findViewById(R.id.saveBtn);
         cancelBtn = (Button)findViewById(R.id.cancelBtn);
+        textView19 = (TextView)findViewById(R.id.textView19);
 
         coursesLstVw = (ListView)findViewById(R.id.coursesLstVw);
 
@@ -93,6 +96,10 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         companyId = sharedPreferences.getInt("agent_id",0);
 
+
+        //hiding college dropdown in frontend
+        collegeSpnr.setVisibility(View.INVISIBLE);
+        textView19.setVisibility(View.INVISIBLE);
 
         //allowing vertical scroll even in scroll view
         coursesLstVw.setOnTouchListener(new ListView.OnTouchListener() {

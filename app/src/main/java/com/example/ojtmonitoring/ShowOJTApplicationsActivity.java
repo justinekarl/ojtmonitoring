@@ -2,10 +2,12 @@ package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -69,7 +71,77 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
         ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
 
-        processOjtReqBtn.setOnClickListener(
+
+        processOjtReqBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        if(null != ojtApplicationsListAdapter.getStudentCompanyOJTInfoList()){
+                            for(StudentCompanyOJTInfo studentCompanyOJTInfo : ojtApplicationsListAdapter.getStudentCompanyOJTInfoList()){
+
+                                if(null != selectedIdsToProcess) {
+                                    //Check if ResumeId Is not yet existing in the Map if not, add
+                                    if (!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())) {
+                                        HashMap<Integer, Integer> resumeDetailsToProcess = new HashMap<>();
+                                        //this will hold company Id and state (selected Or not)
+                                        resumeDetailsToProcess.put(studentCompanyOJTInfo.getCompanyInfo().getId(), (studentCompanyOJTInfo.getSelected()));
+
+                                        //adding the pair to the Resume Id
+                                        selectedIdsToProcess.put(studentCompanyOJTInfo.getResumeInfo().getId(), resumeDetailsToProcess);
+                                    } else {
+                                        // If key already exists get and add if the company was not yet added. This will support multiple companies per resume id
+                                        HashMap<Integer, Integer> resumeDetails = selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
+                                        if (!resumeDetails.containsKey(studentCompanyOJTInfo.getCompanyInfo().getId())) {
+                                            resumeDetails.put(studentCompanyOJTInfo.getCompanyInfo().getId(), studentCompanyOJTInfo.getSelected());
+                                        } else {
+                                            //check if state has changed
+                                            HashMap<Integer, Integer> value = (HashMap<Integer, Integer>) selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId());
+                                            boolean prevValue = Boolean.valueOf(value.get(studentCompanyOJTInfo.getCompanyInfo().getId()) == 1 ? Boolean.TRUE : Boolean.FALSE);
+
+                                            if (prevValue != (studentCompanyOJTInfo.getSelected() == 1? true : false)) {
+                                                selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).put(studentCompanyOJTInfo.getCompanyInfo().getId(), studentCompanyOJTInfo.getSelected());
+                                            } else {
+                                                selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).remove(studentCompanyOJTInfo.getCompanyInfo().getId());
+                                                if(selectedIdsToProcess.get(studentCompanyOJTInfo.getResumeInfo().getId()).size() == 0){
+                                                    selectedIdsToProcess.remove(studentCompanyOJTInfo.getResumeInfo().getId());
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                        if(null != selectedIdsToProcess && selectedIdsToProcess.size() > 0){
+                            ProcessCOjtApplications processCOjtApplications = new ProcessCOjtApplications();
+                            processCOjtApplications.execute();
+                        }else{
+                            Toast.makeText(ShowOJTApplicationsActivity.this, "No item/s Selected", Toast.LENGTH_SHORT).show();
+                            ConnectToDataBaseViaJson dataBaseViaJson = new ConnectToDataBaseViaJson();
+                            dataBaseViaJson.execute();
+                        }
+
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        /*processOjtReqBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -110,7 +182,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                 }
 
 
-                               /* if(null != selectedIdsToProcess){
+                               *//* if(null != selectedIdsToProcess){
                                     if((!selectedIdsToProcess.containsKey(studentCompanyOJTInfo.getResumeInfo().getId())
                                             && null != studentCompanyOJTInfo.getCompanyInfo()
                                             && !selectedIdsToProcess.containsValue(studentCompanyOJTInfo.getCompanyInfo().getId())
@@ -140,8 +212,8 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                             selectedIdsToProcess.remove(studentCompanyOJTInfo.getResumeInfo().getId());
                                         }
                                     }
-                                }*/
-                                /*if(studentCompanyOJTInfo.getSelected() == 1){
+                                }*//*
+                                *//*if(studentCompanyOJTInfo.getSelected() == 1){
 
                                     List<Integer> resumeIds = new ArrayList<Integer>();
                                     resumeIds.add(studentCompanyOJTInfo.getResumeInfo().getId());
@@ -152,7 +224,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                                         selectedIdsToProcess.get(studentCompanyOJTInfo.getCompanyInfo().getId()).add(studentCompanyOJTInfo.getResumeInfo().getId());
                                     }
 
-                                }*/
+                                }*//*
                             }
                         }
 
@@ -172,7 +244,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
                     }
                 }
         );
-
+*/
     }
 
 

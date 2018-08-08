@@ -15,11 +15,11 @@
 
         <Button
             android:id="@+id/refreshListBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="141dp"
+            android:layout_height="13dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="71dp"
+            android:layout_marginTop="-48dp"
             android:text="Refresh Section list"
             android:visibility="invisible"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -74,5 +74,17 @@
             android:text="Cancel"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sectionSpnr" />
+
+        <Button
+            android:id="@+id/viewSectionSelectedBtn"
+            android:layout_width="146dp"
+            android:layout_height="53dp"
+            android:text="View section Info"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/refreshListBtn" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

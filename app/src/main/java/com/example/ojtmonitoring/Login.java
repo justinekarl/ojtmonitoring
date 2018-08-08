@@ -269,7 +269,7 @@ public class Login extends AppCompatActivity {
                         if(json.has("department")) department = json.getString("department");
                         if(json.has("college")) college = json.getString("college");
                         if(json.has("ojt_done")) ojtDone = json.getString("ojt_done");
-                        if(json.has("company_id")) companyId = null != json.get("company_id") ? json.getInt("company_id") : 0;
+                        if(json.has("company_id")) companyId = null != json.get("company_id") && !json.get("company_id").toString().equals("null") ? json.getInt("company_id") : 0;
 
 
                     }else {

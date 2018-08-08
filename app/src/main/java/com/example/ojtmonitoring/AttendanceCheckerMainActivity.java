@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -70,7 +72,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
         updatedById = sharedPreferences.getInt("agent_id", 0);
 
 
-        scanQrCodeBtn.setOnClickListener(
+       /* scanQrCodeBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -85,9 +87,40 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
 
                     }
                 }
-        );
+        );*/
 
-        exitBtn.setOnClickListener(
+
+        scanQrCodeBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        //to call the scanner
+                        IntentIntegrator integrator = new IntentIntegrator(activity);
+                        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                        integrator.setPrompt("Scan");
+                        integrator.setCameraId(0);
+                        integrator.setBeepEnabled(false);
+                        integrator.setBarcodeImageEnabled(false);
+                        integrator.initiateScan();
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        /*exitBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -101,7 +134,37 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
                         }
                     }
                 }
-        );
+        );*/
+
+        exitBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        if(accounttype == 3) {
+                            Intent companyLogin = new Intent(AttendanceCheckerMainActivity.this, CompanyLoginActivity.class);
+                            startActivity(companyLogin);
+                        }
+                        if(accounttype == 4){
+                            Intent coordinatorLogin = new Intent(AttendanceCheckerMainActivity.this, CoordinatorLoginActivity.class);
+                            startActivity(coordinatorLogin);
+                        }
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
     }
 
     //scan activity

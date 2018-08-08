@@ -32,7 +32,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
     private static String name;
     private static int agentId;
 
-    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout"};
+    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information"};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
 
@@ -131,6 +131,14 @@ public class TeacherLoginActivity extends AppCompatActivity {
                             case 3:
                                 Intent showStudentLoginLogoutPage= new Intent(TeacherLoginActivity.this,ShowStudentLoginLogoutActivity.class);
                                 startActivity(showStudentLoginLogoutPage);
+                                return;
+                            case 4:
+                                Intent showSectionEnrollees= new Intent(TeacherLoginActivity.this,ShowSectionEnrolleesActivity.class);
+                                startActivity(showSectionEnrollees);
+                                return;
+                            case 5:
+                                Intent showSectionInfo = new Intent(TeacherLoginActivity.this,ViewSectionsActivity.class);
+                                startActivity(showSectionInfo);
                                 return;
                             default:
                                 Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);

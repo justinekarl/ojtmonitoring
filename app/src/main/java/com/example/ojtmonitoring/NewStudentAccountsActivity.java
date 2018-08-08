@@ -3,6 +3,7 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -81,7 +82,63 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
                 return true;
             }
         });
-        apprvSelBtn.setOnClickListener(
+
+        apprvSelBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        if(null != userAccountInfos && userAccountInfos.size() > 0){
+                            for(final UserAccountInfo userAccountInfo : userAccountInfos){
+                                if(null != studentAcctMap){
+                                    if(!studentAcctMap.containsKey(userAccountInfo.getId()) && userAccountInfo.isApproved()){
+                                        studentAcctMap.put(userAccountInfo.getId(),userAccountInfo.isApproved());
+                                    }else{
+                                        if(studentAcctMap.size() > 0) {
+                                            //let's get the previous value of the account (approved or not)
+                                            boolean prevValue = studentAcctMap.get(userAccountInfo.getId());
+
+                                            //if there is a change in the status, remove if from the map and add the new value
+                                            if (prevValue != userAccountInfo.isApproved()) {
+                                                studentAcctMap.remove(userAccountInfo.getId());
+                                                studentAcctMap.put(userAccountInfo.getId(), userAccountInfo.isApproved());
+                                            } else {
+                                                //remove if they are the same we don't need to re-save them in the backend
+                                                studentAcctMap.remove(userAccountInfo.getId());
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            if(null != studentAcctMap && studentAcctMap.size() > 0){
+                                ProcessAcceptStudents processAcceptStudent =new ProcessAcceptStudents();
+                                processAcceptStudent.execute();
+                            }
+                        }
+
+                        if(null != studentAcctMap && studentAcctMap.size() == 0) {
+                            toastMessage("No Student/s to approve selected.");
+                        }
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+
+        /*apprvSelBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -120,9 +177,33 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
 
                     }
                 }
-        );
+        );*/
 
-        viewAllApprBtn.setOnClickListener(
+        viewAllApprBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        Intent viewApprovedAccts = new Intent(NewStudentAccountsActivity.this,ViewApprovedAccountsActivity.class);
+                        startActivity(viewApprovedAccts);
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        /*viewAllApprBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -130,7 +211,7 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
                         startActivity(viewApprovedAccts);
                     }
                 }
-        );
+        );*/
 
     }
 

@@ -4,10 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -54,11 +56,35 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
         ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
 
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+        /*homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent home = new Intent(ShowTimeAccumulatedActivity.this,StudentLoginActivity.class);
                 startActivity(home);
+            }
+        });*/
+
+        homeBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        Intent home = new Intent(ShowTimeAccumulatedActivity.this,StudentLoginActivity.class);
+                        startActivity(home);
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
             }
         });
 
@@ -70,7 +96,7 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
         String startDate="";
         String endDate="";
         String remainingTime="";
-        String percentageStr="";
+        String percentageStr="0";
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -96,7 +122,7 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
 
             try {
                 if (null != json) {
-                    if(json.has("time_accumulated")){
+                    if(json.has("time_accumulated") && null != json.get("time_accumulated") && !json.get("time_accumulated").toString().equals("None")){
                         JSONArray notifListArr =json.getJSONArray("time_accumulated");
 
                         if(null != notifListArr){
@@ -138,7 +164,7 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
                         }
                     }
 
-                    if(json.has("percentage")){
+                    if(json.has("percentage") && null != json.get("percentage") && !json.get("percentage").toString().equals("null")){
                         double val = Double.valueOf(json.get("percentage").toString());
                         if(val > 100){
                             val = 100;

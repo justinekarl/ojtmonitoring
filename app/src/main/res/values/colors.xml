@@ -8,4 +8,9 @@
     <color name="light_teal">#9dd1d1</color>
     <color name="divider">#bcb9b9</color>
     <color name="link_blue">#1e35ff</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="highlight_grey">#ff666666</color>
+    <color name="dark_blue">#ff000066</color>
+    <color name="dark_green">#ff006600</color>
 </resources>

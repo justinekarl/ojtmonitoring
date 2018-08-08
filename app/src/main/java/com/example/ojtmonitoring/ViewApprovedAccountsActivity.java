@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -77,7 +78,7 @@ public class ViewApprovedAccountsActivity extends AppCompatActivity {
             }
         });
 
-        backBtn.setOnClickListener(
+       /* backBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -85,7 +86,32 @@ public class ViewApprovedAccountsActivity extends AppCompatActivity {
                         startActivity(backToPrev);
                     }
                 }
-        );
+        );*/
+
+
+        backBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        Intent backToPrev = new Intent(ViewApprovedAccountsActivity.this,NewStudentAccountsActivity.class);
+                        startActivity(backToPrev);
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
     }
 
     @Override

@@ -3,17 +3,21 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
@@ -41,6 +45,9 @@ public class SectionSelectionActivity extends AppCompatActivity {
     private String savedSectionName;
     private String college;
 
+    Button viewSectionSelectedBtn;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +58,7 @@ public class SectionSelectionActivity extends AppCompatActivity {
         refreshListBtn = (Button)findViewById(R.id.refreshListBtn);
         enrollSectionBtn = (Button)findViewById(R.id.enrollSectionBtn);
         cancelEnrollSectionBtn = (Button)findViewById(R.id.cancelEnrollSectionBtn);
+        viewSectionSelectedBtn = (Button)findViewById(R.id.viewSectionSelectedBtn);
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
@@ -67,15 +75,39 @@ public class SectionSelectionActivity extends AppCompatActivity {
             }
         });
 
-        cancelEnrollSectionBtn.setOnClickListener(new View.OnClickListener() {
+        /*cancelEnrollSectionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent backToHome = new Intent(SectionSelectionActivity.this,StudentLoginActivity.class);
                 startActivity(backToHome);
             }
+        });*/
+
+        cancelEnrollSectionBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        Intent backToHome = new Intent(SectionSelectionActivity.this,StudentLoginActivity.class);
+                        startActivity(backToHome);
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
         });
 
-        enrollSectionBtn.setOnClickListener(new View.OnClickListener() {
+        /*enrollSectionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(null != sectionSpnr && null != sectionSpnr.getSelectedItem()){
@@ -83,6 +115,80 @@ public class SectionSelectionActivity extends AppCompatActivity {
                 }
                 EnrollWithSectionSelected enrollWithSectionSelected = new EnrollWithSectionSelected();
                 enrollWithSectionSelected.execute();
+            }
+        });*/
+
+        enrollSectionBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        if(null != sectionSpnr && null != sectionSpnr.getSelectedItem()){
+                            selectedSectionName = sectionSpnr.getSelectedItem().toString();
+                        }
+                        EnrollWithSectionSelected enrollWithSectionSelected = new EnrollWithSectionSelected();
+                        enrollWithSectionSelected.execute();
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        sectionSpnr.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) sectionSpnr.getSelectedView()).setTextColor(getResources().getColor(R.color.white));
+                selectedSectionName = sectionSpnr.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        /*viewSectionSelectedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showSectionInfo = new Intent(getApplicationContext(),ViewSectionsActivity.class);
+                showSectionInfo.putExtra("selectedSectionName",selectedSectionName);
+                startActivity(showSectionInfo);
+            }
+        });*/
+
+        viewSectionSelectedBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        Intent showSectionInfo = new Intent(getApplicationContext(),ViewSectionsActivity.class);
+                        showSectionInfo.putExtra("selectedSectionName",selectedSectionName);
+                        startActivity(showSectionInfo);
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
             }
         });
 
@@ -179,7 +285,7 @@ public class SectionSelectionActivity extends AppCompatActivity {
 
             if(null != sectionNames && sectionNames.length > 0) {
 
-                sectionNameAdapter = new ArrayAdapter<String>(SectionSelectionActivity.this, android.R.layout.simple_list_item_1, sectionNames){
+                sectionNameAdapter = new ArrayAdapter<String>(SectionSelectionActivity.this, android.R.layout.simple_list_item_1, sectionNames)/*{
                     @NonNull
                     @Override
                     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -192,7 +298,7 @@ public class SectionSelectionActivity extends AppCompatActivity {
                         }
                         return view;
                     }
-                };
+                }*/;
 
                 int selectedId = 0;
                 for(int i =0;i<sectionNames.length;i++){

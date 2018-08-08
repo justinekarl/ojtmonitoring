@@ -118,7 +118,9 @@
         <activity android:name=".PrintReportActivity" />
         <activity android:name=".RateCompanyActivity" />
         <activity android:name=".RateStudentActivity" />
-        <activity android:name=".StudentListActivity"></activity>
+        <activity android:name=".StudentListActivity" />
+        <activity android:name=".ViewSectionsActivity" />
+        <activity android:name=".ShowSectionEnrolleesActivity"></activity>
     </application>
 
 </manifest>

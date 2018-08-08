@@ -3,6 +3,7 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.print.PrintAttributes;
@@ -186,7 +187,49 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                 }
         );
 
-        resetBtn.setOnClickListener(
+
+        /*searchBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        studentNameFilter = null != studentNameFilterTxt.getText() ? studentNameFilterTxt.getText().toString() :"";
+                        companyNameFilter = null != companyNameFilterTxt.getText() ? companyNameFilterTxt.getText().toString() : "";
+                        from = null != fromTxt.getText() ? fromTxt.getText().toString() : "";
+                        thru = null != thruTxt.getText() ? thruTxt.getText().toString() : "";
+                        startTime = null != startTimeTxt.getText() ? startTimeTxt.getText().toString() : "";
+                        endTime = null != endTimeTxt.getText() ? endTimeTxt.getText().toString() : "";
+
+                        if(((null == thru || thru.trim().length() == 0) && (null != from && from.trim().length() > 0)) && ((null == from || from.trim().length() == 0) && (null != thru && thru.trim().length() > 0))){
+                            Toast.makeText(ShowStudentLoginLogoutActivity.this,"From and Thru must be filled out.",Toast.LENGTH_SHORT).show();
+                            break;
+                        }
+
+                        if(((null == startTime || startTime.trim().length() == 0) && (null != endTime && endTime.trim().length() > 0)) && ((null == startTime || endTime.trim().length() == 0) && (null != endTime && endTime.trim().length() > 0))){
+                            Toast.makeText(ShowStudentLoginLogoutActivity.this,"Start Time and End Time must be filled out.",Toast.LENGTH_SHORT).show();
+                            break;
+                        }
+
+                        ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
+                        connectToDataBaseViaJson.execute();
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });*/
+
+        /*resetBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -208,8 +251,44 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                     }
                 }
         );
+*/
 
-        printResultBtn.setOnClickListener(new View.OnClickListener() {
+        resetBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        studentNameFilterTxt.setText("");
+                        companyNameFilterTxt.setText("");
+                        fromTxt.setText("");
+                        thruTxt.setText("");
+                        startTimeTxt.setText("");
+                        endTimeTxt.setText("");
+                        if(null != studentLoginLogoutLogsInfos) {
+                            studentLoginLogoutLogsInfos.clear();
+                        }
+
+                        if(null != resultLsView){
+                            resultLsView.setAdapter(null);
+                        }
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        /*printResultBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -268,6 +347,85 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+            }
+        });*/
+
+
+        printResultBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        try {
+                            if(null != studentNameFilterTxt.getText()){
+                                studentName = studentNameFilterTxt.getText().toString();
+                                filterJson.put("student_name",studentNameFilterTxt.getText().toString());
+                            }
+
+                            if(null != companyNameFilterTxt.getText()){
+                                filterJson.put("company_name",companyNameFilterTxt.getText().toString());
+                            }
+
+                            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                            if(null != fromTxt.getText() && fromTxt.getText().toString().length() > 0){
+                                Date fromDate = dateFormat.parse(fromTxt.getText().toString());
+                                SimpleDateFormat dateFormat1= new SimpleDateFormat("yyyy/MM/dd");
+                                fromStr = dateFormat1.format(fromDate);
+
+
+                                filterJson.put("from",fromTxt.getText().toString());
+                            }
+
+                            if(null != thruTxt.getText() && thruTxt.getText().toString().length() > 0){
+                                Date toDate = dateFormat.parse(fromTxt.getText().toString());
+                                SimpleDateFormat dateFormat2= new SimpleDateFormat("yyyy/MM/dd");
+
+
+                                thruStr = dateFormat2.format(toDate);
+                                filterJson.put("thru",thruTxt.getText().toString());
+                            }
+
+
+                            if(null != startTimeTxt.getText() && startTimeTxt.getText().toString().length() > 0){
+                                DateFormat dateFormat3 = new SimpleDateFormat("hh:mm aa");
+                                Date startTime1 = dateFormat3.parse(startTimeTxt.getText().toString());
+
+
+                                DateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
+                                startTimeStr = dateFormat1.format(startTime1);
+                            }
+
+                            if(null != endTimeTxt.getText() && endTimeTxt.getText().toString().length() > 0){
+                                DateFormat dateFormat4 = new SimpleDateFormat("hh:mm aa");
+                                Date startTime2 = dateFormat4.parse(endTimeTxt.getText().toString());
+
+
+                                DateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
+                                endTimeStr = dateFormat1.format(startTime2);
+                            }
+
+                            Print print = new Print();
+                            print.execute();
+
+                            Log.d("JSON ",filterJson.toString());
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
             }
         });
 

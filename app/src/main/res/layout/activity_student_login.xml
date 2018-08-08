@@ -44,7 +44,8 @@
             android:layout_x="26dp"
             android:layout_y="139dp"
             android:background="@color/zxing_custom_viewfinder_mask"
-            android:foreground="@color/white" />
+            android:foreground="@color/white"
+            android:listSelector="@drawable/listview_colors" />
 
         <Button
             android:id="@+id/logoutBtn"

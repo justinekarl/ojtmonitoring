@@ -21,6 +21,14 @@ public class CustomNewStudentAccountListView extends BaseAdapter {
     Context context;
 
 
+    public List<UserAccountInfo> getUserAccountInfos() {
+        return userAccountInfos;
+    }
+
+    public void setUserAccountInfos(List<UserAccountInfo> userAccountInfos) {
+        this.userAccountInfos = userAccountInfos;
+    }
+
     public CustomNewStudentAccountListView(List<UserAccountInfo> userAccountInfos, Context context){
         this.userAccountInfos = userAccountInfos;
         this.context = context;
@@ -72,7 +80,7 @@ public class CustomNewStudentAccountListView extends BaseAdapter {
             sb.append("\n");
             sb.append(" College : " +userAccountInfo.getCollege());
             sb.append("\n");
-            sb.append(" Username : " +userAccountInfo.getUserName());
+            sb.append(" Gender : " +userAccountInfo.getGender());
 
             detailsTxt.setText(sb.toString());
 
