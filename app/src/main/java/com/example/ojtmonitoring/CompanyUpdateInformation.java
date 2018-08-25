@@ -61,6 +61,7 @@ public class CompanyUpdateInformation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_update_information);
+        PaceSettingManager.lockActivityOrientation(this);
 
         companyTxt = (EditText)findViewById(R.id.companyTxt);
         addressTxt = (EditText)findViewById(R.id.custAddressTxt);

@@ -36,6 +36,7 @@ public class CreateStudentSectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_student_section);
+        PaceSettingManager.lockActivityOrientation(this);
 
         txtSectionName = (EditText) findViewById(R.id.txtSectionName);
         btnSaveSection = (Button) findViewById(R.id.btnSaveSection);

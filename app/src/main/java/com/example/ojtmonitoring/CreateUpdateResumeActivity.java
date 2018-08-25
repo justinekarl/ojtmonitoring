@@ -49,6 +49,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_update_resume);
+        PaceSettingManager.lockActivityOrientation(this);
 
         createResume = (Button)findViewById(R.id.createResume);
 
@@ -210,10 +211,10 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
                         if(null != referenceFragment && referenceFragment.isInLayout() && null != referenceFragment.getActivity()){
 
-                            resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().clear();
+                            //resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().clear();
 
 
-                            final ReferencesInfo referencesInfo1 = new ReferencesInfo();
+                            final ReferencesInfo referencesInfo1 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(0);
 
                             if(null != referenceFragment.getActivity().findViewById(R.id.refName1Txt)){
                                 referencesInfo1.setName(((EditText)referenceFragment.getActivity().findViewById(R.id.refName1Txt)).getText().toString());
@@ -234,7 +235,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
                             resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().add(referencesInfo1);
 
 
-                            final ReferencesInfo referencesInfo2 = new ReferencesInfo();
+                            final ReferencesInfo referencesInfo2 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(1);
 
                             if(null != referenceFragment.getActivity().findViewById(R.id.refName2Txt)){
                                 referencesInfo2.setName(((EditText)referenceFragment.getActivity().findViewById(R.id.refName2Txt)).getText().toString());
@@ -256,7 +257,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
 
 
-                            final ReferencesInfo referencesInfo3 = new ReferencesInfo();
+                            final ReferencesInfo referencesInfo3 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(2);
 
                             if(null != referenceFragment.getActivity().findViewById(R.id.refName3Txt)){
                                 referencesInfo3.setName(((EditText)referenceFragment.getActivity().findViewById(R.id.refName3Txt)).getText().toString());

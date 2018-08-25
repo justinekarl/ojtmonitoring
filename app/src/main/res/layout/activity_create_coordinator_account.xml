@@ -1,293 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@mipmap/background"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
 
-        tools:context="com.example.ojtmonitoring.CreateCoordinatorAccountActivity">
-
-        <Button
-            android:id="@+id/btnCancelCoor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:layout_marginTop="44dp"
-            app:layout_constraintTop_toBottomOf="@+id/coorConfirmPassTxt"
-            android:layout_marginRight="84dp"
-            app:layout_constraintRight_toRightOf="parent" />
+        tools:context="com.example.ojtmonitoring.CreateCoordinatorAccountActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <Button
-            android:id="@+id/btnSaveCoor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:layout_marginTop="44dp"
-            app:layout_constraintTop_toBottomOf="@+id/coorConfirmPassTxt"
-            android:layout_marginLeft="9dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/btnCancelCoor"
-            android:layout_marginRight="8dp"
-            app:layout_constraintHorizontal_bias="0.588" />
+            android:id="@+id/refreshCompanyNameBtn"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:layout_x="296dp"
+            android:layout_y="443dp"
+            android:text="Button"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/textView49"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="29dp"
+            android:layout_x="53dp"
+            android:layout_y="4dp"
             android:background="@color/zxing_custom_viewfinder_mask"
-            android:layout_x="71dp"
-            android:layout_y="12dp"
             android:text="Create Coordinator Account"
-            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView50"
-            android:layout_width="63dp"
-            android:layout_height="35dp"
+            android:layout_width="114dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="33dp"
+            android:layout_x="4dp"
+            android:layout_y="58dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Name:"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/coorNameTxt"
-            app:layout_constraintTop_toBottomOf="@+id/textView49" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/coorNameTxt"
-            android:layout_width="296dp"
-            android:layout_height="43dp"
+            android:layout_width="251dp"
+            android:layout_height="39dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="17dp"
+            android:layout_x="122dp"
+            android:layout_y="60dp"
             android:background="@color/zxing_custom_viewfinder_mask"
-            android:layout_marginTop="33dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textColor="@color/white"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView49" />
-
-        <TextView
-            android:id="@+id/textView51"
-            android:layout_width="114dp"
-            android:layout_height="37dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Phone Number:"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/coorPhoneTxt"
-            app:layout_constraintTop_toBottomOf="@+id/coorNameTxt" />
-
-        <EditText
-            android:id="@+id/coorPhoneTxt"
-            android:layout_width="239dp"
-            android:layout_height="41dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="phone"
-            android:textColor="@color/white"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coorNameTxt" />
-
-        <TextView
-            android:id="@+id/textView52"
-            android:layout_width="89dp"
-            android:layout_height="42dp"
-            android:layout_marginEnd="21dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="21dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="27dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Address:"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/coorAddressTxt"
-            app:layout_constraintTop_toBottomOf="@+id/coorPhoneTxt" />
-
-        <EditText
-            android:id="@+id/coorAddressTxt"
-            android:layout_width="267dp"
-            android:layout_height="43dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="27dp"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:textColor="@color/white"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coorPhoneTxt" />
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textView53"
-            android:layout_width="94dp"
+            android:layout_width="110dp"
             android:layout_height="41dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_x="5dp"
+            android:layout_y="108dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Company:"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.615"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/companySpnr"
-            app:layout_constraintTop_toBottomOf="@+id/coorAddressTxt" />
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/companySpnr"
-            android:layout_width="246dp"
+            android:layout_width="252dp"
             android:layout_height="41dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintRight_toRightOf="parent"
+            android:layout_x="121dp"
+            android:layout_y="110dp"
+            android:background="@color/zxing_custom_viewfinder_mask" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="47dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_x="7dp"
+            android:layout_y="160dp"
             android:background="@color/zxing_custom_viewfinder_mask"
-            app:layout_constraintTop_toBottomOf="@+id/coorAddressTxt" />
+            android:text="Phone Number:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/coorPhoneTxt"
+            android:layout_width="249dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="16dp"
+            android:layout_x="125dp"
+            android:layout_y="161dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="phone"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/coorAddressTxt"
+            android:layout_width="252dp"
+            android:layout_height="49dp"
+            android:layout_marginEnd="16dp"
+            android:layout_x="124dp"
+            android:layout_y="214dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginStart="8dp"
+            android:layout_x="8dp"
+            android:layout_y="215dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:lineSpacingExtra="14sp"
+            android:text="Address:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView54"
-            android:layout_width="111dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="23dp"
+            android:layout_width="112dp"
+            android:layout_height="51dp"
+            android:layout_x="6dp"
+            android:layout_y="272dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Username:"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/coorUsernameTxt"
-            app:layout_constraintTop_toBottomOf="@+id/textView53" />
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/coorUsernameTxt"
+            android:layout_width="249dp"
+            android:layout_height="47dp"
+            android:layout_x="124dp"
+            android:layout_y="273dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textView55"
-            android:layout_width="101dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="23dp"
+            android:layout_width="112dp"
+            android:layout_height="45dp"
+            android:layout_x="8dp"
+            android:layout_y="330dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Password:"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView54" />
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/coorConfirmPassTxt"
+            android:layout_width="247dp"
+            android:layout_height="49dp"
+            android:layout_x="127dp"
+            android:layout_y="330dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textView56"
-            android:layout_width="142dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="29dp"
+            android:layout_width="117dp"
+            android:layout_height="49dp"
+            android:layout_x="6dp"
+            android:layout_y="382dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:text="Confirm Password:"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.8"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/coorConfirmPassTxt"
-            app:layout_constraintTop_toBottomOf="@+id/textView55" />
-
-        <EditText
-            android:id="@+id/coorUsernameTxt"
-            android:layout_width="241dp"
-            android:layout_height="32dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="23dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/white"
-            app:layout_constraintRight_toRightOf="parent"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            app:layout_constraintTop_toBottomOf="@+id/companySpnr" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/coorPasswordTxt"
-            android:layout_width="223dp"
-            android:layout_height="31dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="27dp"
+            android:layout_width="244dp"
+            android:layout_height="46dp"
+            android:layout_x="130dp"
+            android:layout_y="385dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
             android:ems="10"
             android:inputType="textPassword"
-            android:textColor="@color/white"
-            app:layout_constraintLeft_toRightOf="@+id/textView55"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coorUsernameTxt"
-            app:layout_constraintHorizontal_bias="0.529" />
-
-        <EditText
-            android:id="@+id/coorConfirmPassTxt"
-            android:layout_width="211dp"
-            android:layout_height="38dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="28dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            app:layout_constraintRight_toRightOf="parent"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            app:layout_constraintTop_toBottomOf="@+id/coorPasswordTxt" />
+            android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/refreshCompanyNameBtn"
-            android:layout_width="65dp"
-            android:layout_height="38dp"
-            android:text="Button"
-            android:visibility="invisible"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="494dp" />
-    </android.support.constraint.ConstraintLayout>
+            android:id="@+id/btnCancelCoor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="83dp"
+            android:layout_y="463dp"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/btnSaveCoor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="202dp"
+            android:layout_y="466dp"
+            android:text="Save" />
+    </AbsoluteLayout>
 </ScrollView>

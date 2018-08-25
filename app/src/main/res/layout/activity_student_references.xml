@@ -37,6 +37,8 @@
             android:layout_height="match_parent"
             android:layout_alignTop="@+id/textView33"
             android:layout_toEndOf="@+id/referencesLbl"
+            android:hint="Name 1..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
         <EditText
@@ -47,7 +49,8 @@
             android:layout_below="@+id/refName1Txt"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
-            android:hint="Address"
+            android:hint="Address 1..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
         <EditText
@@ -58,7 +61,8 @@
             android:layout_below="@+id/refAddress1Txt"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
-            android:hint="Phone Number"
+            android:hint="Phone Number 1..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="phone"
             android:textColor="@color/white" />
 
@@ -70,7 +74,8 @@
             android:layout_below="@+id/refPhone1Txt"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
-            android:hint="Occupation"
+            android:hint="Occupation 1..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
 
@@ -92,6 +97,8 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/refOccupation1Txt"
             android:layout_toEndOf="@+id/referencesLbl"
+            android:hint="Name 2..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
 
@@ -102,7 +109,8 @@
             android:layout_below="@+id/refName2Txt"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
-            android:hint="Address"
+            android:hint="Address 2..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
         <EditText
@@ -112,8 +120,9 @@
             android:layout_below="@+id/refAddress2Txt"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
-            android:hint="Phone Number"
+            android:hint="Phone Number 2..."
             android:inputType="phone"
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
         <EditText
@@ -123,7 +132,8 @@
             android:layout_below="@+id/refPhone2Txt"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
-            android:hint="Occupation"
+            android:hint="Occupation 2..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
 
@@ -145,6 +155,8 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/refOccupation2Txt"
             android:layout_toEndOf="@+id/referencesLbl"
+            android:hint="Name 3..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
 
@@ -155,7 +167,8 @@
             android:layout_below="@+id/refName3Txt"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
-            android:hint="Address"
+            android:hint="Address 3..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
         <EditText
@@ -165,8 +178,9 @@
             android:layout_below="@+id/refAddress3Txt"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
-            android:hint="Phone Number"
+            android:hint="Phone Number 3..."
             android:inputType="phone"
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
         <EditText
@@ -176,7 +190,8 @@
             android:layout_below="@+id/refPhone3Txt"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
-            android:hint="Occupation"
+            android:hint="Occupation 3..."
+            android:textColorHint="@color/highlight_grey"
             android:textColor="@color/white" />
 
 

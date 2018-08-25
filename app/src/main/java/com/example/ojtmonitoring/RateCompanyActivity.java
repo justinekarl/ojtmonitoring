@@ -46,6 +46,7 @@ public class RateCompanyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_company);
+        PaceSettingManager.lockActivityOrientation(this);
 
         companyNameTxt = (TextView)findViewById(R.id.companyNameTxt);
         companyRatingBar = (RatingBar)findViewById(R.id.companyRatingBar);

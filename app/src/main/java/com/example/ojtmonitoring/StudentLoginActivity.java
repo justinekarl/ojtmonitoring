@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -54,15 +55,25 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     private StringBuffer sb = new StringBuffer("");
     String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company"};
+    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
     boolean hasMessageNotif=false;
     private int percentFinished;
+    private  CustomMenuAdapter customMenuAdapter;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,StudentLoginActivity.class);
+        startActivity(home);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_login);
+        PaceSettingManager.lockActivityOrientation(this);
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
@@ -123,7 +134,9 @@ public class StudentLoginActivity extends AppCompatActivity {
 
         }
 
-        menuAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,menuItems){
+        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+
+        /*menuAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,menuItems){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -134,10 +147,11 @@ public class StudentLoginActivity extends AppCompatActivity {
                 tv.setTextColor(Color.WHITE);
                 tv.setTypeface(Typeface.DEFAULT_BOLD);
 
+
                 return view;
             }
-        };
-        menuOptionsLstView.setAdapter(menuAdapter);
+        };*/
+        menuOptionsLstView.setAdapter(customMenuAdapter);
 
 
         logoutBtn.setOnClickListener(
@@ -195,6 +209,25 @@ public class StudentLoginActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
+        menuOptionsLstView.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
 
     }
 

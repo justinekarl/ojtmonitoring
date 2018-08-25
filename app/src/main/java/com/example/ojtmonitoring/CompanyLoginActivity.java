@@ -4,12 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -17,9 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -27,6 +21,8 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import io.socket.client.Socket;
 
 public class CompanyLoginActivity extends AppCompatActivity {
 
@@ -38,15 +34,21 @@ public class CompanyLoginActivity extends AppCompatActivity {
     private String name;
     private static int agentId;
 
-    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Coordinator Request","Create Weekly Report","Rate Student"};
+    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Coordinator Request","Create Weekly Report","Rate Student","View Teachers"};
+    int[] menuImage = {R.mipmap.ic_update,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_pending,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
+    private CustomMenuAdapter customMenuAdapter;
 
+    private Socket mSocket;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_login);
+
+        PaceSettingManager.lockActivityOrientation(this);
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         companyNameTxt = (TextView)findViewById(R.id.custCompanyNameTxt);
@@ -54,7 +56,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
-        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
+        /*menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -67,20 +69,30 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
                 return view;
             }
-        };
-        menuOptionsLstView.setAdapter(menuAdapter);
+        };*/
+
+        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        menuOptionsLstView.setAdapter(customMenuAdapter);
 
 
         SharedPreferences sharedpreferences = getSharedPreferences(
                 PaceSettingManager.USER_PREFERENCES, Context.MODE_PRIVATE);
         name=sharedpreferences.getString("full_name","");
         agentId = sharedpreferences.getInt("agent_id",0);
+        userName = sharedpreferences.getString("user_name","");
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
 
         welcomeLbl.setText("Logged In User : " +name +" - Company id: "+agentId +" \n " +sd.format(new Date().getTime()));
         companyNameTxt.setText(sharedpreferences.getString("full_name",""));
         //descriptionTxt.setText(sharedpreferences.getString("company_description",""));
+
+
+        ChatApplication app = (ChatApplication) getApplication();
+        mSocket = app.getSocket();
+        // mSocket.on("adduser", onConnect);
+        mSocket.connect();
+        mSocket.emit("adduser", userName);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -134,6 +146,26 @@ public class CompanyLoginActivity extends AppCompatActivity {
                 }
         );
 
+
+        menuOptionsLstView.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
+
+
         menuOptionsLstView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
@@ -171,6 +203,10 @@ public class CompanyLoginActivity extends AppCompatActivity {
                             case 7:
                                 Intent rateStudent = new Intent(CompanyLoginActivity.this,StudentListActivity.class);
                                 startActivity(rateStudent);
+                                return;
+                            case 8:
+                                Intent viewTeachers = new Intent(CompanyLoginActivity.this,ViewTeachersActivity.class);
+                                startActivity(viewTeachers);
                                 return;
                             default:
                                 Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
@@ -223,5 +259,12 @@ public class CompanyLoginActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,CompanyLoginActivity.class);
+        startActivity(home);
     }
 }

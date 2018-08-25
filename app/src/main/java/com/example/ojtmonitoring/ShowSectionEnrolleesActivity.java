@@ -57,6 +57,8 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_section_enrollees);
+        PaceSettingManager.lockActivityOrientation(this);
+
 
         sectionsSpinner = (Spinner)findViewById(R.id.sectionsSpinner);
         studentListView = (ListView)findViewById(R.id.studentListView);

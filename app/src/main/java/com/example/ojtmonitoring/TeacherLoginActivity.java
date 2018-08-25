@@ -3,26 +3,24 @@ package com.example.ojtmonitoring;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 
 public class TeacherLoginActivity extends AppCompatActivity {
 
@@ -32,14 +30,27 @@ public class TeacherLoginActivity extends AppCompatActivity {
     private static String name;
     private static int agentId;
 
-    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information"};
+    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List"};
+    final int[] menuImage = {R.mipmap.ic_pending,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
+    private CustomMenuAdapter customMenuAdapter;
+
+    private Socket mSocket;
+    private String userName;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,TeacherLoginActivity.class);
+        startActivity(home);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_login);
+        PaceSettingManager.lockActivityOrientation(this);
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
 
@@ -48,9 +59,18 @@ public class TeacherLoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
+        userName = sharedPreferences.getString("user_name","");
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
-        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
+
+        ChatApplication app = (ChatApplication) getApplication();
+        mSocket = app.getSocket();
+        // mSocket.on("adduser", onConnect);
+        mSocket.connect();
+        mSocket.emit("adduser", userName);
+        //mSocket.emit("check_user", userName,userName);
+
+        /*menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -63,8 +83,9 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
                 return view;
             }
-        };
-        menuOptionsLstView.setAdapter(menuAdapter);
+        };*/
+        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        menuOptionsLstView.setAdapter(customMenuAdapter);
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
 
@@ -140,6 +161,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                 Intent showSectionInfo = new Intent(TeacherLoginActivity.this,ViewSectionsActivity.class);
                                 startActivity(showSectionInfo);
                                 return;
+                            case 6:
+                                Intent viewCompanies = new Intent(TeacherLoginActivity.this,ViewCompaniesActivity.class);
+                                startActivity(viewCompanies);
+                                return;
                             default:
                                 Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
                                 startActivity(backToHome);
@@ -180,4 +205,6 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

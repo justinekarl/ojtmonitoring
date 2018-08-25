@@ -54,6 +54,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_checker_main);
+        PaceSettingManager.lockActivityOrientation(this);
 
         scanQrCodeBtn = (Button)findViewById(R.id.scanQrCodeBtn);
         exitBtn = (Button)findViewById(R.id.exitBtn);

@@ -58,6 +58,7 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_ojt_requests);
+        PaceSettingManager.lockActivityOrientation(this);
 
         ojtApplicantsLst = (ListView)findViewById(R.id.ojtApplicantsLst);
         processOjtReqBtn = (Button)findViewById(R.id.processOjtReqBtn);

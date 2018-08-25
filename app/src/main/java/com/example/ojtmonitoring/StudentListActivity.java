@@ -3,16 +3,22 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -37,6 +43,7 @@ public class StudentListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list);
+        PaceSettingManager.lockActivityOrientation(this);
 
         studentListListView = (ListView)findViewById(R.id.studentListListView);
 
@@ -166,7 +173,20 @@ public class StudentListActivity extends AppCompatActivity {
                 values.add("Student Id :" +studentList.first+","+studentList.second);
             }
 
-            menuAdapter = new ArrayAdapter<String>(StudentListActivity.this,android.R.layout.simple_list_item_1,values.toArray(new String[values.size()]));
+            menuAdapter = new ArrayAdapter<String>(StudentListActivity.this,android.R.layout.simple_list_item_1,values.toArray(new String[values.size()])){
+                @NonNull
+                @Override
+                public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                    View view =  super.getView(position, convertView, parent);
+
+                    TextView tv = (TextView)view.findViewById(android.R.id.text1);
+
+                    tv.setTextColor(Color.WHITE);
+                    tv.setTypeface(Typeface.DEFAULT_BOLD);
+
+                    return view;
+                }
+            };
             studentListListView.setAdapter(menuAdapter);
 
 

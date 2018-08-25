@@ -69,6 +69,7 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_update_company_requirements);
+        PaceSettingManager.lockActivityOrientation(this);
 
         collegeSpnr = (Spinner)findViewById(R.id.collegeSpnr);
         allowanceYesRadBtn = (RadioButton)findViewById(R.id.allowanceYesRadBtn);

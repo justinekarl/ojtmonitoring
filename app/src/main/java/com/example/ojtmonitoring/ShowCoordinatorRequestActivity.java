@@ -41,6 +41,7 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_coordinator_request);
+        PaceSettingManager.lockActivityOrientation(this);
 
         coorListReqLstView = (ListView)findViewById(R.id.coorListReq);
         processCoorListBtn = (Button)findViewById(R.id.processCoorListBtn);

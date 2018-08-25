@@ -53,15 +53,24 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
     private Button logoutBtn;
     private ListView contentLstVw;
     final String[] menuItems = {"Scan Student QR Codes","Show student login/logout","Print Weekly Report"};
+    final int[] menuImage = {R.mipmap.ic_scan_qr,R.mipmap.ic_view,R.mipmap.ic_list};
     ListAdapter menuAdapter;
+    private CustomMenuAdapter customMenuAdapter;
 
     ScrollView scrollView;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,CoordinatorLoginActivity.class);
+        startActivity(home);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coordinator_login);
+        PaceSettingManager.lockActivityOrientation(this);
 
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
@@ -70,7 +79,7 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
         scrollView = (ScrollView)findViewById(R.id.scrollViewCoor);
 
 
-        menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
+        /*menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -83,8 +92,10 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
 
                 return view;
             }
-        };
-        contentLstVw.setAdapter(menuAdapter);
+        };*/
+
+        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        contentLstVw.setAdapter(customMenuAdapter);
 
         //allowing vertical scroll even in scroll view
         contentLstVw.setOnTouchListener(new ListView.OnTouchListener() {

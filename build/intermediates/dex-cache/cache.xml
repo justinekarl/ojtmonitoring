@@ -2,6 +2,69 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/io.socket/engine.io-client/0.8.3/854b49396e1e9f9bb0ab025062ddb49c4ed65ca1/engine.io-client-0.8.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="854b49396e1e9f9bb0ab025062ddb49c4ed65ca1">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/engine.io-client-0.8.3_192672d472c588d719fbb8f1b15b81a11e5a9704.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.5.0/4b0bb6bfbecbdd42b97ff400af342bfe7f32bc83/okhttp-3.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b0bb6bfbecbdd42b97ff400af342bfe7f32bc83">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/okhttp-3.5.0_51f684739b336273099cf01c53179ff246c43ef5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/okio-1.11.0_e7a0dd1c026b566a3998bcf87ef35484f82f51c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/io.socket/socket.io-client/0.8.3/b30500232ff0668a47c9f91f02e6935457a52fb5/socket.io-client-0.8.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b30500232ff0668a47c9f91f02e6935457a52fb5">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/socket.io-client-0.8.3_aa1eaff4f3283a9d4cf9f65dbee988f8b9e6c06c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="923f53736b24a68afb848ca900f05980543640f3">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b2630e2acedb21cff355efa7e5335f93920c33fb/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/com.github.nkzawa/engine.io-client/0.5.0/72f54ba32a0d735630ebc33a5c39e14a5dd45492/engine.io-client-0.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="72f54ba32a0d735630ebc33a5c39e14a5dd45492">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/engine.io-client-0.5.0_761c9d19bd3de02108a9e25dbc61d03af4260783.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/com.github.nkzawa/socket.io-client/0.5.0/7d40c590385ba95b34920eb89c986757a79968af/socket.io-client-0.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7d40c590385ba95b34920eb89c986757a79968af">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/socket.io-client-0.5.0_4b7e49f3814551fc32a4152d8ea2dd89592f7dbf.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
@@ -11,22 +74,22 @@
         <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e2ca4a228d806fc5eb9cce7e95f307a105ad1bd5/classes.dex" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9e93862445f6513b0a3661df8da820d186e71b7">
-        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b2630e2acedb21cff355efa7e5335f93920c33fb/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="/home/jj/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/14.0.1/69e12f4c6aeac392555f1ea86fab82b5e5e31ad4/guava-14.0.1.jar"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-ws/2.3.0/7896d229b6aa7884552ab9c23de54c7eb0de8203/okhttp-ws-2.3.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="69e12f4c6aeac392555f1ea86fab82b5e5e31ad4">
-        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/guava-14.0.1_b33badb05e52afc477b9a95fe4144c53020bd13b.jar" />
+        sha1="7896d229b6aa7884552ab9c23de54c7eb0de8203">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/okhttp-ws-2.3.0_68e77a6313eaa70b66c38a1210dc3e0fff501d89.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jj/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.3.0/2e7bc7033dc2c8423e661224171b3133fb155b28/okhttp-2.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e7bc7033dc2c8423e661224171b3133fb155b28">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/okhttp-2.3.0_e6c070cc4bcd620cdab400afc15bf1b3663c43b9.jar" />
     </item>
 
 </items>

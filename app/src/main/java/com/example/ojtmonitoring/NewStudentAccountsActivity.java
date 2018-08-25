@@ -51,6 +51,7 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_student_accounts);
+        PaceSettingManager.lockActivityOrientation(this);
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         teacherId = sharedPreferences.getInt("agent_id",0);

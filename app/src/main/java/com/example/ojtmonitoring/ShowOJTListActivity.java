@@ -56,6 +56,7 @@ public class ShowOJTListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_ojtlist);
+        PaceSettingManager.lockActivityOrientation(this);
 
         companyNameThisLbl = (TextView)findViewById(R.id.companyNameThisLbl);
         studentListLstView = (ListView)findViewById(R.id.studentListLstView);

@@ -30,6 +30,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:ems="10"
+            android:hint="Accomplishments..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textMultiLine"
             android:textColor="@color/white" />
 
@@ -53,6 +55,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:ems="10"
+            android:hint="Interests..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textMultiLine"
             android:textColor="@color/white" />
 
@@ -75,7 +79,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:hint="Elementary"
+            android:hint="Elementary.."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
 
@@ -87,7 +92,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:hint="Address"
+            android:hint="Address..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
 
@@ -100,7 +106,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="18dp"
             android:ems="10"
-            android:hint="High School"
+            android:hint="High School..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
 
@@ -112,7 +119,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:hint="Address"
+            android:hint="Address..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
 
@@ -125,7 +133,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="18dp"
             android:ems="10"
-            android:hint="College"
+            android:hint="College..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
 
@@ -137,7 +146,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:hint="Address"
+            android:hint="Address..."
+            android:textColorHint="@color/highlight_grey"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
 

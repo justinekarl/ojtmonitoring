@@ -34,7 +34,7 @@
             android:layout_marginRight="32dp"
             android:layout_marginTop="79dp"
             android:text="Enroll Section"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0.0"

@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -122,7 +123,7 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
                         switch (event.getAction()) {
                             case MotionEvent.ACTION_DOWN: {
                                 Button view = (Button) v;
-                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                view.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_ATOP);
                                 v.invalidate();
                                 break;
                             }
@@ -189,7 +190,7 @@ public class AccountCreationSelectionActivity extends AppCompatActivity {
                         switch (event.getAction()) {
                             case MotionEvent.ACTION_DOWN: {
                                 Button view = (Button) v;
-                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                view.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_ATOP);
                                 v.invalidate();
                                 break;
                             }

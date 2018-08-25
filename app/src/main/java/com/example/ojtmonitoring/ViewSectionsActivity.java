@@ -49,6 +49,7 @@ public class ViewSectionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sections);
+        PaceSettingManager.lockActivityOrientation(this);
 
         if(null != getIntent().getStringExtra("selectedSectionName") && getIntent().getStringExtra("selectedSectionName").length() > 0){
             sectionFromStudentAccount = getIntent().getStringExtra("selectedSectionName");

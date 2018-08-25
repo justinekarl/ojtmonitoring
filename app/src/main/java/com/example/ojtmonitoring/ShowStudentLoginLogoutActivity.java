@@ -91,6 +91,7 @@ public class ShowStudentLoginLogoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_student_login_logout);
+        PaceSettingManager.lockActivityOrientation(this);
 
         studentNameFilterTxt = (EditText)findViewById(R.id.studentNameFilterTxt);
         searchBtn = (Button)findViewById(R.id.searchBtn);

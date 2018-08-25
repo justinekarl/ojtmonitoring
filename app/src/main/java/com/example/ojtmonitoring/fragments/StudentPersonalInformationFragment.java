@@ -83,7 +83,7 @@ public class StudentPersonalInformationFragment extends Fragment {
         address = null != addressTxt.getText() ? addressTxt.getText().toString() : "";
         phoneNumber = null != phoneNumberTxt.getText() ? phoneNumberTxt.getText().toString() : "";
         email = null != emailTxt.getText() ? emailTxt.getText().toString() : "";
-        gender = null != gnderSpner.getSelectedItem() ? gnderSpner.getSelectedItem().toString() : "";
+        //gender = null != gnderSpner.getSelectedItem() ? gnderSpner.getSelectedItem().toString() : "";
 
         companyName1 = null != companyName1Txt.getText() ? companyName1Txt.getText().toString() : "";
         companyAddress1 = null != companyAddress1Txt.getText() ? companyAddress1Txt.getText().toString() : "";
@@ -118,14 +118,13 @@ public class StudentPersonalInformationFragment extends Fragment {
         companyAddress2Txt = (EditText)view.findViewById(R.id.companyAddress2Txt);
         jobDescription2Txt = (EditText)view.findViewById(R.id.jobDescription2Txt);
         dutiesCompany2Txt = (EditText)view.findViewById(R.id.dutiesCompany2Txt);
-        gnderSpner = (Spinner)view.findViewById(R.id.gnderSpner);
 
-        genderListAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,
+       /* genderListAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,
                                                     getResources().getStringArray(R.array.genderlist));
 
         genderListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        gnderSpner.setAdapter(genderListAdapter);
+        gnderSpner.setAdapter(genderListAdapter);*/
         return view;
     }
 
@@ -135,7 +134,7 @@ public class StudentPersonalInformationFragment extends Fragment {
         addressTxt = (EditText)view.findViewById(R.id.addressTxt);
         phoneNumberTxt = (EditText)view.findViewById(R.id.phoneNumberTxt);
         emailTxt = (EditText)view.findViewById(R.id.elemAddTxt);
-        gnderSpner = (Spinner)view.findViewById(R.id.gnderSpner);
+
 
         /*genderListAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.genderlist));
