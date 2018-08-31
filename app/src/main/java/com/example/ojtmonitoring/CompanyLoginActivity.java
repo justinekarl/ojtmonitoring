@@ -27,6 +27,7 @@ import io.socket.client.Socket;
 public class CompanyLoginActivity extends AppCompatActivity {
 
     private Button logoutBtn;
+    private Button signouttopBtn;
     private static  String companyName ;
     private TextView companyNameTxt;
     private TextView descriptionTxt;
@@ -52,6 +53,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         companyNameTxt = (TextView)findViewById(R.id.custCompanyNameTxt);
+        signouttopBtn = (Button)findViewById(R.id.signouttopBtn);
         //descriptionTxt = (TextView)findViewById(R.id.custDescriptionTxt);
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
@@ -120,6 +122,33 @@ public class CompanyLoginActivity extends AppCompatActivity {
         });
 
         logoutBtn.setOnTouchListener(
+                new View.OnTouchListener() {
+
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
+
+        signouttopBtn.setOnTouchListener(
                 new View.OnTouchListener() {
 
                     @Override

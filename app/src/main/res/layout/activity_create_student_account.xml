@@ -18,14 +18,6 @@
         tools:context="com.example.ojtmonitoring.CreateStudentAccount">
 
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="397dp"
-            android:layout_height="40dp"
-            android:layout_x="1dp"
-            android:layout_y="0dp"
-            app:srcCompat="@mipmap/createstudentaccount" />
-
         <EditText
             android:id="@+id/fullnameTxt"
             android:layout_width="231dp"
@@ -335,5 +327,17 @@
             android:background="#5e5e5e"
             android:text="Cancel"
             android:textColor="@color/zxing_status_text" />
+
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="378dp"
+            android:layout_height="wrap_content"
+            android:layout_x="-6dp"
+            android:layout_y="6dp"
+            android:text="Create Student Account"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
     </AbsoluteLayout>
 </ScrollView>

@@ -13,10 +13,10 @@
 
         <Button
             android:id="@+id/logoutBtn"
-            android:layout_width="118dp"
-            android:layout_height="49dp"
-            android:layout_x="17dp"
-            android:layout_y="448dp"
+            android:layout_width="115dp"
+            android:layout_height="41dp"
+            android:layout_x="19dp"
+            android:layout_y="478dp"
             android:background="@mipmap/signout" />
 
         <ListView
@@ -25,32 +25,40 @@
             android:layout_height="275dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_x="18dp"
-            android:layout_y="148dp"
+            android:layout_x="15dp"
+            android:layout_y="184dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:descendantFocusability="blocksDescendants"
-            android:listSelector="@drawable/listview_colors"/>
-
-        <TextView
-            android:id="@+id/welcomeTeacherLbl"
-            android:layout_width="315dp"
-            android:layout_height="29dp"
-            android:layout_x="41dp"
-            android:layout_y="11dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent" />
+            android:listSelector="@drawable/listview_colors" />
 
         <TextView
             android:id="@+id/textView34"
             android:layout_width="110dp"
             android:layout_height="44dp"
-            android:layout_x="149dp"
-            android:layout_y="54dp"
+            android:layout_x="153dp"
+            android:layout_y="123dp"
             android:text="Teacher"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/welcomeTeacherLbl"
+            android:layout_width="315dp"
+            android:layout_height="29dp"
+            android:layout_x="50dp"
+            android:layout_y="70dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/logoutTopBtn"
+            android:layout_width="105dp"
+            android:layout_height="36dp"
+            android:layout_x="19dp"
+            android:layout_y="16dp"
+            android:background="@mipmap/signout" />
     </AbsoluteLayout>
 </ScrollView>

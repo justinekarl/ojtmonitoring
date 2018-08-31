@@ -3,11 +3,13 @@ package com.example.ojtmonitoring;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -38,6 +40,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
     private Socket mSocket;
     private String userName;
+    private Button logoutTopBtn;
 
     @Override
     public void onBackPressed() {
@@ -53,6 +56,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
         PaceSettingManager.lockActivityOrientation(this);
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
+        logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
 
         welcomeTeacherLbl = (TextView)findViewById(R.id.welcomeTeacherLbl);
 
@@ -127,6 +131,34 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         AlertDialog dialog = builder.create();
                         dialog.show();
+                    }
+                }
+        );
+
+
+        logoutTopBtn.setOnTouchListener(
+                new View.OnTouchListener() {
+
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
                     }
                 }
         );

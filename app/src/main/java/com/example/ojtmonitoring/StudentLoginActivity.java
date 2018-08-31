@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -62,6 +63,8 @@ public class StudentLoginActivity extends AppCompatActivity {
     private int percentFinished;
     private  CustomMenuAdapter customMenuAdapter;
 
+    private Button signoutbtntop;
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -82,6 +85,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         status = sharedPreferences.getString("ojt_done","");
         ojtDone = sharedPreferences.getString("ojtDone","");
         messageNotifTxt = (TextView)findViewById(R.id.messageNotifTxt);
+        signoutbtntop = (Button)findViewById(R.id.signoutbtntop);
 
 
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
@@ -160,6 +164,34 @@ public class StudentLoginActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         AlertDialog dialog = builder.create();
                         dialog.show();
+                    }
+                }
+        );
+
+
+        signoutbtntop.setOnTouchListener(
+                new View.OnTouchListener() {
+
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
                     }
                 }
         );

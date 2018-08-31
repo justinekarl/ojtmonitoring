@@ -58,6 +58,7 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
     private CustomMenuAdapter customMenuAdapter;
 
     ScrollView scrollView;
+    private Button logoutTopBtn;
 
     @Override
     public void onBackPressed() {
@@ -77,6 +78,8 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
         contentLstVw = (ListView)findViewById(R.id.contentLstVw);
 
         scrollView = (ScrollView)findViewById(R.id.scrollViewCoor);
+
+        logoutTopBtn=(Button)findViewById(R.id.logoutTopBtn);
 
 
         /*menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
@@ -179,6 +182,32 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
                 }
         );
 
+        logoutTopBtn.setOnTouchListener(
+                new View.OnTouchListener() {
+
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
         contentLstVw.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
