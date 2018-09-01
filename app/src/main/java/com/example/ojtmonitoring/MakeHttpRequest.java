@@ -168,6 +168,70 @@ public class MakeHttpRequest {
         requestQueue.add(jsonObjectRequest);
     }
 
+
+    public static void RequestPostMessageTest(final Context context, String url, JSONObject params, final int sender, final int receiver){
+        final ProgressDialog pDialog;
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        pDialog = new ProgressDialog(context);
+        pDialog.setMessage("Processing..");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(true);
+        pDialog.show();
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                params,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try{
+                            boolean result = response.getBoolean("response");
+
+                            pDialog.dismiss();
+                            //PaceSettingManager.toastMessage(context, "sa");
+                            if(result){
+                                ChatActivity.mMessages.clear();
+                                if(response.has("message") && null != response.getJSONArray("message")){
+                                    for (int i=0;i<response.getJSONArray("message").length() ; i++){
+
+                                        String msg = response.getJSONArray("message").getJSONObject(i).getString("message");
+                                        int sender = response.getJSONArray("message").getJSONObject(i).getInt("sender_id");
+                                        int receiver = response.getJSONArray("message").getJSONObject(i).getInt("receiver_id");
+                                        String userName = response.getJSONArray("message").getJSONObject(i).getString("sender");
+                                        ChatActivity.mMessages.add(new Message.Builder(Message.TYPE_MESSAGE)
+                                                .message(msg).receiverId(receiver).senderId(sender).username(userName).build());
+
+
+                                    }
+                                }
+
+                                /*Intent move = new Intent(from, to);
+                                //  move.putExtra("receiverId", sender);
+                                move.putExtra("receiverId",receiver);
+                                move.putExtra("messageJson",response.getJSONArray("message").toString());
+                                context.startActivity(move);*/
+                            }else{
+
+                            }
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            pDialog.dismiss();
+
+                        }
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+                        pDialog.dismiss();
+
+                    }
+                }
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
+
+
     public static void getBackGround(final Context context,final String url){
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -182,7 +246,10 @@ public class MakeHttpRequest {
                             if(hasMessage){
                                 String message = response.getString("message");
                                 String sender = response.getString("sender");
-                                PaceSettingManager.sendNotification(context,message,sender);
+                                int receiverId = response.getInt("receiverId");
+                                int senderId = response.getInt("senderId");
+                                PaceSettingManager.sendNotification(context,message,sender,senderId,senderId);
+
                                 //Log.i(TAG,message);
                             }
 

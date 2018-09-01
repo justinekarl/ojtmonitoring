@@ -55,6 +55,9 @@ public class TeacherLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_login);
         PaceSettingManager.lockActivityOrientation(this);
 
+        Intent backGround = new Intent(this, BackgroundProcessService.class);
+        startService(backGround);
+
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
 

@@ -1,10 +1,14 @@
 package com.example.ojtmonitoring;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -15,10 +19,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     private List<Message> mMessages;
     private int[] mUsernameColors;
+    String userName;
 
     public MessageAdapter(Context context, List<Message> messages) {
         mMessages = messages;
         mUsernameColors = context.getResources().getIntArray(R.array.username_colors);
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PaceSettingManager.USER_PREFERENCES, context.MODE_PRIVATE);
+
+        userName = sharedPreferences.getString("user_name","");
     }
 
     @Override
@@ -45,7 +54,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         Message message = mMessages.get(position);
         viewHolder.setMessage(message.getMessage());
-        viewHolder.setUsername(message.getUsername());
+        viewHolder.setUsername(message.getUsername(),position);
+
+
     }
 
     @Override
@@ -61,18 +72,41 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView mUsernameView;
         private TextView mMessageView;
+        private LinearLayout msgBckground;
+
+
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             mUsernameView = (TextView) itemView.findViewById(R.id.username);
             mMessageView = (TextView) itemView.findViewById(R.id.message);
+            msgBckground = (LinearLayout) itemView.findViewById(R.id.msgBckground);
+
         }
 
-        public void setUsername(String username) {
+        public void setUsername(String username,int position) {
             if (null == mUsernameView) return;
             mUsernameView.setText(username);
             mUsernameView.setTextColor(getUsernameColor(username));
+
+            /*if(username.equals(userName)){
+                msgBckground.removeView(mUsernameView);
+                msgBckground.removeView(mMessageView);
+                msgBckground.addView(mMessageView);
+                msgBckground.addView(mUsernameView);
+
+                mMessageView.setPadding(200,0,0,0);
+                mUsernameView.setGravity(Gravity.RIGHT);
+                mUsernameView.setPadding(100,0,10,0);
+                //mUsernameView.setLa
+            }*/
+
+            if(position%2 == 0){
+                msgBckground.setBackgroundColor(mUsernameView.getContext().getResources().getColor(R.color.divider));
+            }else{
+                msgBckground.setBackgroundColor(mUsernameView.getContext().getResources().getColor(R.color.white));
+            }
         }
 
         public void setMessage(String message) {

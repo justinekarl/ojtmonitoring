@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -38,7 +39,12 @@ public class ChatActivity extends AppCompatActivity {
         messageTxt = (EditText) findViewById(R.id.messageTxt);
         sendBtn = (ImageButton)findViewById(R.id.sendBtn);
         messagesList = (RecyclerView)findViewById(R.id.messagesList);
-        mAdapter = new MessageAdapter(context, mMessages);
+        mAdapter = new MessageAdapter(context, mMessages){
+            @Override
+            public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                return super.onCreateViewHolder(parent, viewType);
+            }
+        };
 
         messagesList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -55,13 +61,24 @@ public class ChatActivity extends AppCompatActivity {
         if(null != getIntent().getStringExtra("userName")){
             userName = getIntent().getStringExtra("userName");
         }
+        try{
+            JSONObject params = new JSONObject();
+            params.put("sender_id", senderId);
+            params.put("receiver_id", receiverId);
+            String url = PaceSettingManager.IP_ADDRESS + "getMessage";
+            MakeHttpRequest.RequestPostMessageTest(context, url, params,senderId,receiverId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
 
         /*mMessages.add(new Message.Builder(Message.TYPE_MESSAGE)
                 .username(userName).message("Test Message").receiverId(receiverId).senderId(senderId).build());*/
 
         mAdapter.notifyItemInserted(mMessages.size() - 1);
 
-        scrollToBottom();
+
 
         sendBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -98,6 +115,8 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+
+        scrollToBottom();
     }
 
     private void scrollToBottom() {

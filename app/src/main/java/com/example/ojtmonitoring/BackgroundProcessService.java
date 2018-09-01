@@ -48,6 +48,8 @@ public class BackgroundProcessService extends Service {
                                     //ojtmonitoring/getLatestMessage
                                     String url = PaceSettingManager.IP_ADDRESS+"getLatestMessage/"+senderId;
                                     MakeHttpRequest.getBackGround(getBaseContext(), url);
+
+
                                 }
 
                             }catch (Exception e){

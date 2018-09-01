@@ -1,9 +1,10 @@
 package com.example.ojtmonitoring;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.media.Ringtone;
@@ -111,7 +112,7 @@ public class PaceSettingManager {
         Toast.makeText(context,message, Toast.LENGTH_SHORT).show();
     }
 
-    public static void sendNotification(Context context, String message, String sender) {
+    public static void sendNotification(Context context, String message, String sender,int senderId,int receiverId) {
         try {
             Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), notification);
@@ -122,6 +123,19 @@ public class PaceSettingManager {
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(400);
 
+        Intent notifyIntent = new Intent(context.getApplicationContext(), ChatActivity.class);
+        notifyIntent.putExtra("receiverId",receiverId);
+
+
+        // Set the Activity to start in a new, empty task
+                notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        // Create the PendingIntent
+        PendingIntent notifyPendingIntent = PendingIntent.getActivity(
+                context.getApplicationContext(), 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT
+        );
+
+
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(android.R.drawable.ic_dialog_alert)
                 .setContentTitle("Message from "+ sender)
@@ -129,8 +143,12 @@ public class PaceSettingManager {
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(message))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        mBuilder.setContentIntent(notifyPendingIntent);
+
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(001, mBuilder.build());
+
+
     }
 
     private boolean isServiceRunning(Context context) {
