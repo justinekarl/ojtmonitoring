@@ -181,7 +181,8 @@ public class MakeHttpRequest {
                             Boolean hasMessage = response.getBoolean("response");
                             if(hasMessage){
                                 String message = response.getString("message");
-                                PaceSettingManager.sendNotification(context,message);
+                                String sender = response.getString("sender");
+                                PaceSettingManager.sendNotification(context,message,sender);
                                 //Log.i(TAG,message);
                             }
 

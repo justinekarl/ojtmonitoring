@@ -45,8 +45,9 @@ public class BackgroundProcessService extends Service {
 
                                 if(senderId != 0){
                                     Log.i(TAG,"get!");
-                                    //String url = PaceSettingManager.IP_ADDRESS+"mobile/getMessage/"+senderId;
-                                    //MakeHttpRequest.getBackGround(getBaseContext(), url);
+                                    //ojtmonitoring/getLatestMessage
+                                    String url = PaceSettingManager.IP_ADDRESS+"getLatestMessage/"+senderId;
+                                    MakeHttpRequest.getBackGround(getBaseContext(), url);
                                 }
 
                             }catch (Exception e){

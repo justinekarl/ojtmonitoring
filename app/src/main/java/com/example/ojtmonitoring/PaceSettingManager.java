@@ -111,7 +111,7 @@ public class PaceSettingManager {
         Toast.makeText(context,message, Toast.LENGTH_SHORT).show();
     }
 
-    public static void sendNotification(Context context, String message) {
+    public static void sendNotification(Context context, String message, String sender) {
         try {
             Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), notification);
@@ -124,7 +124,7 @@ public class PaceSettingManager {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(android.R.drawable.ic_dialog_alert)
-                .setContentTitle("Message")
+                .setContentTitle("Message from "+ sender)
                 .setContentText(message)
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(message))

@@ -67,7 +67,6 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public  void onClick(View v) {
 
-                PaceSettingManager.sendNotification(context,"sample");
                 try{
                     JSONObject params = new JSONObject();
                     if(null != messageTxt.getText() &&  messageTxt.getText().toString().trim().length() > 0 ) {
