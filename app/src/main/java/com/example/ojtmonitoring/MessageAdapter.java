@@ -81,12 +81,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         }
 
         private int getUsernameColor(String username) {
-            int hash = 7;
-            for (int i = 0, len = username.length(); i < len; i++) {
-                hash = username.codePointAt(i) + (hash << 5) - hash;
-            }
-            int index = Math.abs(hash % mUsernameColors.length);
-            return mUsernameColors[index];
+            if(null !=username){
+                int hash = 7;
+                for (int i = 0, len = username.length(); i < len; i++) {
+                    hash = username.codePointAt(i) + (hash << 5) - hash;
+                }
+                int index = Math.abs(hash % mUsernameColors.length);
+                return mUsernameColors[index];
+            }return 0;
         }
     }
 

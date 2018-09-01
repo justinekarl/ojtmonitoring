@@ -1,13 +1,21 @@
 package com.example.ojtmonitoring;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Point;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Vibrator;
+import android.support.v4.app.NotificationCompat;
 import android.view.Display;
 import android.view.Surface;
+import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,8 +32,8 @@ public class PaceSettingManager {
       /* public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
        public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.16:3000";*/
 
-    public static final String IP_ADDRESS = "http://192.168.0.11/ojtmonitoring/";
-    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.11:3000";
+    public static final String IP_ADDRESS = "http://192.168.22.6/ojtmonitoring/";
+    public static final String CHAT_SERVER_ADDRESS = "http://192.168.22.6:3000";
 
 
        /*public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
@@ -98,5 +106,43 @@ public class PaceSettingManager {
                     activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
     }
+
+    public static void toastMessage(Context context, String message) {
+        Toast.makeText(context,message, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void sendNotification(Context context, String message) {
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(400);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setContentTitle("Message")
+                .setContentText(message)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(message))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(001, mBuilder.build());
+    }
+
+    private boolean isServiceRunning(Context context) {
+        /*    ActivityManager manager = (ActivityManager) context.getSystemService();
+            for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
+                if("com.example.ojtmonitoring.BackgroundProcessService".equals(service.service.getClassName())) {
+                    return true;
+            }
+        }*/
+        return false;
+    }
+
+
 
 }

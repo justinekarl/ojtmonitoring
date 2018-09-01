@@ -9,6 +9,8 @@ public class Message {
     private int mType;
     private String mMessage;
     private String mUsername;
+    private int receiverId;
+    private int senderId;
 
     private Message() {}
 
@@ -24,11 +26,28 @@ public class Message {
         return mUsername;
     };
 
+    public int getReceiverId() {
+        return receiverId;
+    }
+
+    public void setReceiverId(int receiverId) {
+        this.receiverId = receiverId;
+    }
+
+    public int getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(int senderId) {
+        this.senderId = senderId;
+    }
 
     public static class Builder {
         private final int mType;
         private String mUsername;
         private String mMessage;
+        private int receiverId;
+        private int senderId;
 
         public Builder(int type) {
             mType = type;
@@ -44,11 +63,23 @@ public class Message {
             return this;
         }
 
+        public Builder receiverId(int receiverIdTo){
+            receiverId = receiverIdTo;
+            return this;
+        }
+
+        public Builder senderId(int senderIdTo){
+            senderId = senderIdTo;
+            return this;
+        }
+
         public Message build() {
             Message message = new Message();
             message.mType = mType;
             message.mUsername = mUsername;
             message.mMessage = mMessage;
+            message.receiverId = this.receiverId;
+            message.senderId = this.senderId;
             return message;
         }
     }

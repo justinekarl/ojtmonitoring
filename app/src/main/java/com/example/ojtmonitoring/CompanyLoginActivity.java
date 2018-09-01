@@ -50,6 +50,8 @@ public class CompanyLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_company_login);
 
         PaceSettingManager.lockActivityOrientation(this);
+        Intent backGround = new Intent(this, BackgroundProcessService.class);
+        startService(backGround);
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         companyNameTxt = (TextView)findViewById(R.id.custCompanyNameTxt);

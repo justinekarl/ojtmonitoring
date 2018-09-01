@@ -69,7 +69,7 @@ public class ViewCompaniesActivity extends AppCompatActivity{
 
                     UserInfo userInfo =  userItemAdapter.getUserInfoLists().get(position);
 
-                    messageCompany.putExtra("companyId", userInfo.getId());
+                    messageCompany.putExtra("receiverId", userInfo.getId());
                     messageCompany.putExtra("userName",userInfo.getUserName());
 
 

@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -46,6 +47,7 @@ public class ViewTeachersActivity extends AppCompatActivity {
     private String userName;
     CustomUserItemListView userItemAdapter;
     private List<UserInfo> teacherInfoList = new ArrayList<>();
+    Context context;
 
 
     @Override
@@ -54,6 +56,7 @@ public class ViewTeachersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_teachers);
         PaceSettingManager.lockActivityOrientation(this);
         teacherLstView = (ListView)findViewById(R.id.teacherLstView);
+        context = this;
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
@@ -72,15 +75,26 @@ public class ViewTeachersActivity extends AppCompatActivity {
                 if(null != userItemAdapter && null != userItemAdapter.getUserInfoLists() && userItemAdapter.getUserInfoLists().size() > 0) {
 
                     UserInfo userInfo =  userItemAdapter.getUserInfoLists().get(position);
-
-                    messageTeacher.putExtra("teacherId", userInfo.getId());
-
+                    messageTeacher.putExtra("receiverId", userInfo.getId());
                     messageTeacher.putExtra("userName",userInfo.getUserName());
+
+                    try{
+                        JSONObject params = new JSONObject();
+                        params.put("sender_id", agentId);
+                        params.put("receiver_id", userInfo.getId());
+                        String url = PaceSettingManager.IP_ADDRESS + "getMessage";
+                        MakeHttpRequest.RequestPostMessage(context, url, params, ViewTeachersActivity.this, ChatActivity.class);
+
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
 
                 }
-                startActivity(messageTeacher);
-                finish();
+                //startActivity(messageTeacher);
+                //finish();
             }
         });
     }
