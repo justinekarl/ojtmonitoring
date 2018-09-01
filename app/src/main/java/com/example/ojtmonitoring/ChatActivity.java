@@ -75,7 +75,7 @@ public class ChatActivity extends AppCompatActivity {
                         params.put("sender_id", senderId);
                         params.put("receiver_id", receiverId);
                         String url = PaceSettingManager.IP_ADDRESS + "sendMessage";
-                        MakeHttpRequest.RequestPost(context, url, params, ChatActivity.this, ChatActivity.class);
+                        MakeHttpRequest.RequestPost(context, url, params, ChatActivity.this, ChatActivity.class,senderId,receiverId);
 
 
 

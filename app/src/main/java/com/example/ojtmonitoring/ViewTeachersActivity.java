@@ -83,7 +83,7 @@ public class ViewTeachersActivity extends AppCompatActivity {
                         params.put("sender_id", agentId);
                         params.put("receiver_id", userInfo.getId());
                         String url = PaceSettingManager.IP_ADDRESS + "getMessage";
-                        MakeHttpRequest.RequestPostMessage(context, url, params, ViewTeachersActivity.this, ChatActivity.class);
+                        MakeHttpRequest.RequestPostMessage(context, url, params, ViewTeachersActivity.this, ChatActivity.class,agentId,userInfo.getId());
 
 
 

@@ -54,7 +54,7 @@ public class MakeHttpRequest {
 
     }
 
-    public static void RequestPost(final Context context, String url, JSONObject params, final Context from, final Class<?> to){
+    public static void RequestPost(final Context context, String url, JSONObject params, final Context from, final Class<?> to,final int sender, final int receiver){
         final ProgressDialog pDialog;
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         pDialog = new ProgressDialog(context);
@@ -86,6 +86,7 @@ public class MakeHttpRequest {
                             }
 
                             Intent move = new Intent(from, to);
+                            move.putExtra("receiverId",receiver);
                             move.putExtra("messageJson",response.getJSONArray("message").toString());
                             context.startActivity(move);
                         }catch (Exception e){
@@ -105,7 +106,7 @@ public class MakeHttpRequest {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public static void RequestPostMessage(final Context context, String url, JSONObject params, final Context from, final Class<?> to){
+    public static void RequestPostMessage(final Context context, String url, JSONObject params, final Context from, final Class<?> to, final int sender, final int receiver){
         final ProgressDialog pDialog;
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         pDialog = new ProgressDialog(context);
@@ -142,6 +143,8 @@ public class MakeHttpRequest {
                                 }
 
                                 Intent move = new Intent(from, to);
+                              //  move.putExtra("receiverId", sender);
+                                move.putExtra("receiverId",receiver);
                                 move.putExtra("messageJson",response.getJSONArray("message").toString());
                                 context.startActivity(move);
                             }else{
