@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,12 +41,18 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class CoordinatorLoginActivity extends AppCompatActivity {
     private TextView welcomeLbl;
@@ -59,6 +67,9 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
 
     ScrollView scrollView;
     private Button logoutTopBtn;
+
+    private ProgressDialog pDialog;
+    JSONParser jsonParser = new JSONParser();
 
     @Override
     public void onBackPressed() {
@@ -139,6 +150,8 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //if(actionTaken == "logout"){
+                        DoLogout doLogout = new DoLogout();
+                        doLogout.execute();
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.clear();
@@ -239,5 +252,54 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
 
     }
 
+    class DoLogout extends AsyncTask<String, String, String> {
+        boolean savedSuccessfully = false;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+           /* pDialog = new ProgressDialog(TeacherLoginActivity.this);
+            pDialog.setMessage("Processing..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();*/
+        }
+
+        public DoLogout() {
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("agentId",agentId +""));
+
+            JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"logout.php",
+                    "POST", params);
+
+            try {
+                int success = json.getInt("success");
+
+                if(success == 1){
+                    savedSuccessfully = true;
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         **/
+        protected void onPostExecute(String file_url) {
+            //pDialog.dismiss();
+
+
+        }
+    }
 
 }

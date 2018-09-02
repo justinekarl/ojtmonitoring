@@ -75,12 +75,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/jj/.android/build-cache/824601d37ca43ee32b04bec4e93ee6dbd45d3b77/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d05c16d86108d3d34377946a79d79f8485a46bfa">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/classes_286b74586eb92c0a21912fb7f2bc79f44e860698.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/jj/.gradle/caches/modules-2/files-2.1/io.socket/engine.io-client/0.8.3/854b49396e1e9f9bb0ab025062ddb49c4ed65ca1/engine.io-client-0.8.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="854b49396e1e9f9bb0ab025062ddb49c4ed65ca1">
         <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/pre-dexed/debug/engine.io-client-0.8.3_192672d472c588d719fbb8f1b15b81a11e5a9704.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jj/.android/build-cache/824601d37ca43ee32b04bec4e93ee6dbd45d3b77/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d05c16d86108d3d34377946a79d79f8485a46bfa">
+        <dex dex="/home/jj/AndroidStudioProjects/FileTracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_286b74586eb92c0a21912fb7f2bc79f44e860698/classes.dex" />
     </item>
     <item
         is-multidex="false"

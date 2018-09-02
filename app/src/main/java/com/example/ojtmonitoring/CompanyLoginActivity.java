@@ -1,10 +1,12 @@
 package com.example.ojtmonitoring;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +21,14 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import io.socket.client.Socket;
 
@@ -43,6 +51,10 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
     private Socket mSocket;
     private String userName;
+
+    private ProgressDialog pDialog;
+    JSONParser jsonParser = new JSONParser();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +119,8 @@ public class CompanyLoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //if(actionTaken == "logout"){
+                        DoLogout doLogout = new DoLogout();
+                        doLogout.execute();
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.clear();
@@ -298,4 +312,55 @@ public class CompanyLoginActivity extends AppCompatActivity {
         Intent home = new Intent(this,CompanyLoginActivity.class);
         startActivity(home);
     }
+
+    class DoLogout extends AsyncTask<String, String, String> {
+        boolean savedSuccessfully = false;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+           /* pDialog = new ProgressDialog(TeacherLoginActivity.this);
+            pDialog.setMessage("Processing..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();*/
+        }
+
+        public DoLogout() {
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("agentId",agentId +""));
+
+            JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"logout.php",
+                    "POST", params);
+
+            try {
+                int success = json.getInt("success");
+
+                if(success == 1){
+                    savedSuccessfully = true;
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         **/
+        protected void onPostExecute(String file_url) {
+            //pDialog.dismiss();
+
+
+        }
+    }
+
 }

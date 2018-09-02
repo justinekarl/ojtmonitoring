@@ -3,6 +3,7 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.view.ViewGroup;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -177,6 +178,7 @@ public class MakeHttpRequest {
         pDialog.setIndeterminate(false);
         pDialog.setCancelable(true);
         pDialog.show();
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 url,
@@ -185,6 +187,7 @@ public class MakeHttpRequest {
                     @Override
                     public void onResponse(JSONObject response) {
                         try{
+                            MessageAdapter msgAdapter ;
                             boolean result = response.getBoolean("response");
 
                             pDialog.dismiss();
@@ -205,6 +208,13 @@ public class MakeHttpRequest {
                                     }
                                 }
 
+                                ChatActivity.mAdapter = new MessageAdapter(context, ChatActivity.mMessages){
+                                    @Override
+                                    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                                        return super.onCreateViewHolder(parent, viewType);
+                                    }
+                                };
+
                                 /*Intent move = new Intent(from, to);
                                 //  move.putExtra("receiverId", sender);
                                 move.putExtra("receiverId",receiver);
@@ -218,6 +228,7 @@ public class MakeHttpRequest {
                             pDialog.dismiss();
 
                         }
+
                     }
                 },
                 new Response.ErrorListener(){

@@ -53,7 +53,7 @@ public class BackgroundProcessService extends Service {
                                 }
 
                             }catch (Exception e){
-
+                                e.printStackTrace();
                             }
                         }
                     }

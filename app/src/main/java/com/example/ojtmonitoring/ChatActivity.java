@@ -1,17 +1,19 @@
 package com.example.ojtmonitoring;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TextView;
+
+import com.baoyz.widget.PullRefreshLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,12 +26,14 @@ public class ChatActivity extends AppCompatActivity {
     EditText messageTxt;
     ImageButton sendBtn;
     RecyclerView messagesList;
+    PullRefreshLayout refreshLayout;
     Context context;
     int senderId;
     int receiverId;
-    private RecyclerView.Adapter mAdapter;
+    public static RecyclerView.Adapter mAdapter;
     public static List<Message> mMessages = new ArrayList<Message>();
     String userName;
+    int accountType = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,20 +43,12 @@ public class ChatActivity extends AppCompatActivity {
         messageTxt = (EditText) findViewById(R.id.messageTxt);
         sendBtn = (ImageButton)findViewById(R.id.sendBtn);
         messagesList = (RecyclerView)findViewById(R.id.messagesList);
-        mAdapter = new MessageAdapter(context, mMessages){
-            @Override
-            public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                return super.onCreateViewHolder(parent, viewType);
-            }
-        };
-
-        messagesList.setLayoutManager(new LinearLayoutManager(this));
-
-        messagesList.setAdapter(mAdapter);
+        refreshLayout = (PullRefreshLayout)findViewById(R.id.refreshLayout);
 
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         senderId = sharedPreferences.getInt("agent_id",0);
+        accountType = sharedPreferences.getInt("accounttype",0);
 
         if(getIntent().getIntExtra("receiverId",0) > 0){
             receiverId = getIntent().getIntExtra("receiverId",0);
@@ -76,9 +72,9 @@ public class ChatActivity extends AppCompatActivity {
         /*mMessages.add(new Message.Builder(Message.TYPE_MESSAGE)
                 .username(userName).message("Test Message").receiverId(receiverId).senderId(senderId).build());*/
 
-        mAdapter.notifyItemInserted(mMessages.size() - 1);
 
 
+        setEvents();
 
         sendBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -115,11 +111,97 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-
+        processRecyclerViewData();
         scrollToBottom();
+
+    }
+
+    private void processRecyclerViewData(){
+        mAdapter = new MessageAdapter(context, mMessages){
+            @Override
+            public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                return super.onCreateViewHolder(parent, viewType);
+            }
+        };
+        mAdapter.notifyItemInserted(mMessages.size() - 1);
+        messagesList.setLayoutManager(new LinearLayoutManager(this));
+
+        messagesList.setAdapter(mAdapter);
+
     }
 
     private void scrollToBottom() {
         messagesList.scrollToPosition(mAdapter.getItemCount() - 1);
+    }
+
+    void setEvents(){
+        refreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                new AsyncTask<Void,String,String>(){
+                    @Override
+                    protected String doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(String s) {
+                        try{
+                            JSONObject params = new JSONObject();
+                            params.put("sender_id", senderId);
+                            params.put("receiver_id", receiverId);
+                            String url = PaceSettingManager.IP_ADDRESS + "getMessage";
+                            MakeHttpRequest.RequestPostMessageTest(context, url, params,senderId,receiverId);
+
+                            /*mAdapter = new MessageAdapter(context, mMessages){
+                                @Override
+                                public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                                    return super.onCreateViewHolder(parent, viewType);
+                                }
+                            };
+                            mAdapter.notifyItemInserted(mMessages.size() - 1);
+                            messagesList.setLayoutManager(new LinearLayoutManager(ChatActivity.this));
+
+                            messagesList.setAdapter(mAdapter);
+*/
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        /*mAdapter.notifyItemInserted(mMessages.size());
+                        mAdapter.notifyDataSetChanged();*/
+
+                        refreshLayout.setRefreshing(false);
+                    }
+                }.execute();
+            }
+        });
+
+        processRecyclerViewData();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent back = new Intent(this,ViewCompaniesActivity.class);
+        if(accountType == 2){
+            back = new Intent(this,ViewCompaniesActivity.class);
+        }
+
+        if(accountType == 3){
+            back = new Intent(this,ViewTeachersActivity.class);
+        }
+
+        if(null != back) {
+            startActivity(back);
+        }
+        finish();
     }
 }

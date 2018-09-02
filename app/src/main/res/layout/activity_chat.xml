@@ -37,15 +37,22 @@
         android:layout_y="26dp"
         tools:layout_editor_absoluteX="13dp"
         tools:layout_editor_absoluteY="32dp" />-->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/messagesList"
-        android:layout_width="match_parent"
-        android:layout_height="374dp"
-        android:layout_weight="1"
-        android:layout_x="1dp"
-        android:layout_y="10dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:scrollbarStyle="outsideOverlay"
-        android:scrollbars="vertical" />
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="380dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/messagesList"
+            android:layout_width="match_parent"
+            android:layout_height="373dp"
+            android:layout_weight="1"
+            android:layout_x="1dp"
+            android:layout_y="10dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical" />
+
+    </com.baoyz.widget.PullRefreshLayout>
 </AbsoluteLayout>

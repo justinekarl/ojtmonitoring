@@ -110,6 +110,8 @@ public class StudentLoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //if(actionTaken == "logout"){
+                            DoLogout doLogout = new DoLogout();
+                            doLogout.execute();
                             SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                             SharedPreferences.Editor editor = preferences.edit();
                             editor.clear();
@@ -413,5 +415,55 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     private void toastMessage(String message) {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+    }
+
+    class DoLogout extends AsyncTask<String, String, String> {
+        boolean savedSuccessfully = false;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+           /* pDialog = new ProgressDialog(TeacherLoginActivity.this);
+            pDialog.setMessage("Processing..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();*/
+        }
+
+        public DoLogout() {
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("agentId",agentId +""));
+
+            JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"logout.php",
+                    "POST", params);
+
+            try {
+                int success = json.getInt("success");
+
+                if(success == 1){
+                    savedSuccessfully = true;
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         **/
+        protected void onPostExecute(String file_url) {
+            //pDialog.dismiss();
+
+
+        }
     }
 }

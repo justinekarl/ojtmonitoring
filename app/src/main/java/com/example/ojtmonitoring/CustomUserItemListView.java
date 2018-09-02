@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ojtmonitoring.info.UserInfo;
@@ -23,6 +24,7 @@ public class CustomUserItemListView extends BaseAdapter {
     private TextView addressTxt;
     private List<UserInfo> userInfoList;
     private UserInfo userInfo;
+    private ImageView onlinestatus;
 
     public CustomUserItemListView(List<UserInfo> userInfoList,Context context){
         this.userInfoList = userInfoList;
@@ -56,6 +58,7 @@ public class CustomUserItemListView extends BaseAdapter {
         userinfonameTxt = (TextView)view.findViewById(R.id.userinfonameTxt);
         phoneNumberTxt = (TextView)view.findViewById(R.id.phoneNumberTxt);
         addressTxt = (TextView) view.findViewById(R.id.addressTxt);
+        onlinestatus = (ImageView)view.findViewById(R.id.onlinestatus);
 
         userInfo = userInfoList.get(position);
 
@@ -63,6 +66,9 @@ public class CustomUserItemListView extends BaseAdapter {
             userinfonameTxt.setText(userInfo.getName());
             phoneNumberTxt.setText(userInfo.getPhone());
             addressTxt.setText(userInfo.getAddress());
+
+            onlinestatus.setImageResource(userInfo.isOnline() ? R.mipmap.online : R.mipmap.offline);
+
         }
 
         return view;

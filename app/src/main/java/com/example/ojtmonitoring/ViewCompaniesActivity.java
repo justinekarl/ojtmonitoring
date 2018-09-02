@@ -162,6 +162,12 @@ public class ViewCompaniesActivity extends AppCompatActivity{
                                         }
                                     }
 
+                                    if(k==5) {
+                                        if(null != json.getJSONArray("company_lists").getJSONArray(i) && null != json.getJSONArray("company_lists").getJSONArray(i).get(k)) {
+                                            companyInfo.setOnline( (json.getJSONArray("company_lists").getJSONArray(i).get(k) + "").equals("1") ? true : false);
+                                        }
+                                    }
+
 
                                 }
 

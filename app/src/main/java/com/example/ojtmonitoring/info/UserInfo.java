@@ -11,6 +11,7 @@ public class UserInfo {
     private int accounttype;
     private String phone;
     private String address;
+    private boolean online;
 
 
     public UserInfo(int accounttype) {
@@ -63,5 +64,13 @@ public class UserInfo {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public boolean isOnline() {
+        return online;
+    }
+
+    public void setOnline(boolean online) {
+        this.online = online;
     }
 }

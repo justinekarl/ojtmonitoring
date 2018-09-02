@@ -30,7 +30,7 @@
         android:textStyle="italic" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/onlinestatus"
         android:layout_width="57dp"
         android:layout_height="35dp"
         android:layout_x="14dp"
