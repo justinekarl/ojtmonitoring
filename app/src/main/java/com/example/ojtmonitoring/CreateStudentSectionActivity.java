@@ -220,5 +220,6 @@ public class CreateStudentSectionActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent home = new Intent(CreateStudentSectionActivity.this,TeacherLoginActivity.class);
         startActivity(home);
+        finish();
     }
 }

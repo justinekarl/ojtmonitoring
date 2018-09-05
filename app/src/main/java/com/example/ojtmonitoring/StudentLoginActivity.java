@@ -217,22 +217,27 @@ public class StudentLoginActivity extends AppCompatActivity {
                             case 0:
                                 Intent showCompanies = new Intent(StudentLoginActivity.this,ShowCompaniesActivity.class);
                                 startActivity(showCompanies);
+                                finish();
                                 return;
                             case 1:
                                 Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);
                                 startActivity(addResume);
+                                finish();
                                 return;
                             case 2:
                                 Intent selectSection = new Intent(StudentLoginActivity.this,SectionSelectionActivity.class);
                                 startActivity(selectSection);
+                                finish();
                                 return;
                             case 3:
                                 Intent showAccummulated = new Intent(StudentLoginActivity.this,ShowTimeAccumulatedActivity.class);
                                 startActivity(showAccummulated);
+                                finish();
                                 return;
                             case 4:
                                 Intent rateCompany = new Intent(StudentLoginActivity.this,RateCompanyActivity.class);
                                 startActivity(rateCompany);
+                                finish();
                                 return;
                             default:
                                 Intent backToHome = new Intent(StudentLoginActivity.this,StudentLoginActivity.class);

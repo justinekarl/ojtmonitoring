@@ -7,6 +7,9 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 public class BackgroundProcessService extends Service {
 
@@ -33,6 +36,7 @@ public class BackgroundProcessService extends Service {
         Runnable r = new Runnable() {
             @Override
             public void run() {
+                RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
                 while(running.get()){
                     long futureTime = System.currentTimeMillis()+1000;
                     while (System.currentTimeMillis() < futureTime){
@@ -47,7 +51,7 @@ public class BackgroundProcessService extends Service {
                                     Log.i(TAG,"get!");
                                     //ojtmonitoring/getLatestMessage
                                     String url = PaceSettingManager.IP_ADDRESS+"getLatestMessage/"+senderId;
-                                    MakeHttpRequest.getBackGround(getBaseContext(), url);
+                                    MakeHttpRequest.getBackGround(getBaseContext(), url,requestQueue);
 
 
                                 }

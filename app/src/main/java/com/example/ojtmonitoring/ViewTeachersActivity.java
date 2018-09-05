@@ -215,6 +215,7 @@ public class ViewTeachersActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent backToPrev = new Intent(ViewTeachersActivity.this,CompanyLoginActivity.class);
         startActivity(backToPrev);
+        finish();
     }
 
     @Override

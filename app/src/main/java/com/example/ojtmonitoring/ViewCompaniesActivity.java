@@ -205,4 +205,11 @@ public class ViewCompaniesActivity extends AppCompatActivity{
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent back = new Intent(this,TeacherLoginActivity.class);
+        startActivity(back);
+        finish();
+    }
 }

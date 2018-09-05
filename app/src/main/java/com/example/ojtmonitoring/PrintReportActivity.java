@@ -3,6 +3,7 @@ package com.example.ojtmonitoring;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -54,6 +55,8 @@ public class PrintReportActivity extends AppCompatActivity {
 
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
+    int agentId;
+    int accounttype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,9 @@ public class PrintReportActivity extends AppCompatActivity {
         webViewPage = (WebView)findViewById(R.id.webViewPage);
         updateBtn = (Button)findViewById(R.id.updateBtn);
 
+        SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
+        agentId = sharedPreferences.getInt("agent_id",0);
+        accounttype = sharedPreferences.getInt("accounttype",0);
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +124,9 @@ public class PrintReportActivity extends AppCompatActivity {
         protected String doInBackground(String... args) {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            //params.add(new BasicNameValuePair("agentid",agentId+""));
+            if(accounttype == 3) {
+                params.add(new BasicNameValuePair("agentId", agentId + ""));
+            }
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"reportweekly",
                     "POST", params);

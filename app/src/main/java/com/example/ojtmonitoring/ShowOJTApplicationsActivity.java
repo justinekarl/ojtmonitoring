@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
@@ -553,5 +554,11 @@ public class ShowOJTApplicationsActivity extends AppCompatActivity {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent viewApprovedAccts = new Intent(this,TeacherLoginActivity.class);
+        startActivity(viewApprovedAccts);
+        finish();
+    }
 }

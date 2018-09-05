@@ -391,4 +391,13 @@ public class CompanyUpdateInformation extends AppCompatActivity {
         }
     }
     //end of connecting
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,CompanyLoginActivity.class);
+        startActivity(home);
+        finish();
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -212,9 +213,10 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
                         if(null != referenceFragment && referenceFragment.isInLayout() && null != referenceFragment.getActivity()){
 
                             //resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().clear();
-
-
-                            final ReferencesInfo referencesInfo1 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(0);
+                            ReferencesInfo referencesInfo1 = new ReferencesInfo();
+                            if(null != resumeInfo.getAccomplishmentsInterestInfo() && null != resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos() && resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().size() > 0){
+                                referencesInfo1 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(0);
+                            }
 
                             if(null != referenceFragment.getActivity().findViewById(R.id.refName1Txt)){
                                 referencesInfo1.setName(((EditText)referenceFragment.getActivity().findViewById(R.id.refName1Txt)).getText().toString());
@@ -234,8 +236,10 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
                             resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().add(referencesInfo1);
 
-
-                            final ReferencesInfo referencesInfo2 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(1);
+                            ReferencesInfo referencesInfo2 = new ReferencesInfo();
+                                if(null != resumeInfo.getAccomplishmentsInterestInfo() && null != resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos() && resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().size() > 1) {
+                                referencesInfo2 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(1);
+                            }
 
                             if(null != referenceFragment.getActivity().findViewById(R.id.refName2Txt)){
                                 referencesInfo2.setName(((EditText)referenceFragment.getActivity().findViewById(R.id.refName2Txt)).getText().toString());
@@ -256,8 +260,10 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
                             resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().add(referencesInfo2);
 
 
-
-                            final ReferencesInfo referencesInfo3 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(2);
+                            ReferencesInfo referencesInfo3 = new ReferencesInfo();
+                            if(null != resumeInfo.getAccomplishmentsInterestInfo() && null != resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos() && resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().size() > 2) {
+                                referencesInfo3 = resumeInfo.getAccomplishmentsInterestInfo().getReferencesInfos().get(2);
+                            }
 
                             if(null != referenceFragment.getActivity().findViewById(R.id.refName3Txt)){
                                 referencesInfo3.setName(((EditText)referenceFragment.getActivity().findViewById(R.id.refName3Txt)).getText().toString());
@@ -755,5 +761,13 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,StudentLoginActivity.class);
+        startActivity(home);
+        finish();
     }
 }

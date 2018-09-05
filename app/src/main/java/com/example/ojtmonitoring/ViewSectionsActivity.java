@@ -313,7 +313,12 @@ public class ViewSectionsActivity extends AppCompatActivity {
             }
             totalTxt.setText(sb.toString());
         }
+
+
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

@@ -250,4 +250,12 @@ public class RateCompanyActivity extends AppCompatActivity {
     private void toastMessage(String message) {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,StudentLoginActivity.class);
+        startActivity(home);
+        finish();
+    }
 }

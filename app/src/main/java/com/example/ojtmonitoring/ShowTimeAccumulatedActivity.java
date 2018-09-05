@@ -206,4 +206,12 @@ public class ShowTimeAccumulatedActivity extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,StudentLoginActivity.class);
+        startActivity(home);
+        finish();
+    }
 }

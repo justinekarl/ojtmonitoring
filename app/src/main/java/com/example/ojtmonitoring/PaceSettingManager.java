@@ -41,7 +41,6 @@ public class PaceSettingManager {
        public static final String CHAT_SERVER_ADDRESS = "http://10.42.0.1:3000";*/
 
 
-
       // public static final String IP_ADDRESS = "https://ojtapplication.000webhostapp.com/ojtmonitoring/";
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 

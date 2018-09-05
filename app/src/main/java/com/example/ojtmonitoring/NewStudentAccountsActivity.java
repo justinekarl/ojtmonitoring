@@ -221,6 +221,7 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent viewApprovedAccts = new Intent(NewStudentAccountsActivity.this,TeacherLoginActivity.class);
         startActivity(viewApprovedAccts);
+        finish();
     }
 
     class ConnectToDataBaseViaJson extends AsyncTask<String, String, String> {
@@ -300,6 +301,10 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
 
                                                 if(key.equals("accepted")){
                                                     userAccountInfo.setApproved(Boolean.valueOf(value));
+                                                }
+
+                                                if(key.equals("gender")){
+                                                    userAccountInfo.setGender(value);
                                                 }
 
                                             }

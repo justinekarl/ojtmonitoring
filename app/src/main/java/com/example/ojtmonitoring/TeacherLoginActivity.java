@@ -1,5 +1,6 @@
 package com.example.ojtmonitoring;
 
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -40,8 +42,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
     private static String name;
     private static int agentId;
 
-    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List"};
-    final int[] menuImage = {R.mipmap.ic_pending,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list};
+    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Create Weekly Report"};
+    final int[] menuImage = {R.mipmap.ic_pending,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
     private CustomMenuAdapter customMenuAdapter;
@@ -52,6 +54,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
+
+    Intent backGround;
 
     @Override
     public void onBackPressed() {
@@ -66,8 +70,11 @@ public class TeacherLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_login);
         PaceSettingManager.lockActivityOrientation(this);
 
-        Intent backGround = new Intent(this, BackgroundProcessService.class);
-        startService(backGround);
+
+        if(!isMessageServiceRunning()) {
+            backGround = new Intent(this, BackgroundProcessService.class);
+            startService(backGround);
+        }
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
@@ -122,7 +129,9 @@ public class TeacherLoginActivity extends AppCompatActivity {
                         //if(actionTaken == "logout"){
                         DoLogout doLogout = new DoLogout();
                         doLogout.execute();
-
+                        if(null != backGround){
+                            stopService(backGround);
+                        }
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.clear();
@@ -213,6 +222,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
                             case 6:
                                 Intent viewCompanies = new Intent(TeacherLoginActivity.this,ViewCompaniesActivity.class);
                                 startActivity(viewCompanies);
+                                return;
+                            case 7:
+                                Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
+                                startActivity(printReport);
                                 return;
                             default:
                                 Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
@@ -307,4 +320,19 @@ public class TeacherLoginActivity extends AppCompatActivity {
         }
     }
 
+    private boolean isMessageServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }

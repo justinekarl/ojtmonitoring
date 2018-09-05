@@ -3,6 +3,7 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.android.volley.Request;
@@ -243,40 +244,45 @@ public class MakeHttpRequest {
     }
 
 
-    public static void getBackGround(final Context context,final String url){
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.GET,
-                url,
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try{
-                            Boolean hasMessage = response.getBoolean("response");
-                            if(hasMessage){
-                                String message = response.getString("message");
-                                String sender = response.getString("sender");
-                                int receiverId = response.getInt("receiverId");
-                                int senderId = response.getInt("senderId");
-                                PaceSettingManager.sendNotification(context,message,sender,senderId,senderId);
+    public static void getBackGround(final Context context,final String url, RequestQueue requestQueue) {
+        try {
+            //RequestQueue requestQueue = Volley.newRequestQueue(context);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                    Request.Method.GET,
+                    url,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Boolean hasMessage = response.getBoolean("response");
+                                if (hasMessage) {
+                                    String message = response.getString("message");
+                                    String sender = response.getString("sender");
+                                    int receiverId = response.getInt("receiverId");
+                                    int senderId = response.getInt("senderId");
+                                    PaceSettingManager.sendNotification(context, message, sender, senderId, senderId);
 
-                                //Log.i(TAG,message);
+                                    //Log.i(TAG,message);
+                                }
+
+                            } catch (JSONException e) {
+                                //PaceSettingManager.toastMessage(context, e.getMessage());
                             }
-
-                        }catch (JSONException e){
-                            //PaceSettingManager.toastMessage(context, e.getMessage());
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            PaceSettingManager.toastMessage(context, error.getMessage());
                         }
                     }
-                },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error){
-                        // PaceSettingManager.toastMessage(context, error.getMessage());
-                    }
-                }
-        );
-        requestQueue.add(jsonObjectRequest);
+            );
+            requestQueue.add(jsonObjectRequest);
+        }catch (Exception e){
+            Log.i("AAAAAAAAAAA",e.getMessage());
+            PaceSettingManager.toastMessage(context,"AAAAAAAAAAA");
+        }
     }
 
 }

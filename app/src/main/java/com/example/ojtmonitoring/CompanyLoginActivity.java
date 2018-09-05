@@ -1,5 +1,6 @@
 package com.example.ojtmonitoring;
 
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -55,6 +57,8 @@ public class CompanyLoginActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
 
+    Intent backGround;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +66,11 @@ public class CompanyLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_company_login);
 
         PaceSettingManager.lockActivityOrientation(this);
-        Intent backGround = new Intent(this, BackgroundProcessService.class);
-        startService(backGround);
+
+        if(!isMessageServiceRunning()) {
+            backGround = new Intent(this, BackgroundProcessService.class);
+            startService(backGround);
+        }
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         companyNameTxt = (TextView)findViewById(R.id.custCompanyNameTxt);
@@ -121,6 +128,10 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         //if(actionTaken == "logout"){
                         DoLogout doLogout = new DoLogout();
                         doLogout.execute();
+
+                        if(null != backGround){
+                            stopService(backGround);
+                        }
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.clear();
@@ -361,6 +372,22 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
 
         }
+    }
+
+    private boolean isMessageServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 }
