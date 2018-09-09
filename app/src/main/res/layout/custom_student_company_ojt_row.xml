@@ -9,7 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="30dp"
-        android:layout_y="22dp" />
+        android:layout_y="22dp"
+        android:background="@drawable/checkbox_bg" />
 
     <TextView
         android:id="@+id/displayTxt"

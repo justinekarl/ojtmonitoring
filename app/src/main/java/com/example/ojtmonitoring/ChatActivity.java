@@ -45,6 +45,9 @@ public class ChatActivity extends AppCompatActivity {
         messagesList = (RecyclerView)findViewById(R.id.messagesList);
         refreshLayout = (PullRefreshLayout)findViewById(R.id.refreshLayout);
 
+        messagesList.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         senderId = sharedPreferences.getInt("agent_id",0);
@@ -71,8 +74,6 @@ public class ChatActivity extends AppCompatActivity {
 
         /*mMessages.add(new Message.Builder(Message.TYPE_MESSAGE)
                 .username(userName).message("Test Message").receiverId(receiverId).senderId(senderId).build());*/
-
-
 
         setEvents();
 
@@ -112,21 +113,16 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         processRecyclerViewData();
-        scrollToBottom();
+        //scrollToBottom();
 
     }
 
     private void processRecyclerViewData(){
-        mAdapter = new MessageAdapter(context, mMessages){
-            @Override
-            public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                return super.onCreateViewHolder(parent, viewType);
-            }
-        };
-        mAdapter.notifyItemInserted(mMessages.size() - 1);
-        messagesList.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new MessageAdapter(context, mMessages);
 
         messagesList.setAdapter(mAdapter);
+        //mAdapter.notifyItemInserted(mMessages.size() - 1);
+         scrollToBottom();
 
     }
 
@@ -134,7 +130,7 @@ public class ChatActivity extends AppCompatActivity {
         messagesList.scrollToPosition(mAdapter.getItemCount() - 1);
     }
 
-    void setEvents(){
+    synchronized void setEvents(){
         refreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -184,7 +180,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        processRecyclerViewData();
+        //processRecyclerViewData();
     }
 
     @Override

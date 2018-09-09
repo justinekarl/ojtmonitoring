@@ -39,11 +39,13 @@ public class TeacherLoginActivity extends AppCompatActivity {
     private Button logoutBtn;
     private TextView welcomeTeacherLbl;
 
-    private static String name;
-    private static int agentId;
+    private String name;
+    private int agentId;
+    private boolean adminTeacher;
 
-    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Create Weekly Report"};
-    final int[] menuImage = {R.mipmap.ic_pending,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list};
+    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Create Weekly Report","New Teacher Accounts"};
+    final String[] menuItems2 = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Create Weekly Report"};
+    final int[] menuImage = {R.mipmap.ic_pending,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_pending};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
     private CustomMenuAdapter customMenuAdapter;
@@ -85,7 +87,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
         userName = sharedPreferences.getString("user_name","");
+        adminTeacher = sharedPreferences.getBoolean("admin_teacher",Boolean.FALSE);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
+
+
 
 
         ChatApplication app = (ChatApplication) getApplication();
@@ -109,7 +114,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 return view;
             }
         };*/
-        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        customMenuAdapter = new CustomMenuAdapter(this,  adminTeacher ? menuItems : menuItems2, menuImage);
         menuOptionsLstView.setAdapter(customMenuAdapter);
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
@@ -227,6 +232,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                 Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
                                 startActivity(printReport);
                                 return;
+                            case 8:
+                                Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
+                                startActivity(newTeacherAccount);
+                                return;
                             default:
                                 Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
                                 startActivity(backToHome);
@@ -240,6 +249,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
     }
 
 
+/*
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
@@ -249,6 +259,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
         return super.onPrepareOptionsMenu(menu);
     }
+*/
 
 
     @Override

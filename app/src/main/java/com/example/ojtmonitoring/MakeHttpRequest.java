@@ -171,7 +171,7 @@ public class MakeHttpRequest {
     }
 
 
-    public static void RequestPostMessageTest(final Context context, String url, JSONObject params, final int sender, final int receiver){
+    public static synchronized void RequestPostMessageTest(final Context context, String url, JSONObject params, final int sender, final int receiver){
         final ProgressDialog pDialog;
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         pDialog = new ProgressDialog(context);
@@ -186,7 +186,7 @@ public class MakeHttpRequest {
                 params,
                 new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public synchronized void onResponse(JSONObject response) {
                         try{
                             MessageAdapter msgAdapter ;
                             boolean result = response.getBoolean("response");
@@ -208,13 +208,6 @@ public class MakeHttpRequest {
 
                                     }
                                 }
-
-                                ChatActivity.mAdapter = new MessageAdapter(context, ChatActivity.mMessages){
-                                    @Override
-                                    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                                        return super.onCreateViewHolder(parent, viewType);
-                                    }
-                                };
 
                                 /*Intent move = new Intent(from, to);
                                 //  move.putExtra("receiverId", sender);
@@ -280,8 +273,8 @@ public class MakeHttpRequest {
             );
             requestQueue.add(jsonObjectRequest);
         }catch (Exception e){
-            Log.i("AAAAAAAAAAA",e.getMessage());
-            PaceSettingManager.toastMessage(context,"AAAAAAAAAAA");
+            /*Log.i("AAAAAAAAAAA",e.getMessage());
+            PaceSettingManager.toastMessage(context,"AAAAAAAAAAA");*/
         }
     }
 

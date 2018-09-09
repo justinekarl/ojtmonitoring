@@ -99,7 +99,8 @@
 
         android:layout_marginTop="33dp"
         android:layout_x="9dp"
-        android:layout_y="55dp" />
+        android:layout_y="55dp"
+        android:background="@drawable/checkbox_bg" />
 
     <RatingBar
         android:id="@+id/ratingBar"

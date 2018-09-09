@@ -22,7 +22,6 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="50dp"
             android:text="Approve Selected"
-            app:layout_constraintRight_toLeftOf="@+id/button6"
             app:layout_constraintTop_toBottomOf="@+id/studentAcctsLstView"
             android:layout_marginLeft="28dp"
             app:layout_constraintLeft_toLeftOf="parent" />

@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme">
         <service
             android:name=".BackgroundProcessService"
-            android:exported="false"
-            />
+            android:exported="false" />
 
         <activity
             android:name=".Login"
@@ -26,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".admin"
             android:screenOrientation="portrait" />
@@ -132,8 +130,8 @@
         <activity android:name=".ViewTeachersActivity" />
         <activity android:name=".MessageTeacherActivity" />
         <activity android:name=".ViewCompaniesActivity" />
-        <activity android:name=".ChatActivity"></activity>
-
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".NewTeachersAccountActivity"></activity>
     </application>
 
 </manifest>

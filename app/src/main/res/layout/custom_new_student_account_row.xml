@@ -20,5 +20,6 @@
         android:layout_height="78dp"
         android:layout_x="18dp"
         android:layout_y="12dp"
+        android:background="@drawable/checkbox_bg"
         app:buttonTint="@android:color/holo_blue_dark" />
 </AbsoluteLayout>

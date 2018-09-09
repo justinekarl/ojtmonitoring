@@ -86,11 +86,7 @@ public class BackgroundProcessService extends Service {
 
 
 
-    /*@Override
-    protected void onHandleIntent(Intent intent) {
-        // Normally we would do some work here, like download a file.
-        // For our sample, we just sleep for 5 seconds.
-        try {
+    /*@Overridetry {
             Log.i(TAG,"working");
             Toast.makeText(this, " MyService Created ", Toast.LENGTH_LONG).show();
             Thread.sleep(5000);
@@ -98,5 +94,9 @@ public class BackgroundProcessService extends Service {
             // Restore interrupt status.
             Thread.currentThread().interrupt();
         }
+    protected void onHandleIntent(Intent intent) {
+        // Normally we would do some work here, like download a file.
+        // For our sample, we just sleep for 5 seconds.
+
     }*/
 }

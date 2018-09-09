@@ -280,7 +280,7 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
     }
 
     private void processUserInfos(final boolean selectAll){
-        if(null != newStudentEnrolleeListViewAdapter.getUserAccountInfos() && newStudentEnrolleeListViewAdapter.getUserAccountInfos().size() > 0){
+        if(null != newStudentEnrolleeListViewAdapter && null != newStudentEnrolleeListViewAdapter.getUserAccountInfos() && newStudentEnrolleeListViewAdapter.getUserAccountInfos().size() > 0){
             for(final UserAccountInfo userAccountInfo : newStudentEnrolleeListViewAdapter.getUserAccountInfos()){
                 userAccountInfo.setApproved(selectAll);
             }

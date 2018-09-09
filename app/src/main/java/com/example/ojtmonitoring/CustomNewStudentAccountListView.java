@@ -76,11 +76,19 @@ public class CustomNewStudentAccountListView extends BaseAdapter {
 
         if(null != userAccountInfo){
             final StringBuffer sb = new StringBuffer("");
-            sb.append(" Student Name : " +userAccountInfo.getName());
+
+            if(userAccountInfo.getAccountType() == 1) {
+                sb.append("Student Name : ");
+            }else{
+                sb.append("Teacher Name : ");
+            }
+            sb.append(userAccountInfo.getName());
             sb.append("\n");
             sb.append(" College : " +userAccountInfo.getCollege());
-            sb.append("\n");
-            sb.append(" Gender : " +userAccountInfo.getGender());
+            if(userAccountInfo.getAccountType() == 1) {
+                sb.append("\n");
+                sb.append(" Gender : " + null != userAccountInfo.getGender() ? userAccountInfo.getGender() : "");
+            }
 
             detailsTxt.setText(sb.toString());
 

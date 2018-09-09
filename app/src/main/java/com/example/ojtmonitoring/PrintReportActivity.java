@@ -57,6 +57,7 @@ public class PrintReportActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     int agentId;
     int accounttype;
+    String college;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,7 @@ public class PrintReportActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
         accounttype = sharedPreferences.getInt("accounttype",0);
+        college = sharedPreferences.getString("college","");
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +128,9 @@ public class PrintReportActivity extends AppCompatActivity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             if(accounttype == 3) {
                 params.add(new BasicNameValuePair("agentId", agentId + ""));
+            }
+            if(accounttype == 2){
+                params.add(new BasicNameValuePair("college", college+ ""));
             }
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"reportweekly",

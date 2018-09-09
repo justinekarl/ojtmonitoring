@@ -57,6 +57,7 @@ public class Login extends AppCompatActivity {
     public static int companyId;
     //boolean ojtDone;
     String ojtDone;
+    String adminTeacher;
 
     public static TextView createAccountNowTxt;
 
@@ -270,7 +271,7 @@ public class Login extends AppCompatActivity {
                         if(json.has("college")) college = json.getString("college");
                         if(json.has("ojt_done")) ojtDone = json.getString("ojt_done");
                         if(json.has("company_id")) companyId = null != json.get("company_id") && !json.get("company_id").toString().equals("null") ? json.getInt("company_id") : 0;
-
+                        if(json.has("admin_teacher")) adminTeacher = json.getString("admin_teacher");
 
                     }else {
                         loginSucessful =  false;
@@ -339,6 +340,7 @@ public class Login extends AppCompatActivity {
                 editor.putInt("companyId",companyId);
                 editor.putString("ojtDone",ojtDone);
                 editor.putString("ojt_status",ojtDone.equals("1") ? "OJT Finished" : "OJT In progress");
+                editor.putBoolean("admin_teacher",adminTeacher.equals("1") ? true : false);
 
                 editor.commit();
 

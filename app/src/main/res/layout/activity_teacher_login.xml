@@ -11,18 +11,10 @@
         android:layout_height="match_parent"
         tools:context="com.example.ojtmonitoring.TeacherLoginActivity">
 
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="115dp"
-            android:layout_height="41dp"
-            android:layout_x="19dp"
-            android:layout_y="478dp"
-            android:background="@mipmap/signout" />
-
         <ListView
             android:id="@+id/menuOptionsLstView"
             android:layout_width="366dp"
-            android:layout_height="275dp"
+            android:layout_height="350dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_x="15dp"
@@ -59,6 +51,14 @@
             android:layout_height="36dp"
             android:layout_x="19dp"
             android:layout_y="16dp"
+            android:background="@mipmap/signout" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="115dp"
+            android:layout_height="41dp"
+            android:layout_x="17dp"
+            android:layout_y="554dp"
             android:background="@mipmap/signout" />
     </AbsoluteLayout>
 </ScrollView>
