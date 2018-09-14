@@ -131,7 +131,9 @@
         <activity android:name=".MessageTeacherActivity" />
         <activity android:name=".ViewCompaniesActivity" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".NewTeachersAccountActivity"></activity>
+        <activity android:name=".NewTeachersAccountActivity" />
+        <activity android:name=".StudentWeeklyReportActivity" />
+        <activity android:name=".ShowStudentListsActivity"></activity>
     </application>
 
 </manifest>

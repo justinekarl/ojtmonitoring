@@ -43,9 +43,9 @@ public class TeacherLoginActivity extends AppCompatActivity {
     private int agentId;
     private boolean adminTeacher;
 
-    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Create Weekly Report","New Teacher Accounts"};
-    final String[] menuItems2 = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Create Weekly Report"};
-    final int[] menuImage = {R.mipmap.ic_pending,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_pending};
+    final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Student Practicum Weekly Report","Create Weekly Report","New Teacher Accounts"};
+    final String[] menuItems2 = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Student Practicum Weekly Report","Create Weekly Report"};
+    final int[] menuImage = {R.mipmap.ic_pending,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_pending};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
     private CustomMenuAdapter customMenuAdapter;
@@ -228,11 +228,19 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                 Intent viewCompanies = new Intent(TeacherLoginActivity.this,ViewCompaniesActivity.class);
                                 startActivity(viewCompanies);
                                 return;
+
                             case 7:
+                                Intent viewStudentWeeklyReport = new Intent(TeacherLoginActivity.this,ShowStudentListsActivity.class);
+                                viewStudentWeeklyReport.putExtra("studentWeekly",true);
+                                startActivity(viewStudentWeeklyReport);
+                                return;
+
+
+                            case 8:
                                 Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
                                 startActivity(printReport);
                                 return;
-                            case 8:
+                            case 9:
                                 Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
                                 startActivity(newTeacherAccount);
                                 return;

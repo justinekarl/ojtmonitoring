@@ -55,8 +55,8 @@ public class StudentLoginActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
 
     private StringBuffer sb = new StringBuffer("");
-    String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company"};
-    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate};
+    String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company","Student Practicum Weekly Report"};
+    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
     boolean hasMessageNotif=false;
@@ -239,6 +239,11 @@ public class StudentLoginActivity extends AppCompatActivity {
                                 startActivity(rateCompany);
                                 finish();
                                 return;
+                            case 5:
+                                Intent studentWeeklyReport = new Intent(StudentLoginActivity.this,StudentWeeklyReportActivity.class);
+                                startActivity(studentWeeklyReport);
+                                finish();
+                                return;
                             default:
                                 Intent backToHome = new Intent(StudentLoginActivity.this,StudentLoginActivity.class);
                                 startActivity(backToHome);
@@ -290,7 +295,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    /*@Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.clear();
 
@@ -300,7 +305,7 @@ public class StudentLoginActivity extends AppCompatActivity {
 
 
         return super.onPrepareOptionsMenu(menu);
-    }
+    }*/
 
 
 

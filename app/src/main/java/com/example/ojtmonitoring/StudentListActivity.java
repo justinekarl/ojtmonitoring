@@ -36,6 +36,7 @@ public class StudentListActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
     private int agentId;
+    private boolean weeklyStudent;
 
     //ListAdapter menuAdapter;
     ArrayAdapter<String> menuAdapter = null;
@@ -44,6 +45,8 @@ public class StudentListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list);
         PaceSettingManager.lockActivityOrientation(this);
+
+        weeklyStudent = (null != getIntent()) ? getIntent().getBooleanExtra("studentWeekly",false) : false;
 
         studentListListView = (ListView)findViewById(R.id.studentListListView);
 
@@ -59,16 +62,29 @@ public class StudentListActivity extends AppCompatActivity {
         studentListListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent rateStudent = new Intent(getApplicationContext(),RateStudentActivity.class);
+                Intent redirect ;
+                if(weeklyStudent){
+                    redirect = new Intent(getApplicationContext(), StudentWeeklyReportActivity.class);
+                    redirect.putExtra("fromCompany",true);
+                }else {
+                    redirect = new Intent(getApplicationContext(), RateStudentActivity.class);
+                }
+
+
                 if(null != studentListListView.getItemAtPosition(position) && studentListListView.getItemAtPosition(position).toString().contains(",")) {
                     String studentIdTxt =studentListListView.getItemAtPosition(position).toString().split(",")[0];
+                    String studentNameTxt =studentListListView.getItemAtPosition(position).toString().split(",")[1];
                     if(studentIdTxt.contains(":")) {
 
                         int studentId = Integer.valueOf(studentIdTxt.split(":")[1]);
-                        rateStudent.putExtra("studentId", studentId);
+                        redirect.putExtra("studentId", studentId);
+                    }
+                    if(weeklyStudent && null != studentNameTxt && studentNameTxt.trim().length() > 0 && studentNameTxt.contains(":")){
+                        String name = studentNameTxt.split(":")[1];
+                        redirect.putExtra("studentName", name.replace("Course Name",""));
                     }
                 }
-                startActivity(rateStudent);
+                startActivity(redirect);
 
             }
         });

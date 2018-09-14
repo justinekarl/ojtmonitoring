@@ -28,12 +28,13 @@
         android:id="@+id/studentListListView"
         android:layout_width="388dp"
         android:layout_height="340dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="15dp"
         android:background="@color/zxing_custom_viewfinder_mask"
         app:layout_constraintTop_toBottomOf="@+id/textView68"
         android:layout_marginLeft="-39dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:listSelector="@drawable/listview_colors" />
+        android:listSelector="@drawable/listview_colors"
+        app:layout_constraintHorizontal_bias="1.0" />
 </android.support.constraint.ConstraintLayout>

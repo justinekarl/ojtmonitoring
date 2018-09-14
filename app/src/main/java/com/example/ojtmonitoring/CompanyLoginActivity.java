@@ -45,8 +45,8 @@ public class CompanyLoginActivity extends AppCompatActivity {
     private String name;
     private static int agentId;
 
-    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Coordinator Request","Create Weekly Report","Rate Student","View Teachers"};
-    int[] menuImage = {R.mipmap.ic_update,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_pending,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view};
+    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Coordinator Request","Create Weekly Report","Rate Student","View Teachers","Student Practicum Weekly Report"};
+    int[] menuImage = {R.mipmap.ic_update,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_pending,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view,R.mipmap.ic_list};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
     private CustomMenuAdapter customMenuAdapter;
@@ -263,6 +263,11 @@ public class CompanyLoginActivity extends AppCompatActivity {
                             case 8:
                                 Intent viewTeachers = new Intent(CompanyLoginActivity.this,ViewTeachersActivity.class);
                                 startActivity(viewTeachers);
+                                return;
+                            case 9:
+                                Intent viewStudentWeeklyReport = new Intent(CompanyLoginActivity.this,StudentListActivity.class);
+                                viewStudentWeeklyReport.putExtra("studentWeekly",true);
+                                startActivity(viewStudentWeeklyReport);
                                 return;
                             default:
                                 Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
