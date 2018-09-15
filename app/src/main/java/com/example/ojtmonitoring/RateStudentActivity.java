@@ -66,6 +66,7 @@ public class RateStudentActivity extends AppCompatActivity {
         pDialog.setMessage("Processing..");
         pDialog.setIndeterminate(false);
         pDialog.setCancelable(true);
+        pDialog.show();
 
         WebView browser = (WebView) findViewById(R.id.ratings);
         browser.setWebViewClient(new WebViewClient()
