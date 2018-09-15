@@ -133,7 +133,8 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".NewTeachersAccountActivity" />
         <activity android:name=".StudentWeeklyReportActivity" />
-        <activity android:name=".ShowStudentListsActivity"></activity>
+        <activity android:name=".ShowStudentListsActivity" />
+        <activity android:name=".PrintStudentEvaluationActivity"></activity>
     </application>
 
 </manifest>

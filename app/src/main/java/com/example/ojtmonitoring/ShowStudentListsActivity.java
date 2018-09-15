@@ -35,16 +35,19 @@ public class ShowStudentListsActivity extends AppCompatActivity {
     private int agentId;
     private List<Pair<Integer,String>> studentLists = new ArrayList<>();
     private boolean weeklyStudent;
+    private boolean studentEvaluation;
     ArrayAdapter<String> menuAdapter = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_student_lists);
+        PaceSettingManager.lockActivityOrientation(this);
 
         studentListView = (ListView)findViewById(R.id.studentListView);
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
         weeklyStudent = (null != getIntent()) ? getIntent().getBooleanExtra("studentWeekly",false) : false;
+        studentEvaluation = (null != getIntent()) ? getIntent().getBooleanExtra("studentEvaluation",false) : false;
 
         studentListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -54,7 +57,12 @@ public class ShowStudentListsActivity extends AppCompatActivity {
                     redirect = new Intent(getApplicationContext(), StudentWeeklyReportActivity.class);
                     redirect.putExtra("fromTeacher",true);
                 }else {
-                    redirect = new Intent(getApplicationContext(), RateStudentActivity.class);
+
+                    if(studentEvaluation){
+                        redirect = new Intent(getApplicationContext(), PrintStudentEvaluationActivity.class);
+                    }else {
+                        redirect = new Intent(getApplicationContext(), RateStudentActivity.class);
+                    }
                 }
 
 
