@@ -340,8 +340,7 @@ public class Login extends AppCompatActivity {
                 editor.putInt("companyId",companyId);
                 editor.putString("ojtDone",ojtDone);
                 editor.putString("ojt_status",ojtDone.equals("1") ? "OJT Finished" : "OJT In progress");
-                editor.putBoolean("admin_teacher",adminTeacher.equals("1") ? true : false);
-
+                editor.putBoolean("admin_teacher",null != adminTeacher ? (adminTeacher.equals("1") ? true : false) : false);
                 editor.commit();
 
 

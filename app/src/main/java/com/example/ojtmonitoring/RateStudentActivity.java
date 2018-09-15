@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -49,18 +51,41 @@ public class RateStudentActivity extends AppCompatActivity {
 
         studentId = getIntent().getIntExtra("studentId",0);
 
-        studentNameTxt = (TextView) findViewById(R.id.studentNameTxt);
+        /*studentNameTxt = (TextView) findViewById(R.id.studentNameTxt);
         studentRatingBar = (RatingBar) findViewById(R.id.studentRatingBar);
         remarksTxt = (EditText)findViewById(R.id.remarksTxt);
-        submitBtn = (Button)findViewById(R.id.submitBtn);
+        submitBtn = (Button)findViewById(R.id.submitBtn);*/
         cancelBtn = (Button)findViewById(R.id.cancelBtn);
 
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
 
-        ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
-        connectToDataBaseViaJson.execute();
+        //web
+        pDialog = new ProgressDialog(RateStudentActivity.this);
+        pDialog.setMessage("Processing..");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(true);
+
+        WebView browser = (WebView) findViewById(R.id.ratings);
+        browser.setWebViewClient(new WebViewClient()
+        {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url)
+            {
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        browser.getSettings().setLoadsImagesAutomatically(true);
+        browser.getSettings().setJavaScriptEnabled(true);
+        browser.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        browser.loadUrl(PaceSettingManager.IP_ADDRESS+"assessment/"+agentId+"/"+studentId);
+        pDialog.dismiss();
+        //web
+
+        /*ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
+        connectToDataBaseViaJson.execute();*/
 
 
        /* submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +101,7 @@ public class RateStudentActivity extends AppCompatActivity {
             }
         });*/
 
-        submitBtn.setOnTouchListener(new View.OnTouchListener() {
+        /*submitBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
@@ -103,7 +128,7 @@ public class RateStudentActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });
+        });*/
 
         /*cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override

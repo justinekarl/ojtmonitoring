@@ -46,6 +46,8 @@ public class PaceSettingManager {
 
     //AWS SERVER
       public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
+      //public static final String IP_ADDRESS = "http://192.168.22.6/ojtmonitoring/";
+
       public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";
 
     //for droid
