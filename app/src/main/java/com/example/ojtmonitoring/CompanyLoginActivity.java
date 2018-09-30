@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,7 +38,7 @@ import io.socket.client.Socket;
 public class CompanyLoginActivity extends AppCompatActivity {
 
     private Button logoutBtn;
-    private Button signouttopBtn;
+    private Button signouttopBtn,studentModulesBtn,teacherModulesBtn,homeModulesBtn,supervisorModulesBtn;
     private static  String companyName ;
     private TextView companyNameTxt;
     private TextView descriptionTxt;
@@ -45,7 +46,21 @@ public class CompanyLoginActivity extends AppCompatActivity {
     private String name;
     private static int agentId;
 
-    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Coordinator Request","Create Weekly Report","Rate Student","View Teachers","Student Practicum Weekly Report"};
+    String currentModuleSelected = "Home";
+
+    final String[] studentMenuItems = {"Show OJT list","Scan Student QR Codes","Show student login/logout","Create Weekly Report","Rate Student","Student Practicum Weekly Report"};
+    final int[] studentMenuImages = {R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view};
+
+    final String[] teacherMenuItems = {"View Teachers"};
+    final int[] teacherMenuImages = {R.mipmap.ic_list};
+
+    final String[] supervisorMenuItems = {"Show Company Supervisor Request"};
+    final int[] supervisorMenuImages = {R.mipmap.ic_view};
+
+    final String[] homeMenuItems = {"Update Information","Add/Update Requirements"};
+    final int[] homeMenuImages = {R.mipmap.ic_update,R.mipmap.ic_add_generic};
+
+    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Company Supervisor Request","Create Weekly Report","Rate Student","View Teachers","Student Practicum Weekly Report"};
     int[] menuImage = {R.mipmap.ic_update,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_pending,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view,R.mipmap.ic_list};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
@@ -79,23 +94,34 @@ public class CompanyLoginActivity extends AppCompatActivity {
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
+        studentModulesBtn = (Button)findViewById(R.id.studentModulesBtn);
+        teacherModulesBtn = (Button)findViewById(R.id.teacherModulesBtn);
+        supervisorModulesBtn = (Button)findViewById(R.id.supervisorModulesBtn);
+        homeModulesBtn = (Button)findViewById(R.id.homeModulesBtn);
+
         /*menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
             @NonNull
-            @Override
+            @OverrideStudentListActivity
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view =  super.getView(position, convertView, parent);
 
                 TextView tv = (TextView)view.findViewById(android.R.id.text1);
 
-                tv.setTextColor(Color.WHITE);
+                tv.setTextColor(Color.parseColor("#3088AA"));
                 tv.setTypeface(Typeface.DEFAULT_BOLD);
 
                 return view;
             }
         };*/
 
-        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        /*customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        menuOptionsLstView.setAdapter(customMenuAdapter);*/
+        currentModuleSelected= "Home";
+
+        customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  homeMenuItems , homeMenuImages);
         menuOptionsLstView.setAdapter(customMenuAdapter);
+        homeModulesBtn.setBackgroundColor(Color.GRAY);
+    
 
 
         SharedPreferences sharedpreferences = getSharedPreferences(
@@ -221,63 +247,214 @@ public class CompanyLoginActivity extends AppCompatActivity {
             }
         });
 
+        studentModulesBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        currentModuleSelected= "Student";
+
+                        customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  studentMenuItems, studentMenuImages);
+                        menuOptionsLstView.setAdapter(customMenuAdapter);
+                        teacherModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        homeModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        supervisorModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModulesBtn.setBackgroundColor(Color.GRAY);
+
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        teacherModulesBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        currentModuleSelected= "Teacher";
+
+                        customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  teacherMenuItems , teacherMenuImages);
+                        menuOptionsLstView.setAdapter(customMenuAdapter);
+                        teacherModulesBtn.setBackgroundColor(Color.GRAY);
+                        homeModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        supervisorModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        supervisorModulesBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        currentModuleSelected= "Supervisor";
+
+                        customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  supervisorMenuItems , supervisorMenuImages);
+                        menuOptionsLstView.setAdapter(customMenuAdapter);
+                        teacherModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        homeModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        supervisorModulesBtn.setBackgroundColor(Color.GRAY);
+                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        homeModulesBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        currentModuleSelected= "Home";
+
+                        customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  homeMenuItems , homeMenuImages);
+                        menuOptionsLstView.setAdapter(customMenuAdapter);
+                        teacherModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        homeModulesBtn.setBackgroundColor(Color.GRAY);
+                        supervisorModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
 
         menuOptionsLstView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String selectedMenu = String.valueOf(parent.getItemAtPosition(position));
-                        switch (position){
-                            case 0:
-                                Intent updateInfoIntent = new Intent(CompanyLoginActivity.this,CompanyUpdateInformation.class);
-                                startActivity(updateInfoIntent);
-                                return;
-                            case 1:
-                                Intent addUpdateReq = new Intent(CompanyLoginActivity.this,AddUpdateCompanyRequirements.class);
-                                startActivity(addUpdateReq);
-                                return;
-                            case 2:
-                                Intent ojtList = new Intent(CompanyLoginActivity.this,ShowOJTListActivity.class);
-                                startActivity(ojtList);
-                                return;
-                            case 3:
-                                Intent scanQr = new Intent(CompanyLoginActivity.this,AttendanceCheckerMainActivity.class);
-                                startActivity(scanQr);
-                                return;
-                            case 4:
-                                Intent showStudentLoginLogoutPage= new Intent(CompanyLoginActivity.this,ShowStudentLoginLogoutActivity.class);
-                                startActivity(showStudentLoginLogoutPage);
-                                return;
-                            case 5:
-                                Intent coorReq = new Intent(CompanyLoginActivity.this,ShowCoordinatorRequestActivity.class);
-                                startActivity(coorReq);
-                                return;
-                            case 6:
-                                Intent printReport = new Intent(CompanyLoginActivity.this,PrintReportActivity.class);
-                                startActivity(printReport);
-                                return;
-                            case 7:
-                                Intent rateStudent = new Intent(CompanyLoginActivity.this,StudentListActivity.class);
-                                startActivity(rateStudent);
-                                return;
-                            case 8:
-                                Intent viewTeachers = new Intent(CompanyLoginActivity.this,ViewTeachersActivity.class);
-                                startActivity(viewTeachers);
-                                return;
-                            case 9:
-                                Intent viewStudentWeeklyReport = new Intent(CompanyLoginActivity.this,StudentListActivity.class);
-                                viewStudentWeeklyReport.putExtra("studentWeekly",true);
-                                startActivity(viewStudentWeeklyReport);
-                                return;
-                            default:
-                                Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
-                                startActivity(backToHome);
-
-                        }
+                        getMenuSelected(currentModuleSelected,position);
 
                     }
                 }
         );
+    }
+
+    public void getMenuSelected(final String entityType,final int position) {
+        if (null != entityType && entityType.trim().length() > 0) {
+            if(entityType.equals("Home")){
+                switch (position){
+                    case 0:
+                        Intent updateInfoIntent = new Intent(CompanyLoginActivity.this,CompanyUpdateInformation.class);
+                        startActivity(updateInfoIntent);
+                        return;
+                    case 1:
+                        Intent addUpdateReq = new Intent(CompanyLoginActivity.this,AddUpdateCompanyRequirements.class);
+                        startActivity(addUpdateReq);
+                        return;
+                    default:
+                        Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
+                        startActivity(backToHome);
+                }
+            }
+
+            if(entityType.equals("Student")){
+                switch (position){
+                    case 0:
+                        Intent ojtList = new Intent(CompanyLoginActivity.this,ShowOJTListActivity.class);
+                        startActivity(ojtList);
+                        return;
+                    case 1:
+                        Intent scanQr = new Intent(CompanyLoginActivity.this,AttendanceCheckerMainActivity.class);
+                        startActivity(scanQr);
+                        return;
+                    case 2:
+                        Intent showStudentLoginLogoutPage= new Intent(CompanyLoginActivity.this,ShowStudentLoginLogoutActivity.class);
+                        startActivity(showStudentLoginLogoutPage);
+                        return;
+                    case 3:
+                        Intent printReport = new Intent(CompanyLoginActivity.this,PrintReportActivity.class);
+                        startActivity(printReport);
+                        return;
+                    case 4:
+                        Intent rateStudent = new Intent(CompanyLoginActivity.this,StudentListActivity.class);
+                        startActivity(rateStudent);
+                        return;
+                    case 5:
+                        Intent viewStudentWeeklyReport = new Intent(CompanyLoginActivity.this,StudentListActivity.class);
+                        viewStudentWeeklyReport.putExtra("studentWeekly",true);
+                        startActivity(viewStudentWeeklyReport);
+                        return;
+                    default:
+                        Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
+                        startActivity(backToHome);
+                }
+            }
+
+            if(entityType.equals("Teacher")){
+                switch (position){
+                    case 0:
+                        Intent viewTeachers = new Intent(CompanyLoginActivity.this,ViewTeachersActivity.class);
+                        startActivity(viewTeachers);
+                        return;
+                    default:
+                        Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
+                        startActivity(backToHome);
+                }
+            }
+
+            if(entityType.equals("Supervisor")){
+                switch (position){
+                    case 0:
+                        Intent coorReq = new Intent(CompanyLoginActivity.this,ShowCoordinatorRequestActivity.class);
+                        startActivity(coorReq);
+                        return;
+                    default:
+                        Intent backToHome = new Intent(CompanyLoginActivity.this,CompanyLoginActivity.class);
+                        startActivity(backToHome);
+                }
+            }
+        }
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ojtmonitoring.info.CourseInfo;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
@@ -36,12 +39,41 @@ import io.socket.emitter.Emitter;
 
 public class TeacherLoginActivity extends AppCompatActivity {
 
-    private Button logoutBtn;
+    private Button logoutBtn,teacherHomeBtn;
     private TextView welcomeTeacherLbl;
 
     private String name;
     private int agentId;
     private boolean adminTeacher;
+    String currentModuleSelected = "Student";
+
+    String[] menuItemsDisplay = {};
+    final String[] studentMenuItems = {"New Student Accounts",
+                                        "Create Section",
+                                        "Show Ojt Requests",
+                                        "Show Student Login/Logout",
+                                        "Show Section Enrollees",
+                                        "View Section Information",
+                                        "Student Practicum Weekly Report",
+                                        "View Student Evaluation",
+                                        "Create Weekly Report"};
+    final int[] studentMenuImages = {R.mipmap.ic_pending,
+                                     R.mipmap.ic_add_generic,
+                                     R.mipmap.ic_view,
+                                     R.mipmap.ic_list,
+                                     R.mipmap.ic_list,
+                                     R.mipmap.ic_list,
+                                     R.mipmap.ic_list,
+                                     R.mipmap.ic_list,
+                                     R.mipmap.ic_list};
+
+    final String[] companyMenuItems = {"View Company List"};
+
+    final int[] companyMenuImages = {R.mipmap.ic_list};
+
+    final String[] homeMenuItems = {"New Teacher Accounts"};
+    final int[] homeMenuImages = {R.mipmap.ic_pending};
+
 
     final String[] menuItems = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Student Practicum Weekly Report","View Student Evaluation","Create Weekly Report","New Teacher Accounts"};
     final String[] menuItems2 = {"New Student Accounts","Create Section","Show Ojt Requests","Show Student Login/Logout","Show Section Enrollees","View Section Information","View Company List","Student Practicum Weekly Report","View Student Evaluation","Create Weekly Report"};
@@ -52,7 +84,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
     private Socket mSocket;
     private String userName;
-    private Button logoutTopBtn;
+    private Button logoutTopBtn,studentModule,companyModule;
 
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
@@ -80,6 +112,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
         logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
+        teacherHomeBtn = (Button)findViewById(R.id.teacherHomeBtn);
 
         welcomeTeacherLbl = (TextView)findViewById(R.id.welcomeTeacherLbl);
 
@@ -89,9 +122,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
         userName = sharedPreferences.getString("user_name","");
         adminTeacher = sharedPreferences.getBoolean("admin_teacher",Boolean.FALSE);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
+        studentModule = (Button)findViewById(R.id.studentModule);
+        companyModule = (Button)findViewById(R.id.companyModule);
 
 
 
+        studentModule.setBackgroundColor(Color.GRAY);
 
         ChatApplication app = (ChatApplication) getApplication();
         mSocket = app.getSocket();
@@ -108,7 +144,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
                 TextView tv = (TextView)view.findViewById(android.R.id.text1);
 
-                tv.setTextColor(Color.WHITE);
+                tv.setTextColor(Color.parseColor("#3088AA"));
                 tv.setTypeface(Typeface.DEFAULT_BOLD);
 
                 return view;
@@ -166,6 +202,119 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 }
         );
 
+        if(!adminTeacher){
+            teacherHomeBtn.setVisibility(View.INVISIBLE);
+        }
+
+
+        menuOptionsLstView.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
+
+        teacherHomeBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        currentModuleSelected = "Home";
+
+                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  homeMenuItems, homeMenuImages);
+                        menuOptionsLstView.setAdapter(customMenuAdapter);
+                        teacherHomeBtn.setBackgroundColor(Color.GRAY);
+                        studentModule.setBackgroundColor(Color.parseColor("#3088AA"));
+                        companyModule.setBackgroundColor(Color.parseColor("#3088AA"));
+
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+
+        studentModule.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        currentModuleSelected = "Student";
+
+                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  studentMenuItems, studentMenuImages);
+                        menuOptionsLstView.setAdapter(customMenuAdapter);
+                        studentModule.setBackgroundColor(Color.GRAY);
+                        companyModule.setBackgroundColor(Color.parseColor("#3088AA"));
+                        teacherHomeBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        companyModule.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        currentModuleSelected = "Company";
+
+                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  companyMenuItems, companyMenuImages);
+                        menuOptionsLstView.setAdapter(customMenuAdapter);
+                        companyModule.setBackgroundColor(Color.GRAY);
+                        studentModule.setBackgroundColor(Color.parseColor("#3088AA"));
+                        teacherHomeBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
 
         logoutTopBtn.setOnTouchListener(
                 new View.OnTouchListener() {
@@ -199,61 +348,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String selectedMenu = String.valueOf(parent.getItemAtPosition(position));
-                        switch (position){
-                            case 0:
-                                Intent newStudAccount = new Intent(TeacherLoginActivity.this,NewStudentAccountsActivity.class);
-                                startActivity(newStudAccount);
-                                return;
-                            case 1:
-                                Intent createSection = new Intent(TeacherLoginActivity.this,CreateStudentSectionActivity.class);
-                                startActivity(createSection);
-                                return;
-                            case 2:
-                                Intent showOjtRequest = new Intent(TeacherLoginActivity.this,ShowOJTApplicationsActivity.class);
-                                startActivity(showOjtRequest);
-                                return;
-                            case 3:
-                                Intent showStudentLoginLogoutPage= new Intent(TeacherLoginActivity.this,ShowStudentLoginLogoutActivity.class);
-                                startActivity(showStudentLoginLogoutPage);
-                                return;
-                            case 4:
-                                Intent showSectionEnrollees= new Intent(TeacherLoginActivity.this,ShowSectionEnrolleesActivity.class);
-                                startActivity(showSectionEnrollees);
-                                return;
-                            case 5:
-                                Intent showSectionInfo = new Intent(TeacherLoginActivity.this,ViewSectionsActivity.class);
-                                startActivity(showSectionInfo);
-                                return;
-                            case 6:
-                                Intent viewCompanies = new Intent(TeacherLoginActivity.this,ViewCompaniesActivity.class);
-                                startActivity(viewCompanies);
-                                return;
-
-                            case 7:
-                                Intent viewStudentWeeklyReport = new Intent(TeacherLoginActivity.this,ShowStudentListsActivity.class);
-                                viewStudentWeeklyReport.putExtra("studentWeekly",true);
-                                startActivity(viewStudentWeeklyReport);
-                                return;
-
-                            case 8:
-                                Intent viewStudentPracticumEval = new Intent(TeacherLoginActivity.this,ShowStudentListsActivity.class);
-                                viewStudentPracticumEval.putExtra("studentEvaluation",true);
-                                startActivity(viewStudentPracticumEval);
-                                return;
-
-                            case 9:
-                                Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
-                                startActivity(printReport);
-                                return;
-                            case 10:
-                                Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
-                                startActivity(newTeacherAccount);
-                                return;
-                            default:
-                                Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
-                                startActivity(backToHome);
-
-                        }
+                        getMenuSelected(currentModuleSelected,position);
 
                     }
                 }
@@ -261,6 +356,88 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
     }
 
+    public void getMenuSelected(final String entityType,final int position){
+        if(null != entityType && entityType.trim().length() > 0){
+            if(entityType.equals("Student")){
+                switch (position){
+                    case 0:
+                        Intent newStudAccount = new Intent(TeacherLoginActivity.this,NewStudentAccountsActivity.class);
+                        startActivity(newStudAccount);
+                        return ;
+                    case 1:
+                        Intent createSection = new Intent(TeacherLoginActivity.this,CreateStudentSectionActivity.class);
+                        startActivity(createSection);
+                        return;
+                    case 2:
+                        Intent showOjtRequest = new Intent(TeacherLoginActivity.this,ShowOJTApplicationsActivity.class);
+                        startActivity(showOjtRequest);
+                        return;
+                    case 3:
+                        Intent showStudentLoginLogoutPage= new Intent(TeacherLoginActivity.this,ShowStudentLoginLogoutActivity.class);
+                        startActivity(showStudentLoginLogoutPage);
+                        return;
+                    case 4:
+                        Intent showSectionEnrollees= new Intent(TeacherLoginActivity.this,ShowSectionEnrolleesActivity.class);
+                        startActivity(showSectionEnrollees);
+                        return;
+                    case 5:
+                        Intent showSectionInfo = new Intent(TeacherLoginActivity.this,ViewSectionsActivity.class);
+                        startActivity(showSectionInfo);
+                        return;
+                    case 6:
+                        Intent viewStudentWeeklyReport = new Intent(TeacherLoginActivity.this,ShowStudentListsActivity.class);
+                        viewStudentWeeklyReport.putExtra("studentWeekly",true);
+                        startActivity(viewStudentWeeklyReport);
+                        return;
+
+                    case 7:
+                        Intent viewStudentPracticumEval = new Intent(TeacherLoginActivity.this,ShowStudentListsActivity.class);
+                        viewStudentPracticumEval.putExtra("studentEvaluation",true);
+                        startActivity(viewStudentPracticumEval);
+                        return;
+
+                    case 8:
+                        Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
+                        startActivity(printReport);
+                        return;
+                    case 9:
+                        Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
+                        startActivity(newTeacherAccount);
+                        return;
+                    default:
+                        Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
+                        startActivity(backToHome);
+                }
+            }
+
+            if(entityType.equals("Company")){
+                switch (position) {
+                    case 0:
+                        Intent viewCompanies = new Intent(TeacherLoginActivity.this, ViewCompaniesActivity.class);
+                        startActivity(viewCompanies);
+                        return;
+                    default:
+                        Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
+                        startActivity(backToHome);
+                }
+            }
+
+            if(entityType.equals("Home")){
+                switch (position) {
+                    case 0:
+                        Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
+                        startActivity(newTeacherAccount);
+                        return;
+                    default:
+                        Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
+                        startActivity(backToHome);
+                }
+            }
+        }
+
+
+
+    }
 
 /*
 

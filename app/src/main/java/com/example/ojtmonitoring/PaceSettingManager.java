@@ -153,6 +153,39 @@ public class PaceSettingManager {
 
     }
 
+    public static void createStudentLogNotification(Context context, String message, boolean login){
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(400);
+
+        String displayText = "";
+
+        if(login){
+            displayText = "Successfully Logged in.";
+        }else{
+            displayText = "Successfully Logged out.";
+        }
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setContentTitle(displayText)
+                .setContentText(message)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(message))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(001, mBuilder.build());
+
+    }
+
     private boolean isServiceRunning(Context context) {
         /*    ActivityManager manager = (ActivityManager) context.getSystemService();
             for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){

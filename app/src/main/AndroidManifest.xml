@@ -134,7 +134,9 @@
         <activity android:name=".NewTeachersAccountActivity" />
         <activity android:name=".StudentWeeklyReportActivity" />
         <activity android:name=".ShowStudentListsActivity" />
-        <activity android:name=".PrintStudentEvaluationActivity"></activity>
+        <activity android:name=".PrintStudentEvaluationActivity" />
+        <activity android:name=".AdministratorActivity" />
+        <activity android:name=".UserAccountsActivity"></activity>
     </application>
 
 </manifest>

@@ -52,14 +52,6 @@
             android:textColor="@color/white"
             android:textColorHint="@color/divider" />
 
-        <Button
-            android:id="@+id/searchBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_x="83dp"
-            android:layout_y="232dp"
-            android:text="Search" />
-
         <EditText
             android:id="@+id/thruTxt"
             android:layout_width="121dp"
@@ -94,7 +86,9 @@
             android:layout_height="38dp"
             android:layout_x="221dp"
             android:layout_y="231dp"
-            android:text="Reset" />
+            android:text="Reset"
+            android:drawableLeft="@mipmap/clear_all_ico"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView43"
@@ -140,14 +134,6 @@
             android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/printResultBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_x="261dp"
-            android:layout_y="600dp"
-            android:text="Print Result" />
-
         <EditText
             android:id="@+id/startTimeTxt"
             android:layout_width="100dp"
@@ -181,6 +167,26 @@
             android:layout_x="11dp"
             android:layout_y="615dp"
             android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_x="61dp"
+            android:layout_y="234dp"
+            android:drawableLeft="@mipmap/search_icon"
+            android:text="Search"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/printResultBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_x="211dp"
+            android:layout_y="606dp"
+            android:drawableLeft="@mipmap/print_icon"
+            android:text="Print Result"
+            android:textStyle="bold" />
 
     </AbsoluteLayout>
 </ScrollView>

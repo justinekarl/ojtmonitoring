@@ -78,15 +78,15 @@
             android:layout_width="354dp"
             android:layout_height="400dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
             android:layout_x="21dp"
             android:layout_y="154dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:descendantFocusability="blocksDescendants"
             android:foreground="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/custCompanyNameTxt"
-            android:listSelector="@drawable/listview_colors"/>
+            android:listSelector="@drawable/listview_colors"
+            android:layout_marginTop="14dp"
+            app:layout_constraintTop_toBottomOf="@+id/homeModulesBtn" />
 
         <Button
             android:id="@+id/signouttopBtn"
@@ -100,6 +100,70 @@
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintHorizontal_bias="0.027" />
+
+        <Button
+            android:id="@+id/studentModulesBtn"
+            android:layout_width="153dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="13dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/student_ico"
+            android:text="Student Modules"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.606"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/teacherModulesBtn"
+            app:layout_constraintTop_toBottomOf="@+id/custCompanyNameTxt" />
+
+        <Button
+            android:id="@+id/teacherModulesBtn"
+            android:layout_width="165dp"
+            android:layout_height="54dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/teacher_ico"
+            android:text="Teacher Modules"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/custCompanyNameTxt" />
+
+        <Button
+            android:id="@+id/homeModulesBtn"
+            android:layout_width="159dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="23dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/home"
+            android:text="Home Modules"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.76"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/supervisorModulesBtn"
+            app:layout_constraintTop_toBottomOf="@+id/studentModulesBtn" />
+
+        <Button
+            android:id="@+id/supervisorModulesBtn"
+            android:layout_width="169dp"
+            android:layout_height="54dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/supervisor_ico"
+            android:text="SUPERVISOR MODULES"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teacherModulesBtn"
+            tools:layout_editor_absoluteX="200dp"
+            tools:layout_editor_absoluteY="265dp" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

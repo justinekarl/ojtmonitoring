@@ -80,14 +80,52 @@ public class CustomNewStudentAccountListView extends BaseAdapter {
             if(userAccountInfo.getAccountType() == 1) {
                 sb.append("Student Name : ");
             }else{
-                sb.append("Teacher Name : ");
+                if(userAccountInfo.isAdminViewing()){
+                    if(userAccountInfo.getAccountType() == 2){
+                        sb.append("Teacher Name : ");
+                    }
+
+                    if(userAccountInfo.getAccountType() == 3){
+                        sb.append("Company Name : ");
+                    }
+
+                    if(userAccountInfo.getAccountType() == 4){
+                        sb.append("Company Supervisor Name : ");
+                    }
+                }else {
+                    sb.append("Teacher Name : ");
+                }
             }
             sb.append(userAccountInfo.getName());
             sb.append("\n");
-            sb.append(" College : " +userAccountInfo.getCollege());
+
+
+            if(!userAccountInfo.isAdminViewing()) {
+                sb.append(" College : " + null != userAccountInfo.getCollege() ? userAccountInfo.getCollege() : "");
+            }
             if(userAccountInfo.getAccountType() == 1) {
                 sb.append("\n");
-                sb.append(" Gender : " + null != userAccountInfo.getGender() ? userAccountInfo.getGender() : "");
+                sb.append(" Gender : " +(null != userAccountInfo.getGender() ? userAccountInfo.getGender() : ""));
+                if(userAccountInfo.isAdminViewing()) {
+                    sb.append("\n");
+                    sb.append(" Course : " + (null != userAccountInfo.getCourse() ? userAccountInfo.getCourse() : ""));
+                }
+            }
+
+            if(userAccountInfo.isAdminViewing()){
+                if(userAccountInfo.getAccountType() == 2){
+                    sb.append("\n");
+                    sb.append(" Department : " +(null != userAccountInfo.getDepartment() ? userAccountInfo.getDepartment() : ""));
+                }
+
+                if(userAccountInfo.getAccountType() == 3){
+                    sb.append("\n");
+                    sb.append(" Address : " +(null != userAccountInfo.getAddress() ? userAccountInfo.getAddress() : ""));
+                    sb.append("\n");
+                    sb.append(" Phone : " +(null != userAccountInfo.getPhoneNumber() ? userAccountInfo.getPhoneNumber() : ""));
+                    sb.append("\n");
+                    sb.append(" Email : " +(null != userAccountInfo.getEmail() ? userAccountInfo.getEmail() : ""));
+                }
             }
 
             detailsTxt.setText(sb.toString());

@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -261,6 +262,90 @@ public class MakeHttpRequest {
 
                             } catch (JSONException e) {
                                 //PaceSettingManager.toastMessage(context, e.getMessage());
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            PaceSettingManager.toastMessage(context, error.getMessage());
+                        }
+                    }
+            );
+            requestQueue.add(jsonObjectRequest);
+        }catch (Exception e){
+            /*Log.i("AAAAAAAAAAA",e.getMessage());
+            PaceSettingManager.toastMessage(context,"AAAAAAAAAAA");*/
+        }
+    }
+
+
+
+    public static void getStudentLog(final Context context,final String url, RequestQueue requestQueue) {
+        try {
+            //RequestQueue requestQueue = Volley.newRequestQueue(context);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                    Request.Method.GET,
+                    url,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Boolean hasMessage = response.getBoolean("response");
+                                boolean loggedIn = false;
+                                StringBuilder sb = new StringBuilder("");
+                                if (hasMessage) {
+
+                                    if(response.has("log")){
+                                        JSONArray jsonArray = response.getJSONArray("log");
+
+
+                                        if (null != jsonArray && jsonArray.length() > 0) {
+                                            for (int ctr = 0; ctr < jsonArray.length(); ctr++) {
+                                                //for (int i = 0; i < jsonArray.getJSONArray(ctr).length(); i++) {jsonArray.getJSONObject(0).get("login_date")
+                                                    if (null != jsonArray.getJSONObject(ctr)) {
+
+                                                        if (null != jsonArray.getJSONObject(ctr).get("login_date")
+                                                                && !jsonArray.getJSONObject(ctr).get("login_date").toString().equals("null")) {
+                                                            loggedIn = true;
+                                                            sb.append("Logged IN : " + jsonArray.getJSONObject(ctr).get("login_date"));
+                                                            sb.append("\n");
+                                                        }
+
+
+
+                                                        if (null != jsonArray.getJSONObject(ctr).get("logout_date")
+                                                                && !jsonArray.getJSONObject(ctr).get("logout_date").toString().equals("null")) {
+                                                            loggedIn = false;
+                                                            sb.append("Logged OUT : " + jsonArray.getJSONObject(ctr).get("logout_date"));
+                                                            sb.append("\n");
+                                                        }
+
+
+
+                                                        if (null != jsonArray.getJSONObject(ctr).get("company_name")) {
+                                                            sb.append("Company  : " + jsonArray.getJSONObject(ctr).get("company_name"));
+                                                            sb.append("\n");
+                                                        }
+
+                                                    }
+
+                                                }
+                                            //}
+                                            PaceSettingManager.createStudentLogNotification(context, sb.toString(), loggedIn);
+                                        }
+
+                                    }
+
+
+
+
+                                    //Log.i(TAG,message);
+                                }
+
+                            } catch (JSONException e) {
+                                PaceSettingManager.toastMessage(context, e.getMessage());
                             }
                         }
                     },

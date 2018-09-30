@@ -11,18 +11,6 @@
         android:layout_height="match_parent"
         tools:context="com.example.ojtmonitoring.TeacherLoginActivity">
 
-        <ListView
-            android:id="@+id/menuOptionsLstView"
-            android:layout_width="366dp"
-            android:layout_height="350dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_x="15dp"
-            android:layout_y="184dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:descendantFocusability="blocksDescendants"
-            android:listSelector="@drawable/listview_colors" />
-
         <TextView
             android:id="@+id/textView34"
             android:layout_width="110dp"
@@ -54,11 +42,57 @@
             android:background="@mipmap/signout" />
 
         <Button
+            android:id="@+id/companyModule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="203dp"
+            android:layout_y="178dp"
+            android:drawableLeft="@mipmap/company_icon"
+            android:background="#3088AA"
+            android:text="Company Modules"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/studentModule"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:layout_x="31dp"
+            android:layout_y="178dp"
+            android:drawableLeft="@mipmap/student_ico"
+            android:background="#3088AA"
+            android:text="Student Modules"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/teacherHomeBtn"
+            android:layout_width="206dp"
+            android:layout_height="61dp"
+            android:layout_x="101dp"
+            android:layout_y="244dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/home"
+            android:text="Home Modules"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/logoutBtn"
             android:layout_width="115dp"
             android:layout_height="41dp"
-            android:layout_x="17dp"
-            android:layout_y="554dp"
+            android:layout_x="19dp"
+            android:layout_y="636dp"
             android:background="@mipmap/signout" />
+
+        <ListView
+            android:id="@+id/menuOptionsLstView"
+            android:layout_width="382dp"
+            android:layout_height="301dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_x="29dp"
+            android:layout_y="323dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:descendantFocusability="blocksDescendants"
+            android:listSelector="@drawable/listview_colors" />
     </AbsoluteLayout>
 </ScrollView>

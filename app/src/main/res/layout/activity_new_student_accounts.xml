@@ -19,12 +19,14 @@
             android:id="@+id/apprvSelBtn"
             android:layout_width="143dp"
             android:layout_height="52dp"
+            android:layout_marginLeft="28dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="50dp"
             android:text="Approve Selected"
-            app:layout_constraintTop_toBottomOf="@+id/studentAcctsLstView"
-            android:layout_marginLeft="28dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            android:drawableLeft="@mipmap/approve_icon"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/studentAcctsLstView" />
 
         <ListView
             android:id="@+id/studentAcctsLstView"
@@ -44,12 +46,14 @@
             android:id="@+id/viewAllApprBtn"
             android:layout_width="143dp"
             android:layout_height="52dp"
-            android:text="View All Approved"
-            app:layout_constraintLeft_toRightOf="@+id/apprvSelBtn"
             android:layout_marginLeft="28dp"
             android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="50dp"
+            android:text="View All Approved"
+            android:drawableLeft="@mipmap/view_icon"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/apprvSelBtn"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/studentAcctsLstView" />
 
     </android.support.constraint.ConstraintLayout>

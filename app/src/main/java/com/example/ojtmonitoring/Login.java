@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
     private ProgressDialog pDialog;
     private TextView forgotPassword;
 
+    private boolean administrator;
     JSONParser jsonParser = new JSONParser();
 
     public static String userName;
@@ -272,6 +273,7 @@ public class Login extends AppCompatActivity {
                         if(json.has("ojt_done")) ojtDone = json.getString("ojt_done");
                         if(json.has("company_id")) companyId = null != json.get("company_id") && !json.get("company_id").toString().equals("null") ? json.getInt("company_id") : 0;
                         if(json.has("admin_teacher")) adminTeacher = json.getString("admin_teacher");
+                        if(json.has("admin_account")) administrator = json.getBoolean("admin_account");
 
                     }else {
                         loginSucessful =  false;
@@ -341,9 +343,13 @@ public class Login extends AppCompatActivity {
                 editor.putString("ojtDone",ojtDone);
                 editor.putString("ojt_status",ojtDone.equals("1") ? "OJT Finished" : "OJT In progress");
                 editor.putBoolean("admin_teacher",null != adminTeacher ? (adminTeacher.equals("1") ? true : false) : false);
+                editor.putBoolean("admin_account",administrator);
                 editor.commit();
 
-
+                if(accountType == 0){
+                    Intent admin = new Intent(Login.this, AdministratorActivity.class);
+                    startActivity(admin);
+                }
                 if(accountType == 1){
                     Intent int1 = new Intent(Login.this, StudentLoginActivity.class);
                     startActivity(int1);

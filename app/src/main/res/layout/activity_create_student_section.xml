@@ -50,6 +50,8 @@
         android:layout_marginRight="44dp"
         android:layout_marginTop="92dp"
         android:text="Save"
+        android:textStyle="bold"
+        android:drawableLeft="@mipmap/save_icon"
         app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/clearAllBtn"
@@ -62,6 +64,8 @@
         android:layout_marginRight="72dp"
         android:layout_marginTop="92dp"
         android:text="Cancel"
+        android:drawableLeft="@mipmap/cancel_icon"
+        android:textStyle="bold"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSectionName" />
 
@@ -72,7 +76,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="35dp"
+        android:drawableLeft="@mipmap/view_icon"
         android:text="View Sections"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSaveSection" />

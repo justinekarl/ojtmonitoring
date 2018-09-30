@@ -310,12 +310,13 @@
             android:id="@+id/saveBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_x="210dp"
             android:layout_y="645dp"
-            android:background="#5e5e5e"
+            android:background="#3088AA"
             android:text="Save"
-            android:textColor="@color/zxing_status_text"
-            android:layout_marginBottom="20dp"/>
+            android:drawableLeft="@mipmap/save_icon"
+            android:textColor="@color/zxing_status_text" />
 
         <Button
             android:id="@+id/cancelBtn"
@@ -324,8 +325,9 @@
             android:layout_marginBottom="20dp"
             android:layout_x="94dp"
             android:layout_y="644dp"
-            android:background="#5e5e5e"
+            android:background="#3088AA"
             android:text="Cancel"
+            android:drawableLeft="@mipmap/cancel_icon"
             android:textColor="@color/zxing_status_text" />
 
         <TextView

@@ -1,5 +1,6 @@
 package com.example.ojtmonitoring;
 
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -53,6 +54,8 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
+    Intent backGround;
+
 
     private StringBuffer sb = new StringBuffer("");
     String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company","Student Practicum Weekly Report"};
@@ -91,6 +94,11 @@ public class StudentLoginActivity extends AppCompatActivity {
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
+        if(!isMessageServiceRunning()) {
+            backGround = new Intent(this, BackgroundProcessService.class);
+            backGround.putExtra("studentId",agentId);
+            startService(backGround);
+        }
 
 
 
@@ -112,6 +120,11 @@ public class StudentLoginActivity extends AppCompatActivity {
                         //if(actionTaken == "logout"){
                             DoLogout doLogout = new DoLogout();
                             doLogout.execute();
+
+                            if(null != backGround){
+                                stopService(backGround);
+                            }
+
                             SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                             SharedPreferences.Editor editor = preferences.edit();
                             editor.clear();
@@ -475,5 +488,21 @@ public class StudentLoginActivity extends AppCompatActivity {
 
 
         }
+    }
+
+    private boolean isMessageServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
