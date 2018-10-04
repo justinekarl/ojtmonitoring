@@ -306,30 +306,6 @@
             android:inputType="textPassword"
             android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/saveBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_x="210dp"
-            android:layout_y="645dp"
-            android:background="#3088AA"
-            android:text="Save"
-            android:drawableLeft="@mipmap/save_icon"
-            android:textColor="@color/zxing_status_text" />
-
-        <Button
-            android:id="@+id/cancelBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_x="94dp"
-            android:layout_y="644dp"
-            android:background="#3088AA"
-            android:text="Cancel"
-            android:drawableLeft="@mipmap/cancel_icon"
-            android:textColor="@color/zxing_status_text" />
-
         <TextView
             android:id="@+id/textView71"
             android:layout_width="378dp"
@@ -341,5 +317,29 @@
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_x="58dp"
+            android:layout_y="647dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/cancel_icon"
+            android:text="Cancel"
+            android:textColor="@color/zxing_status_text" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_x="229dp"
+            android:layout_y="650dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/save_icon"
+            android:text="Save"
+            android:textColor="@color/zxing_status_text" />
     </AbsoluteLayout>
 </ScrollView>

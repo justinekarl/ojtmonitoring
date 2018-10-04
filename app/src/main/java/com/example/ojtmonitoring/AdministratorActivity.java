@@ -1,14 +1,17 @@
 package com.example.ojtmonitoring;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,11 +19,16 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.apache.http.NameValuePair;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class AdministratorActivity extends AppCompatActivity {
-    Button topLogoutBtn,bottomLogoutBtn,teacherBtn,companyBtn,studentBtn,supervisorBtn;
+    Button topLogoutBtn,bottomLogoutBtn,teacherBtn,companyBtn,studentBtn,supervisorBtn,resetAllBtn;
     TextView welcomeLbl,adminNameTxt;
     ListView menuLstView;
     String name;
@@ -28,6 +36,7 @@ public class AdministratorActivity extends AppCompatActivity {
 
     String currentSelectedModule = "";
 
+    private ProgressDialog pDialog;
     private CustomMenuAdapter customMenuAdapter;
 
     final String[] studentMenuOptions = {"Student Accounts"};
@@ -52,6 +61,8 @@ public class AdministratorActivity extends AppCompatActivity {
         companyBtn = (Button)findViewById(R.id.companyBtn);
         studentBtn = (Button)findViewById(R.id.studentBtn);
         supervisorBtn = (Button)findViewById(R.id.supervisorBtn);
+        resetAllBtn = (Button)findViewById(R.id.resetAllBtn);
+
 
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
         adminNameTxt = (TextView)findViewById(R.id.adminNameTxt);
@@ -94,6 +105,64 @@ public class AdministratorActivity extends AppCompatActivity {
 
             }
         });
+
+        final AlertDialog.Builder resetBuilder = new AlertDialog.Builder(this);
+        resetBuilder.setCancelable(true);
+        resetBuilder.setTitle("Reset Action Confirmation");
+        resetBuilder.setMessage("This action will remove all existing accounts, Are you sure you want to reset All accounts?");
+        resetBuilder.setPositiveButton("Confirm",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //if(actionTaken == "logout"){
+                      new AsyncTask<Void,String,String>(){
+                          @Override
+                          protected void onPreExecute() {
+                              super.onPreExecute();
+                              pDialog = new ProgressDialog(AdministratorActivity.this);
+                              pDialog.setMessage("Processing..");
+                              pDialog.setIndeterminate(false);
+
+                              pDialog.setCancelable(true);
+                          }
+                          @Override
+                          protected String doInBackground(Void... params) {
+                              JSONParser jsonParser1 = new JSONParser();
+                              List<NameValuePair> params1 = new ArrayList<NameValuePair>();
+                              JSONObject json = jsonParser1.makeHttpRequest(PaceSettingManager.IP_ADDRESS + "resetAllAccounts.php",
+                                      "POST", params1);
+                              try {
+                                  if (null != json) {
+
+                                      // check log cat fro response
+                                      Log.d("Create Response", json.toString());
+
+                                  } else {
+                                  }
+
+                              } catch (Exception e) {
+                                  e.printStackTrace();
+                              }
+                              return null;
+                          }
+
+                          @Override
+                          protected void onPostExecute(String s) {
+                              super.onPostExecute(s);
+                              pDialog.dismiss();
+                              PaceSettingManager.toastMessage(AdministratorActivity.this,"Reset Completed!");
+                          }
+                      }.execute();
+                    }
+                });
+        resetBuilder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+
 
         teacherBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -222,6 +291,33 @@ public class AdministratorActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        resetAllBtn.setOnTouchListener(
+                new View.OnTouchListener() {
+
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                Button view = (Button) v;
+                                view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                                v.invalidate();
+                                break;
+                            }
+                            case MotionEvent.ACTION_UP:
+                                AlertDialog dialog = resetBuilder.create();
+                                dialog.show();
+                            case MotionEvent.ACTION_CANCEL: {
+                                Button view = (Button) v;
+                                view.getBackground().clearColorFilter();
+                                view.invalidate();
+                                break;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
 
         topLogoutBtn.setOnTouchListener(
                 new View.OnTouchListener() {

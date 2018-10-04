@@ -200,28 +200,6 @@
             android:inputType="textPassword"
             android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btnCancelCoor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="83dp"
-            android:layout_y="463dp"
-            android:background="#3088AA"
-            android:text="Cancel"
-            android:drawableLeft="@mipmap/cancel_icon"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:id="@+id/btnSaveCoor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="202dp"
-            android:layout_y="463dp"
-            android:background="#3088AA"
-            android:text="Save"
-            android:drawableLeft="@mipmap/save_icon"
-            android:textColor="@android:color/white" />
-
         <TextView
             android:id="@+id/textView49"
             android:layout_width="wrap_content"
@@ -236,5 +214,27 @@
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCancelCoor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="54dp"
+            android:layout_y="463dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/cancel_icon"
+            android:text="Cancel"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnSaveCoor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="228dp"
+            android:layout_y="464dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/save_icon"
+            android:text="Save"
+            android:textColor="@android:color/white" />
     </AbsoluteLayout>
 </ScrollView>

@@ -150,7 +150,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 return view;
             }
         };*/
-        customMenuAdapter = new CustomMenuAdapter(this,  adminTeacher ? menuItems : menuItems2, menuImage);
+        customMenuAdapter = new CustomMenuAdapter(this,  studentMenuItems,studentMenuImages);
         menuOptionsLstView.setAdapter(customMenuAdapter);
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
@@ -400,10 +400,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
                         Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
                         startActivity(printReport);
                         return;
-                    case 9:
+                    /*case 9:
                         Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
                         startActivity(newTeacherAccount);
-                        return;
+                        return;*/
                     default:
                         Intent backToHome = new Intent(TeacherLoginActivity.this,TeacherLoginActivity.class);
                         startActivity(backToHome);
