@@ -33,8 +33,8 @@ public class PaceSettingManager {
       /* public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
        public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.16:3000";*/
 
-   /* public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
-    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";*/
+    /*public static final String IP_ADDRESS = "http://192.168.0.6/ojtmonitoring/";
+    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.6:3000";*/
 
 
        /*public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";

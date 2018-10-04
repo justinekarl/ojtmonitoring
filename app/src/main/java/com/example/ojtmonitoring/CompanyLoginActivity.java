@@ -48,19 +48,19 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
     String currentModuleSelected = "Home";
 
-    final String[] studentMenuItems = {"Show OJT list","Scan Student QR Codes","Show student login/logout","Create Weekly Report","Rate Student","Student Practicum Weekly Report"};
+    final String[] studentMenuItems = {"OJT list","Scan Student QR Codes","Student login/logout","Create Weekly Report","Rate Student","Student Weekly Practicum Report"};
     final int[] studentMenuImages = {R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view};
 
-    final String[] teacherMenuItems = {"View Teachers"};
+    final String[] teacherMenuItems = {"Teachers"};
     final int[] teacherMenuImages = {R.mipmap.ic_list};
 
-    final String[] supervisorMenuItems = {"Show Company Supervisor Request"};
+    final String[] supervisorMenuItems = {"Company Supervisor Request"};
     final int[] supervisorMenuImages = {R.mipmap.ic_view};
 
     final String[] homeMenuItems = {"Update Information","Add/Update Requirements"};
     final int[] homeMenuImages = {R.mipmap.ic_update,R.mipmap.ic_add_generic};
 
-    final String[] menuItems = {"Update Information","Add/Update Requirements","Show OJT list","Scan Student QR Codes","Show student login/logout","Show Company Supervisor Request","Create Weekly Report","Rate Student","View Teachers","Student Practicum Weekly Report"};
+    final String[] menuItems = {"Update Information","Add/Update Requirements","OJT list","Scan Student QR Codes","Student login/logout","Company Supervisor Request","Create Weekly Report","Rate Student","Teachers","Student Weekly Practicum Report"};
     int[] menuImage = {R.mipmap.ic_update,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_pending,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view,R.mipmap.ic_list};
     ListAdapter menuAdapter;
     private ListView menuOptionsLstView;
@@ -401,7 +401,8 @@ public class CompanyLoginActivity extends AppCompatActivity {
             if(entityType.equals("Student")){
                 switch (position){
                     case 0:
-                        Intent ojtList = new Intent(CompanyLoginActivity.this,ShowOJTListActivity.class);
+                        Intent ojtList = new Intent(CompanyLoginActivity.this,PendingOjTForApprovalActivity.class);
+                        /*Intent ojtList = new Intent(CompanyLoginActivity.this,ShowOJTListActivity.class);*/
                         startActivity(ojtList);
                         return;
                     case 1:
@@ -457,7 +458,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
@@ -465,7 +466,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
 
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

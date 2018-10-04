@@ -50,12 +50,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
     String[] menuItemsDisplay = {};
     final String[] studentMenuItems = {"New Student Accounts",
                                         "Create Section",
-                                        "Show Ojt Requests",
-                                        "Show Student Login/Logout",
-                                        "Show Section Enrollees",
-                                        "View Section Information",
-                                        "Student Practicum Weekly Report",
-                                        "View Student Evaluation",
+                                        "Ojt Requests",
+                                        "Student Login/Logout",
+                                        "Section Enrollees",
+                                        "Section Information",
+                                        "Student Weekly Practicum Report",
+                                        "Student Evaluation",
                                         "Create Weekly Report"};
     final int[] studentMenuImages = {R.mipmap.ic_pending,
                                      R.mipmap.ic_add_generic,
@@ -67,7 +67,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                      R.mipmap.ic_list,
                                      R.mipmap.ic_list};
 
-    final String[] companyMenuItems = {"View Company List"};
+    final String[] companyMenuItems = {"Company List"};
 
     final int[] companyMenuImages = {R.mipmap.ic_list};
 
@@ -369,8 +369,10 @@ public class TeacherLoginActivity extends AppCompatActivity {
                         startActivity(createSection);
                         return;
                     case 2:
-                        Intent showOjtRequest = new Intent(TeacherLoginActivity.this,ShowOJTApplicationsActivity.class);
+                        Intent showOjtRequest = new Intent(TeacherLoginActivity.this,PendingStudentOJtRequestActivity.class);
                         startActivity(showOjtRequest);
+                       /* Intent showOjtRequest = new Intent(TeacherLoginActivity.this,ShowOJTApplicationsActivity.class);
+                        startActivity(showOjtRequest);*/
                         return;
                     case 3:
                         Intent showStudentLoginLogoutPage= new Intent(TeacherLoginActivity.this,ShowStudentLoginLogoutActivity.class);

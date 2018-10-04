@@ -43,13 +43,13 @@
 
         <Button
             android:id="@+id/companyModule"
-            android:layout_width="wrap_content"
+            android:layout_width="149dp"
             android:layout_height="wrap_content"
             android:layout_x="203dp"
             android:layout_y="178dp"
-            android:drawableLeft="@mipmap/company_icon"
             android:background="#3088AA"
-            android:text="Company Modules"
+            android:drawableLeft="@mipmap/company_icon"
+            android:text="Company"
             android:textColor="@android:color/white" />
 
         <Button
@@ -58,9 +58,9 @@
             android:layout_height="wrap_content"
             android:layout_x="31dp"
             android:layout_y="178dp"
-            android:drawableLeft="@mipmap/student_ico"
             android:background="#3088AA"
-            android:text="Student Modules"
+            android:drawableLeft="@mipmap/student_ico"
+            android:text="Student"
             android:textColor="@android:color/white" />
 
         <Button
@@ -71,7 +71,7 @@
             android:layout_y="244dp"
             android:background="#3088AA"
             android:drawableLeft="@mipmap/home"
-            android:text="Home Modules"
+            android:text="Home"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 

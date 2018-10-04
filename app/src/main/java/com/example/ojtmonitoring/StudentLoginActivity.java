@@ -58,7 +58,7 @@ public class StudentLoginActivity extends AppCompatActivity {
 
 
     private StringBuffer sb = new StringBuffer("");
-    String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company","Student Practicum Weekly Report"};
+    String[] menuItems = {"Companies","Add/Update My Resume","Select Section","My OJT Progress","Rate Company","Student Weekly Practicum Report"};
     int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
@@ -197,6 +197,13 @@ public class StudentLoginActivity extends AppCompatActivity {
                                 break;
                             }
                             case MotionEvent.ACTION_UP:
+
+                                DoLogout doLogout = new DoLogout();
+                                doLogout.execute();
+
+                                if(null != backGround){
+                                    stopService(backGround);
+                                }
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
                             case MotionEvent.ACTION_CANCEL: {
@@ -233,7 +240,8 @@ public class StudentLoginActivity extends AppCompatActivity {
                                 finish();
                                 return;
                             case 1:
-                                Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);
+                                Intent addResume = new Intent(StudentLoginActivity.this,ResumeActivity.class);
+                                /*Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);*/
                                 startActivity(addResume);
                                 finish();
                                 return;
