@@ -6,22 +6,17 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
@@ -63,7 +58,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
     final String[] menuItems = {"Update Information","Add/Update Requirements","OJT list","Scan Student QR Codes","Student login/logout","Company Supervisor Request","Create Weekly Report","Rate Student","Teachers","Student Weekly Practicum Report"};
     int[] menuImage = {R.mipmap.ic_update,R.mipmap.ic_add_generic,R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_pending,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view,R.mipmap.ic_list};
     ListAdapter menuAdapter;
-    private ListView menuOptionsLstView;
+    //private ListView menuOptionsLstView;
     private CustomMenuAdapter customMenuAdapter;
 
     private Socket mSocket;
@@ -92,7 +87,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
         signouttopBtn = (Button)findViewById(R.id.signouttopBtn);
         //descriptionTxt = (TextView)findViewById(R.id.custDescriptionTxt);
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
-        menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
+      //  menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
         studentModulesBtn = (Button)findViewById(R.id.studentModulesBtn);
         teacherModulesBtn = (Button)findViewById(R.id.teacherModulesBtn);
@@ -118,9 +113,9 @@ public class CompanyLoginActivity extends AppCompatActivity {
         menuOptionsLstView.setAdapter(customMenuAdapter);*/
         currentModuleSelected= "Home";
 
-        customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  homeMenuItems , homeMenuImages);
-        menuOptionsLstView.setAdapter(customMenuAdapter);
-        homeModulesBtn.setBackgroundColor(Color.GRAY);
+        //customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  homeMenuItems , homeMenuImages);
+        //menuOptionsLstView.setAdapter(customMenuAdapter);
+        //homeModulesBtn.setBackgroundColor(Color.GRAY);
     
 
 
@@ -137,11 +132,11 @@ public class CompanyLoginActivity extends AppCompatActivity {
         //descriptionTxt.setText(sharedpreferences.getString("company_description",""));
 
 
-        ChatApplication app = (ChatApplication) getApplication();
+        /*ChatApplication app = (ChatApplication) getApplication();
         mSocket = app.getSocket();
         // mSocket.on("adduser", onConnect);
         mSocket.connect();
-        mSocket.emit("adduser", userName);
+        mSocket.emit("adduser", userName);*/
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -229,7 +224,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
         );
 
 
-        menuOptionsLstView.setOnTouchListener(new ListView.OnTouchListener() {
+        /*menuOptionsLstView.setOnTouchListener(new ListView.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 int action = event.getAction();
@@ -245,7 +240,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
                 v.onTouchEvent(event);
                 return true;
             }
-        });
+        });*/
 
         studentModulesBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -258,14 +253,17 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         break;
                     }
                     case MotionEvent.ACTION_UP:
-                        currentModuleSelected= "Student";
+                        Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
+                        companyNav.putExtra("currentModuleSelected","Student");
+                        startActivity(companyNav);
+                        /*currentModuleSelected= "Student";
 
                         customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  studentMenuItems, studentMenuImages);
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         teacherModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         homeModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         supervisorModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
-                        studentModulesBtn.setBackgroundColor(Color.GRAY);
+                        studentModulesBtn.setBackgroundColor(Color.GRAY);*/
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
@@ -289,14 +287,17 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         break;
                     }
                     case MotionEvent.ACTION_UP:
-                        currentModuleSelected= "Teacher";
+                        Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
+                        companyNav.putExtra("currentModuleSelected","Teacher");
+                        startActivity(companyNav);
+                        /*currentModuleSelected= "Teacher";
 
                         customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  teacherMenuItems , teacherMenuImages);
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         teacherModulesBtn.setBackgroundColor(Color.GRAY);
                         homeModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         supervisorModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
-                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));*/
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
                         view.getBackground().clearColorFilter();
@@ -319,14 +320,17 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         break;
                     }
                     case MotionEvent.ACTION_UP:
-                        currentModuleSelected= "Supervisor";
+                        Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
+                        companyNav.putExtra("currentModuleSelected","Supervisor");
+                        startActivity(companyNav);
+                        /*currentModuleSelected= "Supervisor";
 
                         customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  supervisorMenuItems , supervisorMenuImages);
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         teacherModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         homeModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         supervisorModulesBtn.setBackgroundColor(Color.GRAY);
-                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));*/
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
                         view.getBackground().clearColorFilter();
@@ -349,14 +353,17 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         break;
                     }
                     case MotionEvent.ACTION_UP:
-                        currentModuleSelected= "Home";
+                        Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
+                        companyNav.putExtra("currentModuleSelected","Home");
+                        startActivity(companyNav);
+                        /*currentModuleSelected= "Home";
 
                         customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  homeMenuItems , homeMenuImages);
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         teacherModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         homeModulesBtn.setBackgroundColor(Color.GRAY);
                         supervisorModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
-                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModulesBtn.setBackgroundColor(Color.parseColor("#3088AA"));*/
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
                         view.getBackground().clearColorFilter();
@@ -368,7 +375,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
             }
         });
 
-        menuOptionsLstView.setOnItemClickListener(
+        /*menuOptionsLstView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -377,7 +384,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
                     }
                 }
-        );
+        );*/
     }
 
     public void getMenuSelected(final String entityType,final int position) {

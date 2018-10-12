@@ -44,13 +44,13 @@ public class PendingOjTForApprovalActivity extends AppCompatActivity {
             }
         });
 
-        pendingojtwv.setWebChromeClient(new WebChromeClient() {
+        /*pendingojtwv.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
                 //Required functionality here
                 return super.onJsAlert(view, url, message, result);
             }
-        });
+        });*/
 
         pendingojtwv.getSettings().setLoadsImagesAutomatically(true);
         pendingojtwv.getSettings().setJavaScriptEnabled(true);
@@ -62,7 +62,7 @@ public class PendingOjTForApprovalActivity extends AppCompatActivity {
         pendingojtwv.getSettings().setSupportZoom(true);
         pendingojtwv.getSettings().setDefaultTextEncodingName("utf-8");
 
-        pendingojtwv.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        /*pendingojtwv.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);*/
         pendingojtwv.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         pendingojtwv.loadUrl(PaceSettingManager.IP_ADDRESS+"resume/company/"+companyId);
 

@@ -51,13 +51,14 @@ public class PendingStudentOJtRequestActivity extends AppCompatActivity {
             }
         });
 
-        pendingStudentsWebView.setWebChromeClient(new WebChromeClient() {
+        /*pendingStudentsWebView.setWebChromeClient(new WebChromeClient() {
                                   @Override
                                   public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
                                       //Required functionality here
                                       return super.onJsAlert(view, url, message, result);
                                   }
-                              });
+                              });*/
+
 
         pendingStudentsWebView.getSettings().setLoadsImagesAutomatically(true);
         pendingStudentsWebView.getSettings().setJavaScriptEnabled(true);
@@ -69,7 +70,8 @@ public class PendingStudentOJtRequestActivity extends AppCompatActivity {
         pendingStudentsWebView.getSettings().setSupportZoom(true);
         pendingStudentsWebView.getSettings().setDefaultTextEncodingName("utf-8");
 
-        pendingStudentsWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        /*pendingStudentsWebView.getSettings()
+                .setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);*/
         pendingStudentsWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         pendingStudentsWebView.loadUrl(PaceSettingManager.IP_ADDRESS+"resume/teacher/"+teacherId);
 

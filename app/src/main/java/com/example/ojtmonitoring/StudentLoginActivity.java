@@ -58,8 +58,8 @@ public class StudentLoginActivity extends AppCompatActivity {
 
 
     private StringBuffer sb = new StringBuffer("");
-    String[] menuItems = {"Companies","Add/Update My Resume","Select Section","My OJT Progress","Rate Company","Student Weekly Practicum Report"};
-    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list};
+    String[] menuItems = {"My Information","Companies","Add/Update My Resume","Select Section","My OJT Progress","Rate Company","Student Weekly Practicum Report"};
+    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
     boolean hasMessageNotif=false;
@@ -235,32 +235,37 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                         switch (position){
                             case 0:
+                                Intent showStudentInfo = new Intent(StudentLoginActivity.this,StudentInformationActivity.class);
+                                startActivity(showStudentInfo);
+                                finish();
+                                return;
+                            case 1:
                                 Intent showCompanies = new Intent(StudentLoginActivity.this,ShowCompaniesActivity.class);
                                 startActivity(showCompanies);
                                 finish();
                                 return;
-                            case 1:
+                            case 2:
                                 Intent addResume = new Intent(StudentLoginActivity.this,ResumeActivity.class);
                                 /*Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);*/
                                 startActivity(addResume);
                                 finish();
                                 return;
-                            case 2:
+                            case 3:
                                 Intent selectSection = new Intent(StudentLoginActivity.this,SectionSelectionActivity.class);
                                 startActivity(selectSection);
                                 finish();
                                 return;
-                            case 3:
+                            case 4:
                                 Intent showAccummulated = new Intent(StudentLoginActivity.this,ShowTimeAccumulatedActivity.class);
                                 startActivity(showAccummulated);
                                 finish();
                                 return;
-                            case 4:
+                            case 5:
                                 Intent rateCompany = new Intent(StudentLoginActivity.this,RateCompanyActivity.class);
                                 startActivity(rateCompany);
                                 finish();
                                 return;
-                            case 5:
+                            case 6:
                                 Intent studentWeeklyReport = new Intent(StudentLoginActivity.this,StudentWeeklyReportActivity.class);
                                 startActivity(studentWeeklyReport);
                                 finish();

@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,9 +20,6 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.ojtmonitoring.info.CourseInfo;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -35,7 +31,6 @@ import java.util.Date;
 import java.util.List;
 
 import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
 
 public class TeacherLoginActivity extends AppCompatActivity {
 
@@ -129,11 +124,11 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
         studentModule.setBackgroundColor(Color.GRAY);
 
-        ChatApplication app = (ChatApplication) getApplication();
+       /* ChatApplication app = (ChatApplication) getApplication();
         mSocket = app.getSocket();
         // mSocket.on("adduser", onConnect);
         mSocket.connect();
-        mSocket.emit("adduser", userName);
+        mSocket.emit("adduser", userName);*/
         //mSocket.emit("check_user", userName,userName);
 
         /*menuAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuItems){
