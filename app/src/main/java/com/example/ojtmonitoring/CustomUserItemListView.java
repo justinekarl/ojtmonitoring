@@ -63,7 +63,11 @@ public class CustomUserItemListView extends BaseAdapter {
         userInfo = userInfoList.get(position);
 
         if (null != userInfo){
-            userinfonameTxt.setText(userInfo.getName());
+            String name = userInfo.getName();
+            if(null != userInfo.getCollege() && "" != userInfo.getCollege()){
+                name = userInfo.getName() + " \n " + userInfo.getCollege();
+            }
+            userinfonameTxt.setText(name);
             phoneNumberTxt.setText(userInfo.getPhone());
             addressTxt.setText(userInfo.getAddress());
 

@@ -12,7 +12,7 @@ public class UserInfo {
     private String phone;
     private String address;
     private boolean online;
-
+    private String college;
 
     public UserInfo(int accounttype) {
         this.accounttype = accounttype;
@@ -72,5 +72,13 @@ public class UserInfo {
 
     public void setOnline(boolean online) {
         this.online = online;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 }

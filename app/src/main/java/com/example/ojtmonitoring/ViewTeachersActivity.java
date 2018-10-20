@@ -169,11 +169,11 @@ public class ViewTeachersActivity extends AppCompatActivity {
                                         }
                                     }
 
-                                  /*  if(k==4) {
+                                    if(k==4) {
                                         if(null != json.getJSONArray("teacher_lists").getJSONArray(i) && null != json.getJSONArray("teacher_lists").getJSONArray(i).get(k)) {
-                                            teacherInfo.setAddress(json.getJSONArray("teacher_lists").getJSONArray(i).get(k) + "");
+                                            teacherInfo.setCollege(json.getJSONArray("teacher_lists").getJSONArray(i).get(k) + "");
                                         }
-                                    }*/
+                                    }
 
 
                                 }
