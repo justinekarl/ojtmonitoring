@@ -16,7 +16,6 @@ public class BackgroundProcessService extends Service {
 
     private static final String TAG = "DEBUGGING";
     private Thread backGround = null;
-    private Thread backGround1 = null;
     private AtomicBoolean running = new AtomicBoolean(false);
 
     int studentId;

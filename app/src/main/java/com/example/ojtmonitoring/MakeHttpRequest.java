@@ -279,7 +279,76 @@ public class MakeHttpRequest {
         }
     }
 
+    public static void getTransactionLog(final Context context, final String url, RequestQueue requestQueue, final String entityType){
+        try {
+            //RequestQueue requestQueue = Volley.newRequestQueue(context);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                    Request.Method.GET,
+                    url,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Boolean hasMessage = response.getBoolean("response");
+                                boolean loggedIn = false;
+                                StringBuilder sb = new StringBuilder("");
+                                if (hasMessage) {
 
+                                    if(response.has("log")){
+                                        JSONArray jsonArray = response.getJSONArray("log");
+
+
+                                        if (null != jsonArray && jsonArray.length() > 0) {
+                                            for (int ctr = 0; ctr < jsonArray.length(); ctr++) {
+                                                //for (int i = 0; i < jsonArray.getJSONArray(ctr).length(); i++) {jsonArray.getJSONObject(0).get("login_date")
+                                                if (null != jsonArray.getJSONObject(ctr)) {
+                                                    if (null != jsonArray.getJSONObject(ctr).get("action")) {
+                                                        sb.append(jsonArray.getJSONObject(ctr).get("action"));
+                                                        sb.append("\n");
+                                                    }
+
+                                                    if(entityType.equals("Student")){
+                                                        if (null != jsonArray.getJSONObject(ctr).get("saved_by")) {
+                                                            sb.append("Updated by :" +jsonArray.getJSONObject(ctr).get("saved_by"));
+                                                            sb.append("\n");
+                                                        }
+                                                    }
+
+
+                                                }
+
+                                            }
+                                            //}
+                                            PaceSettingManager.createTransactionNotification(context, sb.toString(), entityType);
+                                        }
+
+                                    }
+
+
+
+
+                                    //Log.i(TAG,message);
+                                }
+
+                            } catch (JSONException e) {
+                                PaceSettingManager.toastMessage(context, e.getMessage());
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            PaceSettingManager.toastMessage(context, error.getMessage());
+                        }
+                    }
+            );
+            requestQueue.add(jsonObjectRequest);
+        }catch (Exception e){
+            /*Log.i("AAAAAAAAAAA",e.getMessage());
+            PaceSettingManager.toastMessage(context,"AAAAAAAAAAA");*/
+        }
+    }
 
     public static void getStudentLog(final Context context,final String url, RequestQueue requestQueue) {
         try {

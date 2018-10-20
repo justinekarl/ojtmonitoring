@@ -52,6 +52,7 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
     private List<UserAccountInfo> userAccountInfos;
     HashMap<Integer, Boolean> studentAcctMap = new HashMap<Integer, Boolean>();
     CustomNewStudentAccountListView newStudentEnrolleeListViewAdapter;
+    private int agentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         college = sharedPreferences.getString("college","");
+        agentId = sharedPreferences.getInt("agent_id",0);
 
         ConnectToDBViaJson populateSectionList = new ConnectToDBViaJson();
         populateSectionList.execute();
@@ -535,6 +537,7 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("section",sectionNameSelected+""));
+            params.add(new BasicNameValuePair("agentId",agentId+""));
 
             final StringBuffer sb = new StringBuffer("");
             if(null != studentAcctMap && studentAcctMap.size() > 0){

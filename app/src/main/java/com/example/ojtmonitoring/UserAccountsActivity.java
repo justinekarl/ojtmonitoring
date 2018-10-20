@@ -1,7 +1,9 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -54,6 +56,7 @@ public class UserAccountsActivity extends AppCompatActivity {
     private String message;
 
     int accounttype = 0;
+    int agentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,9 @@ public class UserAccountsActivity extends AppCompatActivity {
         if(null != selectedEntity){
             labelAccountsTxt.setText(selectedEntity + " "+labelAccountsTxt.getText().toString());
         }
-
+        SharedPreferences sharedpreferences = getSharedPreferences(
+                PaceSettingManager.USER_PREFERENCES, Context.MODE_PRIVATE);
+        agentId = sharedpreferences.getInt("agent_id",0);
 
         collegeListAdapter = new ArrayAdapter<String>(UserAccountsActivity.this,
                 android.R.layout.simple_list_item_1,
@@ -486,6 +491,7 @@ public class UserAccountsActivity extends AppCompatActivity {
 
             params.add(new BasicNameValuePair("userAccountsMap",sb.toString()));
             params.add(new BasicNameValuePair("accounttype",accounttype+""));
+            params.add(new BasicNameValuePair("agentId",agentId+""));
 
 
             JSONObject json = jsonParser.makeHttpRequest(PaceSettingManager.IP_ADDRESS+"processUserAccounts.php",
