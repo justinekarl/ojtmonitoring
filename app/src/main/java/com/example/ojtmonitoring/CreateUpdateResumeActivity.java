@@ -335,7 +335,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
     class RetrieveResume extends AsyncTask<String, String, String> {
         /**
-         * Before starting background thread Show Progress Dialog
+         * Before starting background_light thread Show Progress Dialog
          */
         @Override
         protected void onPreExecute() {
@@ -542,7 +542,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -630,7 +630,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
 
     class CreateResume extends AsyncTask<String, String, String> {
         /**
-         * Before starting background thread Show Progress Dialog
+         * Before starting background_light thread Show Progress Dialog
          */
         @Override
         protected void onPreExecute() {
@@ -737,7 +737,7 @@ public class CreateUpdateResumeActivity extends AppCompatActivity implements Stu
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();

@@ -349,7 +349,7 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -428,7 +428,7 @@ public class NewStudentAccountsActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();

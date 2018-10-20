@@ -183,7 +183,7 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
 
     class ProcessAddTeacher extends AsyncTask<String, String, String> {
         /**
-         * Before starting background thread Show Progress Dialog
+         * Before starting background_light thread Show Progress Dialog
          */
         @Override
         protected void onPreExecute() {
@@ -257,7 +257,7 @@ public class CreateTeacherAccountActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
