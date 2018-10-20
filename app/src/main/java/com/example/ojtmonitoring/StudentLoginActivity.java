@@ -55,6 +55,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
     Intent backGround;
+    Intent backGround2;
 
 
     private StringBuffer sb = new StringBuffer("");
@@ -100,6 +101,13 @@ public class StudentLoginActivity extends AppCompatActivity {
             startService(backGround);
         }
 
+        if(!isTransactionNotificationServiceRunning()){
+            backGround2 = new Intent(this,TransactionLogBackgroundProcessService.class);
+            backGround2.putExtra("studentId",agentId);
+            backGround2.putExtra("entityType","Student");
+            startService(backGround2);
+        }
+
 
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
@@ -123,6 +131,9 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                             if(null != backGround){
                                 stopService(backGround);
+                            }
+                            if(null != backGround2){
+                                stopService(backGround2);
                             }
 
                             SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
@@ -203,6 +214,9 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                                 if(null != backGround){
                                     stopService(backGround);
+                                }
+                                if(null != backGround2){
+                                    stopService(backGround2);
                                 }
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
@@ -511,6 +525,22 @@ public class StudentLoginActivity extends AppCompatActivity {
                     Log.d("SERVICES......",runningServiceInfo.service.getClassName());
                     if (null != runningServiceInfo
                             && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isTransactionNotificationServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.TransactionLogBackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
                         return true;
                     }
                 }

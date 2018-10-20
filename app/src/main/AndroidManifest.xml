@@ -15,6 +15,9 @@
         <service
             android:name=".BackgroundProcessService"
             android:exported="false" />
+        <service
+            android:name=".TransactionLogBackgroundProcessService"
+            android:exported="false" />
 
         <activity
             android:name=".Login"

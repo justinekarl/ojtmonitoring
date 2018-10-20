@@ -85,6 +85,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
     JSONParser jsonParser = new JSONParser();
 
     Intent backGround;
+    Intent backGround2;
 
     @Override
     public void onBackPressed() {
@@ -99,18 +100,6 @@ public class TeacherLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_login);
         PaceSettingManager.lockActivityOrientation(this);
 
-
-        if(!isMessageServiceRunning()) {
-            backGround = new Intent(this, BackgroundProcessService.class);
-            startService(backGround);
-        }
-
-        logoutBtn = (Button)findViewById(R.id.logoutBtn);
-        logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
-        teacherHomeBtn = (Button)findViewById(R.id.teacherHomeBtn);
-
-        welcomeTeacherLbl = (TextView)findViewById(R.id.welcomeTeacherLbl);
-
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
@@ -119,6 +108,25 @@ public class TeacherLoginActivity extends AppCompatActivity {
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
         studentModule = (Button)findViewById(R.id.studentModule);
         companyModule = (Button)findViewById(R.id.companyModule);
+
+        if(!isMessageServiceRunning()) {
+            backGround = new Intent(this, BackgroundProcessService.class);
+            startService(backGround);
+        }
+
+        if(!isTransactionNotificationServiceRunning()){
+            backGround2 = new Intent(this,TransactionLogBackgroundProcessService.class);
+            backGround2.putExtra("studentId",agentId);
+            backGround2.putExtra("entityType","Teacher");
+            startService(backGround2);
+        }
+
+        logoutBtn = (Button)findViewById(R.id.logoutBtn);
+        logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
+        teacherHomeBtn = (Button)findViewById(R.id.teacherHomeBtn);
+
+        welcomeTeacherLbl = (TextView)findViewById(R.id.welcomeTeacherLbl);
+
 
 
 
@@ -167,6 +175,9 @@ public class TeacherLoginActivity extends AppCompatActivity {
                         doLogout.execute();
                         if(null != backGround){
                             stopService(backGround);
+                        }
+                        if(null != backGround2){
+                            stopService(backGround2);
                         }
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
@@ -526,6 +537,22 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     Log.d("SERVICES......",runningServiceInfo.service.getClassName());
                     if (null != runningServiceInfo
                             && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isTransactionNotificationServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.TransactionLogBackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
                         return true;
                     }
                 }
