@@ -46,34 +46,42 @@
         android:id="@+id/btnSaveSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="82dp"
-        android:layout_marginRight="44dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="92dp"
         android:text="Save"
-        app:layout_constraintHorizontal_bias="0.787"
+        android:textStyle="bold"
+        android:drawableLeft="@mipmap/save_icon"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/clearAllBtn"
+        app:layout_constraintRight_toLeftOf="@+id/btnCancelSection"
         app:layout_constraintTop_toBottomOf="@+id/txtSectionName" />
 
     <Button
         android:id="@+id/btnCancelSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="72dp"
+        android:layout_marginRight="27dp"
         android:layout_marginTop="92dp"
         android:text="Cancel"
+        android:drawableLeft="@mipmap/cancel_icon"
+        android:textStyle="bold"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSectionName" />
 
     <Button
         android:id="@+id/viewSectionsBtn"
-        android:layout_width="129dp"
-        android:layout_height="58dp"
+        android:layout_width="171dp"
+        android:layout_height="71dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="33dp"
+        android:drawableLeft="@mipmap/view_icon"
         android:text="View Sections"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSaveSection" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSaveSection"
+        app:layout_constraintHorizontal_bias="0.504"
+        tools:layout_editor_absoluteY="390dp" />
 </android.support.constraint.ConstraintLayout>

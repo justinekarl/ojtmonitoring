@@ -29,9 +29,10 @@
             android:name="com.example.ojtmonitoring.fragments.StudentPersonalInformationFragment"
             android:layout_width="450dp"
             android:layout_height="wrap_content"
+            tools:layout="@layout/activity_student_basic_info"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/accomplishmentsfragment"
-            tools:layout="@layout/activity_student_basic_info" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="53dp" />
 
         <fragment
             android:id="@+id/accomplishmentsfragment"
@@ -57,7 +58,17 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Create Resume"
+            android:drawableLeft="@mipmap/save_icon"
             android:layout_below="@+id/referencesfragment" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:layout_marginEnd="12dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 </ScrollView>

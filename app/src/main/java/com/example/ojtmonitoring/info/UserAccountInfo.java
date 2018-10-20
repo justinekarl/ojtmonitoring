@@ -10,6 +10,11 @@ public class UserAccountInfo {
     private boolean approved;
     private String userName;
     private String gender;
+    private String address;
+    private String phoneNumber;
+    private String email;
+    private String course;
+    private boolean adminViewing;
 
     public String getName() {
         return name;
@@ -74,5 +79,45 @@ public class UserAccountInfo {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public boolean isAdminViewing() {
+        return adminViewing;
+    }
+
+    public void setAdminViewing(boolean adminViewing) {
+        this.adminViewing = adminViewing;
     }
 }

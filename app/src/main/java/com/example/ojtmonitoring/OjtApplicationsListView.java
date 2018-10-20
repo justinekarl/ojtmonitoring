@@ -3,6 +3,7 @@ package com.example.ojtmonitoring;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -23,6 +24,7 @@ public class OjtApplicationsListView extends BaseAdapter {
     TextView studentEmailTxt;
     TextView studentCollegeTxt;
     StudentCompanyOJTInfo studentCompanyOJTInfo;
+
 
 
     public OjtApplicationsListView(List<StudentCompanyOJTInfo> studentCompanyOJTInfoList, Context context){
@@ -81,6 +83,7 @@ public class OjtApplicationsListView extends BaseAdapter {
         studentPhoneTxt = (TextView)view.findViewById(R.id.studentPhoneTxt);
         studentEmailTxt= (TextView)view.findViewById(R.id.studentEmailTxt);
         studentCollegeTxt= (TextView)view.findViewById(R.id.studentCollegeTxt);
+
 
         studentCompanyOJTInfo = studentCompanyOJTInfos.get(position);
         if(null != studentCompanyOJTInfo){

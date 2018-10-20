@@ -25,16 +25,9 @@ import java.util.List;
  */
 
 public class PaceSettingManager {
-//for xammp
-        //public static final String IP_ADDRESS = "http://10.10.10.191/ojtmonitoring/";
-        //public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
 
-    //sabahay
-      /* public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
-       public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.16:3000";*/
-
-    /*public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
-    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";*/
+    public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
+    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";
 
 
        /*public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
@@ -45,11 +38,8 @@ public class PaceSettingManager {
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 
     //AWS SERVER
-      public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
-      public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";
-
-    //for droid
-   //public static final String IP_ADDRESS = "https://spcffiletrackersystem.000webhostapp.com/filetracker/";
+      /*public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
+      public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";*/
 
     public static final String USER_PREFERENCES = "userPreferences";
 
@@ -148,6 +138,67 @@ public class PaceSettingManager {
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(001, mBuilder.build());
 
+
+    }
+
+    public static void createTransactionNotification(Context context,String message,String entityType){
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(400);
+
+        String displayText = "";
+
+        displayText = entityType + " Notification ";
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setContentTitle(displayText)
+                .setContentText(message)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(message))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(001, mBuilder.build());
+    }
+
+    public static void createStudentLogNotification(Context context, String message, boolean login){
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(400);
+
+        String displayText = "";
+
+        if(login){
+            displayText = "Successfully Logged in.";
+        }else{
+            displayText = "Successfully Logged out.";
+        }
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setContentTitle(displayText)
+                .setContentText(message)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(message))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(001, mBuilder.build());
 
     }
 

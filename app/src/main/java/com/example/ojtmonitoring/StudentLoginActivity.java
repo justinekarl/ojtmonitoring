@@ -1,5 +1,6 @@
 package com.example.ojtmonitoring;
 
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -53,10 +54,13 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
+    Intent backGround;
+    Intent backGround2;
+
 
     private StringBuffer sb = new StringBuffer("");
-    String[] menuItems = {"Show Companies","Add/Update My Resume","Select Section","Show My OJT Progress","Rate Company","Student Practicum Weekly Report"};
-    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list};
+    String[] menuItems = {"My Information","Companies","Add/Update My Resume","Select Section","My OJT Progress","Rate Company","Student Weekly Practicum Report"};
+    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
     boolean hasMessageNotif=false;
@@ -91,6 +95,18 @@ public class StudentLoginActivity extends AppCompatActivity {
         welcomeLbl = (TextView)findViewById(R.id.welcomeLbl);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
+        if(!isMessageServiceRunning()) {
+            backGround = new Intent(this, BackgroundProcessService.class);
+            backGround.putExtra("studentId",agentId);
+            startService(backGround);
+        }
+
+        if(!isTransactionNotificationServiceRunning()){
+            backGround2 = new Intent(this,TransactionLogBackgroundProcessService.class);
+            backGround2.putExtra("studentId",agentId);
+            backGround2.putExtra("entityType","Student");
+            startService(backGround2);
+        }
 
 
 
@@ -112,6 +128,14 @@ public class StudentLoginActivity extends AppCompatActivity {
                         //if(actionTaken == "logout"){
                             DoLogout doLogout = new DoLogout();
                             doLogout.execute();
+
+                            if(null != backGround){
+                                stopService(backGround);
+                            }
+                            if(null != backGround2){
+                                stopService(backGround2);
+                            }
+
                             SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                             SharedPreferences.Editor editor = preferences.edit();
                             editor.clear();
@@ -184,6 +208,16 @@ public class StudentLoginActivity extends AppCompatActivity {
                                 break;
                             }
                             case MotionEvent.ACTION_UP:
+
+                                DoLogout doLogout = new DoLogout();
+                                doLogout.execute();
+
+                                if(null != backGround){
+                                    stopService(backGround);
+                                }
+                                if(null != backGround2){
+                                    stopService(backGround2);
+                                }
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
                             case MotionEvent.ACTION_CANCEL: {
@@ -215,31 +249,37 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                         switch (position){
                             case 0:
+                                Intent showStudentInfo = new Intent(StudentLoginActivity.this,StudentInformationActivity.class);
+                                startActivity(showStudentInfo);
+                                finish();
+                                return;
+                            case 1:
                                 Intent showCompanies = new Intent(StudentLoginActivity.this,ShowCompaniesActivity.class);
                                 startActivity(showCompanies);
                                 finish();
                                 return;
-                            case 1:
-                                Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);
+                            case 2:
+                                Intent addResume = new Intent(StudentLoginActivity.this,ResumeActivity.class);
+                                /*Intent addResume = new Intent(StudentLoginActivity.this,CreateUpdateResumeActivity.class);*/
                                 startActivity(addResume);
                                 finish();
                                 return;
-                            case 2:
+                            case 3:
                                 Intent selectSection = new Intent(StudentLoginActivity.this,SectionSelectionActivity.class);
                                 startActivity(selectSection);
                                 finish();
                                 return;
-                            case 3:
+                            case 4:
                                 Intent showAccummulated = new Intent(StudentLoginActivity.this,ShowTimeAccumulatedActivity.class);
                                 startActivity(showAccummulated);
                                 finish();
                                 return;
-                            case 4:
+                            case 5:
                                 Intent rateCompany = new Intent(StudentLoginActivity.this,RateCompanyActivity.class);
                                 startActivity(rateCompany);
                                 finish();
                                 return;
-                            case 5:
+                            case 6:
                                 Intent studentWeeklyReport = new Intent(StudentLoginActivity.this,StudentWeeklyReportActivity.class);
                                 startActivity(studentWeeklyReport);
                                 finish();
@@ -475,5 +515,37 @@ public class StudentLoginActivity extends AppCompatActivity {
 
 
         }
+    }
+
+    private boolean isMessageServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isTransactionNotificationServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.TransactionLogBackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

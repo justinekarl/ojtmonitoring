@@ -242,23 +242,25 @@
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/saveTeacherBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="214dp"
-            android:layout_y="551dp"
-            android:background="#5e5e5e"
-            android:text="Save"
-            android:textColor="@color/zxing_status_text" />
-
-        <Button
             android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="91dp"
-            android:layout_y="552dp"
-            android:background="#5e5e5e"
+            android:layout_x="56dp"
+            android:layout_y="553dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/cancel_icon"
             android:text="Cancel"
+            android:textColor="@color/zxing_status_text" />
+
+        <Button
+            android:id="@+id/saveTeacherBtn"
+            android:layout_width="104dp"
+            android:layout_height="54dp"
+            android:layout_x="228dp"
+            android:layout_y="550dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/save_icon"
+            android:text="Save"
             android:textColor="@color/zxing_status_text" />
 
     </AbsoluteLayout>

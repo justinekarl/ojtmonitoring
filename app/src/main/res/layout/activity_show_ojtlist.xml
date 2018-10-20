@@ -39,7 +39,9 @@
             android:layout_height="69dp"
             android:layout_x="125dp"
             android:layout_y="508dp"
-            android:text="Accept" />
+            android:text="Accept"
+            android:drawableLeft="@mipmap/approve_icon"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/companyNameThisLbl"

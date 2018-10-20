@@ -26,21 +26,6 @@
             android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/textView49"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_x="53dp"
-            android:layout_y="4dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:text="Create Coordinator Account"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/textView50"
             android:layout_width="114dp"
             android:layout_height="40dp"
@@ -215,20 +200,41 @@
             android:inputType="textPassword"
             android:textColor="@color/white" />
 
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_x="12dp"
+            android:layout_y="5dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:text="Create Company Supervisor Account"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/btnCancelCoor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="83dp"
+            android:layout_x="54dp"
             android:layout_y="463dp"
-            android:text="Cancel" />
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/cancel_icon"
+            android:text="Cancel"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnSaveCoor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="202dp"
-            android:layout_y="463dp"
-            android:text="Save" />
+            android:layout_x="228dp"
+            android:layout_y="464dp"
+            android:background="#3088AA"
+            android:drawableLeft="@mipmap/save_icon"
+            android:text="Save"
+            android:textColor="@android:color/white" />
     </AbsoluteLayout>
 </ScrollView>
