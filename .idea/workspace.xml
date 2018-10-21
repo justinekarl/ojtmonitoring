@@ -32,25 +32,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-45-16-811.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-46-08-743.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-46-10-670.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-46-22-669.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-17-04-925.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-19-10-403.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-24-44-404.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-41-29-442.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-15-57-155.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-23-19-567.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-24-51-028.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-26-08-233.rawproto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-27-52-457.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterDir="false" />
     </list>
     <ignored path="FileTracker.iws" />
@@ -84,14 +73,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="activity_resume.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_resume.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="255">
+              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
               <folding>
                 <element signature="e#233#266#0" expanded="true" />
                 <element signature="e#291#326#0" expanded="true" />
@@ -106,6 +95,74 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="StudentInformationActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentInformationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_student_information.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="e#233#266#0" expanded="true" />
+                <element signature="e#291#326#0" expanded="true" />
+                <element signature="e#352#387#0" expanded="true" />
+                <element signature="e#411#444#0" expanded="true" />
+                <element signature="e#715#750#0" expanded="true" />
+                <element signature="e#778#811#0" expanded="true" />
+                <element signature="e#841#876#0" expanded="true" />
+                <element signature="e#907#940#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <folding>
+                <element signature="e#1138#1169#0" expanded="true" />
+                <element signature="e#1375#1417#0" expanded="true" />
+                <element signature="e#1644#1691#0" expanded="true" />
+                <element signature="e#1845#1884#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="43" column="92" selection-start-line="43" selection-start-column="92" selection-end-line="43" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_chat.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="activity_pending_student_ojt_request.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml">
           <provider editor-type-id="android-designer2">
@@ -113,7 +170,7 @@
           </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="66" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
+              <caret line="19" column="66" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
               <folding>
                 <element signature="e#915#948#0" expanded="true" />
               </folding>
@@ -136,10 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>coursesLstVw</find>
-      <find>courseInfos</find>
-      <find>selectedCollege</find>
-      <find>rate</find>
       <find>we</find>
       <find>connect</find>
       <find>/home</find>
@@ -166,11 +219,16 @@
       <find>layout_alignParentTop</find>
       <find>ojtmonitoring/resume</find>
       <find>/resume</find>
+      <find>chat</find>
+      <find>messagesList</find>
+      <find>messageTxt</find>
+      <find>&lt;activity</find>
     </findStrings>
     <replaceStrings>
       <replace>android:background=&quot;@mipmap/background&quot;&gt;</replace>
       <replace>android:background=&quot;@mipmap/background&quot;</replace>
       <replace>this.builder</replace>
+      <replace>&lt;activity android:windowSoftInputMode=&quot;adjustResize|stateUnchanged&quot;</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\src\main\java\com\example\ojtmonitoring</dir>
@@ -2153,7 +2211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_show_ojt_requests.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_show_section_enrollees.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_approved_accounts.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_show_student_login_logout.xml" />
@@ -2184,8 +2241,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingStudentOJtRequestActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingOjTForApprovalActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentLoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentInformationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_company_navigation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyNavigationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java" />
@@ -2195,7 +2250,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_company_account.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student_account.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java" />
@@ -2204,6 +2258,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentInformationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java" />
       </list>
     </option>
   </component>
@@ -2584,7 +2642,7 @@
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.52816904" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.17253521" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.0528169" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24958402" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.07746479" />
@@ -2785,21 +2843,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/print_icon_small.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/process_icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/log_out.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/add_icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -2958,24 +3001,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -3109,26 +3134,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="66" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
-          <folding>
-            <element signature="e#915#948#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="255">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
           <folding>
             <element signature="e#233#266#0" expanded="true" />
             <element signature="e#291#326#0" expanded="true" />
@@ -3139,6 +3151,77 @@
             <element signature="e#838#873#0" expanded="true" />
             <element signature="e#904#937#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentInformationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="66" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
+          <folding>
+            <element signature="e#915#948#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#233#266#0" expanded="true" />
+            <element signature="e#291#326#0" expanded="true" />
+            <element signature="e#352#387#0" expanded="true" />
+            <element signature="e#411#444#0" expanded="true" />
+            <element signature="e#715#750#0" expanded="true" />
+            <element signature="e#778#811#0" expanded="true" />
+            <element signature="e#841#876#0" expanded="true" />
+            <element signature="e#907#940#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="e#1138#1169#0" expanded="true" />
+            <element signature="e#1375#1417#0" expanded="true" />
+            <element signature="e#1644#1691#0" expanded="true" />
+            <element signature="e#1845#1884#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="43" column="92" selection-start-line="43" selection-start-column="92" selection-end-line="43" selection-end-column="92" />
         </state>
       </provider>
     </entry>
