@@ -45,8 +45,8 @@ public class PaceSettingManager {
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 
     //AWS SERVER
-      //public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
-      public static final String IP_ADDRESS = "http://192.168.22.7/ojtmonitoring/";
+      public static final String IP_ADDRESS = "http://3.16.10.125/ojtmonitoring/";
+      //public static final String IP_ADDRESS = "http://192.168.22.7/ojtmonitoring/";
 
       public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";
 
@@ -130,8 +130,8 @@ public class PaceSettingManager {
 
 
         // Set the Activity to start in a new, empty task
-                notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         // Create the PendingIntent
         PendingIntent notifyPendingIntent = PendingIntent.getActivity(
                 context.getApplicationContext(), 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT
@@ -151,6 +151,34 @@ public class PaceSettingManager {
         mNotificationManager.notify(001, mBuilder.build());
 
 
+    }
+
+    public static void createTransactionNotification(Context context,String message,String entityType){
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(400);
+
+        String displayText = "";
+
+        displayText = entityType + " Notification ";
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setContentTitle(displayText)
+                .setContentText(message)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(message))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(001, mBuilder.build());
     }
 
     public static void createStudentLogNotification(Context context, String message, boolean login){

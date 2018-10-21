@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -71,5 +72,14 @@ public class PendingOjTForApprovalActivity extends AppCompatActivity {
 
 
         pDialog.dismiss();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,CompanyNavigationActivity.class);
+        home.putExtra("currentModuleSelected","Student");
+        startActivity(home);
+        finish();
     }
 }

@@ -68,6 +68,7 @@ public class CompanyLoginActivity extends AppCompatActivity {
     JSONParser jsonParser = new JSONParser();
 
     Intent backGround;
+    Intent backGround2;
 
 
     @Override
@@ -77,9 +78,24 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
         PaceSettingManager.lockActivityOrientation(this);
 
+
+        SharedPreferences sharedpreferences = getSharedPreferences(
+                PaceSettingManager.USER_PREFERENCES, Context.MODE_PRIVATE);
+        name=sharedpreferences.getString("full_name","");
+        agentId = sharedpreferences.getInt("agent_id",0);
+        userName = sharedpreferences.getString("user_name","");
+
+
         if(!isMessageServiceRunning()) {
             backGround = new Intent(this, BackgroundProcessService.class);
             startService(backGround);
+        }
+
+        if(!isTransactionNotificationServiceRunning()){
+            backGround2 = new Intent(this,CompanyTransactionLogBackgroundService.class);
+            backGround2.putExtra("companyId",agentId);
+            backGround2.putExtra("entityType","Company");
+            startService(backGround2);
         }
 
         logoutBtn = (Button)findViewById(R.id.logoutBtn);
@@ -119,12 +135,6 @@ public class CompanyLoginActivity extends AppCompatActivity {
     
 
 
-        SharedPreferences sharedpreferences = getSharedPreferences(
-                PaceSettingManager.USER_PREFERENCES, Context.MODE_PRIVATE);
-        name=sharedpreferences.getString("full_name","");
-        agentId = sharedpreferences.getInt("agent_id",0);
-        userName = sharedpreferences.getString("user_name","");
-
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
 
         welcomeLbl.setText("Logged In User : " +name +" - Company id: "+agentId +" \n " +sd.format(new Date().getTime()));
@@ -150,8 +160,12 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         DoLogout doLogout = new DoLogout();
                         doLogout.execute();
 
-                        if(null != backGround){
-                            stopService(backGround);
+                        if(isMessageServiceRunning()){
+                            stopService(new Intent(CompanyLoginActivity.this,BackgroundProcessService.class));
+                        }
+
+                        if(isTransactionNotificationServiceRunning()){
+                            stopService(new Intent(CompanyLoginActivity.this,CompanyTransactionLogBackgroundService.class));
                         }
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
@@ -572,6 +586,22 @@ public class CompanyLoginActivity extends AppCompatActivity {
                     Log.d("SERVICES......",runningServiceInfo.service.getClassName());
                     if (null != runningServiceInfo
                             && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isTransactionNotificationServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.CompanyTransactionLogBackgroundService".equals(runningServiceInfo.service.getClassName())) {
                         return true;
                     }
                 }

@@ -28,6 +28,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e770dbcd-2dee-4d76-bf21-45c92041672b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyTransactionLogBackgroundService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/TeacherTransactionLogBackgroundService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/TransactionLogBackgroundProcessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterDir="false" />
@@ -35,12 +52,453 @@
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_25_2_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_25_2_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_25_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_25_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_baoyz_pullrefreshlayout_library_1_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_baoyz_pullrefreshlayout_library_1_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_1_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_solver_1_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/core_3_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/design_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/engine_io_client_0_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/engine_io_client_0_8_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/guava_14_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_integration_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_library_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javawriter_2_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_annotation_api_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_inject_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jsr305_2_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/library_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/okhttp_2_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/okhttp_3_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/okhttp_ws_2_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/okio_1_11_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_apache_http_legacy_android_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/socket_io_client_0_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/socket_io_client_0_8_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_compat_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/transition_25_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/volley_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/zxing_android_embedded_3_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-release.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reyes tracker.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/reyes tracker.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/ojtmonitoring/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/ojtmonitoring/ExampleInstrumentedTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/print/PdfPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/print/PdfPrint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AccountCreationSelectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AccountCreationSelectionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AccountSelectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AccountSelectionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AddUpdateCompanyRequirements.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AddUpdateCompanyRequirements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AdministratorActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AdministratorActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AttendanceCheckerMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AttendanceCheckerMainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/BackgroundProcessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/BackgroundProcessService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyNavigationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyNavigationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyUpdateInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyUpdateInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CoordinatorLoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CoordinatorLoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateCompanyAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateCompanyAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateCoordinatorAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateCoordinatorAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateSectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateSectionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateSectionCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateSectionCompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateStudentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateStudentActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateStudentSectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateStudentSectionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateTeacherAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateTeacherAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateUpdateResumeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CreateUpdateResumeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomCompanyListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomCompanyListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomCoorRequestListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomCoorRequestListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomCourseListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomCourseListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomMenuAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomMenuAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomNewStudentAccountListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomNewStudentAccountListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomStudentLoginLogoutListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomStudentLoginLogoutListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomStudentOJTListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomStudentOJTListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/DatabaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/GsonMultimap.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/GsonMultimap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/JSONParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/JSONParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MakeHttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MakeHttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MessageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MessageAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MessageTeacherActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MessageTeacherActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MessagesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MessagesAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/NewStudentAccountsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/NewStudentAccountsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/NewTeachersAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/NewTeachersAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/OjtApplicationsListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/OjtApplicationsListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingOjTForApprovalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingOjTForApprovalActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingStudentOJtRequestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingStudentOJtRequestActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PrintReportActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PrintReportActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PrintStudentEvaluationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PrintStudentEvaluationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/RateCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/RateCompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/RateStudentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/RateStudentActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ResumeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ResumeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/SectionSelectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/SectionSelectionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowCompaniesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowCompaniesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowCoordinatorRequestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowCoordinatorRequestActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowOJTApplicationsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowOJTApplicationsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowOJTListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowOJTListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowSectionEnrolleesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowSectionEnrolleesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowStudentListsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowStudentListsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowStudentLoginLogoutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowStudentLoginLogoutActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowTimeAccumulatedActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ShowTimeAccumulatedActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentInformationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentInformationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentLoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentLoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentWeeklyReportActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentWeeklyReportActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/TeacherLoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/TeacherLoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/UserAccountsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/UserAccountsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewApprovedAccountsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewApprovedAccountsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewCompaniesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewCompaniesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewSectionsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewSectionsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewTeachersActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewTeachersActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/ChatFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/ChatFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/StudentAccomplishmentsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/StudentAccomplishmentsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/StudentPersonalInformationFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/StudentPersonalInformationFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/StudentReferenceFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/fragments/StudentReferenceFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/AccomplishmentsInterestInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/AccomplishmentsInterestInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/CompanyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/CompanyInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/CoordinatorRequestInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/CoordinatorRequestInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/CourseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/CourseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/EducationalBackgroundInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/EducationalBackgroundInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/ReferencesInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/ReferencesInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/ResumeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/ResumeInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentCompanyOJTInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentCompanyOJTInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentLoginLogoutLogsInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentLoginLogoutLogsInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentPersonalInformationInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentPersonalInformationInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentWeeklyPracticumInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/StudentWeeklyPracticumInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserAccountInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserAccountInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/WorkExperienceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/WorkExperienceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/checkbox_bg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/checkbox_bg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/listview_colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/listview_colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/listview_item_border.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/listview_item_border.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_account_creation_selection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_account_creation_selection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_account_selection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_account_selection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_update_company_requirements.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_update_company_requirements.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_administrator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_administrator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_attendance_checker_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_attendance_checker_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_company_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_company_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_company_update_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_company_update_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_coordinator_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_coordinator_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_company_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_company_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_coordinator_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_coordinator_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_section.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_section.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_section_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_section_company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student_section.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student_section.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_teacher_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_teacher_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_update_resume.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_update_resume.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_message_teacher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_message_teacher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_student_accounts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_student_accounts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_teachers_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_teachers_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_print_report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_print_report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_print_student_evaluation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_print_student_evaluation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rate_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rate_company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rate_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rate_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_return_confirmation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_return_confirmation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_section_selection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_section_selection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_companies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_companies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_coordinator_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_coordinator_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_ojt_requests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_ojt_requests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_ojtlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_ojtlist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_section_enrollees.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_section_enrollees.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_student_lists.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_student_lists.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_student_login_logout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_student_login_logout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_time_accumulated.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_show_time_accumulated.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_accomplishments.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_accomplishments.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_basic_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_basic_info.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_references.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_references.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_weekly_report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_weekly_report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_teacher_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_teacher_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_transfer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_transfer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_accounts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_accounts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_borrowed_items.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_borrowed_items.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_returned_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_returned_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_approved_accounts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_approved_accounts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_companies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_companies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_sections.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_sections.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_teachers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_teachers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/chatfragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/chatfragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_all_logs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_all_logs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_all_logs_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_all_logs_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_all_qr_code.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_all_qr_code.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_all_users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_all_users.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_create_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_create_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_edit_auth_code.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_edit_auth_code.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_edit_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_edit_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_search_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_search_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_transfer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_transfer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_company_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_company_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_coor_request_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_coor_request_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_course_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_course_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_menu_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_menu_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_new_student_account_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_new_student_account_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_ojt_applicant_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_ojt_applicant_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_student_company_ojt_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_student_company_ojt_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_student_login_logout_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_student_login_logout_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_user_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_user_item_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_action.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_action.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_log.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_log.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_message.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_message.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_message.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_message.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/main_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/add_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/add_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/add_icon_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/add_icon_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/all_users.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/all_users.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/approve_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/approve_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/background1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/background1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/cancel_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/cancel_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/cancel_icon_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/cancel_icon_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/clear_all_ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/clear_all_ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/company_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/company_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/create_account.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/create_account.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/createstudentaccount.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/createstudentaccount.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/exit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_add.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_add.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_add_generic.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_add_generic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_add_res.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_add_res.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_list.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_list.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_pending.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_pending.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_rate.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_rate.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_scan_qr.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_scan_qr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_sel.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_sel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_update.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_update.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_view.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_view.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/inline_image_preview.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/inline_image_preview.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/loginbtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/loginbtn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/loginbtn1.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/loginbtn1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/offline.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/offline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/online.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/online.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/print_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/print_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/print_icon_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/print_icon_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/process_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/process_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/save_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/save_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/save_icon_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/save_icon_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/scan_qr_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/scan_qr_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/search_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/search_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/selectall_ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/selectall_ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/signout.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/signout.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/student_ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/student_ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/supervisor_ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/supervisor_ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/teacher_ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/teacher_ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/usertype.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/usertype.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/view_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/view_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/sample_company_logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/sample_company_logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/ojtmonitoring/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/ojtmonitoring/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tracker.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/tracker.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-15-24-01-908.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-15-31-02-258.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-15-31-14-196.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-15-32-20-958.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-15-35-52-457.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-16-18-42-805.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-16-35-31-829.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-16-38-48-019.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-16-41-32-721.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-16-44-14-967.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-07-29-799.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-27-02-422.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-28-21-222.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-33-44-448.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-35-23-688.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-35-32-392.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-42-30-476.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-21-17-46-47-380.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.buildpath" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.buildpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.idea/filetracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.idea/filetracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.lock" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.mylyn/repositories.xml.zip" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.mylyn/repositories.xml.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.php.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.php.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.php.debug.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.php.debug.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.php.server.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.php.server.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.team.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.team.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.dltk.core/Containers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.dltk.core/Containers.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.dltk.ui/OpenTypeHistoryorg_eclipse_php_core_PHPNature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.dltk.ui/OpenTypeHistoryorg_eclipse_php_core_PHPNature.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/http-cache/segments.gen" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/http-cache/segments.gen" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/http-cache/segments_1" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/http-cache/segments_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.fdt" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.fdt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.fdx" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.fdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.fnm" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.fnm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.frq" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.frq" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.nrm" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.nrm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.tii" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.tii" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.tis" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/_0.tis" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/segments.gen" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/segments.gen" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/segments_1" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/segments_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/write.lock" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history/write.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.fdt" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.fdt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.fdx" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.fdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.fnm" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.fnm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.frq" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.frq" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.nrm" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.nrm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.tii" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.tii" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.tis" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/_0.tis" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/segments.gen" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/segments.gen" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/segments_1" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/segments_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.mylyn.github.ui/avatars.ser" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.mylyn.github.ui/avatars.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.intro/introstate" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.intro/introstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.metadata/version.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/.project" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/clear_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/clear_log.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/clear_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/clear_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/create_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/create_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/db_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/db_config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/db_connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/db_connect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/file_tracker.sql" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/file_tracker.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/get_all_logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/get_all_logs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/get_all_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/get_all_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/get_user_borrowed_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/get_user_borrowed_item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/get_user_returned_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/get_user_returned_item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/return_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/return_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filetracker/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/filetracker/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/.project" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/OJTMonitoring.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/OJTMonitoring.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/acceptSelectedStudents.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/acceptSelectedStudents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/createResume.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/createResume.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/db_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/db_config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/db_connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/db_connect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/getStudentByCompanyId.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/getStudentByCompanyId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/localhost.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/localhost.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/ojtmonitoring20180308_dump.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/ojtmonitoring20180308_dump.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/processLoginLogout.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/processLoginLogout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/processRegister.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/processRegister.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveAllCompanyList.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveAllCompanyList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveCompanyNames.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveCompanyNames.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveOjtRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveOjtRequirements.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveResumeInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveResumeInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveStudentCompanyOjt.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveStudentCompanyOjt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveStudentLoginLogoutLogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveStudentLoginLogoutLogs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveStudentNotif.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveStudentNotif.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/retrieveUserAccounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/retrieveUserAccounts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/saveApprovedOjtList.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/saveApprovedOjtList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/save_selected_companies.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/save_selected_companies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/updateCompany.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/updateCompany.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/updateOjtRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/updateOjtRequirements.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojtmonitoring/update_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/ojtmonitoring/update_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <ignored path="FileTracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,107 +530,23 @@
     <favorites_list name="FileTracker" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="activity_resume.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+    <leaf>
+      <file leaf-file-name="PaceSettingManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="187">
+              <caret line="57" column="38" lean-forward="true" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="265" column="66" lean-forward="true" selection-start-line="265" selection-start-column="66" selection-end-line="265" selection-end-column="66" />
               <folding>
-                <element signature="e#233#266#0" expanded="true" />
-                <element signature="e#291#326#0" expanded="true" />
-                <element signature="e#352#387#0" expanded="true" />
-                <element signature="e#411#444#0" expanded="true" />
-                <element signature="e#712#747#0" expanded="true" />
-                <element signature="e#775#808#0" expanded="true" />
-                <element signature="e#838#873#0" expanded="true" />
-                <element signature="e#904#937#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentInformationActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentInformationActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_student_information.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="e#233#266#0" expanded="true" />
-                <element signature="e#291#326#0" expanded="true" />
-                <element signature="e#352#387#0" expanded="true" />
-                <element signature="e#411#444#0" expanded="true" />
-                <element signature="e#715#750#0" expanded="true" />
-                <element signature="e#778#811#0" expanded="true" />
-                <element signature="e#841#876#0" expanded="true" />
-                <element signature="e#907#940#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-              <folding>
-                <element signature="e#1138#1169#0" expanded="true" />
-                <element signature="e#1375#1417#0" expanded="true" />
-                <element signature="e#1644#1691#0" expanded="true" />
-                <element signature="e#1845#1884#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="43" column="92" selection-start-line="43" selection-start-column="92" selection-end-line="43" selection-end-column="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_chat.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_pending_student_ojt_request.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="66" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
-              <folding>
-                <element signature="e#915#948#0" expanded="true" />
+                <element signature="e#9709#9724#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -193,10 +567,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>we</find>
-      <find>connect</find>
-      <find>/home</find>
-      <find>activity_log</find>
       <find>android:background=&quot;@color/colorPrimary&quot;&gt;</find>
       <find>android:background=&quot;@color/colorPrimary&quot;</find>
       <find>@mipmap/exit</find>
@@ -223,6 +593,10 @@
       <find>messagesList</find>
       <find>messageTxt</find>
       <find>&lt;activity</find>
+      <find>13.58.188.0</find>
+      <find>tracsa</find>
+      <find>createTra</find>
+      <find>createTransactionNotification</find>
     </findStrings>
     <replaceStrings>
       <replace>android:background=&quot;@mipmap/background&quot;&gt;</replace>
@@ -2245,7 +2619,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyNavigationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_account_creation_selection.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_company_account.xml" />
@@ -2262,6 +2635,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_student_information.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ChatActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java" />
       </list>
     </option>
   </component>
@@ -2279,6 +2653,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2290,6 +2665,19 @@
               <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
               <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
@@ -2320,7 +2708,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2637,45 +3024,45 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32922536" />
-      <window_info id="Build Variants" order="7" side_tool="true" weight="0.3294509" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5352191" side_tool="true" weight="0.6079096" />
-      <window_info anchor="bottom" id="Logcat" order="7" weight="0.52816904" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.0528169" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.24958402" />
-      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.07746479" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49807376" weight="0.32881355" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.46183416" weight="0.43050846" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info id="Image Layers" order="5" />
+      <window_info id="Build Variants" order="7" side_tool="true" weight="0.3294509" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48926803" weight="0.66892654" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.16343042" side_tool="true" weight="0.31514084" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49475428" weight="0.32832617" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48926803" weight="0.30809858" />
       <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.46952224" weight="0.51760566" />
+      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49919093" weight="0.52816904" />
       <window_info id="Captures" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2880259" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2880259" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.8365696" weight="0.31514084" />
       <window_info anchor="right" id="Gradle" order="9" weight="0.3294509" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24958402" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" visible="true" weight="0.07746479" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Nl-Palette" order="2" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
+      <window_info anchor="right" id="Properties" order="8" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24958402" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
       <window_info anchor="right" id="Android Model" order="4" weight="0.3294509" />
       <window_info anchor="bottom" id="Android Monitor" order="9" sideWeight="0.4697726" weight="0.500565" />
-      <window_info anchor="right" id="Properties" order="8" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.46183416" weight="0.43050846" />
       <window_info anchor="bottom" id="Gradle Console" order="10" sideWeight="0.5302274" side_tool="true" weight="0.46779662" />
       <window_info anchor="right" id="Assistant" order="11" weight="0.32955465" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.17253521" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.8365696" visible="true" weight="0.31514084" />
       <window_info id="Designer" order="5" />
       <window_info anchor="bottom" id="Gradle Console" order="13" sideWeight="0.5302274" side_tool="true" weight="0.46779662" />
       <window_info anchor="right" id="Properties" order="9" />
@@ -2691,18 +3078,19 @@
       <window_info id="Capture Tool" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5352191" side_tool="true" weight="0.6079096" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16343042" side_tool="true" visible="true" weight="0.31514084" />
       <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24958402" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
       <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
       <window_info anchor="right" id="Assistant" order="11" weight="0.32955465" />
-      <window_info anchor="bottom" id="Logcat" order="10" weight="0.52816904" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.48926803" weight="0.66892654" />
+      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.49919093" weight="0.52816904" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.48926803" weight="0.30809858" />
       <window_info id="Nl-Palette" order="3" />
       <window_info anchor="right" id="Android Model" order="5" weight="0.3294509" />
       <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.46952224" weight="0.51760566" />
       <window_info anchor="right" id="Gradle" order="10" weight="0.3294509" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2880259" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2880259" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46183416" weight="0.43050846" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49807376" weight="0.32881355" />
@@ -2710,9 +3098,18 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24958402" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.07746479" />
     </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -2791,15 +3188,26 @@
           <properties />
           <option name="timeStamp" value="539" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java</url>
+          <line>262</line>
+          <properties />
+          <option name="timeStamp" value="541" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="541" />
+      <option name="time" value="542" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>PaceSettingManager.IP_ADDRESS+&quot;login.php&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>json.getJSONArray(&quot;teacher_lists&quot;).getJSONArray(i).get(4)</expression-string>
         <language-id>JAVA</language-id>
@@ -2843,11 +3251,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/add_icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/add_icon_small.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3063,20 +3466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1227">
-          <caret line="277" column="35" selection-start-line="277" selection-start-column="35" selection-end-line="277" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3128">
@@ -3114,16 +3503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
-          <folding>
-            <element signature="e#233#266#0" expanded="true" />
-            <element signature="e#291#326#0" expanded="true" />
-            <element signature="e#352#387#0" expanded="true" />
-            <element signature="e#411#444#0" expanded="true" />
-            <element signature="e#711#746#0" expanded="true" />
-            <element signature="e#774#807#0" expanded="true" />
-            <element signature="e#837#872#0" expanded="true" />
-            <element signature="e#903#936#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3141,16 +3520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="e#233#266#0" expanded="true" />
-            <element signature="e#291#326#0" expanded="true" />
-            <element signature="e#352#387#0" expanded="true" />
-            <element signature="e#411#444#0" expanded="true" />
-            <element signature="e#712#747#0" expanded="true" />
-            <element signature="e#775#808#0" expanded="true" />
-            <element signature="e#838#873#0" expanded="true" />
-            <element signature="e#904#937#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3168,9 +3537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="66" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
-          <folding>
-            <element signature="e#915#948#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3181,16 +3547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#233#266#0" expanded="true" />
-            <element signature="e#291#326#0" expanded="true" />
-            <element signature="e#352#387#0" expanded="true" />
-            <element signature="e#411#444#0" expanded="true" />
-            <element signature="e#715#750#0" expanded="true" />
-            <element signature="e#778#811#0" expanded="true" />
-            <element signature="e#841#876#0" expanded="true" />
-            <element signature="e#907#940#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3209,12 +3565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#1138#1169#0" expanded="true" />
-            <element signature="e#1375#1417#0" expanded="true" />
-            <element signature="e#1644#1691#0" expanded="true" />
-            <element signature="e#1845#1884#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3222,6 +3572,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="43" column="92" selection-start-line="43" selection-start-column="92" selection-end-line="43" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MakeHttpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="322" column="70" selection-start-line="322" selection-start-column="70" selection-end-line="322" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="57" column="38" lean-forward="true" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="265" column="66" lean-forward="true" selection-start-line="265" selection-start-column="66" selection-end-line="265" selection-end-column="66" />
+          <folding>
+            <element signature="e#9709#9724#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

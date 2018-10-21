@@ -51,10 +51,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                         "Section Information",
                                         "Student Weekly Practicum Report",
                                         "Student Evaluation",
-                                        "Create Weekly Report"};
+                                        "Create Weekly Report",
+                                        "Student Lists"};
     final int[] studentMenuImages = {R.mipmap.ic_pending,
                                      R.mipmap.ic_add_generic,
                                      R.mipmap.ic_view,
+                                     R.mipmap.ic_list,
                                      R.mipmap.ic_list,
                                      R.mipmap.ic_list,
                                      R.mipmap.ic_list,
@@ -85,6 +87,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
     JSONParser jsonParser = new JSONParser();
 
     Intent backGround;
+    Intent backGround2;
 
     @Override
     public void onBackPressed() {
@@ -99,18 +102,6 @@ public class TeacherLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_login);
         PaceSettingManager.lockActivityOrientation(this);
 
-
-        if(!isMessageServiceRunning()) {
-            backGround = new Intent(this, BackgroundProcessService.class);
-            startService(backGround);
-        }
-
-        logoutBtn = (Button)findViewById(R.id.logoutBtn);
-        logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
-        teacherHomeBtn = (Button)findViewById(R.id.teacherHomeBtn);
-
-        welcomeTeacherLbl = (TextView)findViewById(R.id.welcomeTeacherLbl);
-
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         agentId = sharedPreferences.getInt("agent_id",0);
         name=sharedPreferences.getString("full_name","");
@@ -119,6 +110,25 @@ public class TeacherLoginActivity extends AppCompatActivity {
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
         studentModule = (Button)findViewById(R.id.studentModule);
         companyModule = (Button)findViewById(R.id.companyModule);
+
+        if(!isMessageServiceRunning()) {
+            backGround = new Intent(this, BackgroundProcessService.class);
+            startService(backGround);
+        }
+
+        if(!isTransactionNotificationServiceRunning()){
+            backGround2 = new Intent(this,TeacherTransactionLogBackgroundService.class);
+            backGround2.putExtra("teacherId",agentId);
+            backGround2.putExtra("entityType","Teacher");
+            startService(backGround2);
+        }
+
+        logoutBtn = (Button)findViewById(R.id.logoutBtn);
+        logoutTopBtn = (Button)findViewById(R.id.logoutTopBtn);
+        teacherHomeBtn = (Button)findViewById(R.id.teacherHomeBtn);
+
+        welcomeTeacherLbl = (TextView)findViewById(R.id.welcomeTeacherLbl);
+
 
 
 
@@ -163,11 +173,21 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //if(actionTaken == "logout"){
-                        DoLogout doLogout = new DoLogout();
-                        doLogout.execute();
-                        if(null != backGround){
+                        if(isMessageServiceRunning()){
+                            stopService(new Intent(TeacherLoginActivity.this,BackgroundProcessService.class));
+                        }
+                        if(isTransactionNotificationServiceRunning()){
+                            stopService(new Intent(TeacherLoginActivity.this,TeacherTransactionLogBackgroundService.class));
+                        }
+                        /*if(null != backGround){
                             stopService(backGround);
                         }
+                        if(null != backGround2){
+                            stopService(backGround2);
+                        }*/
+                        DoLogout doLogout = new DoLogout();
+                        doLogout.execute();
+
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.clear();
@@ -191,6 +211,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        /*if(null != backGround){
+                            stopService(backGround);
+                        }
+                        if(null != backGround2){
+                            stopService(backGround2);
+                        }*/
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
@@ -324,6 +350,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                 break;
                             }
                             case MotionEvent.ACTION_UP:
+                               /* if(null != backGround){
+                                    stopService(backGround);
+                                }
+                                if(null != backGround2){
+                                    stopService(backGround2);
+                                }*/
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
                             case MotionEvent.ACTION_CANCEL: {
@@ -396,6 +428,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     case 8:
                         Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
                         startActivity(printReport);
+                        return;
+                    case 9:
+                        Intent stdentLists = new Intent(TeacherLoginActivity.this,ShowStudentListsActivity.class);
+                        stdentLists.putExtra("disableclick",true);
+                        stdentLists.putExtra("studentWeekly",true);
+                        startActivity(stdentLists);
                         return;
                     /*case 9:
                         Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
@@ -526,6 +564,22 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     Log.d("SERVICES......",runningServiceInfo.service.getClassName());
                     if (null != runningServiceInfo
                             && "com.example.ojtmonitoring.BackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isTransactionNotificationServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        if(null != activityManager){
+            for(ActivityManager.RunningServiceInfo runningServiceInfo: activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(null != runningServiceInfo && null != runningServiceInfo.service) {
+                    Log.d("SERVICES......",runningServiceInfo.service.getClassName());
+                    if (null != runningServiceInfo
+                            && "com.example.ojtmonitoring.TeacherTransactionLogBackgroundService".equals(runningServiceInfo.service.getClassName())) {
                         return true;
                     }
                 }

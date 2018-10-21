@@ -134,7 +134,8 @@ public class CompanyUpdateInformation extends AppCompatActivity {
                                 break;
                             }
                             case MotionEvent.ACTION_UP:
-                                Intent backToCompanyPage = new Intent(CompanyUpdateInformation.this,CompanyLoginActivity.class);
+                                Intent backToCompanyPage = new Intent(CompanyUpdateInformation.this,CompanyNavigationActivity.class);
+                                backToCompanyPage.putExtra("currentModuleSelected","Home");
                                 startActivity(backToCompanyPage);
                             case MotionEvent.ACTION_CANCEL: {
                                 Button view = (Button) v;
@@ -396,7 +397,7 @@ public class CompanyUpdateInformation extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent home = new Intent(this,CompanyLoginActivity.class);
+        Intent home = new Intent(this,CompanyNavigationActivity.class);
         startActivity(home);
         finish();
     }
