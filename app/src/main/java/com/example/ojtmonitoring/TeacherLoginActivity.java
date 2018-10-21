@@ -51,10 +51,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                         "Section Information",
                                         "Student Weekly Practicum Report",
                                         "Student Evaluation",
-                                        "Create Weekly Report"};
+                                        "Create Weekly Report",
+                                        "Student Lists"};
     final int[] studentMenuImages = {R.mipmap.ic_pending,
                                      R.mipmap.ic_add_generic,
                                      R.mipmap.ic_view,
+                                     R.mipmap.ic_list,
                                      R.mipmap.ic_list,
                                      R.mipmap.ic_list,
                                      R.mipmap.ic_list,
@@ -115,8 +117,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
         }
 
         if(!isTransactionNotificationServiceRunning()){
-            backGround2 = new Intent(this,TransactionLogBackgroundProcessService.class);
-            backGround2.putExtra("studentId",agentId);
+            backGround2 = new Intent(this,TeacherTransactionLogBackgroundService.class);
+            backGround2.putExtra("teacherId",agentId);
             backGround2.putExtra("entityType","Teacher");
             startService(backGround2);
         }
@@ -171,14 +173,21 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //if(actionTaken == "logout"){
-                        DoLogout doLogout = new DoLogout();
-                        doLogout.execute();
-                        if(null != backGround){
+                        if(isMessageServiceRunning()){
+                            stopService(new Intent(TeacherLoginActivity.this,BackgroundProcessService.class));
+                        }
+                        if(isTransactionNotificationServiceRunning()){
+                            stopService(new Intent(TeacherLoginActivity.this,TeacherTransactionLogBackgroundService.class));
+                        }
+                        /*if(null != backGround){
                             stopService(backGround);
                         }
                         if(null != backGround2){
                             stopService(backGround2);
-                        }
+                        }*/
+                        DoLogout doLogout = new DoLogout();
+                        doLogout.execute();
+
                         SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.clear();
@@ -202,6 +211,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        /*if(null != backGround){
+                            stopService(backGround);
+                        }
+                        if(null != backGround2){
+                            stopService(backGround2);
+                        }*/
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
@@ -335,6 +350,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                 break;
                             }
                             case MotionEvent.ACTION_UP:
+                               /* if(null != backGround){
+                                    stopService(backGround);
+                                }
+                                if(null != backGround2){
+                                    stopService(backGround2);
+                                }*/
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
                             case MotionEvent.ACTION_CANCEL: {
@@ -407,6 +428,12 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     case 8:
                         Intent printReport = new Intent(TeacherLoginActivity.this,PrintReportActivity.class);
                         startActivity(printReport);
+                        return;
+                    case 9:
+                        Intent stdentLists = new Intent(TeacherLoginActivity.this,ShowStudentListsActivity.class);
+                        stdentLists.putExtra("disableclick",true);
+                        stdentLists.putExtra("studentWeekly",true);
+                        startActivity(stdentLists);
                         return;
                     /*case 9:
                         Intent newTeacherAccount = new Intent(TeacherLoginActivity.this,NewTeachersAccountActivity.class);
@@ -552,7 +579,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 if(null != runningServiceInfo && null != runningServiceInfo.service) {
                     Log.d("SERVICES......",runningServiceInfo.service.getClassName());
                     if (null != runningServiceInfo
-                            && "com.example.ojtmonitoring.TransactionLogBackgroundProcessService".equals(runningServiceInfo.service.getClassName())) {
+                            && "com.example.ojtmonitoring.TeacherTransactionLogBackgroundService".equals(runningServiceInfo.service.getClassName())) {
                         return true;
                     }
                 }

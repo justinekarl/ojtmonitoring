@@ -149,7 +149,8 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
                     }
                     case MotionEvent.ACTION_UP:
                         if(accounttype == 3) {
-                            Intent companyLogin = new Intent(AttendanceCheckerMainActivity.this, CompanyLoginActivity.class);
+                            Intent companyLogin = new Intent(AttendanceCheckerMainActivity.this, CompanyNavigationActivity.class);
+                            companyLogin.putExtra("currentModuleSelected","Student");
                             startActivity(companyLogin);
                         }
                         if(accounttype == 4){

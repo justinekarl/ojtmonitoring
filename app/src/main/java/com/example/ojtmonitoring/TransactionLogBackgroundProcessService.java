@@ -19,6 +19,7 @@ public class TransactionLogBackgroundProcessService extends Service {
     private AtomicBoolean running = new AtomicBoolean(false);
 
     int studentId;
+    int teacherId;
     String entityType;
 
     @Override
@@ -31,12 +32,16 @@ public class TransactionLogBackgroundProcessService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         studentId = 0;
+        teacherId = 0;
         Bundle extras = intent.getExtras();
         if(extras == null) {
             Log.d("Service", "null");
         }else {
             Log.d("Service","not null");
-            studentId = (int) extras.get("studentId");
+
+            if(null != extras.get("studentId")) {
+                studentId = (int) extras.get("studentId");
+            }
             entityType = (String)extras.get("entityType");
 
         }
@@ -47,7 +52,7 @@ public class TransactionLogBackgroundProcessService extends Service {
             @Override
             public void run() {
 
-                if(studentId > 0) {
+                if(studentId > 0 && entityType.equals("Student")) {
 
                     RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
                     while (running.get()){
@@ -66,7 +71,6 @@ public class TransactionLogBackgroundProcessService extends Service {
                         }
                     }
                 }
-
             }
         };
         backGround = new Thread(r);

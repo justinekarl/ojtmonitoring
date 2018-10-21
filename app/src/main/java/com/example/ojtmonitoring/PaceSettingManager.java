@@ -26,8 +26,8 @@ import java.util.List;
 
 public class PaceSettingManager {
 
-    public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
-    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";
+    /*public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
+    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";*/
 
 
        /*public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
@@ -38,8 +38,8 @@ public class PaceSettingManager {
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 
     //AWS SERVER
-      /*public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
-      public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";*/
+      public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
+      public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";
 
     public static final String USER_PREFERENCES = "userPreferences";
 
