@@ -34,11 +34,24 @@
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewTeachersActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewTeachersActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_list.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_list.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-45-16-811.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-46-08-743.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-46-10-670.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-17-46-22-669.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-17-04-925.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-19-10-403.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-24-44-404.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-18-41-29-442.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-15-57-155.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-23-19-567.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-24-51-028.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-26-08-233.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-10-20-21-27-52-457.rawproto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterDir="false" />
     </list>
     <ignored path="FileTracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,110 +84,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="CompanyLoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="289" column="89" selection-start-line="289" selection-start-column="89" selection-end-line="289" selection-end-column="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompanyNavigationActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyNavigationActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="139" column="96" selection-start-line="139" selection-start-column="96" selection-end-line="139" selection-end-column="96" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewTeachersActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewTeachersActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="204" column="48" selection-start-line="204" selection-start-column="48" selection-end-line="204" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomUserItemListView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-            </state>
-          </provider>
+      <file leaf-file-name="activity_resume.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom_user_item_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_user_item_layout.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="-459" />
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="274" selection-start-line="274" selection-end-line="274" />
+            <state relative-caret-position="340">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#233#266#0" expanded="true" />
+                <element signature="e#291#326#0" expanded="true" />
+                <element signature="e#352#387#0" expanded="true" />
+                <element signature="e#411#444#0" expanded="true" />
+                <element signature="e#712#747#0" expanded="true" />
+                <element signature="e#775#808#0" expanded="true" />
+                <element signature="e#838#873#0" expanded="true" />
+                <element signature="e#904#937#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java">
+      <file leaf-file-name="activity_pending_student_ojt_request.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+            <state relative-caret-position="323">
+              <caret line="19" column="66" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
               <folding>
-                <element signature="e#1326#1327#0" expanded="true" />
-                <element signature="e#1362#1363#0" expanded="true" />
-                <element signature="e#1427#1428#0" expanded="true" />
-                <element signature="e#1457#1458#0" expanded="true" />
-                <element signature="e#1503#1504#0" expanded="true" />
-                <element signature="e#1541#1542#0" expanded="true" />
+                <element signature="e#915#948#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_view_teachers.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_teachers.xml">
-          <provider editor-type-id="text-editor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_company_login.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml">
-          <provider editor-type-id="text-editor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
@@ -193,7 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>company type</find>
       <find>coursesLstVw</find>
       <find>courseInfos</find>
       <find>selectedCollege</find>
@@ -216,6 +158,14 @@
       <find>teacherLstView</find>
       <find>onlinestatus</find>
       <find>title</find>
+      <find>studentModulesBtn</find>
+      <find>loadUrl(PaceSettingManager</find>
+      <find>resume/company</find>
+      <find>loadUrl(Pace</find>
+      <find>layout_alignParentLeft</find>
+      <find>layout_alignParentTop</find>
+      <find>ojtmonitoring/resume</find>
+      <find>/resume</find>
     </findStrings>
     <replaceStrings>
       <replace>android:background=&quot;@mipmap/background&quot;&gt;</replace>
@@ -223,10 +173,11 @@
       <replace>this.builder</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app</dir>
       <dir>C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\src\main\java\com\example\ojtmonitoring</dir>
       <dir>C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\src\main\res\layout</dir>
+      <dir>C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app</dir>
       <dir>C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\src\main\res</dir>
+      <dir>C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -2226,13 +2177,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/OjtApplicationsListView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ResumeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_teacher_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MainFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/TeacherLoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MessageTeacherActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingStudentOJtRequestActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingOjTForApprovalActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/StudentLoginActivity.java" />
@@ -2253,13 +2201,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewTeachersActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
-    <option name="width" value="1943" />
+    <option name="width" value="1944" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -2295,37 +2246,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="mipmap-hdpi" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2338,6 +2262,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2355,7 +2280,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../baseandroid" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1540017834870" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1540106556488" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -2650,7 +2575,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1295" height="704" extended-state="0" />
+    <frame x="-8" y="-8" width="1296" height="704" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32922536" />
@@ -2659,8 +2584,7 @@
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.52816904" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info anchor="right" id="Assistant" weight="0.32955465" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.49295774" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.17253521" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24958402" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.07746479" />
@@ -2672,80 +2596,55 @@
       <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48926803" weight="0.66892654" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49475428" weight="0.32832617" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.46952224" weight="0.14084508" />
-      <window_info id="Captures" order="8" weight="0.24958402" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.31012145" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.46952224" weight="0.51760566" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2880259" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
       <window_info anchor="right" id="Gradle" order="9" weight="0.3294509" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5352191" side_tool="true" weight="0.6079096" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28825912" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" id="Android Model" order="4" weight="0.3294509" />
-      <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
-      <window_info anchor="right" id="Assistant" order="11" weight="0.32955465" />
-      <window_info id="Build Variants" order="7" side_tool="true" weight="0.3294509" />
       <window_info id="Nl-Palette" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.46952224" weight="0.47189695" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="bottom" id="Gradle Console" order="10" sideWeight="0.5302274" side_tool="true" weight="0.46779662" />
-      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.07746479" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24958402" />
-      <window_info id="Image Layers" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.24958402" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48926803" weight="0.66892654" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49807376" weight="0.32881355" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Properties" order="8" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24958402" />
+      <window_info anchor="right" id="Android Model" order="4" weight="0.3294509" />
       <window_info anchor="bottom" id="Android Monitor" order="9" sideWeight="0.4697726" weight="0.500565" />
-      <window_info anchor="bottom" id="Logcat" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49475428" weight="0.32832617" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.43661973" />
-      <window_info id="Captures" order="8" weight="0.24958402" />
-      <window_info anchor="right" id="Gradle" order="9" weight="0.3294509" />
+      <window_info anchor="right" id="Properties" order="8" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info id="Designer" order="4" />
+      <window_info anchor="bottom" id="Gradle Console" order="10" sideWeight="0.5302274" side_tool="true" weight="0.46779662" />
+      <window_info anchor="right" id="Assistant" order="11" weight="0.32955465" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Build" order="7" weight="0.43661973" />
-      <window_info id="Designer" order="4" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.17253521" />
+      <window_info id="Designer" order="5" />
       <window_info anchor="bottom" id="Gradle Console" order="13" sideWeight="0.5302274" side_tool="true" weight="0.46779662" />
       <window_info anchor="right" id="Properties" order="9" />
-      <window_info id="Build Variants" order="7" side_tool="true" weight="0.3294509" />
-      <window_info id="Image Layers" order="5" />
+      <window_info id="Build Variants" order="8" side_tool="true" weight="0.3294509" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49475428" weight="0.32832617" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.32922536" />
       <window_info anchor="bottom" id="Android Monitor" order="12" sideWeight="0.4697726" weight="0.500565" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Captures" order="8" weight="0.24958402" />
-      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info id="Capture Tool" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5352191" side_tool="true" weight="0.6079096" />
       <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24958402" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
       <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
       <window_info anchor="right" id="Assistant" order="11" weight="0.32955465" />
-      <window_info anchor="bottom" id="Logcat" order="10" />
+      <window_info anchor="bottom" id="Logcat" order="10" weight="0.52816904" />
       <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.48926803" weight="0.66892654" />
-      <window_info id="Nl-Palette" order="2" />
+      <window_info id="Nl-Palette" order="3" />
       <window_info anchor="right" id="Android Model" order="5" weight="0.3294509" />
-      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.46952224" weight="0.47189695" />
+      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.46952224" weight="0.51760566" />
       <window_info anchor="right" id="Gradle" order="10" weight="0.3294509" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28825912" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2880259" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46183416" weight="0.43050846" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49807376" weight="0.32881355" />
@@ -2753,6 +2652,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24958402" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.07746479" />
     </layout-to-restore>
   </component>
@@ -2885,46 +2785,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_update.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_view.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/inline_image_preview.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/loginbtn.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/loginbtn1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/offline.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/online.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/print_icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/print_icon_small.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3051,124 +2911,99 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_student_login_logout_row.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_account_creation_selection.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_account_selection.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_update_company_requirements.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_administrator.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_attendance_checker_main.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="289" column="89" selection-start-line="289" selection-start-column="89" selection-end-line="289" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyNavigationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="139" column="96" selection-start-line="139" selection-start-column="96" selection-end-line="139" selection-end-column="96" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
+        <state relative-caret-position="816">
           <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-          <folding>
-            <element signature="e#1326#1327#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1457#1458#0" expanded="true" />
-            <element signature="e#1503#1504#0" expanded="true" />
-            <element signature="e#1541#1542#0" expanded="true" />
-          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="274" selection-start-line="274" selection-end-line="274" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml">
-      <provider editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_teachers.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_user_item_layout.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewTeachersActivity.java">
@@ -3178,29 +3013,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_user_item_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-459" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyNavigationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="1683">
+          <caret line="105" column="89" selection-start-line="105" selection-start-column="89" selection-end-line="105" selection-end-column="89" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1227">
+          <caret line="277" column="35" selection-start-line="277" selection-start-column="35" selection-end-line="277" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CompanyLoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3128">
+          <caret line="255" column="92" selection-start-line="255" selection-start-column="92" selection-end-line="255" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_section_selection.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rate_student.xml">
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-104" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingOjTForApprovalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pending_oj_tfor_approval.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+          <folding>
+            <element signature="e#233#266#0" expanded="true" />
+            <element signature="e#291#326#0" expanded="true" />
+            <element signature="e#352#387#0" expanded="true" />
+            <element signature="e#411#444#0" expanded="true" />
+            <element signature="e#711#746#0" expanded="true" />
+            <element signature="e#774#807#0" expanded="true" />
+            <element signature="e#837#872#0" expanded="true" />
+            <element signature="e#903#936#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ResumeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="66" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
+          <folding>
+            <element signature="e#915#948#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_resume.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#233#266#0" expanded="true" />
+            <element signature="e#291#326#0" expanded="true" />
+            <element signature="e#352#387#0" expanded="true" />
+            <element signature="e#411#444#0" expanded="true" />
+            <element signature="e#712#747#0" expanded="true" />
+            <element signature="e#775#808#0" expanded="true" />
+            <element signature="e#838#873#0" expanded="true" />
+            <element signature="e#904#937#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
