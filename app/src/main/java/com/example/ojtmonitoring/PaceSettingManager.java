@@ -25,9 +25,16 @@ import java.util.List;
  */
 
 public class PaceSettingManager {
+//for xammp
+        //public static final String IP_ADDRESS = "http://10.10.10.191/ojtmonitoring/";
+        //public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
 
-    public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
-    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";
+    //sabahay
+      /* public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
+       public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.16:3000";*/
+
+    /*public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
+    public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";*/
 
 
        /*public static final String IP_ADDRESS = "http://10.42.0.1/ojtmonitoring/";
@@ -38,8 +45,13 @@ public class PaceSettingManager {
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 
     //AWS SERVER
-      /*public static final String IP_ADDRESS = "http://18.191.44.167/ojtmonitoring/";
-      public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";*/
+      public static final String IP_ADDRESS = "http://3.16.10.125/ojtmonitoring/";
+      //public static final String IP_ADDRESS = "http://192.168.22.7/ojtmonitoring/";
+
+      public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";
+
+    //for droid
+   //public static final String IP_ADDRESS = "https://spcffiletrackersystem.000webhostapp.com/filetracker/";
 
     public static final String USER_PREFERENCES = "userPreferences";
 
@@ -118,8 +130,8 @@ public class PaceSettingManager {
 
 
         // Set the Activity to start in a new, empty task
-                notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         // Create the PendingIntent
         PendingIntent notifyPendingIntent = PendingIntent.getActivity(
                 context.getApplicationContext(), 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@mipmap/background_light"
     tools:context="com.example.ojtmonitoring.CreateStudentActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
@@ -325,7 +325,7 @@
             android:layout_marginBottom="20dp"
             android:layout_x="58dp"
             android:layout_y="647dp"
-            android:background="#3088AA"
+            android:background="@color/light_red"
             android:drawableLeft="@mipmap/cancel_icon"
             android:text="Cancel"
             android:textColor="@color/zxing_status_text" />
@@ -337,7 +337,7 @@
             android:layout_marginBottom="20dp"
             android:layout_x="229dp"
             android:layout_y="650dp"
-            android:background="#3088AA"
+            android:background="@color/light_blue"
             android:drawableLeft="@mipmap/save_icon"
             android:text="Save"
             android:textColor="@color/zxing_status_text" />

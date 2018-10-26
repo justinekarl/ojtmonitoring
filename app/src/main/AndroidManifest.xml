@@ -18,6 +18,13 @@
         <service
             android:name=".TransactionLogBackgroundProcessService"
             android:exported="false" />
+        <service
+            android:name=".TeacherTransactionLogBackgroundService"
+            android:exported="false" />
+        <service
+            android:name=".CompanyTransactionLogBackgroundService"
+            android:exported="false" />
+
 
         <activity
             android:name=".Login"
@@ -28,66 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".admin"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".CreateAccount"
             android:label="@string/title_activity_signup"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".content"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".UserBorrowedItems"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".UserReturnedItem"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ReturnConfirmation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AllLogs"
-            android:label="@string/title_activity_all_logs"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".AllUsers"
-            android:label="@string/title_activity_all_users"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Search"
-            android:label="@string/title_activity_search"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".EditAuthCode"
-            android:label="@string/title_activity_edit_auth_code"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".AllQrCode"
-            android:label="AllQrCode"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".EditPassword"
-            android:label="@string/title_activity_edit_password"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".AllLogsUser"
-            android:label="@string/title_activity_all_logs_user"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SearchUser"
-            android:label="@string/title_activity_search_user"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Transfer"
-            android:label="@string/title_activity_transfer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AccountSelectionActivity"

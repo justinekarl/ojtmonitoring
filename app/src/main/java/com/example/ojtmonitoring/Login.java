@@ -61,6 +61,7 @@ public class Login extends AppCompatActivity {
     String adminTeacher;
 
     public static TextView createAccountNowTxt;
+    public AlertDialog.Builder builder;
 
 
 
@@ -75,18 +76,18 @@ public class Login extends AppCompatActivity {
         }
 
         //pop confirmation
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle("Confirmation");
-        builder.setMessage("Are you sure you want to continue with your action?");
-        builder.setPositiveButton("Confirm",
+        this.builder = new AlertDialog.Builder(this);
+        this.builder.setCancelable(true);
+        this.builder.setTitle("Confirmation");
+        this.builder.setMessage("Are you sure you want to continue with your action?");
+        this.builder.setPositiveButton("Confirm",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finishAffinity();
                     }
                 });
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+        this.builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 /*toastMessage("cancel");*/
@@ -189,6 +190,7 @@ public class Login extends AppCompatActivity {
         );
 
 
+
         exit.setOnTouchListener(
                 new View.OnTouchListener() {
 
@@ -223,6 +225,17 @@ public class Login extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("EXIT")
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                    }
+                }).setNegativeButton("NO", null).show();
+
+       /* AlertDialog dialog = this.builder.create();
+        dialog.show();*/
     }
 
 
@@ -322,7 +335,7 @@ public class Login extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();

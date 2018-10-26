@@ -14,8 +14,8 @@ public class CompanyNavigationActivity extends AppCompatActivity {
     private CustomMenuAdapter customMenuAdapter;
     String currentModule= "";
 
-    final String[] studentMenuItems = {"OJT list","Scan Student QR Codes","Student login/logout","Create Weekly Report","Rate Student","Student Weekly Practicum Report"};
-    final int[] studentMenuImages = {R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view};
+    final String[] studentMenuItems = {"OJT List","Scan Student QR Codes","Student login/logout","Create Weekly Report","Rate Student","Student Weekly Practicum Report","Student List"};
+    final int[] studentMenuImages = {R.mipmap.ic_view,R.mipmap.ic_scan_qr,R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_view,R.mipmap.ic_list};
 
     final String[] teacherMenuItems = {"Teachers"};
     final int[] teacherMenuImages = {R.mipmap.ic_list};
@@ -128,6 +128,11 @@ public class CompanyNavigationActivity extends AppCompatActivity {
                         viewStudentWeeklyReport.putExtra("studentWeekly",true);
                         startActivity(viewStudentWeeklyReport);
                         return;
+                    case 6:
+                        Intent studentLists = new Intent(CompanyNavigationActivity.this,StudentListActivity.class);
+                        studentLists.putExtra("disableclick",true);
+                        startActivity(studentLists);
+                        return;
                     default:
                         Intent backToHome = new Intent(CompanyNavigationActivity.this,CompanyNavigationActivity.class);
                         startActivity(backToHome);
@@ -160,4 +165,10 @@ public class CompanyNavigationActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,CompanyLoginActivity.class);
+        startActivity(home);
+    }
 }

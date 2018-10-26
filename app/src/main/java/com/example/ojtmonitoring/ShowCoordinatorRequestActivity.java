@@ -1,6 +1,7 @@
 package com.example.ojtmonitoring;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
@@ -236,7 +237,7 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -307,7 +308,7 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -321,5 +322,11 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,CompanyNavigationActivity.class);
+        home.putExtra("currentModuleSelected","Supervisor");
+        startActivity(home);
+    }
 }

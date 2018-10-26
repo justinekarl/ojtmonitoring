@@ -169,11 +169,11 @@ public class ViewTeachersActivity extends AppCompatActivity {
                                         }
                                     }
 
-                                  /*  if(k==4) {
+                                    if(k==4) {
                                         if(null != json.getJSONArray("teacher_lists").getJSONArray(i) && null != json.getJSONArray("teacher_lists").getJSONArray(i).get(k)) {
-                                            teacherInfo.setAddress(json.getJSONArray("teacher_lists").getJSONArray(i).get(k) + "");
+                                            teacherInfo.setCollege(json.getJSONArray("teacher_lists").getJSONArray(i).get(k) + "");
                                         }
-                                    }*/
+                                    }
 
 
                                 }
@@ -197,7 +197,7 @@ public class ViewTeachersActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -213,7 +213,8 @@ public class ViewTeachersActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent backToPrev = new Intent(ViewTeachersActivity.this,CompanyLoginActivity.class);
+        Intent backToPrev = new Intent(ViewTeachersActivity.this,CompanyNavigationActivity.class);
+        backToPrev.putExtra("currentModuleSelected","Teacher");
         startActivity(backToPrev);
         finish();
     }

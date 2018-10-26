@@ -103,6 +103,8 @@ public class StudentLoginActivity extends AppCompatActivity {
 
         if(!isTransactionNotificationServiceRunning()){
             backGround2 = new Intent(this,TransactionLogBackgroundProcessService.class);
+            backGround2.removeExtra("studentId");
+            backGround2.removeExtra("entityType");
             backGround2.putExtra("studentId",agentId);
             backGround2.putExtra("entityType","Student");
             startService(backGround2);
@@ -128,13 +130,18 @@ public class StudentLoginActivity extends AppCompatActivity {
                         //if(actionTaken == "logout"){
                             DoLogout doLogout = new DoLogout();
                             doLogout.execute();
-
-                            if(null != backGround){
+                            if(isMessageServiceRunning()){
+                                stopService(new Intent(StudentLoginActivity.this,BackgroundProcessService.class));
+                            }
+                            if(isTransactionNotificationServiceRunning()){
+                                stopService(new Intent(StudentLoginActivity.this,TransactionLogBackgroundProcessService.class));
+                            }
+                           /* if(null != backGround){
                                 stopService(backGround);
                             }
                             if(null != backGround2){
                                 stopService(backGround2);
-                            }
+                            }*/
 
                             SharedPreferences preferences =getSharedPreferences(PaceSettingManager.USER_PREFERENCES,MODE_PRIVATE);
                             SharedPreferences.Editor editor = preferences.edit();
@@ -188,6 +195,9 @@ public class StudentLoginActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(null != backGround2){
+                            stopService(backGround2);
+                        }
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
@@ -208,16 +218,16 @@ public class StudentLoginActivity extends AppCompatActivity {
                                 break;
                             }
                             case MotionEvent.ACTION_UP:
-
-                                DoLogout doLogout = new DoLogout();
-                                doLogout.execute();
-
-                                if(null != backGround){
+                                /*if(null != backGround){
                                     stopService(backGround);
                                 }
                                 if(null != backGround2){
                                     stopService(backGround2);
-                                }
+                                }*/
+                                DoLogout doLogout = new DoLogout();
+                                doLogout.execute();
+
+
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
                             case MotionEvent.ACTION_CANCEL: {
@@ -449,7 +459,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -508,7 +518,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             //pDialog.dismiss();

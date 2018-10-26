@@ -36,7 +36,7 @@ public class StudentListActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
     private int agentId;
-    private boolean weeklyStudent;
+    private boolean weeklyStudent,notClickable;
 
     //ListAdapter menuAdapter;
     ArrayAdapter<String> menuAdapter = null;
@@ -46,6 +46,8 @@ public class StudentListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_list);
         PaceSettingManager.lockActivityOrientation(this);
 
+
+        notClickable = (null != getIntent()) ? getIntent().getBooleanExtra("disableclick",false) : false;
         weeklyStudent = (null != getIntent()) ? getIntent().getBooleanExtra("studentWeekly",false) : false;
 
         studentListListView = (ListView)findViewById(R.id.studentListListView);
@@ -59,35 +61,38 @@ public class StudentListActivity extends AppCompatActivity {
         connectToDataBaseViaJson.execute();
 
 
-        studentListListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent redirect ;
-                if(weeklyStudent){
-                    redirect = new Intent(getApplicationContext(), StudentWeeklyReportActivity.class);
-                    redirect.putExtra("fromCompany",true);
-                }else {
-                    redirect = new Intent(getApplicationContext(), RateStudentActivity.class);
-                }
+        if(!notClickable) {
+            studentListListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent redirect;
+                    if (weeklyStudent) {
+                        redirect = new Intent(getApplicationContext(), StudentWeeklyReportActivity.class);
+                        redirect.putExtra("fromCompany", true);
+                    } else {
+                        redirect = new Intent(getApplicationContext(), RateStudentActivity.class);
 
-
-                if(null != studentListListView.getItemAtPosition(position) && studentListListView.getItemAtPosition(position).toString().contains(",")) {
-                    String studentIdTxt =studentListListView.getItemAtPosition(position).toString().split(",")[0];
-                    String studentNameTxt =studentListListView.getItemAtPosition(position).toString().split(",")[1];
-                    if(studentIdTxt.contains(":")) {
-
-                        int studentId = Integer.valueOf(studentIdTxt.split(":")[1]);
-                        redirect.putExtra("studentId", studentId);
                     }
-                    if(weeklyStudent && null != studentNameTxt && studentNameTxt.trim().length() > 0 && studentNameTxt.contains(":")){
-                        String name = studentNameTxt.split(":")[1];
-                        redirect.putExtra("studentName", name.replace("Course Name",""));
-                    }
-                }
-                startActivity(redirect);
 
-            }
-        });
+
+                    if (null != studentListListView.getItemAtPosition(position) && studentListListView.getItemAtPosition(position).toString().contains(",")) {
+                        String studentIdTxt = studentListListView.getItemAtPosition(position).toString().split(",")[0];
+                        String studentNameTxt = studentListListView.getItemAtPosition(position).toString().split(",")[1];
+                        if (studentIdTxt.contains(":")) {
+
+                            int studentId = Integer.valueOf(studentIdTxt.split(":")[1]);
+                            redirect.putExtra("studentId", studentId);
+                        }
+                        if (weeklyStudent && null != studentNameTxt && studentNameTxt.trim().length() > 0 && studentNameTxt.contains(":")) {
+                            String name = studentNameTxt.split(":")[1];
+                            redirect.putExtra("studentName", name.replace("Course Name", ""));
+                        }
+                    }
+                    startActivity(redirect);
+
+                }
+            });
+        }
 
     }
 
@@ -147,6 +152,14 @@ public class StudentListActivity extends AppCompatActivity {
                                                 sbName.append("\n  ");
                                                 sbName.append("Course Name : "+json.getJSONArray("student_lists").getJSONArray(i).get(k));
                                             }
+                                            if(k==3){
+                                                sbName.append("\n  ");
+                                                sbName.append("Gender : "+json.getJSONArray("student_lists").getJSONArray(i).get(k));
+                                            }
+                                            if(k==4){
+                                                sbName.append("\n  ");
+                                                sbName.append("Section : "+json.getJSONArray("student_lists").getJSONArray(i).get(k));
+                                            }
                                             /*if (key.equals("student_name")) {
                                                 sbName.append("Student Name : "+value);
                                             }
@@ -178,7 +191,7 @@ public class StudentListActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -213,7 +226,8 @@ public class StudentListActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent backToPrev = new Intent(StudentListActivity.this,CompanyLoginActivity.class);
+        Intent backToPrev = new Intent(StudentListActivity.this,CompanyNavigationActivity.class);
+        backToPrev.putExtra("currentModuleSelected","Student");
         startActivity(backToPrev);
     }
 }

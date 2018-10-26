@@ -37,6 +37,7 @@ public class ShowStudentListsActivity extends AppCompatActivity {
     private boolean weeklyStudent;
     private boolean studentEvaluation;
     ArrayAdapter<String> menuAdapter = null;
+    private boolean notClickable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,41 +49,45 @@ public class ShowStudentListsActivity extends AppCompatActivity {
         agentId = sharedPreferences.getInt("agent_id",0);
         weeklyStudent = (null != getIntent()) ? getIntent().getBooleanExtra("studentWeekly",false) : false;
         studentEvaluation = (null != getIntent()) ? getIntent().getBooleanExtra("studentEvaluation",false) : false;
+        notClickable = (null != getIntent()) ? getIntent().getBooleanExtra("disableclick",false) : false;
 
-        studentListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent redirect ;
-                if(weeklyStudent){
-                    redirect = new Intent(getApplicationContext(), StudentWeeklyReportActivity.class);
-                    redirect.putExtra("fromTeacher",true);
-                }else {
+        if(!notClickable) {
+            studentListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent redirect;
+                    if (weeklyStudent) {
+                        redirect = new Intent(getApplicationContext(), StudentWeeklyReportActivity.class);
+                        redirect.putExtra("fromTeacher", true);
+                    } else {
 
-                    if(studentEvaluation){
-                        redirect = new Intent(getApplicationContext(), PrintStudentEvaluationActivity.class);
-                    }else {
-                        redirect = new Intent(getApplicationContext(), RateStudentActivity.class);
+                        if (studentEvaluation) {
+                            redirect = new Intent(getApplicationContext(), PrintStudentEvaluationActivity.class);
+                        } else {
+                            redirect = new Intent(getApplicationContext(), RateStudentActivity.class);
+                        }
                     }
+
+
+                    if (null != studentListView.getItemAtPosition(position) && studentListView.getItemAtPosition(position).toString().contains(",")) {
+                        String studentIdTxt = studentListView.getItemAtPosition(position).toString().split(",")[0];
+                        String studentNameTxt = studentListView.getItemAtPosition(position).toString().split(",")[1];
+                        if (studentIdTxt.contains(":")) {
+
+                            int studentId = Integer.valueOf(studentIdTxt.split(":")[1]);
+                            redirect.putExtra("studentId", studentId);
+                        }
+                        if (weeklyStudent && null != studentNameTxt && studentNameTxt.trim().length() > 0 && studentNameTxt.contains(":")) {
+                            String name = studentNameTxt.split(":")[1];
+                            redirect.putExtra("studentName", name.replace("Course Name", ""));
+                        }
+                    }
+                    startActivity(redirect);
+
                 }
+            });
+        }
 
-
-                if(null != studentListView.getItemAtPosition(position) && studentListView.getItemAtPosition(position).toString().contains(",")) {
-                    String studentIdTxt =studentListView.getItemAtPosition(position).toString().split(",")[0];
-                    String studentNameTxt =studentListView.getItemAtPosition(position).toString().split(",")[1];
-                    if(studentIdTxt.contains(":")) {
-
-                        int studentId = Integer.valueOf(studentIdTxt.split(":")[1]);
-                        redirect.putExtra("studentId", studentId);
-                    }
-                    if(weeklyStudent && null != studentNameTxt && studentNameTxt.trim().length() > 0 && studentNameTxt.contains(":")){
-                        String name = studentNameTxt.split(":")[1];
-                        redirect.putExtra("studentName", name.replace("Course Name",""));
-                    }
-                }
-                startActivity(redirect);
-
-            }
-        });
 
         ConnectToDataBaseViaJson connectToDataBaseViaJson = new ConnectToDataBaseViaJson();
         connectToDataBaseViaJson.execute();
@@ -144,6 +149,11 @@ public class ShowStudentListsActivity extends AppCompatActivity {
                                         sbName.append("\n  ");
                                         sbName.append("Course Name : "+json.getJSONArray("student_lists").getJSONArray(i).get(k));
                                     }
+
+                                    if(k==3){
+                                        sbName.append("\n  ");
+                                        sbName.append("Company : "+json.getJSONArray("student_lists").getJSONArray(i).get(k));
+                                    }
                                             /*if (key.equals("student_name")) {
                                                 sbName.append("Student Name : "+value);
                                             }
@@ -175,7 +185,7 @@ public class ShowStudentListsActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();

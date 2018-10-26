@@ -149,7 +149,8 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
                     }
                     case MotionEvent.ACTION_UP:
                         if(accounttype == 3) {
-                            Intent companyLogin = new Intent(AttendanceCheckerMainActivity.this, CompanyLoginActivity.class);
+                            Intent companyLogin = new Intent(AttendanceCheckerMainActivity.this, CompanyNavigationActivity.class);
+                            companyLogin.putExtra("currentModuleSelected","Student");
                             startActivity(companyLogin);
                         }
                         if(accounttype == 4){
@@ -225,7 +226,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
     class ConnectToDataBaseViaJson extends AsyncTask<String, String, String> {
 
         /**
-         * Before starting background thread Show Progress Dialog
+         * Before starting background_light thread Show Progress Dialog
          */
         @Override
         protected void onPreExecute() {
@@ -274,7 +275,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
@@ -355,7 +356,7 @@ public class AttendanceCheckerMainActivity extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();

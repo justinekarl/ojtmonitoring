@@ -163,7 +163,8 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
                                 break;
                             }
                             case MotionEvent.ACTION_UP:
-                                Intent backToCompanyPage = new Intent(AddUpdateCompanyRequirements.this,CompanyLoginActivity.class);
+                                Intent backToCompanyPage = new Intent(AddUpdateCompanyRequirements.this,CompanyNavigationActivity.class);
+                                backToCompanyPage.putExtra("currentModuleSelected","Home");
                                 startActivity(backToCompanyPage);
                             case MotionEvent.ACTION_CANCEL: {
                                 Button view = (Button) v;
@@ -318,7 +319,7 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -406,7 +407,7 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
         }
 
         /**
-         * After completing background task Dismiss the progress dialog
+         * After completing background_light task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
@@ -422,5 +423,13 @@ public class AddUpdateCompanyRequirements extends AppCompatActivity {
 
     private void toastMessage(String message) {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent home = new Intent(this,CompanyNavigationActivity.class);
+        startActivity(home);
+        finish();
     }
 }

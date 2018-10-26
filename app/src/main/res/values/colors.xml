@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#1a214f</color>
     <color name="colorAccent">#00fffb</color>
     <color name="white">#ffffff</color>
-    <color name="light_orange">#ffffbb33</color>
+    <color name="light_orange">#ffbb33</color>
     <color name="light_teal">#9dd1d1</color>
     <color name="divider">#bcb9b9</color>
     <color name="link_blue">#1e35ff</color>
@@ -12,7 +12,7 @@
     <color name="black_overlay">#66000000</color>
     <color name="highlight_grey">#ff666666</color>
     <color name="dark_blue">#ff000066</color>
-    <color name="dark_green">#ff006600</color>
+    <color name="dark_green">#a7f4a7</color>
 
 
     <color name="username0">#e21400</color>
@@ -27,4 +27,7 @@
     <color name="username9">#3824aa</color>
     <color name="username10">#a700ff</color>
     <color name="username11">#d300e7</color>
+
+    <color name="light_red">#ec3759</color>
+    <color name="light_blue">#307ec2</color>
 </resources>
