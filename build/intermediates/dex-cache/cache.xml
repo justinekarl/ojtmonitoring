@@ -2,22 +2,265 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.3.0\2e7bc7033dc2c8423e661224171b3133fb155b28\okhttp-2.3.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_1a3fa21d13587d520f78160bddb2e352124766f7\classes.dex" />
+        sha1="2e7bc7033dc2c8423e661224171b3133fb155b28">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\okhttp-2.3.0_96469c5aead654d91b1e72336fd724f5f22f229a.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\aac389df31aead2ca44b0284d835aa74dbe54416\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="0c8c163f36499db23906d5b5cd38b38f2ebd53bd">
-        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_56f144329526ffea17d42e06b023691fdc8b51ca\classes.dex" />
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_17cad6937f6db0838cf6f875eca159a8b5a9b9e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.github.nkzawa\socket.io-client\0.5.0\7d40c590385ba95b34920eb89c986757a79968af\socket.io-client-0.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7d40c590385ba95b34920eb89c986757a79968af">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\socket.io-client-0.5.0_fe1a32b15c5e771358099c5a35aaf9e165e132e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\io.socket\engine.io-client\0.8.3\854b49396e1e9f9bb0ab025062ddb49c4ed65ca1\engine.io-client-0.8.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="854b49396e1e9f9bb0ab025062ddb49c4ed65ca1">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\engine.io-client-0.8.3_c61665c90975c2cf491d26d93791b00024adc483.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-ws\2.3.0\7896d229b6aa7884552ab9c23de54c7eb0de8203\okhttp-ws-2.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7896d229b6aa7884552ab9c23de54c7eb0de8203">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\okhttp-ws-2.3.0_48be4220af27bba18992c357f6edfd468a288d22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\539f550e7f3e419946a068f9b65fee8d1099c2e7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_f4e901ea6ff761b0ff9f19f564f3175a412ade9f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\96ef271d9fb21c92bdfc10fc4788b469927afaf8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4ce6303165f20650850673bd5891fbcca80caae">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_61c903a32bdd0eed88259d116fd5e93868eb0c00.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\f01001f0eceaa083d7260f10544e36cb8f47e7b3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_cd53b8aa8bc6a2be4c9d61630b170a4b13934bf4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\54d1a568fac33d8273b3bc17a2b3f02f0abfd1b0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_fd35ebce2693d3b5ecafc3c9bba52e3fdc66dc70.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\a892d7d02fa31dbf45670ddad4e57b3513e68203\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_9371b03da8313956699410e2691196feb725bbab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_a0e6438ca602749069a021b99bb8381e5249ab8f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\f5f13ab315f938e4244bc07fd670484de3e01f5a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_69a88c25a9108d0b9b20c6cfb278ec251ff9a61d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\34cb1a77cf4a5685e5c947a10887f42718991ede\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_6f885c94e19f582d84a7734c0ab7ff49ce116d01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\b75d34068532f2309f9b2e4625d47613919e71c4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_68bfca84e56fa24b84c44e821e928cd6b3e3ec77.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\96b513634876c4f71c10cee33b507eecceb340e0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_e534d718313c54a9c3c8981596798978d7df4abb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\io.socket\socket.io-client\0.8.3\b30500232ff0668a47c9f91f02e6935457a52fb5\socket.io-client-0.8.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b30500232ff0668a47c9f91f02e6935457a52fb5">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\socket.io-client-0.8.3_edf98b03758487ae893ca0f675d654a38b806025.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\0307a8e3c3e00be8bd5177ac8a8933fb1f323755\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_d9ee25571b39e5c6e5631cbe025b9557535db71a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\d6489719405f095ce462d19cd19a841b4d5b0ce5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_41dd41fe5fc9d5b875794b35f798ad977637c7be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\6c6875093e0d18d77a6de86b49bc0d3f5c79ae73\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_eb598fb65457faf2bacc849cc773a01d97906507.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\support-annotations-25.2.0_74318ebdcf6a1ace6c3fe23923171a043870338f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\075b756c553b3a1a1c374fd88f00e35e42ca629f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a6a1348ac6f3e2890a2cd7637b1e18f969ccc1e5">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_55cda5def512008af1cf06b88fd9b56fd352c31d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\c04504cfe31b1f61edadf3be92d91f7a13b573ef\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d05c16d86108d3d34377946a79d79f8485a46bfa">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_4658af9bc4ce25d24a4b58781a102f2d52b13789.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.2.1\2287494d4f5f9f3a9a2bb6980e3f32053721b315\core-3.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\core-3.2.1_bdc8be3a2324c5c13a730b93244a97cb45afa38d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\okio-1.11.0_4a31ec09d6154b3a758ea1a78b925c5ddd5631d3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.android\build-cache\e99ded62a36b745f783a9af8d60ad2b9761a000c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\classes_aa9c0b5896feba676422620d7e4e9ae63b04218c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.github.nkzawa\engine.io-client\0.5.0\72f54ba32a0d735630ebc33a5c39e14a5dd45492\engine.io-client-0.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="72f54ba32a0d735630ebc33a5c39e14a5dd45492">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\engine.io-client-0.5.0_bfe47e75c6e6fe0e4e177a02f009d9297097d046.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\gson-2.8.0_5109e7c66639aa7684f59d92aa7bcfcf27c3a14b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\14.0.1\69e12f4c6aeac392555f1ea86fab82b5e5e31ad4\guava-14.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="69e12f4c6aeac392555f1ea86fab82b5e5e31ad4">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\guava-14.0.1_5961fdfee06d564b58a2d5ad90b88ad94686ab62.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Acer\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.5.0\4b0bb6bfbecbdd42b97ff400af342bfe7f32bc83\okhttp-3.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b0bb6bfbecbdd42b97ff400af342bfe7f32bc83">
+        <dex dex="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\build\intermediates\pre-dexed\debug\okhttp-3.5.0_ec22b6b16957b026ed02f1b30dc3908e0616222f.jar" />
     </item>
 
 </items>
