@@ -34,7 +34,10 @@ public class TeacherTransactionLogBackgroundService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         teacherId = 0;
-        Bundle extras = intent.getExtras();
+        Bundle extras = null;
+        if(null != intent) {
+            extras = intent.getExtras();
+        }
         if(extras == null) {
             Log.d("Service", "null");
         }else {

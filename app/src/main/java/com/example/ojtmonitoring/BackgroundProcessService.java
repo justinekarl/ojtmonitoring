@@ -33,8 +33,10 @@ public class BackgroundProcessService extends Service {
         //Toast.makeText(this, " onStartCommand ", Toast.LENGTH_LONG).show();
         //Log.i(TAG,"onStartCommand");
         //super.onStartCommand(intent,flags,startId);
-
-        Bundle extras = intent.getExtras();
+        Bundle extras  = null;
+        if(null != intent) {
+            extras = intent.getExtras();
+        }
         if(extras == null) {
             Log.d("Service", "null");
         }else {

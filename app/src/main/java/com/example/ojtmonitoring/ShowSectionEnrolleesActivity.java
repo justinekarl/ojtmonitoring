@@ -3,6 +3,7 @@ package com.example.ojtmonitoring;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +53,10 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
     private List<UserAccountInfo> userAccountInfos;
     HashMap<Integer, Boolean> studentAcctMap = new HashMap<Integer, Boolean>();
     CustomNewStudentAccountListView newStudentEnrolleeListViewAdapter;
+    ListView sectionLstview;
     private int agentId;
+
+    ArrayAdapter<String> getSectionNameAdapter =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +65,13 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
         PaceSettingManager.lockActivityOrientation(this);
 
 
-        sectionsSpinner = (Spinner)findViewById(R.id.sectionsSpinner);
+        //sectionsSpinner = (Spinner)findViewById(R.id.sectionsSpinner);
         studentListView = (ListView)findViewById(R.id.studentListView);
         selectAllBtn = (Button)findViewById(R.id.selectAllBtn);
         clearAllBtn = (Button)findViewById(R.id.clearAllBtn);
         saveButton = (Button)findViewById(R.id.saveButton);
         cancelButton = (Button)findViewById(R.id.cancelButton);
+        sectionLstview = (ListView)findViewById(R.id.sectionLstview);
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
         college = sharedPreferences.getString("college","");
@@ -75,8 +80,9 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
         ConnectToDBViaJson populateSectionList = new ConnectToDBViaJson();
         populateSectionList.execute();
 
+        studentListView.setVisibility(View.INVISIBLE);
 
-        sectionsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        /*sectionsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) sectionsSpinner.getSelectedView()).setTextColor(getResources().getColor(R.color.white));
@@ -89,8 +95,38 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
+        });*/
+
+
+        sectionLstview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                sectionNameSelected = String.valueOf(parent.getItemAtPosition(position));
+
+                ConnectToDataBaseViaJson retrieveStudentsBySection = new ConnectToDataBaseViaJson();
+                retrieveStudentsBySection.execute();
+
+                studentListView.setVisibility(View.VISIBLE);
+            }
         });
 
+        sectionLstview.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
 
         selectAllBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -332,19 +368,19 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
                         if(json.has("section_list")){
                             JSONArray jsonArray = json.getJSONArray("section_list");
                             if(null != jsonArray){
-                                sectionNames= new String[jsonArray.length()+1];
-                                for(int ctr = 0;  ctr <= jsonArray.length() ; ctr++) {
-                                    if(ctr==0){
-                                        sectionNames[ctr] = "---Select Section---";
-                                        continue;
-                                    }
-                                    for (int i = 0; i < jsonArray.getJSONArray(ctr-1).length(); i++) {
-                                        if(null != jsonArray.getJSONArray(ctr-1) && i==1) {
-                                            sectionNames[ctr] = jsonArray.getJSONArray(ctr-1).get(i).toString();
-                                            break;
+                                List<String> sectionList = new ArrayList<String>();
+                                sectionNames= new String[jsonArray.length()];
+                                for(int ctr = 0;  ctr < jsonArray.length() ; ctr++) {
+                                    for (int i = 0; i < jsonArray.getJSONArray(ctr).length(); i++) {
+                                        if(null != jsonArray.getJSONArray(ctr) && i==1) {
+                                            sectionList.add(jsonArray.getJSONArray(ctr).get(i).toString());
                                         }
 
                                     }
+                                }
+
+                                if(sectionList.size() > 0){
+                                    sectionNames = sectionList.toArray(sectionNames);
                                 }
                             }
                         }
@@ -374,8 +410,11 @@ public class ShowSectionEnrolleesActivity extends AppCompatActivity {
 
             if(null != sectionNames && sectionNames.length > 0) {
 
-                sectionNameAdapter = new ArrayAdapter<String>(ShowSectionEnrolleesActivity.this, android.R.layout.simple_list_item_1, sectionNames);
-                sectionsSpinner.setAdapter(sectionNameAdapter);
+               /* sectionNameAdapter = new ArrayAdapter<String>(ShowSectionEnrolleesActivity.this, android.R.layout.simple_list_item_1, sectionNames);
+                sectionsSpinner.setAdapter(sectionNameAdapter);*/
+
+                getSectionNameAdapter = new ArrayAdapter<String>(ShowSectionEnrolleesActivity.this, android.R.layout.simple_list_item_1, sectionNames);
+                sectionLstview.setAdapter(getSectionNameAdapter);
             }
 
 

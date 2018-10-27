@@ -325,8 +325,7 @@ public class ShowCoordinatorRequestActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent home = new Intent(this,CompanyNavigationActivity.class);
-        home.putExtra("currentModuleSelected","Supervisor");
+        Intent home = new Intent(this,CompanyLoginActivity.class);
         startActivity(home);
     }
 }

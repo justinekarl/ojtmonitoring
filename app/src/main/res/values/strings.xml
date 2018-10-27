@@ -14,7 +14,7 @@
     <string name="title_activity_create_student">CreateStudentActivity</string>
 
     <string-array name="collegelist">
-        <item>--Select Below--</item>
+       <!-- <item>&#45;&#45;Select Below&#45;&#45;</item>-->
         <item>College of Arts and Social Sciences</item>
         <item>College of Business</item>
         <item>College of Computing and Information Sciences</item>

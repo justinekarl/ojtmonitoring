@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,8 +40,8 @@ import java.util.Map;
 public class UserAccountsActivity extends AppCompatActivity {
 
     TextView labelAccountsTxt;
-    Spinner collegeSpinner;
-    ListView collegesLstView;
+    //Spinner collegeSpinner;
+    ListView collegesLstView,collegeListView;
     ArrayAdapter<String> collegeListAdapter = null;
     String selectedCollege = "";
     String selectedEntity = "";
@@ -58,15 +60,18 @@ public class UserAccountsActivity extends AppCompatActivity {
     int accounttype = 0;
     int agentId;
 
+    ArrayAdapter<String> getCollegAdapter =null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_accounts);
 
         labelAccountsTxt = (TextView)findViewById(R.id.labelAccountsTxt);
-        collegeSpinner = (Spinner)findViewById(R.id.collegeSpinner);
+        //collegeSpinner = (Spinner)findViewById(R.id.collegeSpinner);
         collegesLstView = (ListView)findViewById(R.id.collegesLstView);
         processBtn = (Button)findViewById(R.id.processBtn);
+        collegeListView = (ListView)findViewById(R.id.collegeListView);
 
         selectedEntity = getIntent().getStringExtra("accountType");
 
@@ -77,14 +82,52 @@ public class UserAccountsActivity extends AppCompatActivity {
                 PaceSettingManager.USER_PREFERENCES, Context.MODE_PRIVATE);
         agentId = sharedpreferences.getInt("agent_id",0);
 
-        collegeListAdapter = new ArrayAdapter<String>(UserAccountsActivity.this,
+
+        String[] testArray = getResources().getStringArray(R.array.collegelist);
+        List<String> testList = Arrays.asList(testArray);
+
+        getCollegAdapter =  new ArrayAdapter<>(getBaseContext(),
+                                               android.R.layout.simple_list_item_1, testList);
+
+        collegeListView.setAdapter(getCollegAdapter);
+
+        collegeListView.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
+
+
+        collegeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedCollege = String.valueOf(parent.getItemAtPosition(position));
+                if(!selectedEntity.equals("--Select Below--")) {
+                    populateAccountsByCollege(selectedCollege);
+                }
+            }
+        });
+
+        /*collegeListAdapter = new ArrayAdapter<String>(UserAccountsActivity.this,
                 android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.collegelist));
 
         collegeListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        collegeSpinner.setAdapter(collegeListAdapter);
+        collegeSpinner.setAdapter(collegeListAdapter);*/
 
-        collegeSpinner.setOnItemSelectedListener(
+        /*collegeSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -102,7 +145,7 @@ public class UserAccountsActivity extends AppCompatActivity {
 
                     }
                 }
-        );
+        );*/
 
         processBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
