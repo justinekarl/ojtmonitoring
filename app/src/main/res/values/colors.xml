@@ -30,4 +30,6 @@
 
     <color name="light_red">#ec3759</color>
     <color name="light_blue">#307ec2</color>
+    <color name="edit_text">#abd6a7</color>
+    <color name="login">#68c1ed</color>
 </resources>
