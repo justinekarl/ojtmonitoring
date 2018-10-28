@@ -12,13 +12,16 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
@@ -155,7 +158,56 @@ public class TeacherLoginActivity extends AppCompatActivity {
                 return view;
             }
         };*/
-        customMenuAdapter = new CustomMenuAdapter(this,  studentMenuItems,studentMenuImages);
+        customMenuAdapter = new CustomMenuAdapter(this,  studentMenuItems,studentMenuImages){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View view = super.getView(position, convertView, parent);
+
+                RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                // Initialize a TextView for ListView each Item
+                TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                tv.setGravity(Gravity.CENTER);
+
+                // Set the text color of TextView (ListView Item)
+                switch (position) {
+                    case 0:
+                        //relativeLayout.setBackgroundColor(Color.RED);
+                        relativeLayout.setBackgroundResource(R.mipmap.indigo);
+                        break;
+                    case 1:
+                        relativeLayout.setBackgroundResource(R.mipmap.red);
+                        break;
+                    case 2:
+                        relativeLayout.setBackgroundResource(R.mipmap.orange);
+                        break;
+                    case 3:
+                        relativeLayout.setBackgroundResource(R.mipmap.skyblue);
+                        break;
+                    case 4:
+                        relativeLayout.setBackgroundResource(R.mipmap.peach);
+                        break;
+                    case 5:
+                        relativeLayout.setBackgroundResource(R.mipmap.gold);
+                        break;
+                    case 6:
+                        relativeLayout.setBackgroundResource(R.mipmap.bluegreen);
+                        break;
+                    case 7:
+                        relativeLayout.setBackgroundResource(R.mipmap.lightpink);
+                        break;
+                    case 8:
+                        relativeLayout.setBackgroundResource(R.mipmap.lightbluegreen);
+                        break;
+                    case 9:
+                        relativeLayout.setBackgroundResource(R.mipmap.yelloorange);
+                        break;
+                }
+
+                // Generate ListView Item using TextView
+                return view;
+            }
+        };
         menuOptionsLstView.setAdapter(customMenuAdapter);
 
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd-yyyy");
@@ -259,7 +311,28 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         currentModuleSelected = "Home";
 
-                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  homeMenuItems, homeMenuImages);
+                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  homeMenuItems, homeMenuImages){
+                            @Override
+                            public View getView(int position, View convertView, ViewGroup parent) {
+
+                                View view = super.getView(position, convertView, parent);
+
+                                RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                                // Initialize a TextView for ListView each Item
+                                TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                                tv.setGravity(Gravity.CENTER);
+
+                                // Set the text color of TextView (ListView Item)
+                                switch (position) {
+                                    case 0:
+                                        relativeLayout.setBackgroundResource(R.mipmap.yelloorange);
+                                        break;
+                                }
+
+                                // Generate ListView Item using TextView
+                                return view;
+                            }
+                        };
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         teacherHomeBtn.setBackgroundColor(Color.GRAY);
                         studentModule.setBackgroundColor(Color.parseColor("#3088AA"));
@@ -290,7 +363,56 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         currentModuleSelected = "Student";
 
-                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  studentMenuItems, studentMenuImages);
+                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  studentMenuItems, studentMenuImages){
+                            @Override
+                            public View getView(int position, View convertView, ViewGroup parent) {
+
+                                View view = super.getView(position, convertView, parent);
+
+                                RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                                // Initialize a TextView for ListView each Item
+                                TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                                tv.setGravity(Gravity.CENTER);
+
+                                // Set the text color of TextView (ListView Item)
+                                switch (position) {
+                                    case 0:
+                                        //relativeLayout.setBackgroundColor(Color.RED);
+                                        relativeLayout.setBackgroundResource(R.mipmap.indigo);
+                                        break;
+                                    case 1:
+                                        relativeLayout.setBackgroundResource(R.mipmap.red);
+                                        break;
+                                    case 2:
+                                        relativeLayout.setBackgroundResource(R.mipmap.orange);
+                                        break;
+                                    case 3:
+                                        relativeLayout.setBackgroundResource(R.mipmap.skyblue);
+                                        break;
+                                    case 4:
+                                        relativeLayout.setBackgroundResource(R.mipmap.peach);
+                                        break;
+                                    case 5:
+                                        relativeLayout.setBackgroundResource(R.mipmap.gold);
+                                        break;
+                                    case 6:
+                                        relativeLayout.setBackgroundResource(R.mipmap.bluegreen);
+                                        break;
+                                    case 7:
+                                        relativeLayout.setBackgroundResource(R.mipmap.lightpink);
+                                        break;
+                                    case 8:
+                                        relativeLayout.setBackgroundResource(R.mipmap.lightbluegreen);
+                                        break;
+                                    case 9:
+                                        relativeLayout.setBackgroundResource(R.mipmap.yelloorange);
+                                        break;
+                                }
+
+                                // Generate ListView Item using TextView
+                                return view;
+                            }
+                        };
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         studentModule.setBackgroundColor(Color.GRAY);
                         companyModule.setBackgroundColor(Color.parseColor("#3088AA"));
@@ -320,7 +442,28 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         currentModuleSelected = "Company";
 
-                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  companyMenuItems, companyMenuImages);
+                        customMenuAdapter = new CustomMenuAdapter(TeacherLoginActivity.this,  companyMenuItems, companyMenuImages){
+                            @Override
+                            public View getView(int position, View convertView, ViewGroup parent) {
+
+                                View view = super.getView(position, convertView, parent);
+
+                                RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                                // Initialize a TextView for ListView each Item
+                                TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                                tv.setGravity(Gravity.CENTER);
+
+                                // Set the text color of TextView (ListView Item)
+                                switch (position) {
+                                    case 0:
+                                        relativeLayout.setBackgroundResource(R.mipmap.gold);
+                                        break;
+                                }
+
+                                // Generate ListView Item using TextView
+                                return view;
+                            }
+                        };
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         companyModule.setBackgroundColor(Color.GRAY);
                         studentModule.setBackgroundColor(Color.parseColor("#3088AA"));

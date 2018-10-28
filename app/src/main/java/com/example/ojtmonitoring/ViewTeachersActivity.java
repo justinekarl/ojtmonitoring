@@ -213,8 +213,7 @@ public class ViewTeachersActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent backToPrev = new Intent(ViewTeachersActivity.this,CompanyNavigationActivity.class);
-        backToPrev.putExtra("currentModuleSelected","Teacher");
+        Intent backToPrev = new Intent(ViewTeachersActivity.this,CompanyLoginActivity.class);
         startActivity(backToPrev);
         finish();
     }

@@ -301,9 +301,11 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         break;
                     }
                     case MotionEvent.ACTION_UP:
-                        Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
+                        Intent viewTeachers = new Intent(CompanyLoginActivity.this,ViewTeachersActivity.class);
+                        startActivity(viewTeachers);
+                        /*Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
                         companyNav.putExtra("currentModuleSelected","Teacher");
-                        startActivity(companyNav);
+                        startActivity(companyNav);*/
                         /*currentModuleSelected= "Teacher";
 
                         customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  teacherMenuItems , teacherMenuImages);
@@ -334,9 +336,11 @@ public class CompanyLoginActivity extends AppCompatActivity {
                         break;
                     }
                     case MotionEvent.ACTION_UP:
-                        Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
+                        Intent coorReq = new Intent(CompanyLoginActivity.this,ShowCoordinatorRequestActivity.class);
+                        startActivity(coorReq);
+                        /*Intent companyNav = new Intent(CompanyLoginActivity.this,CompanyNavigationActivity.class);
                         companyNav.putExtra("currentModuleSelected","Supervisor");
-                        startActivity(companyNav);
+                        startActivity(companyNav);*/
                         /*currentModuleSelected= "Supervisor";
 
                         customMenuAdapter = new CustomMenuAdapter(CompanyLoginActivity.this,  supervisorMenuItems , supervisorMenuImages);

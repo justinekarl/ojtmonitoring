@@ -12,38 +12,6 @@
         android:layout_height="match_parent"
         tools:context="com.example.ojtmonitoring.StudentLoginActivity">
 
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="138dp"
-            android:layout_height="43dp"
-            android:layout_x="14dp"
-            android:layout_y="505dp"
-            android:background="@mipmap/signout"
-            tools:layout_editor_absoluteX="90dp"
-            tools:layout_editor_absoluteY="171dp" />
-
-        <TextView
-            android:id="@+id/messageNotifTxt"
-            android:layout_width="310dp"
-            android:layout_height="wrap_content"
-            android:layout_x="38dp"
-            android:layout_y="442dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:textAlignment="center"
-            android:textColor="?attr/colorAccent"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <ListView
-            android:id="@+id/menuOptionsLstView"
-            android:layout_width="338dp"
-            android:layout_height="250dp"
-            android:layout_x="24dp"
-            android:layout_y="178dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
-            android:foreground="@color/white"
-            android:listSelector="@drawable/listview_colors" />
-
         <TextView
             android:id="@+id/textView24"
             android:layout_width="266dp"
@@ -73,8 +41,40 @@
             android:id="@+id/signoutbtntop"
             android:layout_width="135dp"
             android:layout_height="38dp"
-            android:layout_x="26dp"
+            android:layout_x="16dp"
             android:layout_y="8dp"
             android:background="@mipmap/signout" />
+
+        <ListView
+            android:id="@+id/menuOptionsLstView"
+            android:layout_width="match_parent"
+            android:layout_height="326dp"
+            android:layout_x="2dp"
+            android:layout_y="167dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:foreground="@color/white"
+            android:listSelector="@drawable/listview_colors" />
+
+        <TextView
+            android:id="@+id/messageNotifTxt"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_x="38dp"
+            android:layout_y="504dp"
+            android:background="@color/zxing_custom_viewfinder_mask"
+            android:textAlignment="center"
+            android:textColor="?attr/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="138dp"
+            android:layout_height="43dp"
+            android:layout_x="17dp"
+            android:layout_y="572dp"
+            android:background="@mipmap/signout"
+            tools:layout_editor_absoluteX="90dp"
+            tools:layout_editor_absoluteY="171dp" />
     </AbsoluteLayout>
 </ScrollView>

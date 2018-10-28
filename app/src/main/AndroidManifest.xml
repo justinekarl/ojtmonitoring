@@ -25,7 +25,6 @@
             android:name=".CompanyTransactionLogBackgroundService"
             android:exported="false" />
 
-
         <activity
             android:name=".Login"
             android:screenOrientation="portrait">
@@ -35,7 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".CreateAccount"
             android:label="@string/title_activity_signup"
@@ -96,7 +94,8 @@
         <activity android:name=".PendingStudentOJtRequestActivity" />
         <activity android:name=".PendingOjTForApprovalActivity" />
         <activity android:name=".StudentInformationActivity" />
-        <activity android:name=".CompanyNavigationActivity"></activity>
+        <activity android:name=".CompanyNavigationActivity" />
+        <activity android:name=".StudentOjtLogsActivity"></activity>
     </application>
 
 </manifest>
