@@ -28,6 +28,7 @@ import android.text.format.DateUtils;
 import android.text.style.TtsSpan;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -108,7 +110,35 @@ public class CoordinatorLoginActivity extends AppCompatActivity {
             }
         };*/
 
-        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View view = super.getView(position, convertView, parent);
+
+                RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                // Initialize a TextView for ListView each Item
+                TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                tv.setGravity(Gravity.CENTER);
+
+                // Set the text color of TextView (ListView Item)
+                switch (position) {
+                    case 0:
+                        //relativeLayout.setBackgroundColor(Color.RED);
+                        relativeLayout.setBackgroundResource(R.mipmap.lightviolet);
+                        break;
+                    case 1:
+                        relativeLayout.setBackgroundResource(R.mipmap.gold);
+                        break;
+                    case 2:
+                        relativeLayout.setBackgroundResource(R.mipmap.orange);
+                        break;
+                }
+
+                // Generate ListView Item using TextView
+                return view;
+            }
+        };
         contentLstVw.setAdapter(customMenuAdapter);
 
         //allowing vertical scroll even in scroll view

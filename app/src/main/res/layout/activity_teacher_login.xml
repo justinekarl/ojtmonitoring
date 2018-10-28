@@ -89,8 +89,8 @@
             android:layout_height="301dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_x="29dp"
-            android:layout_y="323dp"
+            android:layout_x="4dp"
+            android:layout_y="312dp"
             android:background="@color/zxing_custom_viewfinder_mask"
             android:descendantFocusability="blocksDescendants"
             android:listSelector="@drawable/listview_colors" />

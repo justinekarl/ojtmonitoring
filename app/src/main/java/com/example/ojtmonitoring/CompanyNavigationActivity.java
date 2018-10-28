@@ -3,10 +3,14 @@ package com.example.ojtmonitoring;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class CompanyNavigationActivity extends AppCompatActivity {
 
@@ -68,13 +72,119 @@ public class CompanyNavigationActivity extends AppCompatActivity {
         }
 
         if(currentModule.equals("Home")){
-            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  homeMenuItems , homeMenuImages);
+            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  homeMenuItems , homeMenuImages){
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+
+                    View view = super.getView(position, convertView, parent);
+
+                    RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                    // Initialize a TextView for ListView each Item
+                    TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                    tv.setGravity(Gravity.CENTER);
+
+                    // Set the text color of TextView (ListView Item)
+                    switch (position) {
+                        case 0:
+                            relativeLayout.setBackgroundResource(R.mipmap.bluegreen);
+                            break;
+                        case 1:
+                            relativeLayout.setBackgroundResource(R.mipmap.red);
+                            break;
+                    }
+
+                    // Generate ListView Item using TextView
+                    return view;
+                }
+            };
         }else if(currentModule.equals("Student")){
-            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  studentMenuItems, studentMenuImages);
+            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  studentMenuItems, studentMenuImages){
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+
+                    View view = super.getView(position, convertView, parent);
+
+                    RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                    // Initialize a TextView for ListView each Item
+                    TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                    tv.setGravity(Gravity.CENTER);
+
+                    // Set the text color of TextView (ListView Item)
+                    switch (position) {
+                        case 0:
+                            //relativeLayout.setBackgroundColor(Color.RED);
+                            relativeLayout.setBackgroundResource(R.mipmap.gold);
+                            break;
+                        case 1:
+                            relativeLayout.setBackgroundResource(R.mipmap.lightbluegreen);
+                            break;
+                        case 2:
+                            relativeLayout.setBackgroundResource(R.mipmap.orange);
+                            break;
+                        case 3:
+                            relativeLayout.setBackgroundResource(R.mipmap.skyblue);
+                            break;
+                        case 4:
+                            relativeLayout.setBackgroundResource(R.mipmap.peach);
+                            break;
+                        case 5:
+                            relativeLayout.setBackgroundResource(R.mipmap.gold);
+                            break;
+                        case 6:
+                            relativeLayout.setBackgroundResource(R.mipmap.bluegreen);
+                            break;
+                    }
+
+                    // Generate ListView Item using TextView
+                    return view;
+                }
+            };
         }else if(currentModule.equals("Supervisor")){
-            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  supervisorMenuItems , supervisorMenuImages);
+            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  supervisorMenuItems , supervisorMenuImages){
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+
+                    View view = super.getView(position, convertView, parent);
+
+                    RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                    // Initialize a TextView for ListView each Item
+                    TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                    tv.setGravity(Gravity.CENTER);
+
+                    // Set the text color of TextView (ListView Item)
+                    switch (position) {
+                        case 0:
+                            relativeLayout.setBackgroundResource(R.mipmap.lightpink);
+                            break;
+                    }
+
+                    // Generate ListView Item using TextView
+                    return view;
+                }
+            };
         }else if(currentModule.equals("Teacher")){
-            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  teacherMenuItems , teacherMenuImages);
+            customMenuAdapter = new CustomMenuAdapter(CompanyNavigationActivity.this,  teacherMenuItems , teacherMenuImages){
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+
+                    View view = super.getView(position, convertView, parent);
+
+                    RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                    // Initialize a TextView for ListView each Item
+                    TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                    tv.setGravity(Gravity.CENTER);
+
+                    // Set the text color of TextView (ListView Item)
+                    switch (position) {
+                        case 0:
+                            relativeLayout.setBackgroundResource(R.mipmap.lightblue);
+                            break;
+                    }
+
+                    // Generate ListView Item using TextView
+                    return view;
+                }
+            };
 
         }
 

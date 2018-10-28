@@ -7,24 +7,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -171,7 +169,53 @@ public class StudentLoginActivity extends AppCompatActivity {
 
         }
 
-        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage);
+        customMenuAdapter = new CustomMenuAdapter(this,  menuItems, menuImage){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View view = super.getView(position, convertView, parent);
+
+                RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.linearlayoutCustom);
+                        // Initialize a TextView for ListView each Item
+                TextView tv = (TextView) view.findViewById(R.id.txtTitle);
+                tv.setGravity(Gravity.CENTER);
+
+                // Set the text color of TextView (ListView Item)
+                switch (position) {
+                    case 0:
+                        //relativeLayout.setBackgroundColor(Color.RED);
+                        relativeLayout.setBackgroundResource(R.mipmap.indigo);
+                        break;
+                    case 1:
+                        relativeLayout.setBackgroundResource(R.mipmap.red);
+                        break;
+                    case 2:
+                        relativeLayout.setBackgroundResource(R.mipmap.orange);
+                        break;
+                    case 3:
+                        relativeLayout.setBackgroundResource(R.mipmap.skyblue);
+                        break;
+                    case 4:
+                        relativeLayout.setBackgroundResource(R.mipmap.peach);
+                        break;
+                    case 5:
+                        relativeLayout.setBackgroundResource(R.mipmap.gold);
+                        break;
+                    case 6:
+                        relativeLayout.setBackgroundResource(R.mipmap.bluegreen);
+                        break;
+                    case 7:
+                        relativeLayout.setBackgroundResource(R.mipmap.lightpink);
+                        break;
+                }
+
+
+
+
+                // Generate ListView Item using TextView
+                return view;
+            }
+        };
 
         /*menuAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,menuItems){
             @NonNull

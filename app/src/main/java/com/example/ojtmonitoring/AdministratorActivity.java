@@ -177,13 +177,17 @@ public class AdministratorActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         currentSelectedModule = "Teacher";
 
-                        customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  teacherMenuOptions, teacherMenuImages);
-                        menuLstView.setAdapter(customMenuAdapter);
+                        /*customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  teacherMenuOptions, teacherMenuImages);
+                        menuLstView.setAdapter(customMenuAdapter);*/
 
                         teacherBtn.setBackgroundColor(Color.GRAY);
                         studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+
+                        Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
+                        home1.putExtra("accountType","Teacher");
+                        startActivity(home1);
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
@@ -209,13 +213,16 @@ public class AdministratorActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         currentSelectedModule = "Student";
 
-                        customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  studentMenuOptions, studentMenuImages);
-                        menuLstView.setAdapter(customMenuAdapter);
+                        /*customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  studentMenuOptions, studentMenuImages);
+                        menuLstView.setAdapter(customMenuAdapter);*/
 
                         teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         studentBtn.setBackgroundColor(Color.GRAY);
                         companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
+                        home1.putExtra("accountType","Student");
+                        startActivity(home1);
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
@@ -241,13 +248,17 @@ public class AdministratorActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         currentSelectedModule = "Company";
 
-                        customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  companyMenuOptions, companyMenuImages);
-                        menuLstView.setAdapter(customMenuAdapter);
+//                        customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  companyMenuOptions, companyMenuImages);
+//                        menuLstView.setAdapter(customMenuAdapter);
 
                         teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         companyBtn.setBackgroundColor(Color.GRAY);
                         supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+
+                        Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
+                        home1.putExtra("accountType","Company");
+                        startActivity(home1);
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
@@ -273,13 +284,17 @@ public class AdministratorActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         currentSelectedModule = "Supervisor";
 
-                        customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  supervisorMenuOptions, supervisorMenuImages);
-                        menuLstView.setAdapter(customMenuAdapter);
+                        /*customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  supervisorMenuOptions, supervisorMenuImages);
+                        menuLstView.setAdapter(customMenuAdapter);*/
 
                         teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         supervisorBtn.setBackgroundColor(Color.GRAY);
+                        Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
+                        home1.putExtra("accountType","Supervisor");
+                        startActivity(home1);
+
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
