@@ -59,8 +59,8 @@ public class StudentLoginActivity extends AppCompatActivity {
 
 
     private StringBuffer sb = new StringBuffer("");
-    String[] menuItems = {"My Information","Companies","Add/Update My Resume","Select Section","My OJT Progress","Rate Company","Student Weekly Practicum Report"};
-    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list};
+    String[] menuItems = {"My Information","Companies","Add/Update My Resume","Select Section","My OJT Progress","Rate Company","Student Weekly Practicum Report","Logs"};
+    int[] menuImage = {R.mipmap.ic_list,R.mipmap.ic_list,R.mipmap.ic_add_res,R.mipmap.ic_sel,R.mipmap.ic_list,R.mipmap.ic_rate,R.mipmap.ic_list,R.mipmap.ic_list};
     ListAdapter  menuAdapter;
     boolean hasSectionSelected = false;
     boolean hasMessageNotif=false;
@@ -292,6 +292,11 @@ public class StudentLoginActivity extends AppCompatActivity {
                             case 6:
                                 Intent studentWeeklyReport = new Intent(StudentLoginActivity.this,StudentWeeklyReportActivity.class);
                                 startActivity(studentWeeklyReport);
+                                finish();
+                                return;
+                            case 7:
+                                Intent logs = new Intent(StudentLoginActivity.this,StudentOjtLogsActivity.class);
+                                startActivity(logs);
                                 finish();
                                 return;
                             default:

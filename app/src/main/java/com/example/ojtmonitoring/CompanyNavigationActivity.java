@@ -32,6 +32,7 @@ public class CompanyNavigationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_company_navigation);
         menuOptionsLstView = (ListView)findViewById(R.id.menuOptionsLstView);
 
+        PaceSettingManager.lockActivityOrientation(this);
         menuOptionsLstView.setOnTouchListener(new ListView.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
