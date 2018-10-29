@@ -32,4 +32,6 @@
     <color name="light_blue">#307ec2</color>
     <color name="edit_text">#abd6a7</color>
     <color name="login">#68c1ed</color>
+    <color name="ok">#49be65</color>
+    <color name="cancel">#ff2626</color>
 </resources>
