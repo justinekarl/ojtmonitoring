@@ -34,4 +34,15 @@
     <color name="login">#68c1ed</color>
     <color name="ok">#49be65</color>
     <color name="cancel">#ff2626</color>
+
+    <color name="company_color">#03b349</color>
+    <color name="student_color">#d4bf02</color>
+    <color name="teacher_color">#7d30aa</color>
+    <color name="supervisor_color">#fd8b49</color>
+    <color name="reset_color">#fd3b1d</color>
+    <color name="home_color">#2576d9</color>
+    <color name="input_color">#54ffffff</color>
+
+
+
 </resources>
