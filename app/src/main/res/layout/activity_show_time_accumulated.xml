@@ -30,10 +30,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="113dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="Current Rendered Time:"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
+        android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,7 +47,7 @@
         android:layout_height="43dp"
         android:layout_marginRight="42dp"
         android:layout_marginTop="113dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@android:color/white"
@@ -58,6 +58,8 @@
 
     <Button
         android:id="@+id/homeBtn"
+        android:background="@drawable/custom_button_ok_bg"
+        android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -77,10 +79,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="34dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="Start Date:"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
+        android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.205"
@@ -94,7 +96,7 @@
         android:layout_height="46dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="25dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@android:color/white"
@@ -110,10 +112,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="33dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="End Date:"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
+        android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -126,7 +128,7 @@
         android:layout_height="39dp"
         android:layout_marginRight="21dp"
         android:layout_marginTop="18dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="N/A"
         android:textAlignment="center"
         android:textColor="@android:color/white"
@@ -142,10 +144,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="31dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="Remaining Hours:"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
+        android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.421"
@@ -159,7 +161,7 @@
         android:layout_height="33dp"
         android:layout_marginRight="39dp"
         android:layout_marginTop="18dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@android:color/white"
@@ -172,10 +174,10 @@
         android:id="@+id/textView66"
         android:layout_width="176dp"
         android:layout_height="22dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="Status:"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
+        android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="38dp"
@@ -190,7 +192,7 @@
         android:id="@+id/statusTxt"
         android:layout_width="196dp"
         android:layout_height="61dp"
-        android:background="@color/zxing_custom_viewfinder_mask"
+        
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@color/white"

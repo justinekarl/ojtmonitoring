@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_x="70dp"
             android:layout_y="17dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:hint="Student Name"
             android:inputType="textPersonName"
@@ -32,7 +32,7 @@
             android:layout_height="300dp"
             android:layout_x="12dp"
             android:layout_y="312dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:fadeScrollbars="false"
             android:footerDividersEnabled="false"
             android:headerDividersEnabled="false"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_x="69dp"
             android:layout_y="72dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:hint="Company Name"
             android:inputType="textPersonName"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_x="213dp"
             android:layout_y="135dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:hint="Thru Date"
             android:inputType="date"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_x="67dp"
             android:layout_y="135dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:hint="From Date"
             android:inputType="date"
@@ -82,6 +82,8 @@
 
         <Button
             android:id="@+id/resetBtn"
+            android:textColor="#fff"
+            android:background="@drawable/custom_button_cancelbg"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
             android:layout_x="221dp"
@@ -96,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_x="114dp"
             android:layout_y="283dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Company Name"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -107,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_x="229dp"
             android:layout_y="284dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Login"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -118,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_x="297dp"
             android:layout_y="284dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Logout"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -129,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_x="11dp"
             android:layout_y="283dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Student Name"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -140,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_x="79dp"
             android:layout_y="173dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:hint="Start Time"
             android:inputType="text|time"
@@ -153,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_x="228dp"
             android:layout_y="172dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:hint="End Time"
             android:inputType="text|time"
@@ -170,8 +172,10 @@
 
         <Button
             android:id="@+id/searchBtn"
+            android:background="@drawable/custom_button_ok_bg"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
+            android:textColor="#fff"
             android:layout_x="61dp"
             android:layout_y="234dp"
             android:drawableLeft="@mipmap/search_icon"
@@ -182,6 +186,7 @@
             android:id="@+id/printResultBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@drawable/custom_button_bg"
             android:layout_x="211dp"
             android:layout_y="606dp"
             android:drawableLeft="@mipmap/print_icon"

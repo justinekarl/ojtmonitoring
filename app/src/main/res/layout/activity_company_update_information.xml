@@ -39,7 +39,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="25dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Name:"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -56,7 +56,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
@@ -70,7 +70,7 @@
         <TextView
             android:id="@+id/textView13"
             android:layout_width="64dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
             android:textStyle="bold"
@@ -91,7 +91,7 @@
             android:layout_height="49dp"
             android:layout_marginRight="39dp"
             android:layout_marginTop="36dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textMultiLine"
             android:textAlignment="center"
@@ -108,7 +108,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="0dp"
             android:text="Phone number:"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="14sp"
@@ -124,7 +124,7 @@
             android:layout_marginRight="24dp"
             android:layout_marginStart="23dp"
             android:layout_marginTop="30dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="phone"
             android:textAlignment="center"
@@ -145,7 +145,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="56dp"
             android:textStyle="bold"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Company Type:"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -162,7 +162,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
@@ -204,7 +204,7 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:layout_marginLeft="25dp"
             android:layout_marginStart="8dp"
             android:textStyle="bold"
@@ -225,7 +225,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="23dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textMultiLine"
             android:textAlignment="center"
@@ -246,7 +246,7 @@
             android:layout_marginTop="8dp"
             android:text="MOA Certified:"
             android:textColor="@color/white"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/moaYesRad" />
@@ -260,7 +260,7 @@
             android:layout_marginTop="26dp"
             android:text="Yes"
             android:textStyle="bold"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:textColor="@color/white"
             app:layout_constraintLeft_toRightOf="@+id/textView17"
             app:layout_constraintTop_toBottomOf="@+id/custDescriptionTxt" />
@@ -274,7 +274,7 @@
             android:layout_marginRight="39dp"
             android:layout_marginStart="26dp"
             android:textStyle="bold"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:layout_marginTop="26dp"
             android:text="No"
             android:textColor="@color/white"

@@ -29,7 +29,6 @@
             android:layout_height="38dp"
             android:layout_x="25dp"
             android:layout_y="69dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="14sp"

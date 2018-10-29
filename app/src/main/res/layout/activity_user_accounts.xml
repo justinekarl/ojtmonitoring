@@ -39,6 +39,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="7dp"
         android:text="Process Accounts"
+        android:background="@drawable/custom_button_ok_bg"
+        android:textColor="#fff"
         android:drawableLeft="@mipmap/process_icon"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"

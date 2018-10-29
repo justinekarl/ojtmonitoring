@@ -18,6 +18,8 @@
             android:layout_height="52dp"
             android:layout_marginTop="34dp"
             android:text="Approve Selected"
+            android:textColor="#fff"
+            android:background="@drawable/custom_button_ok_bg"
             app:layout_constraintTop_toBottomOf="@+id/teacherAcctsLstView"
             android:layout_marginLeft="121dp"
             app:layout_constraintLeft_toLeftOf="parent" />

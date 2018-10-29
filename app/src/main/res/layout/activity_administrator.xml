@@ -18,22 +18,22 @@
             android:layout_width="271dp"
             android:layout_height="34dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topLogoutBtn"
-            app:layout_constraintHorizontal_bias="0.505" />
+            app:layout_constraintTop_toBottomOf="@+id/topLogoutBtn" />
 
         <TextView
             android:id="@+id/adminNameTxt"
             android:layout_width="186dp"
             android:layout_height="42dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="15dp"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
@@ -46,14 +46,14 @@
             android:id="@+id/topLogoutBtn"
             android:layout_width="93dp"
             android:layout_height="43dp"
-            android:background="@mipmap/signout"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp"
             android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:background="@mipmap/signout"
+            app:layout_constraintHorizontal_bias="0.029"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.029" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/teacherBtn"
@@ -148,13 +148,13 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="8dp"
             android:background="@color/company_color"
             android:drawableLeft="@mipmap/company_icon"
             android:text="Company"
-            android:textSize="30dp"
             android:textColor="@android:color/white"
+            android:textSize="30dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adminNameTxt" />

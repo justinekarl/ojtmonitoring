@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Section Name"
+            android:background="@drawable/custom_input_bg"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="37dp"
             android:ems="10"
+            android:background="@drawable/custom_input_bg"
             android:hint="No. of Students"
             android:inputType="number"
             android:textAlignment="center"
@@ -65,12 +67,14 @@
 
         <Button
             android:id="@+id/saveBtn"
+            android:textColor="#fff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="56dp"
             android:text="Save"
+            android:background="@drawable/custom_button_ok_bg"
             app:layout_constraintHorizontal_bias="0.682"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/cancelBtn"
@@ -78,6 +82,8 @@
 
         <Button
             android:id="@+id/cancelBtn"
+            android:background="@drawable/custom_button_cancelbg"
+            android:textColor="#fff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
