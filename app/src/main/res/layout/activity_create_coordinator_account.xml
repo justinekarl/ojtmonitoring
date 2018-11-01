@@ -222,7 +222,7 @@
 
         <Button
             android:id="@+id/btnCancelCoor"
-            android:layout_width="wrap_content"
+            android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_x="54dp"
             android:layout_y="463dp"
@@ -233,7 +233,7 @@
 
         <Button
             android:id="@+id/btnSaveCoor"
-            android:layout_width="wrap_content"
+            android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_x="228dp"
             android:layout_y="464dp"

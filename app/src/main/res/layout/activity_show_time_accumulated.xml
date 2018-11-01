@@ -58,16 +58,16 @@
 
     <Button
         android:id="@+id/homeBtn"
-        android:background="@drawable/custom_button_ok_bg"
-        android:textColor="#fff"
-        android:layout_width="wrap_content"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="74dp"
-        android:text="Back to Home"
-        android:textStyle="bold"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/custom_button_ok_bg"
         android:drawableLeft="@mipmap/home"
+        android:text="Back to Home"
+        android:textColor="#fff"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView65" />
