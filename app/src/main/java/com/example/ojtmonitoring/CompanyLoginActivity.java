@@ -527,9 +527,12 @@ public class CompanyLoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+
+        /*
         super.onBackPressed();
         Intent home = new Intent(this,CompanyLoginActivity.class);
         startActivity(home);
+        */
     }
 
     class DoLogout extends AsyncTask<String, String, String> {

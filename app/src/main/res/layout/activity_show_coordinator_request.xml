@@ -52,6 +52,8 @@
         android:layout_marginTop="8dp"
         android:text="Approve"
         android:textStyle="bold"
+        android:background="@drawable/custom_button_ok_bg"
+        android:textColor="#fff"
         android:drawableLeft="@mipmap/approve_icon"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

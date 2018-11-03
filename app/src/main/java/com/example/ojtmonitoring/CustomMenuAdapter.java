@@ -45,6 +45,7 @@ public class CustomMenuAdapter extends BaseAdapter {
         TextView title;
         ImageView i1;
         i1 = (ImageView) view.findViewById(R.id.imgIcon);
+        i1.setBackgroundResource(R.color.zxing_transparent);
         title = (TextView) view.findViewById(R.id.txtTitle);
         i1.setImageResource(imge[position]);
         title.setText(Title[position]);

@@ -28,6 +28,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e770dbcd-2dee-4d76-bf21-45c92041672b" name="Default" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" />
@@ -48,6 +63,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_teacher_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_teacher_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_menu_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_menu_layout.xml" />
+>>>>>>> master
     </list>
     <ignored path="FileTracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,6 +97,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="31" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="31" />
+=======
       <file leaf-file-name="AdministratorActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AdministratorActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -133,16 +156,28 @@
             <state relative-caret-position="96">
               <caret line="127" column="81" selection-start-line="127" selection-start-column="81" selection-end-line="127" selection-end-column="81" />
               <folding />
+>>>>>>> master
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+=======
       <file leaf-file-name="PaceSettingManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="768">
               <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
               <folding />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -162,16 +197,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>android:background=&quot;@color/colorPrimary&quot;&gt;</find>
-      <find>android:background=&quot;@color/colorPrimary&quot;</find>
-      <find>@mipmap/exit</find>
-      <find>exit</find>
-      <find>builder</find>
-      <find>dialog</find>
-      <find>forgot</find>
-      <find>cret</find>
-      <find>teacherModulesBtn</find>
-      <find>teacherInfoList</find>
       <find>online</find>
       <find>teacherLstView</find>
       <find>onlinestatus</find>
@@ -192,6 +217,16 @@
       <find>tracsa</find>
       <find>createTra</find>
       <find>createTransactionNotification</find>
+      <find>EditTe</find>
+      <find>&quot;Passw</find>
+      <find>button</find>
+      <find>custome</find>
+      <find>&quot;p</find>
+      <find>&quot;forget</find>
+      <find>&quot;cre</find>
+      <find>&quot;no Ac</find>
+      <find>&quot;sub</find>
+      <find>&quot;no</find>
     </findStrings>
     <replaceStrings>
       <replace>android:background=&quot;@mipmap/background&quot;&gt;</replace>
@@ -2108,6 +2143,24 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_attendance_checker_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_show_coordinator_request.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_company_update_information.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_update_company_requirements.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/BackgroundProcessService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/UserAccountsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MakeHttpRequest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_update_resume.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_teacher_account.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_coordinator_account.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_student_weekly_report.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student_section.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PrintStudentEvaluationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_administrator.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/AdministratorActivity.java" />
+=======
+>>>>>>> master
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_ojt_applicant_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/OjtApplicationsListView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ResumeActivity.java" />
@@ -2118,10 +2171,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PendingOjTForApprovalActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_account_creation_selection.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_company_account.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_student_account.xml" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java" />
+=======
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+>>>>>>> master
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/info/UserInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CustomUserItemListView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pending_student_ojt_request.xml" />
@@ -2159,13 +2215,26 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/CoordinatorLoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_coordinator_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_edit_text_style.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/custome_edit_text_bg.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/custom_button_bg.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="9" />
+    <option name="y" value="-12" />
+    <option name="width" value="1944" />
+=======
   <component name="ProjectFrameBounds">
     <option name="x" value="59" />
     <option name="y" value="24" />
     <option name="width" value="1861" />
+>>>>>>> master
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -2193,6 +2262,105 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ojtmonitoring" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="drawable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ojtmonitoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ojtmonitoring" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="mipmap-hdpi" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+=======
       <pane id="ProjectPane">
         <subPane />
       </pane>
@@ -2202,6 +2370,7 @@
         <subPane />
       </pane>
       <pane id="Scratches" />
+>>>>>>> master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2219,7 +2388,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../baseandroid" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1540589995078" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1540709454462" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -2238,11 +2407,11 @@
       <recent name="com.example.jomer.filetracker" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\src\main\res\drawable" />
       <recent name="C:\Users\Acer\AndroidStudioProjects\ojtmonitoring\app\src\main\res\mipmap-hdpi" />
       <recent name="$PROJECT_DIR$/app/src/main/res/values" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2589,6 +2758,87 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32922536" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49807376" weight="0.32881355" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Build Variants" order="7" side_tool="true" weight="0.3294509" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.16343042" side_tool="true" weight="0.31514084" />
+      <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49475428" weight="0.32832617" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48926803" weight="0.30809858" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.46952224" weight="0.51760566" />
+      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49919093" weight="0.52816904" />
+      <window_info id="Captures" order="1" weight="0.25" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28825912" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.8365696" visible="true" weight="0.10915493" />
+      <window_info anchor="right" id="Gradle" order="9" weight="0.3294509" />
+      <window_info id="Structure" order="8" side_tool="true" weight="0.24939272" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.5193662" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Nl-Palette" order="2" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Properties" order="8" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24958402" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
+      <window_info anchor="right" id="Android Model" order="4" weight="0.3294509" />
+      <window_info anchor="bottom" id="Android Monitor" order="9" sideWeight="0.4697726" weight="0.500565" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.46183416" weight="0.43050846" />
+      <window_info anchor="bottom" id="Gradle Console" order="10" sideWeight="0.5302274" side_tool="true" weight="0.46779662" />
+      <window_info anchor="right" id="Assistant" order="11" weight="0.32955465" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.8365696" visible="true" weight="0.22183098" />
+      <window_info id="Designer" order="4" />
+      <window_info anchor="bottom" id="Gradle Console" order="13" sideWeight="0.5302274" side_tool="true" weight="0.46779662" />
+      <window_info id="Build Variants" order="7" side_tool="true" weight="0.3294509" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49475428" weight="0.32832617" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.32922536" />
+      <window_info anchor="bottom" id="Android Monitor" order="12" sideWeight="0.4697726" weight="0.500565" />
+      <window_info anchor="right" id="Properties" order="9" />
+      <window_info id="Captures" order="1" weight="0.25" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16343042" side_tool="true" weight="0.31514084" />
+      <window_info anchor="right" id="Preview" order="0" weight="0.32965213" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24958402" />
+      <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Assistant" order="11" weight="0.32955465" />
+      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.49919093" weight="0.52816904" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.48926803" weight="0.30809858" />
+      <window_info id="Nl-Palette" order="2" />
+      <window_info anchor="right" id="Android Model" order="5" weight="0.3294509" />
+      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.46952224" weight="0.51760566" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49807376" weight="0.32881355" />
+      <window_info anchor="right" id="Gradle" order="10" weight="0.3294509" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.28825912" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46183416" weight="0.43050846" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Image Layers" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Structure" order="8" side_tool="true" weight="0.24939272" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49091908" weight="0.6672535" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.46478093" weight="0.5193662" />
+=======
     <frame x="59" y="24" width="1861" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
@@ -2650,6 +2900,7 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+>>>>>>> master
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -2821,6 +3072,11 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/cancel_icon_small.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+=======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ResumeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
@@ -2873,6 +3129,7 @@
         <state relative-caret-position="164">
           <caret line="43" column="92" selection-start-line="43" selection-start-column="92" selection-end-line="43" selection-end-column="92" />
         </state>
+>>>>>>> master
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/MakeHttpRequest.java">
@@ -3057,6 +3314,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_company_login.xml">
+=======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/ViewSectionsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
@@ -3069,6 +3329,7 @@
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
+>>>>>>> master
       <provider editor-type-id="text-editor">
         <state relative-caret-position="106">
           <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
@@ -3263,6 +3524,54 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_edit_text_style.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/checkbox_bg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/all_users.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/user_ico.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ojtmonitoring/PaceSettingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custome_edit_text_bg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="42" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="42" />
+=======
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_coordinator_login.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -3279,7 +3588,40 @@
         <state relative-caret-position="768">
           <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
           <folding />
+>>>>>>> master
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_button_bg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

@@ -21,6 +21,8 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="40dp"
             android:text="Back"
+            android:background="@drawable/custom_button_cancelbg"
+            android:textColor="#fff"
             android:drawableLeft="@mipmap/clear_all_ico"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"

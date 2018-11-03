@@ -47,14 +47,16 @@
                 android:id="@+id/editText2"
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_alignLeft="@+id/userNameEdTxt"
                 android:layout_alignStart="@+id/userNameEdTxt"
+                android:layout_alignLeft="@+id/userNameEdTxt"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="44dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="23dp"
                 android:layout_x="153dp"
                 android:layout_y="209dp"
-                android:background="@color/zxing_custom_viewfinder_mask"
+                android:background="@drawable/custome_edit_text_bg"
+                android:drawableLeft="@mipmap/lock_ico"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -65,7 +67,6 @@
 
                 android:textColorLink="@color/white"
                 android:textSize="24sp"
-                app:layout_constraintHorizontal_bias="0.486"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/userNameEdTxt" />
@@ -75,11 +76,13 @@
                 android:layout_width="300dp"
                 android:layout_height="43dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="68dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="36dp"
                 android:layout_x="158dp"
                 android:layout_y="136dp"
-                android:background="@color/zxing_custom_viewfinder_mask"
+                android:background="@drawable/custome_edit_text_bg"
+                android:drawableLeft="@mipmap/user_ico"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Username"
                 android:inputType="textPersonName"
@@ -91,27 +94,32 @@
                 android:textSize="24sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <Button
                 android:id="@+id/log_in"
                 android:layout_width="209dp"
                 android:layout_height="60dp"
-                android:layout_alignEnd="@+id/userNameEdTxt"
                 android:layout_alignTop="@+id/sign_up"
+                android:layout_alignEnd="@+id/userNameEdTxt"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="61dp"
                 android:layout_x="254dp"
                 android:layout_y="318dp"
-                android:background="@mipmap/loginbtn"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/login_ico"
+                android:background="@drawable/custom_button_bg"
                 android:elevation="0dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:text="Log In"
+                android:textSize="30sp"
                 android:textColor="@color/zxing_status_text"
                 app:layout_constraintHorizontal_bias="0.479"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+                app:layout_constraintTop_toBottomOf="@+id/editText2"
+                tools:text="Log In" />
 
             <TextView
                 android:id="@+id/forgotPassword"
@@ -123,9 +131,8 @@
                 android:layout_marginTop="25dp"
                 android:layout_x="162dp"
                 android:layout_y="282dp"
-                android:background="@color/zxing_custom_viewfinder_mask"
                 android:text="Forgot Password?"
-                android:textColor="@color/white"
+                style="@style/text_view_forgot_password_style"
                 app:layout_constraintHorizontal_bias="0.842"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/createAccountNowTxt"
@@ -178,24 +185,6 @@
                 tools:layout_editor_absoluteY="16dp" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="275dp"
-                android:layout_height="103dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="33dp"
-                android:text="Welcome"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="50sp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:layout_constraintHorizontal_bias="0.505"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/createAccountNowTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -204,11 +193,21 @@
                 android:clickable="false"
                 android:contextClickable="true"
                 android:text="No Account? Create Now!"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:typeface="sans"
+                style="@style/text_view_create_account_style"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/log_in" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="133dp"
+                android:layout_height="113dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/logo_spcf" />
 
 
         </android.support.constraint.ConstraintLayout>

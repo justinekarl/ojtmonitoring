@@ -34,6 +34,8 @@
         <Button
             android:id="@+id/processOjtReqBtn"
             android:layout_width="match_parent"
+            android:background="@drawable/custom_button_ok_bg"
+            android:textColor="#fff"
             android:layout_height="wrap_content"
             android:text="Process"
             android:drawableLeft="@mipmap/process_icon"

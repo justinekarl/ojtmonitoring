@@ -36,8 +36,10 @@
             android:layout_height="49dp"
             android:text="Create Section"
             android:layout_marginTop="29dp"
+            android:background="@drawable/custom_button_ok_bg"
             app:layout_constraintTop_toBottomOf="@+id/showCompaniesLstView"
             android:layout_marginLeft="8dp"
+            android:textColor="#fff"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent" />

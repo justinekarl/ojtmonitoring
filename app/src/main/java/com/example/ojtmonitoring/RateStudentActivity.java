@@ -55,7 +55,7 @@ public class RateStudentActivity extends AppCompatActivity {
         studentRatingBar = (RatingBar) findViewById(R.id.studentRatingBar);
         remarksTxt = (EditText)findViewById(R.id.remarksTxt);
         submitBtn = (Button)findViewById(R.id.submitBtn);*/
-        cancelBtn = (Button)findViewById(R.id.cancelBtn);
+        //cancelBtn = (Button)findViewById(R.id.cancelBtn);
 
 
         SharedPreferences sharedPreferences = getSharedPreferences(PaceSettingManager.USER_PREFERENCES, MODE_PRIVATE);
@@ -140,7 +140,7 @@ public class RateStudentActivity extends AppCompatActivity {
         });*/
 
 
-        cancelBtn.setOnTouchListener(new View.OnTouchListener() {
+        /*cancelBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
@@ -162,7 +162,7 @@ public class RateStudentActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });
+        });*/
 
 
     }

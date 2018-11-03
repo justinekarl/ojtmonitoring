@@ -94,9 +94,11 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+
+        /*
         super.onBackPressed();
         Intent home = new Intent(this,TeacherLoginActivity.class);
-        startActivity(home);
+        startActivity(home);*/
     }
 
     @Override
@@ -335,8 +337,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
                         };
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         teacherHomeBtn.setBackgroundColor(Color.GRAY);
-                        studentModule.setBackgroundColor(Color.parseColor("#3088AA"));
-                        companyModule.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModule.setBackgroundColor(Color.parseColor("#d4bf02"));
+                        companyModule.setBackgroundColor(Color.parseColor("#03b349"));
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
@@ -415,8 +417,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
                         };
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         studentModule.setBackgroundColor(Color.GRAY);
-                        companyModule.setBackgroundColor(Color.parseColor("#3088AA"));
-                        teacherHomeBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        companyModule.setBackgroundColor(Color.parseColor("#03b349"));
+                        teacherHomeBtn.setBackgroundColor(Color.parseColor("#7d30aa"));
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;
@@ -466,8 +468,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
                         };
                         menuOptionsLstView.setAdapter(customMenuAdapter);
                         companyModule.setBackgroundColor(Color.GRAY);
-                        studentModule.setBackgroundColor(Color.parseColor("#3088AA"));
-                        teacherHomeBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentModule.setBackgroundColor(Color.parseColor("#d4bf02"));
+                        teacherHomeBtn.setBackgroundColor(Color.parseColor("#7d30aa"));
 
                     case MotionEvent.ACTION_CANCEL: {
                         Button view = (Button) v;

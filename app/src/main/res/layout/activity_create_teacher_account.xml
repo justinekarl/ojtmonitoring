@@ -17,7 +17,7 @@
             android:layout_height="44dp"
             android:layout_x="142dp"
             android:layout_y="410dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPassword"
             android:textColor="@color/white" />
@@ -28,7 +28,7 @@
             android:layout_height="43dp"
             android:layout_x="141dp"
             android:layout_y="352dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
@@ -41,11 +41,11 @@
             android:layout_marginStart="16dp"
             android:layout_x="9dp"
             android:layout_y="295dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Department:"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:layout_editor_absoluteY="284dp" />
@@ -57,7 +57,7 @@
             android:layout_height="39dp"
             android:layout_x="141dp"
             android:layout_y="61dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white"
@@ -70,14 +70,14 @@
             android:layout_height="41dp"
             android:layout_x="58dp"
             android:layout_y="8dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:fontFamily="sans-serif"
             android:text="Create Teacher Account"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@color/white"
             android:textColorHighlight="@color/colorAccent"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:typeface="sans" />
 
@@ -89,11 +89,11 @@
             android:layout_marginStart="16dp"
             android:layout_x="8dp"
             android:layout_y="60dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Full Name:"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:layout_editor_absoluteY="39dp" />
@@ -106,11 +106,11 @@
             android:layout_marginStart="16dp"
             android:layout_x="8dp"
             android:layout_y="117dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Teacher No:"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:layout_editor_absoluteY="117dp" />
@@ -121,7 +121,7 @@
             android:layout_height="43dp"
             android:layout_x="142dp"
             android:layout_y="115dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white"
@@ -136,11 +136,11 @@
             android:layout_marginStart="16dp"
             android:layout_x="6dp"
             android:layout_y="178dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Phone Number:"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:layout_editor_absoluteY="207dp" />
@@ -151,7 +151,7 @@
             android:layout_height="45dp"
             android:layout_x="147dp"
             android:layout_y="179dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="phone"
             android:textColor="@color/white"
@@ -164,11 +164,11 @@
             android:layout_height="42dp"
             android:layout_x="9dp"
             android:layout_y="236dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="College:"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <Spinner
@@ -178,7 +178,7 @@
             android:layout_height="43dp"
             android:layout_x="144dp"
             android:layout_y="236dp"
-            android:background="@color/zxing_custom_viewfinder_mask" />
+             />
 
         <EditText
             android:id="@+id/departmentTxt"
@@ -186,7 +186,7 @@
             android:layout_height="42dp"
             android:layout_x="143dp"
             android:layout_y="295dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white" />
@@ -197,11 +197,11 @@
             android:layout_height="48dp"
             android:layout_x="7dp"
             android:layout_y="465dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Confirm Password:"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -210,11 +210,11 @@
             android:layout_height="41dp"
             android:layout_x="7dp"
             android:layout_y="412dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Password:"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -223,11 +223,11 @@
             android:layout_height="40dp"
             android:layout_x="5dp"
             android:layout_y="354dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            
             android:text="Username :"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
@@ -236,29 +236,29 @@
             android:layout_height="42dp"
             android:layout_x="146dp"
             android:layout_y="468dp"
-            android:background="@color/zxing_custom_viewfinder_mask"
+            android:background="@drawable/custom_input_bg"
             android:ems="10"
             android:inputType="textPassword"
             android:textColor="@color/white" />
 
         <Button
             android:id="@+id/cancelBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_x="56dp"
             android:layout_y="553dp"
-            android:background="#3088AA"
+            android:background="@drawable/custom_button_cancelbg"
             android:drawableLeft="@mipmap/cancel_icon"
             android:text="Cancel"
             android:textColor="@color/zxing_status_text" />
 
         <Button
             android:id="@+id/saveTeacherBtn"
-            android:layout_width="104dp"
+            android:layout_width="115dp"
             android:layout_height="54dp"
             android:layout_x="228dp"
             android:layout_y="550dp"
-            android:background="#3088AA"
+            android:background="@drawable/custom_button_ok_bg"
             android:drawableLeft="@mipmap/save_icon"
             android:text="Save"
             android:textColor="@color/zxing_status_text" />
