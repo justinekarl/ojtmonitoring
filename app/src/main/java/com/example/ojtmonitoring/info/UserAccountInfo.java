@@ -15,6 +15,8 @@ public class UserAccountInfo {
     private String email;
     private String course;
     private boolean adminViewing;
+    private String accountTypeDisplay;
+    private String companyName;
 
     public String getName() {
         return name;
@@ -119,5 +121,21 @@ public class UserAccountInfo {
 
     public void setAdminViewing(boolean adminViewing) {
         this.adminViewing = adminViewing;
+    }
+
+    public String getAccountTypeDisplay() {
+        return accountTypeDisplay;
+    }
+
+    public void setAccountTypeDisplay(String accountTypeDisplay) {
+        this.accountTypeDisplay = accountTypeDisplay;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

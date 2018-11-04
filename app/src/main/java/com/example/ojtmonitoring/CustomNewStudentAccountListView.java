@@ -115,6 +115,8 @@ public class CustomNewStudentAccountListView extends BaseAdapter {
             if(userAccountInfo.isAdminViewing()){
                 if(userAccountInfo.getAccountType() == 2){
                     sb.append("\n");
+                    sb.append(" College : " + null != userAccountInfo.getCollege() ? userAccountInfo.getCollege() : "");
+                    sb.append("\n");
                     sb.append(" Department : " +(null != userAccountInfo.getDepartment() ? userAccountInfo.getDepartment() : ""));
                 }
 
@@ -125,6 +127,11 @@ public class CustomNewStudentAccountListView extends BaseAdapter {
                     sb.append(" Phone : " +(null != userAccountInfo.getPhoneNumber() ? userAccountInfo.getPhoneNumber() : ""));
                     sb.append("\n");
                     sb.append(" Email : " +(null != userAccountInfo.getEmail() ? userAccountInfo.getEmail() : ""));
+                }
+
+                if(userAccountInfo.getAccountType() == 4){
+                    sb.append("\n");
+                    sb.append(" Company : " + null != userAccountInfo.getCompanyName() ? userAccountInfo.getCompanyName() : "");
                 }
             }
 

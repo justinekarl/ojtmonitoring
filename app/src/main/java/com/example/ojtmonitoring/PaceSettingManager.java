@@ -33,7 +33,7 @@ public class PaceSettingManager {
       /* public static final String IP_ADDRESS = "http://192.168.0.16/ojtmonitoring/";
        public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.16:3000";*/
 
-    /*public static final String IP_ADDRESS = "http://192.168.0.7/ojtmonitoring/";
+    /*public static final String IP_ADDRESS = "http://192.168.0.9/ojtmonitoring/";
     public static final String CHAT_SERVER_ADDRESS = "http://192.168.0.7:3000";*/
 
 
@@ -45,10 +45,10 @@ public class PaceSettingManager {
        // public static final String IP_ADDRESS = "http://192.168.43.53/ojtmonitoring/";
 
     //AWS SERVER
-     // public static final String IP_ADDRESS = "http://3.16.10.125/ojtmonitoring/";
-      public static final String IP_ADDRESS = "http://192.168.0.6/ojtmonitoring/";
+    public static final String IP_ADDRESS = "http://3.16.10.125/ojtmonitoring/";
+    //public static final String IP_ADDRESS = "http://192.168.22.7/ojtmonitoring/";
 
-      public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";
+    public static final String CHAT_SERVER_ADDRESS = "http://18.191.44.167:3000";
 
     //for droid
    //public static final String IP_ADDRESS = "https://spcffiletrackersystem.000webhostapp.com/filetracker/";

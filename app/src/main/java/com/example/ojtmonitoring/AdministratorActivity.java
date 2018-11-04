@@ -181,9 +181,9 @@ public class AdministratorActivity extends AppCompatActivity {
                         menuLstView.setAdapter(customMenuAdapter);*/
 
                         teacherBtn.setBackgroundColor(Color.GRAY);
-                        studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        /*studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));
-                        supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));*/
 
                         Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
                         home1.putExtra("accountType","Teacher");
@@ -216,10 +216,10 @@ public class AdministratorActivity extends AppCompatActivity {
                         /*customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  studentMenuOptions, studentMenuImages);
                         menuLstView.setAdapter(customMenuAdapter);*/
 
-                        teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        //teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         studentBtn.setBackgroundColor(Color.GRAY);
-                        companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));
-                        supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        /*companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));*/
                         Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
                         home1.putExtra("accountType","Student");
                         startActivity(home1);
@@ -251,10 +251,10 @@ public class AdministratorActivity extends AppCompatActivity {
 //                        customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  companyMenuOptions, companyMenuImages);
 //                        menuLstView.setAdapter(customMenuAdapter);
 
-                        teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
-                        studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        /*teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));*/
                         companyBtn.setBackgroundColor(Color.GRAY);
-                        supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        //supervisorBtn.setBackgroundColor(Color.parseColor("#3088AA"));
 
                         Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
                         home1.putExtra("accountType","Company");
@@ -287,9 +287,9 @@ public class AdministratorActivity extends AppCompatActivity {
                         /*customMenuAdapter = new CustomMenuAdapter(AdministratorActivity.this,  supervisorMenuOptions, supervisorMenuImages);
                         menuLstView.setAdapter(customMenuAdapter);*/
 
-                        teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                      /*  teacherBtn.setBackgroundColor(Color.parseColor("#3088AA"));
                         studentBtn.setBackgroundColor(Color.parseColor("#3088AA"));
-                        companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));
+                        companyBtn.setBackgroundColor(Color.parseColor("#3088AA"));*/
                         supervisorBtn.setBackgroundColor(Color.GRAY);
                         Intent home1 = new Intent(AdministratorActivity.this,UserAccountsActivity.class);
                         home1.putExtra("accountType","Supervisor");

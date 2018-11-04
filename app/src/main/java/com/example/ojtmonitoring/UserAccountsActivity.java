@@ -109,8 +109,9 @@ public class UserAccountsActivity extends AppCompatActivity {
             }
         });
 
+        collegeListView.setVisibility(View.INVISIBLE);
 
-        collegeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*collegeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedCollege = String.valueOf(parent.getItemAtPosition(position));
@@ -118,7 +119,9 @@ public class UserAccountsActivity extends AppCompatActivity {
                     populateAccountsByCollege(selectedCollege);
                 }
             }
-        });
+        });*/
+
+        populateAccountsByCollege(selectedCollege);
 
         /*collegeListAdapter = new ArrayAdapter<String>(UserAccountsActivity.this,
                 android.R.layout.simple_list_item_1,
@@ -197,6 +200,25 @@ public class UserAccountsActivity extends AppCompatActivity {
                         break;
                     }
                 }
+                return true;
+            }
+        });
+
+
+        collegesLstView.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action){
+                    case MotionEvent.ACTION_DOWN:
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                v.onTouchEvent(event);
                 return true;
             }
         });
@@ -309,6 +331,14 @@ public class UserAccountsActivity extends AppCompatActivity {
 
                                                         if (i == 8){
                                                             userAccountInfo.setApproved(jsonArray.getJSONArray(ctr).get(i).toString().equals("1") ? Boolean.TRUE : Boolean.FALSE);
+                                                        }
+
+                                                        if(i==10){
+                                                            userAccountInfo.setCollege(jsonArray.getJSONArray(ctr).get(i).toString());
+                                                        }
+
+                                                        if(i==11){
+                                                            userAccountInfo.setCompanyName(jsonArray.getJSONArray(ctr).get(i).toString());
                                                         }
                                                     }
 
