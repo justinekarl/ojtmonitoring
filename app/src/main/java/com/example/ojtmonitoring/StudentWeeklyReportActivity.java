@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,13 +12,16 @@ import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintJob;
 import android.print.PrintManager;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.example.ojtmonitoring.info.StudentWeeklyPracticumInfo;
 
@@ -43,7 +47,7 @@ public class StudentWeeklyReportActivity extends AppCompatActivity {
 
     JSONParser jsonParser = new JSONParser();
     EditText studentName,staffName,weekNo,startDate,endDate,task1,task2,task3,task4,task5,task6,task7,remarks1,remarks2,remarks3,remarks4,remarks5,remarks6,remarks7,comments,skillsGained;
-    Button saveBtn,addNewBtn,cancelBtn,printBtn;
+    Button saveBtn,addNewBtn,cancelBtn,printBtn,printBtn1;
 
     String staffNameText,weekNoText,startDateText,endDateText,task1Text,task2Text,task3Text,task4Text,task5Text,task6Text,task7Text,remarks1Text,remarks2Text,remarks3Text,remarks4Text,remarks5Text,remarks6Text,remarks7Text,commentsText,skillsGainedText;
 
@@ -104,6 +108,7 @@ public class StudentWeeklyReportActivity extends AppCompatActivity {
         addNewBtn = (Button)findViewById(R.id.addNewBtn);
         cancelBtn = (Button)findViewById(R.id.cancelBtn);
         printBtn = (Button)findViewById(R.id.printBtn);
+        printBtn1 = (Button)findViewById(R.id.printBtn1);
         printResultWebView = (WebView)findViewById(R.id.printResultWebView);
 
         SimpleDateFormat dateFormat1 = new SimpleDateFormat("MM/dd/yyyy");
@@ -119,6 +124,13 @@ public class StudentWeeklyReportActivity extends AppCompatActivity {
             }
             if(fromCompany) {
                 updatedBy = sharedPreferences.getInt("agent_id", 0);
+                task1.setEnabled(false);
+                task2.setEnabled(false);
+                task3.setEnabled(false);
+                task4.setEnabled(false);
+                task5.setEnabled(false);
+                task6.setEnabled(false);
+                task7.setEnabled(false);
             }
         }else  {
            studentId = sharedPreferences.getInt("agent_id", 0);
@@ -134,10 +146,20 @@ public class StudentWeeklyReportActivity extends AppCompatActivity {
             comments.setVisibility(View.INVISIBLE);
             skillsGained.setVisibility(View.INVISIBLE);
             printBtn.setVisibility(View.INVISIBLE);
+
+            remarks1.setEnabled(false);
+            remarks2.setEnabled(false);
+            remarks3.setEnabled(false);
+            remarks4.setEnabled(false);
+            remarks5.setEnabled(false);
+            remarks6.setEnabled(false);
+            remarks7.setEnabled(false);
+
         }
 
         if(!(accounttype == 1)){
             addNewBtn.setVisibility(View.INVISIBLE);
+            printBtn1.setVisibility(View.INVISIBLE);
         }
 
         studentName.setText(studentNameTxt);
@@ -157,18 +179,19 @@ public class StudentWeeklyReportActivity extends AppCompatActivity {
             task6.setEnabled(false);
             task7.setEnabled(false);
 
-            remarks1.setEnabled(false);
-            remarks2.setEnabled(false);
-            remarks3.setEnabled(false);
-            remarks4.setEnabled(false);
-            remarks5.setEnabled(false);
-            remarks6.setEnabled(false);
-            remarks7.setEnabled(false);
-
+            if(accounttype == 2) {
+                remarks1.setEnabled(false);
+                remarks2.setEnabled(false);
+                remarks3.setEnabled(false);
+                remarks4.setEnabled(false);
+                remarks5.setEnabled(false);
+                remarks6.setEnabled(false);
+                remarks7.setEnabled(false);
+            }
             if(accounttype == 2){
                 comments.setEnabled(false);
                 skillsGained.setEnabled(false);
-        }
+            }
 
         }
 
@@ -429,6 +452,91 @@ public class StudentWeeklyReportActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                         //loginMessage="Invalid User";
                                     }
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onPostExecute(String s) {
+                                pDialog.dismiss();
+                                super.onPostExecute(s);
+                                printResultWebView.loadData(htmlResult, "text/html", "utf-8");
+                                createWebPrintJob(printResultWebView);
+                            }
+                        }.execute();
+
+
+                    case MotionEvent.ACTION_CANCEL: {
+                        Button view = (Button) v;
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+
+
+        printBtn1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Button view = (Button) v;
+                        view.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                        new AsyncTask<Void,String,String>(){
+
+                            @Override
+                            protected void onPreExecute() {
+                                super.onPreExecute();
+                                pDialog = new ProgressDialog(StudentWeeklyReportActivity.this);
+                                pDialog.setMessage("Processing..");
+                                pDialog.setIndeterminate(false);
+
+                                pDialog.setCancelable(true);
+                                //   pDialog.show();
+                            }
+
+                            @Override
+                            protected String doInBackground(Void... args) {
+
+                                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                                params.add(new BasicNameValuePair("student_id",studentId+""));
+                                JSONParser jsonParser1 = new JSONParser();
+
+                                JSONObject json = jsonParser1.makeHttpRequest(PaceSettingManager.IP_ADDRESS + "printStudentWeeklyReport",
+                                        "POST", params);
+
+
+                                try {
+                                    if (null != json) {
+
+                                        // check log cat fro response
+                                        Log.d("Create Response", json.toString());
+
+                                        if (json.has("data")) {
+                                            htmlResult = json.get("data").toString();
+                                        }
+
+                                        /*int success = json.getInt("success");
+                                        if(success == 1) {
+                                            htmlResult
+                                        }*/
+
+                                    } else {
+                                        //loginMessage="Invalid User";
+                                    }
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    //loginMessage="Invalid User";
+                                }
 
                                 return null;
                             }
@@ -815,6 +923,10 @@ public class StudentWeeklyReportActivity extends AppCompatActivity {
             home = new Intent(this,TeacherLoginActivity.class);
         }
         startActivity(home);
+    }
+
+    public static int dpToPx(final float dp) {
+        return Math.round(dp * (Resources.getSystem().getDisplayMetrics().xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
 
 
